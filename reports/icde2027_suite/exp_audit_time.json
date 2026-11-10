@@ -1,0 +1,6 @@
+{
+ "cpu_with_audit": 0.18937345099999922,
+ "cpu_without": 0.15388517699999937,
+ "audits_per_session": 8.0,
+ "per_audit_s": 0.004436034249999981
+}

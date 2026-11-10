@@ -1,0 +1,44 @@
+{
+ "rows": [
+  {
+   "budget": 640,
+   "seed": 0,
+   "calls": 640,
+   "calls_direct": 640,
+   "records_judged": 640,
+   "requests_relevant": 640,
+   "requests_exact": 640,
+   "prompt_chars": 716220,
+   "certified": 8,
+   "identical_to_direct_tape_run": true,
+   "wall_s": 36.70554757118225
+  },
+  {
+   "budget": 640,
+   "seed": 1,
+   "calls": 640,
+   "calls_direct": 640,
+   "records_judged": 640,
+   "requests_relevant": 640,
+   "requests_exact": 640,
+   "prompt_chars": 715424,
+   "certified": 8,
+   "identical_to_direct_tape_run": true,
+   "wall_s": 36.395248889923096
+  },
+  {
+   "budget": 3200,
+   "seed": 0,
+   "calls": 3200,
+   "calls_direct": 3200,
+   "records_judged": 3200,
+   "requests_relevant": 3200,
+   "requests_exact": 3200,
+   "prompt_chars": 3590446,
+   "certified": 14,
+   "identical_to_direct_tape_run": true,
+   "wall_s": 192.18063592910767
+  }
+ ],
+ "lotus_version": "1.2.4"
+}

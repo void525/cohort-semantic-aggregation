@@ -1,0 +1,20 @@
+{
+  "dataset": "UCI Sentiment Labelled Sentences",
+  "official_url": "https://archive.ics.uci.edu/dataset/331/sentiment+labelled+sentences",
+  "license": "CC BY 4.0",
+  "downloaded_at": "2026-10-08T00:00:00+00:00",
+  "sha256": "47003fc0a0d4840b00e96e715b6189bad09e7443a3da41c4cbe12ffc79f86ae3",
+  "scope": "Amazon + Yelp 合计约 2000 条句子，用作情感原语与独立标签误差的补充检查",
+  "frozen_by": "chen jun qin",
+  "notes": "不把句子当成长篇商品评论；需要分组时只生成标注为 synthetic 的哈希分组（草案 4.3）",
+  "files": {
+    "amazon_cells_labelled.txt": {
+      "sha256": "47003fc0a0d4840b00e96e715b6189bad09e7443a3da41c4cbe12ffc79f86ae3",
+      "bytes": 58226
+    },
+    "yelp_labelled.txt": {
+      "sha256": "c76468b7b5c6e56a0804d728345c5f84aa2142ddb214420f61cc9cfd4c00d2ea",
+      "bytes": 61320
+    }
+  }
+}

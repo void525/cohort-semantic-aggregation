@@ -1,0 +1,84 @@
+10:01:27 chain start
+10:01:42 env ready: N=31482, strata=[0, 1, 2, 3, 4, 5], queries=18, duty=1.0
+  [格式] product.csv: 使用制表符分隔（9 列，42994 行）；用逗号解析会失败，这是官方文件的已知格式。
+10:02:05 [session] seed=0 COHORT-E: 1574/1 -> 3148/2 -> 7870/17 -> 10558/14 | EG: 1574/0 -> 3148/0 -> 7870/12 -> 11018/7
+10:02:21 [session] seed=1 COHORT-E: 1574/1 -> 3148/2 -> 7870/17 -> 10686/14 | EG: 1574/0 -> 3148/0 -> 7870/12 -> 11018/8
+10:02:37 [session] seed=2 COHORT-E: 1574/1 -> 3148/2 -> 7870/17 -> 10430/14 | EG: 1574/0 -> 3148/0 -> 7870/12 -> 11018/8
+10:02:55 [session] seed=3 COHORT-E: 1574/1 -> 3148/2 -> 7870/17 -> 10430/14 | EG: 1574/0 -> 3148/0 -> 7870/12 -> 11018/9
+10:03:11 [session] seed=4 COHORT-E: 1574/1 -> 3148/2 -> 7870/17 -> 10558/14 | EG: 1574/0 -> 3148/0 -> 7870/12 -> 11018/8
+10:03:27 [session] seed=5 COHORT-E: 1574/1 -> 3148/2 -> 7870/17 -> 11018/14 | EG: 1574/0 -> 3148/0 -> 7870/12 -> 11018/9
+10:03:44 [session] seed=6 COHORT-E: 1574/1 -> 3148/2 -> 7870/17 -> 10942/14 | EG: 1574/0 -> 3148/0 -> 7870/12 -> 11018/9
+10:04:00 [session] seed=7 COHORT-E: 1574/1 -> 3148/2 -> 7870/17 -> 10686/14 | EG: 1574/0 -> 3148/0 -> 7870/12 -> 11018/9
+10:04:00 == session done in 138s
+10:04:00 session done
+10:04:45 env ready duty=1.0
+10:04:53 [eg] budget=640: EG paid=640 headline stream=64 mean stream=32 total obs=584 cert=0.4 | COHORT paid=640 shared prefix=640 cert=8.4
+10:05:03 [eg] budget=1536: EG paid=1536 headline stream=128 mean stream=83 total obs=1496 cert=3.4 | COHORT paid=1536 shared prefix=1536 cert=11.8
+10:05:20 [eg] budget=3200: EG paid=3200 headline stream=306 mean stream=184 total obs=3319 cert=10.4 | COHORT paid=3200 shared prefix=3200 cert=13.8
+10:05:25 [memory] 2%: calls=640 peak=4.3 MB end=1.7 MB
+10:06:21 [memory] all: calls=23936 peak=7.3 MB end=6.7 MB
+10:06:21 EXTRA3 DONE: eg,memory
+10:06:21 eg+memory done
+10:07:06 env ready duty=1.0
+10:22:23 [bias] enrich:1 budget=0.02 hit_hist=0.080 discard: cert=8.5 err=0.00 | T-reads: cert=9.3 err=0.00 | E (ours): cert=9.5 err=0.00 | naive: cert=17.2 err=0.07 | pooled-as-random: cert=14.9 err=0.00
+10:25:06 chain2 start
+10:25:26 env ready duty=1.0
+10:29:48 [bias] bm25:0 budget=0.02 hit_hist=0.175 discard: cert=8.5 err=0.00 | T-reads: cert=9.2 err=0.00 | E (ours): cert=9.9 err=0.00 | naive: cert=16.4 err=0.23 | pooled-as-random: cert=13.5 err=0.09
+10:37:19 [bias] bm25:0 budget=0.10 hit_hist=0.175 discard: cert=13.4 err=0.00 | T-reads: cert=13.8 err=0.00 | E (ours): cert=14.0 err=0.00 | naive: cert=17.9 err=0.22 | pooled-as-random: cert=16.4 err=0.17
+10:37:19 EXTRA3 DONE: bias_real
+10:37:20 bias_real done
+10:37:40 env ready duty=1.0
+10:37:54 [audit] seed=0 audits=18 adjusted/rejected=0 status_diff=0 max_shift=2.95e-09 same_sets=5/5 cpu 4.9s -> 1.6s (15s)
+10:38:00 [audit] seed=1 audits=18 adjusted/rejected=0 status_diff=0 max_shift=3.43e-09 same_sets=5/5 cpu 1.2s -> 1.3s (6s)
+10:38:06 [audit] seed=2 audits=18 adjusted/rejected=0 status_diff=0 max_shift=2.72e-09 same_sets=5/5 cpu 1.2s -> 1.3s (6s)
+10:38:12 [audit] seed=3 audits=18 adjusted/rejected=0 status_diff=0 max_shift=3.30e-09 same_sets=5/5 cpu 1.3s -> 1.3s (6s)
+10:38:18 [audit] seed=4 audits=18 adjusted/rejected=0 status_diff=0 max_shift=2.78e-09 same_sets=5/5 cpu 1.3s -> 1.4s (6s)
+10:38:18 EXTRA3 DONE: audit
+10:38:18 audit done
+  [格式] product.csv: 使用制表符分隔（9 列，42994 行）；用逗号解析会失败，这是官方文件的已知格式。
+  [格式] query.csv: 使用制表符分隔（3 列，480 行）；用逗号解析会失败，这是官方文件的已知格式。
+  [格式] label.csv: 使用制表符分隔（4 列，233448 行）；用逗号解析会失败，这是官方文件的已知格式。
+10:38:35 env ready duty=1.0
+10:39:27 [lotus] b=640 seed=0: calls=640 (direct 640) LOTUS requests=1280 identical=True wall=36.7s
+10:40:04 [lotus] b=640 seed=1: calls=640 (direct 640) LOTUS requests=1280 identical=True wall=36.4s
+10:43:18 [lotus] b=3200 seed=0: calls=3200 (direct 3200) LOTUS requests=6400 identical=True wall=192.2s
+10:43:19 EXTRA3 DONE: lotus
+10:43:22 lotus done
+10:43:28 env ready duty=1.0
+10:44:25 [bias] enrich:1 budget=0.02 hit_hist=0.080 discard: cert=8.5 err=0.00 | T-reads: cert=9.3 err=0.00 | E (ours): cert=9.5 err=0.00 | naive: cert=17.2 err=0.07 | pooled-as-random: cert=14.9 err=0.00
+10:46:26 [bias] enrich:1 budget=0.10 hit_hist=0.080 discard: cert=13.4 err=0.00 | T-reads: cert=13.8 err=0.00 | E (ours): cert=13.9 err=0.00 | naive: cert=17.5 err=0.06 | pooled-as-random: cert=17.0 err=0.00
+10:47:22 [bias] enrich:2 budget=0.02 hit_hist=0.138 discard: cert=8.5 err=0.00 | T-reads: cert=9.2 err=0.00 | E (ours): cert=9.7 err=0.00 | naive: cert=17.1 err=0.19 | pooled-as-random: cert=12.9 err=0.03
+10:49:18 [bias] enrich:2 budget=0.10 hit_hist=0.138 discard: cert=13.4 err=0.00 | T-reads: cert=13.7 err=0.00 | E (ours): cert=14.0 err=0.00 | naive: cert=18.0 err=0.22 | pooled-as-random: cert=16.9 err=0.17
+10:50:16 [bias] enrich:4 budget=0.02 hit_hist=0.220 discard: cert=8.5 err=0.00 | T-reads: cert=9.1 err=0.00 | E (ours): cert=9.7 err=0.00 | naive: cert=16.1 err=0.31 | pooled-as-random: cert=11.0 err=0.09
+10:52:07 [bias] enrich:4 budget=0.10 hit_hist=0.220 discard: cert=13.4 err=0.00 | T-reads: cert=13.8 err=0.00 | E (ours): cert=14.0 err=0.00 | naive: cert=17.1 err=0.24 | pooled-as-random: cert=15.3 err=0.26
+10:53:02 [bias] enrich:8 budget=0.02 hit_hist=0.318 discard: cert=8.5 err=0.00 | T-reads: cert=9.1 err=0.00 | E (ours): cert=10.0 err=0.00 | naive: cert=16.8 err=0.41 | pooled-as-random: cert=12.0 err=0.25
+10:54:50 [bias] enrich:8 budget=0.10 hit_hist=0.318 discard: cert=13.4 err=0.00 | T-reads: cert=13.7 err=0.00 | E (ours): cert=15.4 err=0.00 | naive: cert=18.0 err=0.33 | pooled-as-random: cert=13.1 err=0.29
+10:55:50 [bias] enrich:16 budget=0.02 hit_hist=0.415 discard: cert=8.5 err=0.00 | T-reads: cert=9.2 err=0.00 | E (ours): cert=10.3 err=0.00 | naive: cert=14.6 err=0.52 | pooled-as-random: cert=11.3 err=0.40
+10:57:34 [bias] enrich:16 budget=0.10 hit_hist=0.415 discard: cert=13.4 err=0.00 | T-reads: cert=13.8 err=0.00 | E (ours): cert=16.9 err=0.00 | naive: cert=18.0 err=0.39 | pooled-as-random: cert=11.5 err=0.41
+10:57:34 EXTRA3 DONE: bias_sweep
+10:57:34 bias_sweep done
+10:57:34 CHAIN2 DONE
+10:57:35 chain3 start
+10:57:54 env ready duty=1.0
+10:58:22 [audit] seed=0 audits=19 adjusted/rejected=0 status_diff=0 max_shift=2.95e-09 same_sets=6/6 cpu 5.5s -> 6.6s (28s)
+10:58:50 [audit] seed=1 audits=19 adjusted/rejected=0 status_diff=0 max_shift=3.43e-09 same_sets=6/6 cpu 5.9s -> 6.4s (28s)
+10:59:17 [audit] seed=2 audits=19 adjusted/rejected=0 status_diff=0 max_shift=2.72e-09 same_sets=6/6 cpu 5.5s -> 6.4s (27s)
+10:59:54 [audit] seed=3 audits=19 adjusted/rejected=0 status_diff=0 max_shift=3.30e-09 same_sets=6/6 cpu 6.0s -> 6.6s (37s)
+11:00:27 [audit] seed=4 audits=19 adjusted/rejected=0 status_diff=0 max_shift=2.78e-09 same_sets=6/6 cpu 6.0s -> 6.3s (33s)
+11:00:58 [audit] seed=5 audits=19 adjusted/rejected=0 status_diff=0 max_shift=2.88e-09 same_sets=6/6 cpu 6.2s -> 6.4s (31s)
+11:01:22 [audit] seed=6 audits=19 adjusted/rejected=0 status_diff=0 max_shift=2.81e-09 same_sets=6/6 cpu 4.6s -> 5.9s (24s)
+11:01:50 [audit] seed=7 audits=19 adjusted/rejected=0 status_diff=0 max_shift=2.65e-09 same_sets=6/6 cpu 6.0s -> 6.1s (28s)
+11:02:17 [audit] seed=8 audits=19 adjusted/rejected=0 status_diff=0 max_shift=3.14e-09 same_sets=6/6 cpu 5.7s -> 6.4s (28s)
+11:02:45 [audit] seed=9 audits=19 adjusted/rejected=0 status_diff=0 max_shift=2.97e-09 same_sets=6/6 cpu 6.0s -> 6.2s (28s)
+11:02:45 EXTRA3 DONE: audit
+11:02:45 audit10 done
+11:03:06 env ready: N=31482, strata=[0, 1, 2, 3, 4, 5], queries=18, duty=1.0
+11:05:41 [sched] PROP done in 155s: 2%: cert=7.7 | 5%: cert=9.2 | 10%: cert=11.6 | 20%: cert=14.4 | 50%: cert=15.0 | 100%: cert=18.0
+11:07:44 [sched] RR done in 123s: 2%: cert=8.6 | 5%: cert=11.9 | 10%: cert=13.7 | 20%: cert=15.8 | 50%: cert=17.0 | 100%: cert=18.0
+11:10:08 [sched] SSF done in 144s: 2%: cert=2.0 | 5%: cert=4.2 | 10%: cert=4.2 | 20%: cert=5.7 | 50%: cert=11.4 | 100%: cert=18.0
+11:12:31 [sched] VAR done in 143s: 2%: cert=8.2 | 5%: cert=11.7 | 10%: cert=13.7 | 20%: cert=17.0 | 50%: cert=17.0 | 100%: cert=18.0
+11:14:43 [sched] CERT done in 132s: 2%: cert=8.5 | 5%: cert=11.9 | 10%: cert=13.8 | 20%: cert=17.0 | 50%: cert=17.0 | 100%: cert=18.0
+11:16:42 [sched] DRAIN done in 119s: 2%: cert=8.6 | 5%: cert=11.9 | 10%: cert=13.6 | 20%: cert=15.8 | 50%: cert=17.0 | 100%: cert=18.0
+11:16:42 == sched done in 816s
+11:16:42 sched10 done
+11:16:42 CHAIN3 DONE

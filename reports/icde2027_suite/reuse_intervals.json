@@ -1,0 +1,26 @@
+{
+ "truth": 0.10954063604240283,
+ "hist_stats": {
+  "size": 4722,
+  "hit_hist": 0.17789072426937738,
+  "hit_pop": 0.07779048345086081
+ },
+ "budget": 640,
+ "seed": 0,
+ "discard": [
+  0.013935359517701053,
+  0.3726417792844091
+ ],
+ "discard_status": "undecided",
+ "cohort": [
+  0.04238774009933533,
+  0.327469554450609
+ ],
+ "cohort_status": "undecided",
+ "pooled": [
+  0.16178604551162418,
+  0.2714513697139338
+ ],
+ "pooled_status": "undecided",
+ "pooled_wrong": true
+}

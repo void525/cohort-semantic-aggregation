@@ -1,0 +1,104 @@
+00:39:32 env ready: N=31482, strata=[0, 1, 2, 3, 4, 5], queries=18, duty=0.45
+00:40:15 [ladder] B2 per-query (no sharing) done in 43s: 2%: cert=0.0 | 5%: cert=0.0 | 10%: cert=0.0 | 20%: cert=0.6 | 50%: cert=7.4 | 100%: cert=11.2
+00:40:59 [ladder] EG-style claim-by-claim done in 44s: 2%: cert=0.2 | 5%: cert=3.5 | 10%: cert=10.1 | 20%: cert=12.5 | 50%: cert=17.0 | 100%: cert=18.0
+00:41:22 [ladder] Shared pool, dedup (no polytope) done in 23s: 2%: cert=7.7 | 5%: cert=10.9 | 10%: cert=12.7 | 20%: cert=15.8 | 50%: cert=17.0 | 100%: cert=18.0
+00:42:29 [ladder] + known mass & conservation done in 66s: 2%: cert=7.7 | 5%: cert=10.9 | 10%: cert=12.7 | 20%: cert=15.8 | 50%: cert=17.0 | 100%: cert=18.0
+00:51:55 [ladder] + joint projection (RR) done in 566s: 2%: cert=8.6 | 5%: cert=11.9 | 10%: cert=13.7 | 20%: cert=15.8 | 50%: cert=17.0 | 100%: cert=18.0
+01:08:12 [ladder] + certificate-guided scheduler done in 977s: 2%: cert=8.5 | 5%: cert=11.9 | 10%: cert=13.8 | 20%: cert=17.0 | 50%: cert=17.0 | 100%: cert=18.0
+01:08:12 == ladder done in 1720s
+01:16:19 env ready: N=31482, strata=[0, 1, 2, 3, 4, 5], queries=18, duty=1.0
+Traceback (most recent call last):
+  File "/root/autodl-tmp/cohort-rag/scripts/run_icde2027_suite.py", line 1303, in <module>
+    main()
+  File "/root/autodl-tmp/cohort-rag/scripts/run_icde2027_suite.py", line 1288, in main
+    exp_compose(env, fracs=((0.02,) if args.smoke else (0.02, 0.05, 0.20)),
+  File "/root/autodl-tmp/cohort-rag/scripts/run_icde2027_suite.py", line 1246, in exp_compose
+    res, calls, wl = fn(int(env["N"] * frac), sd, wl)
+    ^^^^^^^^^^^^^^
+ValueError: too many values to unpack (expected 3)
+01:17:34 env ready: N=31482, strata=[0, 1, 2, 3, 4, 5], queries=18, duty=1.0
+01:18:08 [sched] PROP done in 34s: 2%: cert=7.8 | 5%: cert=9.2 | 10%: cert=11.8 | 20%: cert=14.8 | 50%: cert=15.0 | 100%: cert=18.0
+01:18:25 [sched] RR done in 17s: 2%: cert=8.5 | 5%: cert=12.0 | 10%: cert=13.5 | 20%: cert=16.0 | 50%: cert=17.0 | 100%: cert=18.0
+01:18:45 [sched] SSF done in 20s: 2%: cert=2.0 | 5%: cert=4.2 | 10%: cert=4.2 | 20%: cert=6.0 | 50%: cert=11.5 | 100%: cert=18.0
+01:19:09 [sched] VAR done in 24s: 2%: cert=8.0 | 5%: cert=11.5 | 10%: cert=13.5 | 20%: cert=17.0 | 50%: cert=17.0 | 100%: cert=18.0
+01:19:27 [sched] CERT done in 18s: 2%: cert=8.2 | 5%: cert=11.8 | 10%: cert=13.8 | 20%: cert=17.0 | 50%: cert=17.0 | 100%: cert=18.0
+01:19:43 [sched] DRAIN done in 16s: 2%: cert=8.5 | 5%: cert=12.0 | 10%: cert=13.2 | 20%: cert=16.0 | 50%: cert=17.0 | 100%: cert=18.0
+01:19:43 == sched done in 129s
+01:19:50 env ready: N=31482, strata=[0, 1, 2, 3, 4, 5], queries=18, duty=1.0
+01:20:04 [bias] enrich:1 budget=0.02 hit_hist=0.079 discard: cert=8.5 err=0.00 | T-reads: cert=9.5 err=0.00 | E (ours): cert=9.2 err=0.00 | naive: cert=17.2 err=0.07 | pooled-as-random: cert=14.8 err=0.00
+01:20:37 [bias] enrich:1 budget=0.10 hit_hist=0.079 discard: cert=13.5 err=0.00 | T-reads: cert=14.0 err=0.00 | E (ours): cert=13.8 err=0.00 | naive: cert=17.2 err=0.06 | pooled-as-random: cert=17.0 err=0.00
+01:20:53 [bias] enrich:2 budget=0.02 hit_hist=0.135 discard: cert=8.5 err=0.00 | T-reads: cert=9.5 err=0.00 | E (ours): cert=9.8 err=0.00 | naive: cert=17.2 err=0.19 | pooled-as-random: cert=13.2 err=0.04
+01:21:26 [bias] enrich:2 budget=0.10 hit_hist=0.135 discard: cert=13.5 err=0.00 | T-reads: cert=14.0 err=0.00 | E (ours): cert=14.0 err=0.00 | naive: cert=18.0 err=0.22 | pooled-as-random: cert=17.0 err=0.18
+01:21:39 [bias] enrich:4 budget=0.02 hit_hist=0.217 discard: cert=8.5 err=0.00 | T-reads: cert=9.0 err=0.00 | E (ours): cert=9.8 err=0.00 | naive: cert=16.2 err=0.31 | pooled-as-random: cert=11.0 err=0.09
+01:22:07 [bias] enrich:4 budget=0.10 hit_hist=0.217 discard: cert=13.5 err=0.00 | T-reads: cert=14.0 err=0.00 | E (ours): cert=14.0 err=0.00 | naive: cert=17.0 err=0.24 | pooled-as-random: cert=14.8 err=0.25
+01:22:20 [bias] enrich:8 budget=0.02 hit_hist=0.317 discard: cert=8.5 err=0.00 | T-reads: cert=9.2 err=0.00 | E (ours): cert=10.2 err=0.00 | naive: cert=16.5 err=0.41 | pooled-as-random: cert=12.0 err=0.25
+01:22:47 [bias] enrich:8 budget=0.10 hit_hist=0.317 discard: cert=13.5 err=0.00 | T-reads: cert=14.0 err=0.00 | E (ours): cert=15.2 err=0.00 | naive: cert=18.0 err=0.33 | pooled-as-random: cert=12.2 err=0.27
+01:23:00 [bias] enrich:16 budget=0.02 hit_hist=0.415 discard: cert=8.5 err=0.00 | T-reads: cert=9.2 err=0.00 | E (ours): cert=10.5 err=0.00 | naive: cert=14.8 err=0.53 | pooled-as-random: cert=11.5 err=0.39
+01:23:29 [bias] enrich:16 budget=0.10 hit_hist=0.415 discard: cert=13.5 err=0.00 | T-reads: cert=14.0 err=0.00 | E (ours): cert=16.5 err=0.00 | naive: cert=18.0 err=0.39 | pooled-as-random: cert=11.5 err=0.39
+01:23:45 [bias] bm25:0 budget=0.02 hit_hist=0.171 discard: cert=8.5 err=0.00 | T-reads: cert=9.5 err=0.00 | E (ours): cert=10.5 err=0.00 | naive: cert=16.2 err=0.20 | pooled-as-random: cert=13.2 err=0.06
+01:24:18 [bias] bm25:0 budget=0.10 hit_hist=0.171 discard: cert=13.5 err=0.00 | T-reads: cert=14.0 err=0.00 | E (ours): cert=14.0 err=0.00 | naive: cert=18.0 err=0.22 | pooled-as-random: cert=16.8 err=0.16
+01:24:18 == bias done in 268s
+01:24:25 env ready duty=1.0
+01:24:53 [operator] Qwen3-8B: sem_err=0.089 exact_rate=0.078 cert=13.6 err=0.000 sessions_with_error=0.00
+01:25:22 [operator] Qwen3-4B: sem_err=0.490 exact_rate=0.585 cert=12.8 err=0.000 sessions_with_error=0.00
+01:25:22 ALL DONE
+01:25:48 env ready: N=31482, strata=[0, 1, 2, 3, 4, 5], queries=18, duty=1.0
+01:25:51 [compose] Shared pool, dedup (no polytope)   f=0.02 cert= 1.30/19 width=0.423 err=0.000
+01:25:52 [compose] Shared pool, dedup (no polytope)   f=0.05 cert= 5.80/19 width=0.258 err=0.000
+01:25:57 [compose] Shared pool, dedup (no polytope)   f=0.20 cert=18.40/19 width=0.164 err=0.000
+01:26:04 [compose] + known mass & conservation        f=0.02 cert= 1.30/19 width=0.425 err=0.000
+01:26:19 [compose] + known mass & conservation        f=0.05 cert= 5.70/19 width=0.260 err=0.000
+01:26:53 [compose] + known mass & conservation        f=0.20 cert=18.30/19 width=0.164 err=0.000
+01:26:59 [compose] + joint projection                 f=0.02 cert= 3.00/19 width=0.391 err=0.000
+01:27:11 [compose] + joint projection                 f=0.05 cert= 7.70/19 width=0.240 err=0.000
+01:27:34 [compose] + joint projection                 f=0.20 cert=18.30/19 width=0.162 err=0.000
+01:27:34 == compose done in 106s
+  [格式] product.csv: 使用制表符分隔（9 列，42994 行）；用逗号解析会失败，这是官方文件的已知格式。
+01:27:48 [session] seed=0 COHORT-E: 1574/1 -> 3148/2 -> 7870/17 -> 10302/14 | EG: 1574/0 -> 3148/0 -> 7870/12 -> 11018/7
+01:27:58 [session] seed=1 COHORT-E: 1574/1 -> 3148/2 -> 7870/17 -> 10430/14 | EG: 1574/0 -> 3148/0 -> 7870/12 -> 11018/8
+01:28:09 [session] seed=2 COHORT-E: 1574/1 -> 3148/2 -> 7870/17 -> 10174/14 | EG: 1574/0 -> 3148/0 -> 7870/12 -> 11018/8
+01:28:26 [session] seed=3 COHORT-E: 1574/1 -> 3148/2 -> 7870/17 -> 10302/14 | EG: 1574/0 -> 3148/0 -> 7870/12 -> 11018/9
+01:28:38 [session] seed=4 COHORT-E: 1574/1 -> 3148/2 -> 7870/17 -> 10430/14 | EG: 1574/0 -> 3148/0 -> 7870/12 -> 11018/8
+01:28:49 [session] seed=5 COHORT-E: 1574/1 -> 3148/2 -> 7870/17 -> 11018/14 | EG: 1574/0 -> 3148/0 -> 7870/12 -> 11018/9
+01:29:00 [session] seed=6 COHORT-E: 1574/1 -> 3148/2 -> 7870/17 -> 10558/14 | EG: 1574/0 -> 3148/0 -> 7870/12 -> 11018/9
+01:29:10 [session] seed=7 COHORT-E: 1574/1 -> 3148/2 -> 7870/17 -> 10430/14 | EG: 1574/0 -> 3148/0 -> 7870/12 -> 11018/9
+01:29:10 == session done in 96s
+01:29:12 [denom] level=0 N=984 B=79 sel=0.08 theta=0.025 0.05:0.0 0.1:0.0 0.2:0.0 0.5:0.0 1.0:1.0
+01:29:13 [denom] level=1 N=1496 B=190 sel=0.13 theta=0.011 0.05:0.0 0.1:0.0 0.2:0.0 0.5:1.0 1.0:1.0
+01:29:16 [denom] level=2 N=2073 B=326 sel=0.16 theta=0.049 0.05:0.0 0.1:0.0 0.2:0.0 0.5:1.0 1.0:1.0
+01:29:17 [denom] level=3 N=2070 B=901 sel=0.44 theta=0.071 0.05:0.0 0.1:0.0 0.2:1.0 0.5:1.0 1.0:1.0
+01:29:19 [denom] level=4 N=2400 B=1477 sel=0.62 theta=0.114 0.05:0.0 0.1:0.5 0.2:1.0 0.5:1.0 1.0:1.0
+01:29:20 [denom] level=5 N=2499 B=1826 sel=0.73 theta=0.067 0.05:0.3 0.1:1.0 0.2:1.0 0.5:1.0 1.0:1.0
+01:29:21 [denom] level=6 N=2183 B=1703 sel=0.78 theta=0.033 0.05:0.7 0.1:1.0 0.2:1.0 0.5:1.0 1.0:1.0
+01:29:23 [denom] level=7 N=2204 B=2016 sel=0.91 theta=0.06 0.05:0.6 0.1:1.0 0.2:1.0 0.5:1.0 1.0:1.0
+01:29:25 [denom] level=8 N=2187 B=2059 sel=0.94 theta=0.182 0.05:0.0 0.1:0.8 0.2:1.0 0.5:1.0 1.0:1.0
+01:29:28 [denom] level=9 N=2053 B=2018 sel=0.98 theta=0.212 0.05:0.1 0.1:0.7 0.2:1.0 0.5:1.0 1.0:1.0
+01:29:28 == denom done in 18s
+01:29:28 REST DONE
+01:29:52 env ready duty=1.0
+01:30:09 [scale] |Q|=21 n_cs=12 cert=16.7 calls=3200 cpu=0.5s err=0
+01:30:43 [scale] |Q|=54 n_cs=12 cert=44.7 calls=3200 cpu=0.5s err=0
+01:32:03 [scale] |Q|=162 n_cs=12 cert=140.7 calls=3200 cpu=0.8s err=0
+01:32:04 [cost] budget=640 calls=640 cpu=0.2s cs=0.0 lp=0.5 sched=0.0 (labelling at 63.7 rec/s: 10s)
+01:32:07 [cost] budget=6272 calls=6272 cpu=1.0s cs=0.2 lp=1.7 sched=0.5 (labelling at 63.7 rec/s: 98s)
+01:32:14 [cost] budget=31482 calls=23936 cpu=2.2s cs=1.0 lp=2.3 sched=0.7 (labelling at 63.7 rec/s: 376s)
+01:32:14 EXTRA DONE
+01:38:38 env ready duty=1.0
+01:38:40 [basis] compile=True budget=640 n_cs=12 cert=8.5 width=0.398 err=0.0
+01:38:45 [basis] compile=True budget=3200 n_cs=12 cert=13.5 width=0.161 err=0.0
+01:39:15 [basis] compile=False budget=640 n_cs=228 cert=5.8 width=0.495 err=0.0
+01:40:43 [basis] compile=False budget=3200 n_cs=228 cert=13.0 width=0.179 err=0.0
+01:40:44 BASIS DONE
+01:45:20 env ready duty=1.0
+01:45:34 [scale] |Q|=21 n_cs=12 cert=16.7 calls=3200 cpu=0.5s err=0
+01:46:02 [scale] |Q|=54 n_cs=12 cert=44.7 calls=3200 cpu=0.5s err=0
+01:46:43 env ready duty=1.0
+01:46:57 [scale] |Q|=21 n_cs=12 cert=16.7 calls=3200 cpu=0.5s err=0
+01:47:28 [scale] |Q|=54 n_cs=12 cert=44.7 calls=3200 cpu=0.5s err=0
+01:48:43 [scale] |Q|=162 n_cs=12 cert=140.7 calls=3200 cpu=0.8s err=0
+01:48:43 [claims] 18 claims; hardest gap = 0.0095
+01:48:46 [nscale] N=31482 cpu=0.5s cert=14.0 err=0
+01:48:50 [nscale] N=94446 cpu=0.6s cert=12.5 err=0
+01:48:57 [nscale] N=314820 cpu=1.0s cert=12.5 err=0
+01:49:00 [audit-time] with=0.2s without=0.2s audits=8.0 per_audit=0.00s
+01:49:00 EXTRA2 DONE

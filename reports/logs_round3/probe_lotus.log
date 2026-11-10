@@ -1,0 +1,4 @@
+import lotus_replay ok 2.2 s
+import LM ok 73.3 s
+LM built ok 73.3 s
+judge ok [[1, 0], [1, 1], [0, 0]] requests per bit: [3, 3] 75.2 s

@@ -1,0 +1,17 @@
+=== tests/test_simplex.py
+  PASS test_lower_bound_via_negative_b
+  PASS test_random_vs_grid
+  (scipy 不可用，跳过该交叉验证)
+  PASS test_scipy_crosscheck
+  PASS test_unbounded
+共 8 项全部通过
+=== tests/test_core.py
+  投影 LP vs 整数穷举：10 个种子全部通过（放松只更保守；CC 与 λ 路径交叉一致）
+  分子带元数据条件（r_meta）的投影：6 个种子全部通过
+  语义算子失败：正确 fail-closed，未把失败当负例
+  pipeline 冒烟（rr）：调用 60、认证覆盖 0/0
+  pipeline 冒烟（wv）：调用 60、认证覆盖 0/0
+test_core 全部通过
+=== tests/test_audit_enum.py
+{'n': 150, 'lp_violation': 0, 'audit_violation': 0, 'thr_unsound': 0, 'thr_checked': 573, 'audit_adjusted': 0, 'max_lp_gap': 1.0000076322569385e-09, 'max_audit_pad': 1.8560562531355629e-09} 47.1s
+PASS: LP relaxation ⊇ integer enumeration; audited interval ⊇ integer enumeration; threshold audit sound.

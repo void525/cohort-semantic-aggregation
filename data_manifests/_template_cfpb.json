@@ -1,0 +1,11 @@
+{
+  "_说明": "数据许可/来源清单模板（草案 23.1）。把本文件复制成 cfpb.json 并填写真实值；datasets.load_cfpb 会强制校验这些字段，缺一项就拒绝运行。",
+  "dataset": "CFPB Consumer Complaint Database",
+  "official_url": "https://www.consumerfinance.gov/data-research/consumer-complaints/",
+  "license": "待你核实并填写（CFPB 官方声明数据可供任何人使用、分析和构建应用）",
+  "downloaded_at": "请填 ISO 时间，例如 2026-10-01T10:00:00+08:00",
+  "sha256": "请填下载文件的 sha256（脚本 datasets.sha256_file 可计算）",
+  "scope": "请填冻结口径，例如：Date received 2024-01-01..2024-12-31，且叙述非空",
+  "frozen_by": "请填你的名字",
+  "notes": "CFPB 投诉库不是市场消费者体验的统计样本，禁止外推（草案 4.1）"
+}

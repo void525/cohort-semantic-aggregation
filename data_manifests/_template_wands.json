@@ -1,0 +1,11 @@
+{
+  "_说明": "数据许可/来源清单模板（草案 23.1）。复制成 wands.json 并填写；datasets.load_wands 会强制校验。",
+  "dataset": "Wayfair WANDS",
+  "official_url": "https://github.com/wayfair/WANDS",
+  "license": "MIT（仓库明确标注；请自行复核仓库当前声明）",
+  "downloaded_at": "请填 ISO 时间",
+  "sha256": "请填你所用数据文件的 sha256（product.csv/query.csv/label.csv 可分别记录）",
+  "scope": "请填使用范围，例如：120 个搜索意图，每意图最多 512 个已标注候选对",
+  "frozen_by": "请填你的名字",
+  "notes": "研究目标只涉及已标注的有限候选池；聚合问题是派生任务（草案 4.2）"
+}

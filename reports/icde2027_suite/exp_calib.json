@@ -1,0 +1,45 @@
+{
+ "pathwise": {
+  "0.01": {
+   "sessions": 3000,
+   "failures": 22,
+   "rate": 0.007333333333333333,
+   "cp95_upper": 0.010455161179696304
+  },
+  "0.05": {
+   "sessions": 3000,
+   "failures": 91,
+   "rate": 0.030333333333333334,
+   "cp95_upper": 0.03600337769836998
+  },
+  "0.1": {
+   "sessions": 3000,
+   "failures": 184,
+   "rate": 0.06133333333333333,
+   "cp95_upper": 0.06902890519485279
+  },
+  "n_cs": 12,
+  "maxstat_quantiles": {
+   "0.5": 2.3691160751810028,
+   "0.9": 4.293577788981941,
+   "0.99": 6.7303857597692875,
+   "1.0": 10.26752332227567
+  }
+ },
+ "e2e": {
+  "sessions": 200,
+  "certified_claims": 1740,
+  "decision_errors": 0,
+  "noncoverage": 0,
+  "sessions_with_error": 0,
+  "cp95_upper_session": 0.014867039231272083,
+  "n_cert_mean": 8.7
+ },
+ "audit": {
+  "sessions": 24,
+  "same_certified_set": 24,
+  "audited_conclusions": 209,
+  "audit_rejections_or_adjustments": 0,
+  "max_outward_margin": 1.7951728992215976e-09
+ }
+}

@@ -1,0 +1,224 @@
+{
+ "seeds": [
+  0,
+  1,
+  2,
+  3,
+  4,
+  5,
+  6,
+  7,
+  8,
+  9
+ ],
+ "grid": [
+  640,
+  1536,
+  3200,
+  6272,
+  15744,
+  31482
+ ],
+ "per_seed": [
+  {
+   "seed": 0,
+   "same_trace_calls": true,
+   "entries": 1422,
+   "status_diff": 0,
+   "max_endpoint_shift": 2.9472242007999583e-09,
+   "same_certified_set_by_budget": [
+    true,
+    true,
+    true,
+    true,
+    true,
+    true
+   ],
+   "cpu_without": 5.506361644,
+   "cpu_with": 6.605754744999999,
+   "audits": 19,
+   "adjusted_or_rejected": 0
+  },
+  {
+   "seed": 1,
+   "same_trace_calls": true,
+   "entries": 1422,
+   "status_diff": 0,
+   "max_endpoint_shift": 3.427914008202748e-09,
+   "same_certified_set_by_budget": [
+    true,
+    true,
+    true,
+    true,
+    true,
+    true
+   ],
+   "cpu_without": 5.889300831,
+   "cpu_with": 6.425814855000002,
+   "audits": 19,
+   "adjusted_or_rejected": 0
+  },
+  {
+   "seed": 2,
+   "same_trace_calls": true,
+   "entries": 1422,
+   "status_diff": 0,
+   "max_endpoint_shift": 2.716936842173112e-09,
+   "same_certified_set_by_budget": [
+    true,
+    true,
+    true,
+    true,
+    true,
+    true
+   ],
+   "cpu_without": 5.516606648999996,
+   "cpu_with": 6.369793272000003,
+   "audits": 19,
+   "adjusted_or_rejected": 0
+  },
+  {
+   "seed": 3,
+   "same_trace_calls": true,
+   "entries": 1440,
+   "status_diff": 0,
+   "max_endpoint_shift": 3.299756232144624e-09,
+   "same_certified_set_by_budget": [
+    true,
+    true,
+    true,
+    true,
+    true,
+    true
+   ],
+   "cpu_without": 6.037787127000001,
+   "cpu_with": 6.559768052999999,
+   "audits": 19,
+   "adjusted_or_rejected": 0
+  },
+  {
+   "seed": 4,
+   "same_trace_calls": true,
+   "entries": 1350,
+   "status_diff": 0,
+   "max_endpoint_shift": 2.7792414203364757e-09,
+   "same_certified_set_by_budget": [
+    true,
+    true,
+    true,
+    true,
+    true,
+    true
+   ],
+   "cpu_without": 6.0393678219999956,
+   "cpu_with": 6.2565834510000045,
+   "audits": 19,
+   "adjusted_or_rejected": 0
+  },
+  {
+   "seed": 5,
+   "same_trace_calls": true,
+   "entries": 1422,
+   "status_diff": 0,
+   "max_endpoint_shift": 2.8762662529491223e-09,
+   "same_certified_set_by_budget": [
+    true,
+    true,
+    true,
+    true,
+    true,
+    true
+   ],
+   "cpu_without": 6.195011280999992,
+   "cpu_with": 6.372294202999996,
+   "audits": 19,
+   "adjusted_or_rejected": 0
+  },
+  {
+   "seed": 6,
+   "same_trace_calls": true,
+   "entries": 1314,
+   "status_diff": 0,
+   "max_endpoint_shift": 2.8065130497356705e-09,
+   "same_certified_set_by_budget": [
+    true,
+    true,
+    true,
+    true,
+    true,
+    true
+   ],
+   "cpu_without": 4.599796403000013,
+   "cpu_with": 5.872140951999995,
+   "audits": 19,
+   "adjusted_or_rejected": 0
+  },
+  {
+   "seed": 7,
+   "same_trace_calls": true,
+   "entries": 1368,
+   "status_diff": 0,
+   "max_endpoint_shift": 2.652523201085444e-09,
+   "same_certified_set_by_budget": [
+    true,
+    true,
+    true,
+    true,
+    true,
+    true
+   ],
+   "cpu_without": 6.031177697000004,
+   "cpu_with": 6.128998130000014,
+   "audits": 19,
+   "adjusted_or_rejected": 0
+  },
+  {
+   "seed": 8,
+   "same_trace_calls": true,
+   "entries": 1422,
+   "status_diff": 0,
+   "max_endpoint_shift": 3.137886589454908e-09,
+   "same_certified_set_by_budget": [
+    true,
+    true,
+    true,
+    true,
+    true,
+    true
+   ],
+   "cpu_without": 5.728100901000005,
+   "cpu_with": 6.359306418000003,
+   "audits": 19,
+   "adjusted_or_rejected": 0
+  },
+  {
+   "seed": 9,
+   "same_trace_calls": true,
+   "entries": 1368,
+   "status_diff": 0,
+   "max_endpoint_shift": 2.970136775415355e-09,
+   "same_certified_set_by_budget": [
+    true,
+    true,
+    true,
+    true,
+    true,
+    true
+   ],
+   "cpu_without": 6.034374146999994,
+   "cpu_with": 6.193415093999988,
+   "audits": 19,
+   "adjusted_or_rejected": 0
+  }
+ ],
+ "total": {
+  "cells": 60,
+  "cells_same_set": 60,
+  "entries": 13950,
+  "status_diff": 0,
+  "max_shift": 3.427914008202748e-09,
+  "audits": 190,
+  "adjusted": 0,
+  "certified_statements": 862
+ }
+}

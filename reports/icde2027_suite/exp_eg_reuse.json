@@ -1,0 +1,64 @@
+{
+ "budgets": [
+  640,
+  1536,
+  3200
+ ],
+ "seeds": [
+  0,
+  1,
+  2,
+  3,
+  4
+ ],
+ "rows": {
+  "640": {
+   "eg": {
+    "paid": 640.0,
+    "headline_stream": 64.0,
+    "mean_stream": 32.455555555555556,
+    "median_stream": 35.9,
+    "total_obs": 648.2,
+    "certified": 0.4
+   },
+   "cohort": {
+    "paid": 640.0,
+    "prefix": 640.0,
+    "certified": 8.4
+   },
+   "n_claims": 18
+  },
+  "1536": {
+   "eg": {
+    "paid": 1536.0,
+    "headline_stream": 128.0,
+    "mean_stream": 83.1,
+    "median_stream": 64.0,
+    "total_obs": 1623.8,
+    "certified": 3.4
+   },
+   "cohort": {
+    "paid": 1536.0,
+    "prefix": 1536.0,
+    "certified": 11.8
+   },
+   "n_claims": 18
+  },
+  "3200": {
+   "eg": {
+    "paid": 3200.0,
+    "headline_stream": 306.4,
+    "mean_stream": 184.3888888888889,
+    "median_stream": 204.8,
+    "total_obs": 3575.2,
+    "certified": 10.4
+   },
+   "cohort": {
+    "paid": 3200.0,
+    "prefix": 3200.0,
+    "certified": 13.8
+   },
+   "n_claims": 18
+  }
+ }
+}

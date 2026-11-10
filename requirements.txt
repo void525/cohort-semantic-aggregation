@@ -1,0 +1,9 @@
+# Everything in the paper reproduces on CPU from the frozen label tapes.
+numpy>=1.26
+pandas>=2.0
+matplotlib>=3.8          # make_figures.py
+
+# Optional
+#   scipy                cross-check of the built-in simplex
+#   lotus-ai==1.2.4      only for the LOTUS experiment, in its own virtual environment (see README)
+#   torch, transformers  only to rebuild a label tape; replay never imports them

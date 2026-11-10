@@ -1,0 +1,758 @@
+{
+ "rounds": [
+  "R1",
+  "R2",
+  "R3",
+  "R4"
+ ],
+ "caps": [
+  0.05,
+  0.1,
+  0.25,
+  0.35
+ ],
+ "runs": {
+  "COHORT (E-inherit)": [
+   {
+    "seed": 0,
+    "traj": [
+     {
+      "round": 1,
+      "calls": 1574,
+      "certified": 1,
+      "total": 2
+     },
+     {
+      "round": 2,
+      "calls": 3148,
+      "certified": 2,
+      "total": 5
+     },
+     {
+      "round": 3,
+      "calls": 7870,
+      "certified": 17,
+      "total": 18
+     },
+     {
+      "round": 4,
+      "calls": 10558,
+      "certified": 14,
+      "total": 14,
+      "errors": 0
+     }
+    ],
+    "errors_before_R4": 0
+   },
+   {
+    "seed": 1,
+    "traj": [
+     {
+      "round": 1,
+      "calls": 1574,
+      "certified": 1,
+      "total": 2
+     },
+     {
+      "round": 2,
+      "calls": 3148,
+      "certified": 2,
+      "total": 5
+     },
+     {
+      "round": 3,
+      "calls": 7870,
+      "certified": 17,
+      "total": 18
+     },
+     {
+      "round": 4,
+      "calls": 10686,
+      "certified": 14,
+      "total": 14,
+      "errors": 0
+     }
+    ],
+    "errors_before_R4": 0
+   },
+   {
+    "seed": 2,
+    "traj": [
+     {
+      "round": 1,
+      "calls": 1574,
+      "certified": 1,
+      "total": 2
+     },
+     {
+      "round": 2,
+      "calls": 3148,
+      "certified": 2,
+      "total": 5
+     },
+     {
+      "round": 3,
+      "calls": 7870,
+      "certified": 17,
+      "total": 18
+     },
+     {
+      "round": 4,
+      "calls": 10430,
+      "certified": 14,
+      "total": 14,
+      "errors": 0
+     }
+    ],
+    "errors_before_R4": 0
+   },
+   {
+    "seed": 3,
+    "traj": [
+     {
+      "round": 1,
+      "calls": 1574,
+      "certified": 1,
+      "total": 2
+     },
+     {
+      "round": 2,
+      "calls": 3148,
+      "certified": 2,
+      "total": 5
+     },
+     {
+      "round": 3,
+      "calls": 7870,
+      "certified": 17,
+      "total": 18
+     },
+     {
+      "round": 4,
+      "calls": 10430,
+      "certified": 14,
+      "total": 14,
+      "errors": 0
+     }
+    ],
+    "errors_before_R4": 0
+   },
+   {
+    "seed": 4,
+    "traj": [
+     {
+      "round": 1,
+      "calls": 1574,
+      "certified": 1,
+      "total": 2
+     },
+     {
+      "round": 2,
+      "calls": 3148,
+      "certified": 2,
+      "total": 5
+     },
+     {
+      "round": 3,
+      "calls": 7870,
+      "certified": 17,
+      "total": 18
+     },
+     {
+      "round": 4,
+      "calls": 10558,
+      "certified": 14,
+      "total": 14,
+      "errors": 0
+     }
+    ],
+    "errors_before_R4": 0
+   },
+   {
+    "seed": 5,
+    "traj": [
+     {
+      "round": 1,
+      "calls": 1574,
+      "certified": 1,
+      "total": 2
+     },
+     {
+      "round": 2,
+      "calls": 3148,
+      "certified": 2,
+      "total": 5
+     },
+     {
+      "round": 3,
+      "calls": 7870,
+      "certified": 17,
+      "total": 18
+     },
+     {
+      "round": 4,
+      "calls": 11018,
+      "certified": 14,
+      "total": 14,
+      "errors": 0
+     }
+    ],
+    "errors_before_R4": 0
+   },
+   {
+    "seed": 6,
+    "traj": [
+     {
+      "round": 1,
+      "calls": 1574,
+      "certified": 1,
+      "total": 2
+     },
+     {
+      "round": 2,
+      "calls": 3148,
+      "certified": 2,
+      "total": 5
+     },
+     {
+      "round": 3,
+      "calls": 7870,
+      "certified": 17,
+      "total": 18
+     },
+     {
+      "round": 4,
+      "calls": 10942,
+      "certified": 14,
+      "total": 14,
+      "errors": 0
+     }
+    ],
+    "errors_before_R4": 0
+   },
+   {
+    "seed": 7,
+    "traj": [
+     {
+      "round": 1,
+      "calls": 1574,
+      "certified": 1,
+      "total": 2
+     },
+     {
+      "round": 2,
+      "calls": 3148,
+      "certified": 2,
+      "total": 5
+     },
+     {
+      "round": 3,
+      "calls": 7870,
+      "certified": 17,
+      "total": 18
+     },
+     {
+      "round": 4,
+      "calls": 10686,
+      "certified": 14,
+      "total": 14,
+      "errors": 0
+     }
+    ],
+    "errors_before_R4": 0
+   }
+  ],
+  "COHORT-T (restart, free reads)": [
+   {
+    "seed": 0,
+    "traj": [
+     {
+      "round": 1,
+      "calls": 1574,
+      "certified": 1,
+      "total": 2
+     },
+     {
+      "round": 2,
+      "calls": 3148,
+      "certified": 2,
+      "total": 5
+     },
+     {
+      "round": 3,
+      "calls": 7870,
+      "certified": 17,
+      "total": 18
+     },
+     {
+      "round": 4,
+      "calls": 11016,
+      "certified": 14,
+      "total": 14,
+      "errors": 0
+     }
+    ],
+    "errors_before_R4": 0
+   },
+   {
+    "seed": 1,
+    "traj": [
+     {
+      "round": 1,
+      "calls": 1574,
+      "certified": 1,
+      "total": 2
+     },
+     {
+      "round": 2,
+      "calls": 3148,
+      "certified": 2,
+      "total": 5
+     },
+     {
+      "round": 3,
+      "calls": 7870,
+      "certified": 17,
+      "total": 18
+     },
+     {
+      "round": 4,
+      "calls": 10902,
+      "certified": 14,
+      "total": 14,
+      "errors": 0
+     }
+    ],
+    "errors_before_R4": 0
+   },
+   {
+    "seed": 2,
+    "traj": [
+     {
+      "round": 1,
+      "calls": 1574,
+      "certified": 1,
+      "total": 2
+     },
+     {
+      "round": 2,
+      "calls": 3148,
+      "certified": 2,
+      "total": 5
+     },
+     {
+      "round": 3,
+      "calls": 7870,
+      "certified": 17,
+      "total": 18
+     },
+     {
+      "round": 4,
+      "calls": 10902,
+      "certified": 14,
+      "total": 14,
+      "errors": 0
+     }
+    ],
+    "errors_before_R4": 0
+   },
+   {
+    "seed": 3,
+    "traj": [
+     {
+      "round": 1,
+      "calls": 1574,
+      "certified": 1,
+      "total": 2
+     },
+     {
+      "round": 2,
+      "calls": 3148,
+      "certified": 2,
+      "total": 5
+     },
+     {
+      "round": 3,
+      "calls": 7870,
+      "certified": 17,
+      "total": 18
+     },
+     {
+      "round": 4,
+      "calls": 10628,
+      "certified": 14,
+      "total": 14,
+      "errors": 0
+     }
+    ],
+    "errors_before_R4": 0
+   },
+   {
+    "seed": 4,
+    "traj": [
+     {
+      "round": 1,
+      "calls": 1574,
+      "certified": 1,
+      "total": 2
+     },
+     {
+      "round": 2,
+      "calls": 3148,
+      "certified": 2,
+      "total": 5
+     },
+     {
+      "round": 3,
+      "calls": 7870,
+      "certified": 17,
+      "total": 18
+     },
+     {
+      "round": 4,
+      "calls": 10848,
+      "certified": 14,
+      "total": 14,
+      "errors": 0
+     }
+    ],
+    "errors_before_R4": 0
+   },
+   {
+    "seed": 5,
+    "traj": [
+     {
+      "round": 1,
+      "calls": 1574,
+      "certified": 1,
+      "total": 2
+     },
+     {
+      "round": 2,
+      "calls": 3148,
+      "certified": 2,
+      "total": 5
+     },
+     {
+      "round": 3,
+      "calls": 7870,
+      "certified": 17,
+      "total": 18
+     },
+     {
+      "round": 4,
+      "calls": 10906,
+      "certified": 14,
+      "total": 14,
+      "errors": 0
+     }
+    ],
+    "errors_before_R4": 0
+   },
+   {
+    "seed": 6,
+    "traj": [
+     {
+      "round": 1,
+      "calls": 1574,
+      "certified": 1,
+      "total": 2
+     },
+     {
+      "round": 2,
+      "calls": 3148,
+      "certified": 2,
+      "total": 5
+     },
+     {
+      "round": 3,
+      "calls": 7870,
+      "certified": 17,
+      "total": 18
+     },
+     {
+      "round": 4,
+      "calls": 10931,
+      "certified": 14,
+      "total": 14,
+      "errors": 0
+     }
+    ],
+    "errors_before_R4": 0
+   },
+   {
+    "seed": 7,
+    "traj": [
+     {
+      "round": 1,
+      "calls": 1574,
+      "certified": 1,
+      "total": 2
+     },
+     {
+      "round": 2,
+      "calls": 3148,
+      "certified": 2,
+      "total": 5
+     },
+     {
+      "round": 3,
+      "calls": 7870,
+      "certified": 17,
+      "total": 18
+     },
+     {
+      "round": 4,
+      "calls": 10951,
+      "certified": 14,
+      "total": 14,
+      "errors": 0
+     }
+    ],
+    "errors_before_R4": 0
+   }
+  ],
+  "EG-style": [
+   {
+    "seed": 0,
+    "traj": [
+     {
+      "round": 1,
+      "calls": 1574,
+      "certified": 0,
+      "total": 2
+     },
+     {
+      "round": 2,
+      "calls": 3148,
+      "certified": 0,
+      "total": 3
+     },
+     {
+      "round": 3,
+      "calls": 7870,
+      "certified": 12,
+      "total": 13
+     },
+     {
+      "round": 4,
+      "calls": 11018,
+      "certified": 7,
+      "total": 14
+     }
+    ],
+    "errors": 0
+   },
+   {
+    "seed": 1,
+    "traj": [
+     {
+      "round": 1,
+      "calls": 1574,
+      "certified": 0,
+      "total": 2
+     },
+     {
+      "round": 2,
+      "calls": 3148,
+      "certified": 0,
+      "total": 3
+     },
+     {
+      "round": 3,
+      "calls": 7870,
+      "certified": 12,
+      "total": 13
+     },
+     {
+      "round": 4,
+      "calls": 11018,
+      "certified": 8,
+      "total": 14
+     }
+    ],
+    "errors": 0
+   },
+   {
+    "seed": 2,
+    "traj": [
+     {
+      "round": 1,
+      "calls": 1574,
+      "certified": 0,
+      "total": 2
+     },
+     {
+      "round": 2,
+      "calls": 3148,
+      "certified": 0,
+      "total": 3
+     },
+     {
+      "round": 3,
+      "calls": 7870,
+      "certified": 12,
+      "total": 13
+     },
+     {
+      "round": 4,
+      "calls": 11018,
+      "certified": 8,
+      "total": 14
+     }
+    ],
+    "errors": 0
+   },
+   {
+    "seed": 3,
+    "traj": [
+     {
+      "round": 1,
+      "calls": 1574,
+      "certified": 0,
+      "total": 2
+     },
+     {
+      "round": 2,
+      "calls": 3148,
+      "certified": 0,
+      "total": 3
+     },
+     {
+      "round": 3,
+      "calls": 7870,
+      "certified": 12,
+      "total": 13
+     },
+     {
+      "round": 4,
+      "calls": 11018,
+      "certified": 9,
+      "total": 14
+     }
+    ],
+    "errors": 0
+   },
+   {
+    "seed": 4,
+    "traj": [
+     {
+      "round": 1,
+      "calls": 1574,
+      "certified": 0,
+      "total": 2
+     },
+     {
+      "round": 2,
+      "calls": 3148,
+      "certified": 0,
+      "total": 3
+     },
+     {
+      "round": 3,
+      "calls": 7870,
+      "certified": 12,
+      "total": 13
+     },
+     {
+      "round": 4,
+      "calls": 11018,
+      "certified": 8,
+      "total": 14
+     }
+    ],
+    "errors": 0
+   },
+   {
+    "seed": 5,
+    "traj": [
+     {
+      "round": 1,
+      "calls": 1574,
+      "certified": 0,
+      "total": 2
+     },
+     {
+      "round": 2,
+      "calls": 3148,
+      "certified": 0,
+      "total": 3
+     },
+     {
+      "round": 3,
+      "calls": 7870,
+      "certified": 12,
+      "total": 13
+     },
+     {
+      "round": 4,
+      "calls": 11018,
+      "certified": 9,
+      "total": 14
+     }
+    ],
+    "errors": 0
+   },
+   {
+    "seed": 6,
+    "traj": [
+     {
+      "round": 1,
+      "calls": 1574,
+      "certified": 0,
+      "total": 2
+     },
+     {
+      "round": 2,
+      "calls": 3148,
+      "certified": 0,
+      "total": 3
+     },
+     {
+      "round": 3,
+      "calls": 7870,
+      "certified": 12,
+      "total": 13
+     },
+     {
+      "round": 4,
+      "calls": 11018,
+      "certified": 9,
+      "total": 14
+     }
+    ],
+    "errors": 0
+   },
+   {
+    "seed": 7,
+    "traj": [
+     {
+      "round": 1,
+      "calls": 1574,
+      "certified": 0,
+      "total": 2
+     },
+     {
+      "round": 2,
+      "calls": 3148,
+      "certified": 0,
+      "total": 3
+     },
+     {
+      "round": 3,
+      "calls": 7870,
+      "certified": 12,
+      "total": 13
+     },
+     {
+      "round": 4,
+      "calls": 11018,
+      "certified": 9,
+      "total": 14
+     }
+    ],
+    "errors": 0
+   }
+  ]
+ }
+}

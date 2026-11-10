@@ -1,0 +1,8 @@
+10:22:17 env ready duty=1.0
+10:22:34 [eg] budget=640: EG paid=640 headline stream=64 mean stream=32 total obs=648 cert=0.4 | COHORT paid=640 shared prefix=640 cert=8.4
+10:23:05 [eg] budget=1536: EG paid=1536 headline stream=128 mean stream=83 total obs=1624 cert=3.4 | COHORT paid=1536 shared prefix=1536 cert=11.8
+10:23:44 [eg] budget=3200: EG paid=3200 headline stream=306 mean stream=184 total obs=3575 cert=10.4 | COHORT paid=3200 shared prefix=3200 cert=13.8
+10:23:55 [pooled] b=640: dedicated pooled stream width=0.144 | stratified region width=0.325 (x2.26)
+10:24:18 [pooled] b=1536: dedicated pooled stream width=0.091 | stratified region width=0.195 (x2.14)
+10:25:01 [pooled] b=3200: dedicated pooled stream width=0.063 | stratified region width=0.140 (x2.22)
+10:25:01 EXTRA3 DONE: eg,pooled

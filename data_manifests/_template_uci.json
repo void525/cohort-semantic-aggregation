@@ -1,0 +1,11 @@
+{
+  "_说明": "数据许可/来源清单模板（草案 23.1）。复制成 uci.json 并填写；datasets.load_uci 会强制校验。",
+  "dataset": "UCI Sentiment Labelled Sentences",
+  "official_url": "https://archive.ics.uci.edu/dataset/331/sentiment+labelled+sentences",
+  "license": "CC BY 4.0（请自行复核）",
+  "downloaded_at": "请填 ISO 时间",
+  "sha256": "请填下载压缩包/文件的 sha256",
+  "scope": "Amazon + Yelp 合计约 2000 条句子，用作情感原语与独立标签误差的补充检查",
+  "frozen_by": "请填你的名字",
+  "notes": "不把句子当成长篇商品评论；需要分组时只生成标注为 synthetic 的哈希分组（草案 4.3）"
+}

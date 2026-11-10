@@ -1,0 +1,184 @@
+{
+ "claims": [
+  {
+   "qid": 1,
+   "name": "theta(exact|relevant)",
+   "kind": "value",
+   "eps": 0.05,
+   "tau": null,
+   "theta_run": 0.10954063604240283,
+   "theta_gold": 0.20974971242711515,
+   "gap": null
+  },
+  {
+   "qid": 2,
+   "name": "theta(exact|relevant, rating>=4)",
+   "kind": "value",
+   "eps": 0.05,
+   "tau": null,
+   "theta_run": 0.11622766623687604,
+   "theta_gold": 0.22886620212823422,
+   "gap": null
+  },
+  {
+   "qid": 3,
+   "name": "theta(exact|relevant, rating<4)",
+   "kind": "value",
+   "eps": 0.05,
+   "tau": null,
+   "theta_run": 0.11174458380843785,
+   "theta_gold": 0.18621399176954734,
+   "gap": null
+  },
+  {
+   "qid": 4,
+   "name": "theta(rating>=4 | relevant)",
+   "kind": "value",
+   "eps": 0.1,
+   "tau": null,
+   "theta_run": 0.7284966677103368,
+   "theta_gold": 0.734322319622387,
+   "gap": null
+  },
+  {
+   "qid": 5,
+   "name": "diff theta(exact|relevant) >=4 minus <4",
+   "kind": "difference",
+   "eps": 0.05,
+   "tau": null,
+   "theta_run": 0.004483082428438187,
+   "theta_gold": 0.04265221035868688,
+   "gap": null
+  },
+  {
+   "qid": 6,
+   "name": "thr theta(exact|relevant)>0.10",
+   "kind": "threshold",
+   "eps": 0.05,
+   "tau": 0.1,
+   "theta_run": 0.10954063604240283,
+   "theta_gold": 0.20974971242711515,
+   "gap": 0.009540636042402822
+  },
+  {
+   "qid": 7,
+   "name": "thr theta(exact|relevant)>0.20",
+   "kind": "threshold",
+   "eps": 0.05,
+   "tau": 0.2,
+   "theta_run": 0.10954063604240283,
+   "theta_gold": 0.20974971242711515,
+   "gap": 0.09045936395759718
+  },
+  {
+   "qid": 8,
+   "name": "thr theta(exact|relevant)>0.30",
+   "kind": "threshold",
+   "eps": 0.05,
+   "tau": 0.3,
+   "theta_run": 0.10954063604240283,
+   "theta_gold": 0.20974971242711515,
+   "gap": 0.19045936395759716
+  },
+  {
+   "qid": 9,
+   "name": "thr theta(exact|relevant)>0.40",
+   "kind": "threshold",
+   "eps": 0.05,
+   "tau": 0.4,
+   "theta_run": 0.10954063604240283,
+   "theta_gold": 0.20974971242711515,
+   "gap": 0.2904593639575972
+  },
+  {
+   "qid": 10,
+   "name": "thr theta(exact|relevant)>0.50",
+   "kind": "threshold",
+   "eps": 0.05,
+   "tau": 0.5,
+   "theta_run": 0.10954063604240283,
+   "theta_gold": 0.20974971242711515,
+   "gap": 0.39045936395759717
+  },
+  {
+   "qid": 11,
+   "name": "thr theta(exact|relevant)>0.60",
+   "kind": "threshold",
+   "eps": 0.05,
+   "tau": 0.6,
+   "theta_run": 0.10954063604240283,
+   "theta_gold": 0.20974971242711515,
+   "gap": 0.49045936395759715
+  },
+  {
+   "qid": 12,
+   "name": "thr theta(exact|relevant)>0.70",
+   "kind": "threshold",
+   "eps": 0.05,
+   "tau": 0.7,
+   "theta_run": 0.10954063604240283,
+   "theta_gold": 0.20974971242711515,
+   "gap": 0.5904593639575971
+  },
+  {
+   "qid": 13,
+   "name": "thr theta(exact|relevant,rating>=4)>0.30",
+   "kind": "threshold",
+   "eps": 0.05,
+   "tau": 0.3,
+   "theta_run": 0.11622766623687604,
+   "theta_gold": 0.22886620212823422,
+   "gap": 0.18377233376312396
+  },
+  {
+   "qid": 14,
+   "name": "thr theta(exact|relevant,rating<4)>0.30",
+   "kind": "threshold",
+   "eps": 0.05,
+   "tau": 0.3,
+   "theta_run": 0.11174458380843785,
+   "theta_gold": 0.18621399176954734,
+   "gap": 0.18825541619156214
+  },
+  {
+   "qid": 15,
+   "name": "thr theta(exact|relevant,rating>=4)>0.50",
+   "kind": "threshold",
+   "eps": 0.05,
+   "tau": 0.5,
+   "theta_run": 0.11622766623687604,
+   "theta_gold": 0.22886620212823422,
+   "gap": 0.383772333763124
+  },
+  {
+   "qid": 16,
+   "name": "thr theta(exact|relevant,rating<4)>0.50",
+   "kind": "threshold",
+   "eps": 0.05,
+   "tau": 0.5,
+   "theta_run": 0.11174458380843785,
+   "theta_gold": 0.18621399176954734,
+   "gap": 0.3882554161915621
+  },
+  {
+   "qid": 17,
+   "name": "thr theta(exact|relevant,rating>=4)>0.70",
+   "kind": "threshold",
+   "eps": 0.05,
+   "tau": 0.7,
+   "theta_run": 0.11622766623687604,
+   "theta_gold": 0.22886620212823422,
+   "gap": 0.5837723337631239
+  },
+  {
+   "qid": 18,
+   "name": "thr theta(exact|relevant,rating<4)>0.70",
+   "kind": "threshold",
+   "eps": 0.05,
+   "tau": 0.7,
+   "theta_run": 0.11174458380843785,
+   "theta_gold": 0.18621399176954734,
+   "gap": 0.5882554161915621
+  }
+ ]
+}
