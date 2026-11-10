@@ -1,0 +1,22 @@
+Notice on bundled and third-party material
+==========================================
+
+The implementation under src/, scripts/, and tests/ is covered by the MIT license in LICENSE.
+
+WANDS (Wayfair ANnotation Dataset)
+  Not redistributed. Fetch it from the official source (https://github.com/wayfair/WANDS, MIT license)
+  and verify it against the frozen manifest in data_manifests/wands.json.
+
+Frozen label tapes
+  cache/labels_wands.sqlite, cache/labels_uci.sqlite, reports/second_model_20261103/labels_wands_second_model.sqlite
+  They hold record identifiers and binary labels computed with local open-weight Qwen3 models over a WANDS
+  subset (and over the UCI sentences); they carry no source text. The WANDS tapes are released under the same
+  MIT terms as the underlying data; the UCI tape derives from data released under CC BY 4.0 (see below).
+
+UCI Sentiment Labelled Sentences (data/uci/*.txt)
+  Redistributed under CC BY 4.0 (https://archive.ics.uci.edu/dataset/331/sentiment+labelled+sentences).
+  Original authors: D. Kotzias, M. Denil, N. de Freitas, P. Smyth, "From Group to Individual Labels using
+  Deep Features", KDD 2015.
+
+Liberation Sans (scripts/fonts/)
+  SIL Open Font License 1.1; see scripts/fonts/LICENSE.

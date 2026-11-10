@@ -19,19 +19,3 @@ AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
 LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
 OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
 SOFTWARE.
-
----
-
-Note on bundled artifacts
--------------------------
-
-The implementation under src/, scripts/, and tests/ is covered by the MIT
-license above.
-
-The WANDS dataset (Wayfair ANnotation Dataset) is NOT redistributed in this
-repository. It is fetched from the official source (https://github.com/wayfair/WANDS,
-MIT license) and verified against the frozen manifest in data_manifests/wands.json.
-
-The frozen semantic-label tape (cache/labels_wands.sqlite) contains derived
-semantic labels computed over a WANDS subset with a local open-weight model, and
-is released under the same MIT terms as the underlying data.

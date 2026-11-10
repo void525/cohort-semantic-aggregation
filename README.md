@@ -166,7 +166,8 @@ not done for this submission.
 
 ## 6. License and citation
 
-The implementation (`src/`, `scripts/`, `tests/`) is released under the MIT license (see `LICENSE`). The frozen
+The implementation (`src/`, `scripts/`, `tests/`) is released under the MIT license (see `LICENSE`; bundled and
+third-party material is listed in `NOTICE`). The frozen
 label tapes contain only record identifiers and binary labels computed by open-weight Qwen3 models; they carry
 no WANDS text. This repository is the supplemental material of the ICDE 2027 submission named above; a citation
 entry will be added when the paper is published.
