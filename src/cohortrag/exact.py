@@ -302,8 +302,8 @@ def audit_ratio_interval(poly, a_hz, b_table, scope, J, L_float, U_float):
 
 
 def audit_threshold(poly, a_hz, b_table, tau, scope, J, verdict):
-    """精确验证阈值结论。verdict: 'true' (θ>τ) 或 'false' (θ<=τ)。tau 为十进制字符串/浮点。"""
-    t = Fraction(f"{float(tau):.9f}")
+    """精确验证阈值结论。verdict: 'true' (θ>τ) 或 'false' (θ<=τ)。保留有理数阈值。"""
+    t = tau if isinstance(tau, Fraction) else Fraction(tau).limit_denominator(10**15)
     if verdict == "true":
         return exact_min_contrast(poly, a_hz, b_table, t, scope, J) > 0
     return exact_max_contrast(poly, a_hz, b_table, t, scope, J) <= 0

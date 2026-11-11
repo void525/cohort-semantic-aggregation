@@ -1,6 +1,8 @@
 # COHORT — Supplemental Material
 
-**Artifact for:** *COHORT: Session-Wide Certification for Conditional Semantic Aggregates* (ICDE 2027 submission).
+**Artifact for:** *Cohort: Session-Wide Certification for Conditional Semantic Aggregates* (ICDE 2027 submission).
+
+**Submission revision:** tag [`v1.1-icde2027`](https://github.com/void525/cohort-semantic-aggregation/tree/v1.1-icde2027). This tag is the projection-fix revision on top of `b053af7`. It changes the Dinkelbach stopping rule, preserves rational thresholds, and adds the Review-7 control log. It does not replace the earlier GPU logs.
 
 This repository contains the implementation, frozen semantic-label tapes across two independent real-world text domains (Wayfair **WANDS** e-commerce search, $N = 31{,}482$, and **UCI DrugLib** clinical pharmacovigilance narratives, $N = 4{,}143$), experiment harnesses, canonical live GPU runners, metadata call-cost heuristic, and figure/table generators behind every result in the paper. All replay experiments run deterministically on CPU with **zero GPU, model download, or network access required**; `scripts/run_wands_live_canonical.py` and `scripts/run_canonical_gpu_suite.py` reproduce the measured canonical full-table scans and live multi-executor wall-clock benchmarks when a local GPU and `Qwen3-8B` weights are available.
 
@@ -11,8 +13,18 @@ This repository contains the implementation, frozen semantic-label tapes across 
 ```bash
 pip install -r requirements.txt            # numpy, pandas, matplotlib
 
-# 1) unit, rational simplex, signed-contrast domain & numerical enclosure regression tests (no data, no model)
-python tests/test_core.py                   # includes _lambda_max_bisect, L <= U guards, and full signed-contrast [-1,1]/general domain tests
+# 1) numerical enclosure regressions for this submission (no data, no model, no GPU)
+PYTHONPATH=src python3 -c "
+from tests.test_core import (
+    test_lambda_bisect_and_enclosure_regression,
+    test_dinkelbach_does_not_stop_on_downward_step,
+    test_audit_threshold_keeps_exact_third,
+)
+test_lambda_bisect_and_enclosure_regression()
+test_dinkelbach_does_not_stop_on_downward_step()
+test_audit_threshold_keeps_exact_third()
+"
+python tests/test_core.py                   # full local suite, including the three checks above
 python tests/test_simplex.py
 python tests/test_audit_enum.py             # exact rational LP audit vs. integer enumeration
 python scripts/validate_cs_demo.py          # confidence-sequence endpoints vs. brute force
@@ -84,7 +96,7 @@ The LOTUS integration (Section VI-G) uses `lotus-ai==1.2.4` in its dedicated vir
 | **Fig. 9** (two-stage re-slicing on WANDS & DrugLib) | `python scripts/run_icde2027_suite.py --exp session` & `run_review5_cpu_suite.py` | Stage 1 ($\alpha/2$) $\to$ Stage 2 ($\alpha/4$) category & therapeutic re-slice | `exp_session.json`, `exp_review5_cpu.json` (`druglib_domain`) | `draw_fig8_session()` | `figure/fig_session.pdf` |
 | **Table VII** (coverage calibration & exact rational LP audit) | `python scripts/run_icde2027_suite.py --exp calib` & `run_icde2027_extra3.py --exp audit` | 3,000 full permutations + 200 sessions (1,740 claims) + 60 audit cells | `exp_calib.json`, `exp_audit_grid.json`, `exp_enum.json` | exact rates & 95% Clopper–Pearson UB | `gen/tab_calib.tex` |
 | **Table VIII** (canonical live GPU wall-clock, first-answer latency & batch fill vs. measured full-table scans) | `python scripts/run_wands_live_canonical.py && python scripts/run_review6_audit.py` | Live Qwen3-8B (`batch_size=32, len=288`), 0 mismatches vs. 1,814.2s scan | `exp_live_canonical_gpu.json` | `write_tables()` (`tab_livegpu`) | `gen/tab_livegpu.tex` |
-| **Table IX** ($H, K$ structural scaling) | `python scripts/run_review3_suite.py --exp hk` | $H\in\{3,6,12,24\}, K\in\{2,3,4\}$ @ 3,200 calls, 3 seeds | `exp_hk_scale.json` | `write_tables()` (`tab_hkscale`) | `gen/tab_hkscale.tex` |
+| **Table IX** ($H, K$ structural scaling) | Charnes–Cooper cells: `python scripts/run_review3_suite.py --exp hk`. Dinkelbach cells ($H{\cdot}J>32$), after the residual-aware fix: `WANDS_DIR=/path/to/WANDS PYTHONPATH=src python3 scripts/run_hk_one.py H K seed /tmp/cell.txt` (one core per seed). Joint-label 4-round control: `WANDS_DIR=/path/to/WANDS PYTHONPATH=src python3 scripts/run_review7_controls.py` | 3,200 calls, 3 seeds. Repaired cells: $(H,K)\in\{(12,2),(24,2),(6,3),(6,4),(12,4),(24,4)\}$ | Pre-fix full grid: `exp_hk_scale.json`. Post-fix CPU and Q1 width: `exp_review7_controls.json` key `hk_dinkelbach`. Joint-label calls: same file, key `joint_exposure` | Means in `tab_hkscale.tex`. Default $H{=}6,K{=}2$ stays 2.3 s from `exp_hk_scale.json`. $H{=}24,K{=}4$ is 342.6 s in `hk_dinkelbach` (seeds 356.3, 340.6, 331.1 s); Q1 width remains 0.403 | `gen/tab_hkscale.tex` |
 
 ---
 

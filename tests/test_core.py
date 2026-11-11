@@ -418,11 +418,73 @@ def test_signed_contrast_full_domain():
     assert float(Lag) <= 1.5 <= float(Uag), (Lag, Uag)
     print("  signed contrast 完整数值域测试（负值、跨零、±1、负阈值、一般权重、精确审计）：全部通过")
 
+def test_audit_threshold_keeps_exact_third():
+    """A count of 1 out of 3 is not strictly above 1/3.
+
+    Rounding the threshold to nine decimal digits makes the contrast positive
+    and would certify a strict exceedance. The rational threshold must not.
+    """
+    from fractions import Fraction
+    from cohortrag.exact import audit_threshold
+    poly = {
+        "N_h": {0: 3},
+        "o_hz": {0: np.array([1.0, 2.0])},
+        "u_h": {0: 0},
+        "cs": [],
+    }
+    a = {0: np.array([1.0, 0.0])}
+    b = np.array([1.0, 1.0])
+    assert audit_threshold(poly, a, b, Fraction(1, 3), (0,), 2, "true") is False
+    print("  阈值 1/3 保持精确，未按九位小数放宽")
+
+
+def test_dinkelbach_does_not_stop_on_downward_step():
+    """A signed multi-stratum ratio whose first Dinkelbach update can move downward.
+
+    The old stopping rule treated any negative step as convergence and returned an
+    inward lower endpoint. The repaired iterator must stay within the outward
+    bisection bracket, and a certificate-side enclosure must still cover it.
+    """
+    from cohortrag.projection import (
+        _lambda_min,
+        _lambda_max,
+        _lambda_min_bisect,
+        _lambda_max_bisect,
+        verify_outward_enclosure,
+    )
+    rng = np.random.default_rng(7)
+    H, J = 5, 8
+    poly = {"N_h": {}, "o_hz": {}, "u_h": {}, "cs": []}
+    for h in range(H):
+        counts = rng.integers(0, 4, size=J).astype(np.float64)
+        counts[0] += 2
+        poly["N_h"][h] = int(counts.sum() + 6)
+        poly["o_hz"][h] = counts
+        poly["u_h"][h] = 6
+    a = rng.integers(-2, 3, size=J).astype(np.float64)
+    a[0] = 2.0
+    a[1] = -2.0
+    b = np.ones(J, dtype=np.float64)
+    scope = tuple(range(H))
+    L = _lambda_min(poly, a, b, scope, J)
+    U = _lambda_max(poly, a, b, scope, J)
+    Lb = _lambda_min_bisect(poly, a, b, scope, J)
+    Ub = _lambda_max_bisect(poly, a, b, scope, J)
+    assert L <= U, (L, U)
+    assert Lb - 1e-6 <= L <= Lb + 5e-4, (L, Lb)
+    assert Ub - 5e-4 <= U <= Ub + 1e-6, (U, Ub)
+    L2, U2 = verify_outward_enclosure(poly, a, b, scope, J, L, U)
+    assert L2 <= L + 1e-8 and U2 >= U - 1e-8 and L2 <= U2, (L2, U2, L, U)
+    print("  Dinkelbach 多步带符号对比：下界不再把负向更新当成收敛")
+
+
 if __name__ == "__main__":
     for t in [test_cs_class_vs_bruteforce, test_projection_vs_integer_enumeration,
               test_projection_metadata_numerator, test_label_failure_fail_closed,
               test_lambda_bisect_and_enclosure_regression,
               test_signed_contrast_full_domain,
+              test_dinkelbach_does_not_stop_on_downward_step,
+              test_audit_threshold_keeps_exact_third,
               test_pipeline_smoke]:
         t()
     print("test_core 全部通过")

@@ -1,0 +1,813 @@
+{
+  "live_round_ready": {
+    "wands_split_cost_cascade_live": {
+      "COHORT (live, default)": {
+        "mean_first_cert_wall_s": 179.13,
+        "mean_total_wall_s": 339.25,
+        "mean_new_calls": 3797.3,
+        "mean_round_ready_wall_s": [
+          190.2,
+          200.7,
+          205.6,
+          339.2
+        ],
+        "note": "Measured wall-clock when every target issued in that round is certified."
+      },
+      "COHORT (live, exact rational audit)": {
+        "mean_first_cert_wall_s": 179.04,
+        "mean_total_wall_s": 339.13,
+        "mean_new_calls": 3797.3,
+        "mean_round_ready_wall_s": [
+          190.1,
+          200.7,
+          205.6,
+          339.1
+        ],
+        "note": "Measured wall-clock when every target issued in that round is certified."
+      },
+      "Dedup-streams + dynamic E (live)": {
+        "mean_first_cert_wall_s": 41.81,
+        "mean_total_wall_s": 598.17,
+        "mean_new_calls": 10091.7,
+        "note": "This executor logged first-certificate and total wall-clock only."
+      },
+      "Shared-priority + E0 + partition (live)": {
+        "mean_first_cert_wall_s": 44.41,
+        "mean_total_wall_s": 475.1,
+        "mean_new_calls": 7565.0,
+        "note": "This executor logged first-certificate and total wall-clock only."
+      }
+    },
+    "wands_relevance_5target_live": {
+      "COHORT (live, default)": {
+        "mean_first_cert_wall_s": 35.98,
+        "mean_total_wall_s": 410.47,
+        "mean_new_calls": 3840.0,
+        "mean_round_ready_wall_s": [
+          359.7,
+          410.5
+        ],
+        "note": "Measured wall-clock when every target issued in that round is certified."
+      },
+      "COHORT (live, exact rational audit)": {
+        "mean_first_cert_wall_s": 36.19,
+        "mean_total_wall_s": 410.84,
+        "mean_new_calls": 3840.0,
+        "mean_round_ready_wall_s": [
+          360.1,
+          410.8
+        ],
+        "note": "Measured wall-clock when every target issued in that round is certified."
+      },
+      "Dedup-streams + dynamic E (live)": {
+        "mean_first_cert_wall_s": 42.6,
+        "mean_total_wall_s": 166.77,
+        "mean_new_calls": 2874.0,
+        "note": "This executor logged first-certificate and total wall-clock only."
+      },
+      "Shared-priority + E0 + partition (live)": {
+        "mean_first_cert_wall_s": 14.87,
+        "mean_total_wall_s": 125.75,
+        "mean_new_calls": 2131.5,
+        "note": "This executor logged first-certificate and total wall-clock only."
+      }
+    }
+  },
+  "joint_exposure": {
+    "cost_contract": "One call exposes the full 3-bit label (Ex4, Rel8, Ex8). No 4B prepass is added to these call counts.",
+    "history": "15% proxy-positive biased history, same draw as the split-cost cascade.",
+    "methods": {
+      "Cohort joint region": {
+        "median_calls": 17280.0,
+        "paired_saving_of_cohort_pct": null,
+        "completed": "9/10",
+        "rows": [
+          {
+            "seed": 0,
+            "calls": 16768,
+            "certified": "12/12",
+            "signed_certified": "10/10",
+            "halted": false,
+            "round_calls": [
+              16256,
+              16768,
+              16768,
+              16768
+            ]
+          },
+          {
+            "seed": 1,
+            "calls": 17280,
+            "certified": "12/12",
+            "signed_certified": "10/10",
+            "halted": false,
+            "round_calls": [
+              16768,
+              17280,
+              17280,
+              17280
+            ]
+          },
+          {
+            "seed": 2,
+            "calls": 14208,
+            "certified": "5/12",
+            "signed_certified": "4/10",
+            "halted": true,
+            "round_calls": [
+              13696
+            ]
+          },
+          {
+            "seed": 3,
+            "calls": 17280,
+            "certified": "12/12",
+            "signed_certified": "10/10",
+            "halted": false,
+            "round_calls": [
+              16256,
+              17280,
+              17280,
+              17280
+            ]
+          },
+          {
+            "seed": 4,
+            "calls": 17280,
+            "certified": "12/12",
+            "signed_certified": "10/10",
+            "halted": false,
+            "round_calls": [
+              16256,
+              17280,
+              17280,
+              17280
+            ]
+          },
+          {
+            "seed": 5,
+            "calls": 17280,
+            "certified": "12/12",
+            "signed_certified": "10/10",
+            "halted": false,
+            "round_calls": [
+              16256,
+              17280,
+              17280,
+              17280
+            ]
+          },
+          {
+            "seed": 6,
+            "calls": 17792,
+            "certified": "12/12",
+            "signed_certified": "10/10",
+            "halted": false,
+            "round_calls": [
+              16768,
+              17792,
+              17792,
+              17792
+            ]
+          },
+          {
+            "seed": 7,
+            "calls": 17280,
+            "certified": "12/12",
+            "signed_certified": "10/10",
+            "halted": false,
+            "round_calls": [
+              16256,
+              17280,
+              17280,
+              17280
+            ]
+          },
+          {
+            "seed": 8,
+            "calls": 17280,
+            "certified": "12/12",
+            "signed_certified": "10/10",
+            "halted": false,
+            "round_calls": [
+              16256,
+              17280,
+              17280,
+              17280
+            ]
+          },
+          {
+            "seed": 9,
+            "calls": 17792,
+            "certified": "12/12",
+            "signed_certified": "10/10",
+            "halted": false,
+            "round_calls": [
+              16768,
+              17792,
+              17792,
+              17792
+            ]
+          }
+        ]
+      },
+      "Dynamic-E partition streams": {
+        "median_calls": 21209.5,
+        "paired_saving_of_cohort_pct": 18.7,
+        "completed": "10/10",
+        "rows": [
+          {
+            "seed": 0,
+            "calls": 21209,
+            "certified": "12/12",
+            "signed_certified": "10/10",
+            "halted": false,
+            "round_calls": [
+              16311,
+              17936,
+              19102,
+              21209
+            ]
+          },
+          {
+            "seed": 1,
+            "calls": 21315,
+            "certified": "12/12",
+            "signed_certified": "10/10",
+            "halted": false,
+            "round_calls": [
+              17001,
+              18559,
+              19554,
+              21315
+            ]
+          },
+          {
+            "seed": 2,
+            "calls": 21200,
+            "certified": "12/12",
+            "signed_certified": "10/10",
+            "halted": false,
+            "round_calls": [
+              16146,
+              18144,
+              19294,
+              21200
+            ]
+          },
+          {
+            "seed": 3,
+            "calls": 21210,
+            "certified": "12/12",
+            "signed_certified": "10/10",
+            "halted": false,
+            "round_calls": [
+              16293,
+              18005,
+              19180,
+              21210
+            ]
+          },
+          {
+            "seed": 4,
+            "calls": 21308,
+            "certified": "12/12",
+            "signed_certified": "10/10",
+            "halted": false,
+            "round_calls": [
+              16814,
+              18435,
+              19526,
+              21308
+            ]
+          },
+          {
+            "seed": 5,
+            "calls": 21264,
+            "certified": "12/12",
+            "signed_certified": "10/10",
+            "halted": false,
+            "round_calls": [
+              16833,
+              18393,
+              19404,
+              21264
+            ]
+          },
+          {
+            "seed": 6,
+            "calls": 21163,
+            "certified": "12/12",
+            "signed_certified": "10/10",
+            "halted": false,
+            "round_calls": [
+              16046,
+              17932,
+              19196,
+              21163
+            ]
+          },
+          {
+            "seed": 7,
+            "calls": 21171,
+            "certified": "12/12",
+            "signed_certified": "10/10",
+            "halted": false,
+            "round_calls": [
+              16930,
+              18482,
+              19553,
+              21171
+            ]
+          },
+          {
+            "seed": 8,
+            "calls": 21235,
+            "certified": "12/12",
+            "signed_certified": "10/10",
+            "halted": false,
+            "round_calls": [
+              16537,
+              18138,
+              19157,
+              21235
+            ]
+          },
+          {
+            "seed": 9,
+            "calls": 21196,
+            "certified": "12/12",
+            "signed_certified": "10/10",
+            "halted": false,
+            "round_calls": [
+              16309,
+              18226,
+              19443,
+              21196
+            ]
+          }
+        ]
+      },
+      "Oracle x dynamic-E partition streams": {
+        "median_calls": 21186.0,
+        "paired_saving_of_cohort_pct": 18.6,
+        "completed": "10/10",
+        "rows": [
+          {
+            "seed": 0,
+            "calls": 21246,
+            "certified": "12/12",
+            "signed_certified": "10/10",
+            "halted": false,
+            "round_calls": [
+              17112,
+              18733,
+              19701,
+              21246
+            ]
+          },
+          {
+            "seed": 1,
+            "calls": 21324,
+            "certified": "12/12",
+            "signed_certified": "10/10",
+            "halted": false,
+            "round_calls": [
+              17572,
+              19018,
+              19938,
+              21324
+            ]
+          },
+          {
+            "seed": 2,
+            "calls": 21054,
+            "certified": "12/12",
+            "signed_certified": "10/10",
+            "halted": false,
+            "round_calls": [
+              17180,
+              18727,
+              19622,
+              21054
+            ]
+          },
+          {
+            "seed": 3,
+            "calls": 20828,
+            "certified": "12/12",
+            "signed_certified": "10/10",
+            "halted": false,
+            "round_calls": [
+              16815,
+              18433,
+              19307,
+              20828
+            ]
+          },
+          {
+            "seed": 4,
+            "calls": 21116,
+            "certified": "12/12",
+            "signed_certified": "10/10",
+            "halted": false,
+            "round_calls": [
+              17086,
+              18775,
+              19723,
+              21116
+            ]
+          },
+          {
+            "seed": 5,
+            "calls": 21187,
+            "certified": "12/12",
+            "signed_certified": "10/10",
+            "halted": false,
+            "round_calls": [
+              17455,
+              18780,
+              19635,
+              21187
+            ]
+          },
+          {
+            "seed": 6,
+            "calls": 20950,
+            "certified": "12/12",
+            "signed_certified": "10/10",
+            "halted": false,
+            "round_calls": [
+              16805,
+              18494,
+              19512,
+              20950
+            ]
+          },
+          {
+            "seed": 7,
+            "calls": 21263,
+            "certified": "12/12",
+            "signed_certified": "10/10",
+            "halted": false,
+            "round_calls": [
+              17361,
+              18836,
+              19778,
+              21263
+            ]
+          },
+          {
+            "seed": 8,
+            "calls": 21251,
+            "certified": "12/12",
+            "signed_certified": "10/10",
+            "halted": false,
+            "round_calls": [
+              16973,
+              18577,
+              19542,
+              21251
+            ]
+          },
+          {
+            "seed": 9,
+            "calls": 21185,
+            "certified": "12/12",
+            "signed_certified": "10/10",
+            "halted": false,
+            "round_calls": [
+              17411,
+              18906,
+              19759,
+              21185
+            ]
+          }
+        ]
+      },
+      "Shared-priority + E0 partition": {
+        "median_calls": 7678.0,
+        "paired_saving_of_cohort_pct": -125.7,
+        "completed": "10/10",
+        "rows": [
+          {
+            "seed": 0,
+            "calls": 7905,
+            "certified": "12/12",
+            "signed_certified": "10/10",
+            "halted": false,
+            "round_calls": [
+              6720,
+              6720,
+              7905,
+              7905
+            ]
+          },
+          {
+            "seed": 1,
+            "calls": 7676,
+            "certified": "12/12",
+            "signed_certified": "10/10",
+            "halted": false,
+            "round_calls": [
+              6400,
+              6400,
+              7639,
+              7676
+            ]
+          },
+          {
+            "seed": 2,
+            "calls": 7680,
+            "certified": "12/12",
+            "signed_certified": "10/10",
+            "halted": false,
+            "round_calls": [
+              6240,
+              6240,
+              7603,
+              7680
+            ]
+          },
+          {
+            "seed": 3,
+            "calls": 7833,
+            "certified": "12/12",
+            "signed_certified": "10/10",
+            "halted": false,
+            "round_calls": [
+              6496,
+              6496,
+              7626,
+              7833
+            ]
+          },
+          {
+            "seed": 4,
+            "calls": 7620,
+            "certified": "12/12",
+            "signed_certified": "10/10",
+            "halted": false,
+            "round_calls": [
+              6336,
+              6336,
+              7620,
+              7620
+            ]
+          },
+          {
+            "seed": 5,
+            "calls": 7605,
+            "certified": "12/12",
+            "signed_certified": "10/10",
+            "halted": false,
+            "round_calls": [
+              6336,
+              6336,
+              7545,
+              7605
+            ]
+          },
+          {
+            "seed": 6,
+            "calls": 7763,
+            "certified": "12/12",
+            "signed_certified": "10/10",
+            "halted": false,
+            "round_calls": [
+              6464,
+              6464,
+              7644,
+              7763
+            ]
+          },
+          {
+            "seed": 7,
+            "calls": 7730,
+            "certified": "12/12",
+            "signed_certified": "10/10",
+            "halted": false,
+            "round_calls": [
+              6432,
+              6432,
+              7720,
+              7730
+            ]
+          },
+          {
+            "seed": 8,
+            "calls": 7639,
+            "certified": "12/12",
+            "signed_certified": "10/10",
+            "halted": false,
+            "round_calls": [
+              6368,
+              6368,
+              7639,
+              7639
+            ]
+          },
+          {
+            "seed": 9,
+            "calls": 7664,
+            "certified": "12/12",
+            "signed_certified": "10/10",
+            "halted": false,
+            "round_calls": [
+              6016,
+              6016,
+              7265,
+              7664
+            ]
+          }
+        ]
+      },
+      "Oracle shared-priority + E0 partition": {
+        "median_calls": 7783.5,
+        "paired_saving_of_cohort_pct": -124.2,
+        "completed": "10/10",
+        "rows": [
+          {
+            "seed": 0,
+            "calls": 7986,
+            "certified": "12/12",
+            "signed_certified": "10/10",
+            "halted": false,
+            "round_calls": [
+              6912,
+              6912,
+              7986,
+              7986
+            ]
+          },
+          {
+            "seed": 1,
+            "calls": 7683,
+            "certified": "12/12",
+            "signed_certified": "10/10",
+            "halted": false,
+            "round_calls": [
+              6624,
+              6624,
+              7683,
+              7683
+            ]
+          },
+          {
+            "seed": 2,
+            "calls": 7837,
+            "certified": "12/12",
+            "signed_certified": "10/10",
+            "halted": false,
+            "round_calls": [
+              6816,
+              6816,
+              7837,
+              7837
+            ]
+          },
+          {
+            "seed": 3,
+            "calls": 7730,
+            "certified": "12/12",
+            "signed_certified": "10/10",
+            "halted": false,
+            "round_calls": [
+              6848,
+              6848,
+              7730,
+              7730
+            ]
+          },
+          {
+            "seed": 4,
+            "calls": 7884,
+            "certified": "12/12",
+            "signed_certified": "10/10",
+            "halted": false,
+            "round_calls": [
+              6848,
+              6848,
+              7884,
+              7884
+            ]
+          },
+          {
+            "seed": 5,
+            "calls": 7548,
+            "certified": "12/12",
+            "signed_certified": "10/10",
+            "halted": false,
+            "round_calls": [
+              6656,
+              6656,
+              7548,
+              7548
+            ]
+          },
+          {
+            "seed": 6,
+            "calls": 7852,
+            "certified": "12/12",
+            "signed_certified": "10/10",
+            "halted": false,
+            "round_calls": [
+              6976,
+              6976,
+              7852,
+              7852
+            ]
+          },
+          {
+            "seed": 7,
+            "calls": 7897,
+            "certified": "12/12",
+            "signed_certified": "10/10",
+            "halted": false,
+            "round_calls": [
+              6880,
+              6880,
+              7897,
+              7897
+            ]
+          },
+          {
+            "seed": 8,
+            "calls": 7609,
+            "certified": "12/12",
+            "signed_certified": "10/10",
+            "halted": false,
+            "round_calls": [
+              6560,
+              6560,
+              7609,
+              7609
+            ]
+          },
+          {
+            "seed": 9,
+            "calls": 7565,
+            "certified": "12/12",
+            "signed_certified": "10/10",
+            "halted": false,
+            "round_calls": [
+              6560,
+              6560,
+              7565,
+              7565
+            ]
+          }
+        ]
+      }
+    }
+  },
+  "hk_dinkelbach": [
+    {
+      "H": 12,
+      "K": 2,
+      "cpu_s_mean": 10.11,
+      "q1_width_mean": 0.22,
+      "note": "traced, 3-seed mean from the first sweep"
+    },
+    {
+      "H": 24,
+      "K": 2,
+      "cpu_s_mean": 23.96,
+      "q1_width_mean": 0.295
+    },
+    {
+      "H": 6,
+      "K": 3,
+      "cpu_s_mean": 28.13,
+      "q1_width_mean": 0.289
+    },
+    {
+      "H": 6,
+      "K": 4,
+      "cpu_s_mean": 87.21,
+      "q1_width_mean": 0.295
+    },
+    {
+      "H": 12,
+      "K": 4,
+      "cpu_s_mean": 166.82,
+      "q1_width_mean": 0.351,
+      "seeds": [
+        166.1951,
+        167.0698,
+        167.2082
+      ]
+    },
+    {
+      "H": 24,
+      "K": 4,
+      "cpu_s_mean": 342.63,
+      "q1_width_mean": 0.403,
+      "seeds": [
+        356.255,
+        340.5894,
+        331.0514
+      ]
+    }
+  ]
+}

@@ -249,39 +249,52 @@ def _cc_max(poly, a, b_table, scope, J):
 
 # ---------------- λ 对偶兜底（分层可分解，Dinkelbach 超线性迭代） ----------------
 
+def _signed_scale(A, B):
+    return max(1.0, abs(A), abs(B))
+
 def _lambda_min(poly, a, b_table, scope, J, iters=30):
     """L = min A/B。Dinkelbach：k* ∈ argmin(A−λB)（可分层分解），λ ← A(k*)/B(k*)。
 
-    序列单调不减收敛到 θ_min；以相邻迭代变化量 < 1e-9 判收敛。
+    只在步长和线性子问题残差同时足够小时接受收敛。负向修正是合法更新，
+    不能当成已经收敛。迭代用尽或残差停滞时回退到向外二分。
     前置 minB > 0 保证每个可行点的 B > 0，故 B(k*) > 0 恒成立。"""
     a_hz = _as_a_hz(a, scope, J)
     lo_b, hi_b = _domain_bounds(poly, a_hz, b_table, scope, J)
     bb = b_table.astype(np.float64)
     lam = lo_b
     lam_next = lam
+    converged = False
     for _ in range(iters):
         A = B = 0.0
         for h in scope:
             _, k = _stratum_lp(poly, h, a_hz[h] - lam * bb, J, need_solution=True)
             A += float(a_hz[h] @ k)
             B += float(bb @ k)
-        if B <= 1e-12:              # 数值退化：回退保守二分
+        if B <= 1e-12:
             return _lambda_min_bisect(poly, a, b_table, scope, J)
         lam_next = A / B
-        if lam_next - lam < 1e-9:
-            break
+        residual = sum(_stratum_extreme(poly, h, a_hz[h] - lam_next * bb, J) for h in scope)
+        step = lam_next - lam
+        if abs(step) <= 1e-9:
+            if abs(residual) <= 1e-6 * _signed_scale(A, B):
+                converged = True
+                break
+            return _lambda_min_bisect(poly, a, b_table, scope, J)
         lam = lam_next
+    if not converged:
+        return _lambda_min_bisect(poly, a, b_table, scope, J)
     return float(np.clip(lam_next, lo_b, hi_b))
 
 def _lambda_max(poly, a, b_table, scope, J, iters=30):
     """U = max A/B。Dinkelbach：k* ∈ argmax(A−λB) = argmin(λB−A)，λ ← A(k*)/B(k*)。
 
-    序列单调不增收敛到 θ_max；以相邻迭代变化量 < 1e-9 判收敛。"""
+    对称于下界：向上修正不算收敛；未收敛则回退到向外二分。"""
     a_hz = _as_a_hz(a, scope, J)
     lo_b, hi_b = _domain_bounds(poly, a_hz, b_table, scope, J)
     bb = b_table.astype(np.float64)
     lam = hi_b
     lam_next = lam
+    converged = False
     for _ in range(iters):
         A = B = 0.0
         for h in scope:
@@ -291,9 +304,16 @@ def _lambda_max(poly, a, b_table, scope, J, iters=30):
         if B <= 1e-12:
             return _lambda_max_bisect(poly, a, b_table, scope, J)
         lam_next = A / B
-        if lam - lam_next < 1e-9:
-            break
+        residual = sum(-_stratum_extreme(poly, h, lam_next * bb - a_hz[h], J) for h in scope)
+        step = lam - lam_next
+        if abs(step) <= 1e-9:
+            if abs(residual) <= 1e-6 * _signed_scale(A, B):
+                converged = True
+                break
+            return _lambda_max_bisect(poly, a, b_table, scope, J)
         lam = lam_next
+    if not converged:
+        return _lambda_max_bisect(poly, a, b_table, scope, J)
     return float(np.clip(lam_next, lo_b, hi_b))
 
 def _lambda_min_bisect(poly, a, b_table, scope, J, iters=52):
