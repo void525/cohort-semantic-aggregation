@@ -2,7 +2,7 @@
 
 **Artifact for:** *COHORT: Session-Wide Certification for Conditional Semantic Aggregates* (ICDE 2027 submission).
 
-This repository contains the implementation, frozen semantic-label tapes across two independent real-world text domains (Wayfair **WANDS** e-commerce search, $N = 31{,}482$, and **UCI DrugLib** clinical pharmacovigilance narratives, $N = 4{,}143$), experiment harnesses, canonical live GPU runners, and figure/table generators behind every result in the paper. All replay experiments run deterministically on CPU with **zero GPU, model download, or network access required**; `scripts/run_wands_live_canonical.py` reproduces the measured canonical full-table scans and live multi-executor wall-clock latency when a local GPU and `Qwen3-8B` weights are available.
+This repository contains the implementation, frozen semantic-label tapes across two independent real-world text domains (Wayfair **WANDS** e-commerce search, $N = 31{,}482$, and **UCI DrugLib** clinical pharmacovigilance narratives, $N = 4{,}143$), experiment harnesses, canonical live GPU runners, metadata call-cost heuristic, and figure/table generators behind every result in the paper. All replay experiments run deterministically on CPU with **zero GPU, model download, or network access required**; `scripts/run_wands_live_canonical.py` and `scripts/run_canonical_gpu_suite.py` reproduce the measured canonical full-table scans and live multi-executor wall-clock benchmarks when a local GPU and `Qwen3-8B` weights are available.
 
 ---
 
@@ -11,8 +11,8 @@ This repository contains the implementation, frozen semantic-label tapes across 
 ```bash
 pip install -r requirements.txt            # numpy, pandas, matplotlib
 
-# 1) unit, rational simplex & numerical enclosure regression tests (no data, no model)
-python tests/test_core.py                   # includes _lambda_max_bisect & L <= U enclosure regression
+# 1) unit, rational simplex, signed-contrast domain & numerical enclosure regression tests (no data, no model)
+python tests/test_core.py                   # includes _lambda_max_bisect, L <= U guards, and full signed-contrast [-1,1]/general domain tests
 python tests/test_simplex.py
 python tests/test_audit_enum.py             # exact rational LP audit vs. integer enumeration
 python scripts/validate_cs_demo.py          # confidence-sequence endpoints vs. brute force
@@ -30,12 +30,13 @@ python run_icde2027_extra3.py --exp eg,pooled,memory,audit,bias_real,bias_sweep
 python run_paired_targets.py                 # -> reports/icde2027_suite/exp_paired.json
 python run_review3_suite.py                  # -> exp_strong_baselines, exp_interleave, exp_hk_scale, exp_lifecycle
 python run_review4_suite.py --skip-gpu       # -> exp_review4_suite.json (coupled LP vs. partition, overlap regimes)
-python run_review5_cpu_suite.py              # -> exp_review5_cpu.json (Shared-priority + E0, Oracle x dynamic E, DrugLib, adaptive policy & plan selector)
+python run_review5_cpu_suite.py              # -> exp_review5_cpu.json (Shared-priority + E0, Oracle x dynamic E, DrugLib, adaptive policy)
+python run_review6_audit.py                  # -> 45-case call-cost selector table & per-case log, candidate-family adaptive policy, live GPU batch utilization
 # Optional live canonical GPU full-table scan + live multi-executor benchmark:
 # python run_wands_live_canonical.py         # -> exp_live_canonical_gpu.json
 python make_geometry.py && python make_reuse_intervals.py
 python make_tables.py && python make_paired.py
-python make_review3_visuals.py               # writes all 9 PDF figures + Tables IV–VIII to paper/figure/ and paper/gen/
+python make_review3_visuals.py               # writes all 9 PDF figures + Tables IV–IX to paper/figure/ and paper/gen/
 ```
 
 The LOTUS integration (Section VI-G) uses `lotus-ai==1.2.4` in its dedicated virtual environment:
@@ -47,7 +48,27 @@ The LOTUS integration (Section VI-G) uses `lotus-ai==1.2.4` in its dedicated vir
 
 ---
 
-## 2. Complete Table / Figure → Command → Raw Per-Seed JSON → Aggregation → Output Mapping
+## 2. Key Code & Manifest Pointers
+
+- **Signed-contrast domain & numerical enclosure (`projection.py`, `exact.py`, `tests/test_core.py`):**
+  - `_domain_bounds` and `verify_outward_enclosure` in `src/cohortrag/projection.py` derive exact feasible ranges $[\underline{\theta}_q, \overline{\theta}_q]$ from query coefficients (e.g., $[-1,1]$ for masked signed contrasts and general bounds for weighted contrasts) across Charnes–Cooper LP, Dinkelbach, bisection fallbacks (`_lambda_min_bisect`, `_lambda_max_bisect`), and outward verification.
+  - `_exact_domain_bounds` and `audit_ratio_interval` in `src/cohortrag/exact.py` perform exact `Fraction` simplex auditing over $[\underline{\theta}_q, \overline{\theta}_q]$ on a $2^{-30}$ rational grid.
+  - `test_lambda_bisect_and_enclosure_regression` and `test_signed_contrast_full_domain` in `tests/test_core.py` test negative point truth (`-0.4`), zero-crossing intervals, $\pm 1$ boundaries, negative thresholds, general weights, and `audit_exact=True`.
+- **UCI DrugLib manifest, prompt pack, and simulated triage history:**
+  - Dataset manifest, Stage-1 $H=4$ stratum sizes ($N_h = 2{,}137, 192, 1{,}448, 366$), 11-term safety-keyword regex ($\ge 2$ matches), simulated triage-biased 15% history procedure, and Stage-2 therapeutic-area counts: `data_manifests/druglib.json` and `src/cohortrag/datasets.py` (`load_druglib`).
+  - Canonical 3-primitive clinical prompt pack: `src/cohortrag/contracts.py` (`druglib_prompt_pack`).
+- **Metadata call-cost heuristic & 45-session benchmark:**
+  - Complete closed-form heuristic implementation (`metadata_call_cost_heuristic` with $\gamma \in \{0.30, 0.36, 0.40, 0.50\}$ sensitivity): `scripts/review5_lib.py`.
+  - All 45 randomized sessions, per-case predictions, tie counts, and full baseline table (`Always_COHORT`, `Simple_Horizon_Skew_Rule`, `Always_Shared_Priority`, `Metadata_Call_Cost_Heuristic`, `Oracle_Best`): `scripts/run_review6_audit.py` and `reports/icde2027_suite/exp_review5_cpu.json` (`unseen_multidomain_selector`).
+- **Observation-driven adaptive policy (candidate-family risk & aligned vs. closed-loop traces):**
+  - Full-candidate-family upfront risk pre-allocation (`candidate_queries` in `scripts/review5_lib.py`) and aligned realized-trace vs. independent closed-loop comparison with per-seed cohort traces: `scripts/run_review6_audit.py` and `reports/icde2027_suite/exp_review5_cpu.json` (`adaptive_and_order.result_driven_cascade_policy`).
+- **Canonical live GPU protocol, per-seed logs & batch utilization:**
+  - Fixed-shape canonical inference (`batch_size=32`, `canonical_fixed_len=288` on WANDS and `736` on DrugLib, deterministic cuBLAS): `src/cohortrag/llm_operator.py`, `scripts/run_canonical_gpu_suite.py`, and `scripts/run_wands_live_canonical.py`.
+  - Per-seed wall-clock logs, 0-mismatch full-scan verification, and GPU batch fill / dummy-slot padding breakdown: `reports/icde2027_suite/exp_live_canonical_gpu.json` (`batch_utilization_and_tokens`).
+
+---
+
+## 3. Complete Table / Figure → Command → Raw Per-Seed JSON → Aggregation → Output Mapping
 
 | Paper element | Command | Workload / Config | Raw per-seed JSON (`reports/icde2027_suite/`) | Aggregation & generator | Final output (`paper/`) |
 |---|---|---|---|---|---|
@@ -58,16 +79,16 @@ The LOTUS integration (Section VI-G) uses `lotus-ai==1.2.4` in its dedicated vir
 | **Table I & II** (running session & 18 relevance claims) | `python scripts/run_icde2027_extra.py --exp claims` | 4-round session & 5 numeric + 13 thresholds | `exp_claims.json` | `make_tables.py` (`tab_claims`) | `gen/tab_claims.tex` |
 | **Fig. 5 & Table III** (mechanism attribution & cold-start per-target calls) | `python scripts/run_icde2027_suite.py --exp ladder` & `python scripts/run_review3_suite.py --exp strong` | 18 claims & 5 numeric targets, cold start, 10 seeds | `exp_ladder.json`, `exp_strong_baselines.json` | means (`tab_ladder`), per-target medians (`draw_fig5_ladder`) | `figure/fig_ladder.pdf`, `gen/tab_ladder.tex` |
 | **Fig. 6 & Table IV** (9-executor 8-round sessions across WANDS Relevance, Split-Cost Cascade & UCI DrugLib) | `python scripts/run_review5_cpu_suite.py && python scripts/make_review3_visuals.py` | Dynamic $E$, Oracle$\times$dynamic $E$, Shared-priority+$E_0$ (Adaptive & Oracle), COHORT (10 seeds) | `exp_review5_cpu.json` (`wands_task1_8rounds`, `wands_split_cost_cascade_8rounds`, `druglib_triage_8rounds`) | medians, IQR, $\operatorname{median}_s(1 - C_{\text{COHORT},s}/C_{\text{base},s})$ | `figure/fig_claims.pdf`, `gen/tab_multicohort.tex` |
-| **Fig. 7** (plan-selection phase diagrams & unseen 45-session selector) | `python scripts/run_review5_cpu_suite.py && python scripts/make_review3_visuals.py` | Overlap $\times$ Horizon vs. Dyn-$E$; $E_0$ Skew $\times$ Round vs. Shared-Priority; 45 unseen sessions | `exp_review5_cpu.json` (`phase_diagrams_clean`, `unseen_multidomain_selector`) | median call ratios & zero-param cost model (`draw_fig9_denom`) | `figure/fig_denom.pdf` |
-| **Fig. 8 & Table V** (biased history safety, paired $E$ vs. $T$, mid-stage interleaving) | `python scripts/run_icde2027_extra3.py`, `run_paired_targets.py`, `run_review3_suite.py --exp interleave` | 15% history (Unif, BM25, $\times 4$, $\times 16$), 8–20 seeds; mid-stage 12% BM25 | `exp_bias20.json`, `exp_paired.json`, `exp_interleave.json` | $\operatorname{median}_s(1 - C_{E,s}/C_{T,s})$ (`draw_fig7_history_and_paired`) | `figure/fig_history.pdf`, `gen/tab_paired.tex` |
+| **Fig. 7 & Table V** (empirical plan-crossover phase diagrams & 45-session offline call-cost selector) | `python scripts/run_review6_audit.py && python scripts/make_review3_visuals.py` | Overlap $\times$ Horizon vs. Dyn-$E$; $E_0$ Skew $\times$ Round vs. Shared-Priority; 45 sessions across 3 workloads | `exp_review5_cpu.json` (`phase_diagrams_clean`, `unseen_multidomain_selector`) | median call ratios (`draw_fig9_denom`) & selector baselines (`tab_selector`) | `figure/fig_denom.pdf`, `gen/tab_selector.tex` |
+| **Fig. 8 & Table VI** (biased history safety, paired $E$ vs. $T$, mid-stage interleaving) | `python scripts/run_icde2027_extra3.py`, `run_paired_targets.py`, `run_review3_suite.py --exp interleave` | 15% history (Unif, BM25, $\times 4$, $\times 16$), 8–20 seeds; mid-stage 12% BM25 | `exp_bias20.json`, `exp_paired.json`, `exp_interleave.json` | $\operatorname{median}_s(1 - C_{E,s}/C_{T,s})$ (`draw_fig7_history_and_paired`) | `figure/fig_history.pdf`, `gen/tab_paired.tex` |
 | **Fig. 9** (two-stage re-slicing on WANDS & DrugLib) | `python scripts/run_icde2027_suite.py --exp session` & `run_review5_cpu_suite.py` | Stage 1 ($\alpha/2$) $\to$ Stage 2 ($\alpha/4$) category & therapeutic re-slice | `exp_session.json`, `exp_review5_cpu.json` (`druglib_domain`) | `draw_fig8_session()` | `figure/fig_session.pdf` |
-| **Table VI** (coverage calibration & exact rational LP audit) | `python scripts/run_icde2027_suite.py --exp calib` & `run_icde2027_extra3.py --exp audit` | 3,000 full permutations + 200 sessions (1,740 claims) + 60 audit cells | `exp_calib.json`, `exp_audit_grid.json`, `exp_enum.json` | exact rates & 95% Clopper–Pearson UB | `gen/tab_calib.tex` |
-| **Table VII** (canonical live GPU wall-clock vs. measured full-table scans) | `python scripts/run_wands_live_canonical.py` | Live Qwen3-8B (`batch_size=32, len=288`), 0 mismatches vs. 1,814s scan | `exp_live_canonical_gpu.json` | `write_tables()` (`tab_livegpu`) | `gen/tab_livegpu.tex` |
-| **Table VIII** ($H, K$ structural scaling) | `python scripts/run_review3_suite.py --exp hk` | $H\in\{3,6,12,24\}, K\in\{2,3,4\}$ @ 3,200 calls, 3 seeds | `exp_hk_scale.json` | `write_tables()` (`tab_hkscale`) | `gen/tab_hkscale.tex` |
+| **Table VII** (coverage calibration & exact rational LP audit) | `python scripts/run_icde2027_suite.py --exp calib` & `run_icde2027_extra3.py --exp audit` | 3,000 full permutations + 200 sessions (1,740 claims) + 60 audit cells | `exp_calib.json`, `exp_audit_grid.json`, `exp_enum.json` | exact rates & 95% Clopper–Pearson UB | `gen/tab_calib.tex` |
+| **Table VIII** (canonical live GPU wall-clock, first-answer latency & batch fill vs. measured full-table scans) | `python scripts/run_wands_live_canonical.py && python scripts/run_review6_audit.py` | Live Qwen3-8B (`batch_size=32, len=288`), 0 mismatches vs. 1,814.2s scan | `exp_live_canonical_gpu.json` | `write_tables()` (`tab_livegpu`) | `gen/tab_livegpu.tex` |
+| **Table IX** ($H, K$ structural scaling) | `python scripts/run_review3_suite.py --exp hk` | $H\in\{3,6,12,24\}, K\in\{2,3,4\}$ @ 3,200 calls, 3 seeds | `exp_hk_scale.json` | `write_tables()` (`tab_hkscale`) | `gen/tab_hkscale.tex` |
 
 ---
 
-## 3. Data and licenses
+## 4. Data and licenses
 
 | Item | Source | License |
 |---|---|---|

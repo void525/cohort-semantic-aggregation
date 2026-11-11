@@ -45,6 +45,7 @@ def run_streams_executor(
     cs_pad=1,
     alpha=0.05,
     on_first_cert=None,
+    candidate_queries=None,
 ):
     """Unified stream-per-distinct-ratio executor with batched oracle calls.
 
@@ -129,7 +130,17 @@ def run_streams_executor(
             tuple(int(round(x)) for x in b_tab),
         )
 
-    if not adaptive_risk:
+    if candidate_queries is not None:
+        # Full-candidate-family simultaneous risk pre-allocation for valid post-selection coverage
+        # when active cohorts are chosen adaptively from observed prefix estimates!
+        uniq = set()
+        for q in candidate_queries:
+            uniq.add(side_key(q.scope, q.a_hz, q.tables["b"]))
+            if q.kind == "difference":
+                uniq.add(side_key(q.scope2, q.a_hz2, q.tables["b2"]))
+        oracle_delta = alpha / max(1, 2 * len(uniq))
+        adaptive_risk = False
+    elif not adaptive_risk:
         uniq = set()
         for q in all_qs:
             uniq.add(side_key(q.scope, q.a_hz, q.tables["b"]))
@@ -451,4 +462,120 @@ def predict_cost_ratio_cohort_over_streams(
         "predicted_stream_calls": round(pred_stream, 1),
         "predicted_ratio": round(ratio, 3),
         "recommend_cohort": bool(ratio < 1.0),
+    }
+
+
+def metadata_call_cost_heuristic(env_cur, rds, h0, alpha=0.05, gamma=0.36):
+    """Metadata-based call-cost heuristic comparing COHORT, Dynamic-E, and Shared-Priority.
+
+    Inputs (strictly pre-execution metadata, zero LLM calls):
+      - N_h, |E_{0,h}|, M_h = N_h - |E_{0,h}| per stratum h;
+      - Compiled semantic basis size |F| from declared query family;
+      - Planned query scopes S_q, tolerances eps_q, and whether denominator is filtered (d_idx != ()).
+
+    Fixed heuristic constants (frozen prior to multi-domain evaluation; sensitivity over gamma in
+    {0.30, 0.36, 0.40, 0.50} reported in exp_review5_cpu.json):
+      - Finite-population Ville depth proxy:
+          n_0(eps_eff, delta) = (0.22 / max(0.025, eps_eff)^2) * log(max(2.5, 2 / delta)),
+          n_req(M, eps_eff, delta) = min(M, M * n_0 / (M + max(1, n_0 - 1))),
+        with coarse prior denominator selectivity sel_d = 1.0 (unconditional) or 0.62 (filtered),
+        and difference side factor 0.72 * eps_q (allocating half-width across two ratios).
+      - Multi-stratum interval-summation exponent gamma = 0.36: interpolates between independent
+        sub-Gaussian variance addition (0.50) and finite-population drain clamping (~0.25) when
+        summing |S_q| stratum CS intervals in P_t: eps_co = eps_q / |S_q|^gamma.
+      - Skewed-history pooling penalty for r_meta queries mixing strata with unequal E_0 fractions:
+        skew_pen = 1 + 2.8 * |f_pos - f_neg|, reflecting unstratified remainder inflation when
+        numerator-positive strata are already heavily covered in E_0.
+    """
+    from cohortrag.states import compile_basis
+
+    hs = sorted(env_cur["snap"].strata())
+    N_h = {h: len(env_cur["snap"].stratum_ids(h)) for h in hs}
+    e_h = {h: 0 for h in hs}
+    for rid in h0:
+        e_h[env_cur["stratum_of"][int(rid)]] += 1
+    M_h = {h: N_h[h] - e_h[h] for h in hs}
+
+    all_qs = [q for r in rds for q in r]
+    btabs, bnames = [], []
+    for q in all_qs:
+        btabs.append(q.tables["d"]); bnames.append("d")
+        btabs.append(q.tables["a"]); bnames.append("a")
+        if q.kind == "difference":
+            btabs += [q.tables["d2"], q.tables["a2"]]
+            bnames += ["d2", "a2"]
+    n_basis = max(1, len(compile_basis(btabs, bnames)[0]))
+    H_rem = sum(1 for h in hs if M_h[h] > 0)
+    delta_co = alpha / max(1, H_rem * n_basis)
+
+    def ville_n(M, eps, delta, sel_d):
+        if M <= 0:
+            return 0.0
+        eff = max(0.025, eps * sel_d)
+        n0 = (0.22 / (eff ** 2)) * math.log(max(2.5, 2.0 / max(1e-12, delta)))
+        return min(float(M), (M * n0) / (M + max(1.0, n0 - 1.0)))
+
+    co_h = {h: 0.0 for h in hs}
+    for r in rds:
+        for q in r:
+            scs = [(q.scope, q.d_idx, q.eps)] + (
+                [(q.scope2, q.d_idx2, q.eps * 0.72)] if q.kind == "difference" else []
+            )
+            for sc, didx, ep in scs:
+                M_sc = sum(M_h[h] for h in sc)
+                if M_sc <= 0:
+                    continue
+                sel_d = 1.0 if len(didx) == 0 else 0.62
+                n_sc = ville_n(M_sc, ep / (len(sc) ** gamma), delta_co, sel_d)
+                for h in sc:
+                    co_h[h] = max(co_h[h], min(float(M_h[h]), n_sc * (M_h[h] / M_sc)))
+    est_cohort = sum(co_h.values())
+
+    seen = set()
+    cov_dyn = {h: 0.0 for h in hs}
+    sp_depth = {h: 0.0 for h in hs}
+    est_dyne = 0.0
+    for r_i, r in enumerate(rds):
+        r_sides = []
+        for q in r:
+            s_list = [(q.scope, q.d_idx, q.r_idx, tuple(sorted((q.r_meta or {}).items())), q.eps)]
+            if q.kind == "difference":
+                s_list.append(
+                    (q.scope2, q.d_idx2, q.r_idx2, tuple(sorted((q.r_meta2 or {}).items())), q.eps * 0.72)
+                )
+            for item in s_list:
+                key = item[:4]
+                if key not in seen:
+                    seen.add(key)
+                    r_sides.append(item)
+        if not r_sides:
+            continue
+        d_r = (alpha / (2 ** (r_i + 1))) / (2 * len(r_sides))
+        for sc, didx, ridx, rmeta, ep in r_sides:
+            M_sc = sum(M_h[h] for h in sc)
+            if M_sc <= 0:
+                continue
+            sel_d = 1.0 if len(didx) == 0 else 0.62
+            skew_pen = 1.0
+            if rmeta:
+                pos_hs = [h for h, v in rmeta if v == 1 and h in sc]
+                neg_hs = [h for h, v in rmeta if v == 0 and h in sc]
+                if pos_hs and neg_hs:
+                    f_pos = sum(e_h[h] for h in pos_hs) / max(1, sum(N_h[h] for h in pos_hs))
+                    f_neg = sum(e_h[h] for h in neg_hs) / max(1, sum(N_h[h] for h in neg_hs))
+                    skew_pen = 1.0 + 2.8 * abs(f_pos - f_neg)
+            n_req = min(float(M_sc), ville_n(M_sc, ep / skew_pen, d_r, sel_d))
+            p_sc = n_req / M_sc
+            for h in sc:
+                if M_h[h] <= 0:
+                    continue
+                sp_depth[h] = max(sp_depth[h], min(float(M_h[h]), p_sc * M_h[h]))
+                add_dyn = (p_sc * M_h[h]) * (1.0 - cov_dyn[h])
+                est_dyne += add_dyn
+                cov_dyn[h] = min(1.0, cov_dyn[h] + add_dyn / M_h[h])
+    est_sp = sum(sp_depth.values())
+    return {
+        "est_cohort": round(est_cohort, 1),
+        "est_dyne": round(est_dyne, 1),
+        "est_sp": round(est_sp, 1),
     }

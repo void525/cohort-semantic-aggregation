@@ -5,6 +5,6 @@
  "thr_unsound": 0,
  "thr_checked": 573,
  "audit_adjusted": 0,
- "max_lp_gap": 1.0000076322569385e-09,
+ "max_lp_gap": 1.0000049677216793e-09,
  "max_audit_pad": 1.8560562531355629e-09
 }

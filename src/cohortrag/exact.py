@@ -211,27 +211,91 @@ def exact_max_contrast(poly, a_hz, b_table, lam, scope, J):
 _DEN = 2 ** 30
 
 
+def _exact_domain_bounds(poly, a_hz, b_table, scope, J):
+    """Derive exact rational domain bounds [lo_frac, hi_frac] from query coefficients."""
+    masked = True
+    ratios = []
+    for h in scope:
+        for z in range(J):
+            bz = int(round(float(b_table[z])))
+            az = int(round(float(a_hz[h][z])))
+            if bz > 0:
+                ratios.append(Fraction(az, bz))
+            elif az != 0:
+                masked = False
+    if masked and ratios:
+        return min(ratios), max(ratios)
+    b_min = sum(
+        exact_min_stratum(poly, h, [Fraction(int(round(float(b_table[z])))) for z in range(J)], J)
+        for h in scope
+    )
+    b_floor = b_min if b_min > 0 else Fraction(1, 1)
+    max_abs_a = sum(
+        int(poly["N_h"][h]) * max(abs(int(round(float(a_hz[h][z])))) for z in range(J))
+        for h in scope
+    )
+    bound = max(Fraction(1, 1), Fraction(max_abs_a, 1) / b_floor)
+    return -bound, bound
+
+
 def audit_ratio_interval(poly, a_hz, b_table, scope, J, L_float, U_float):
     """返回精确验证过的外包围端点 (L_safe, U_safe, n_exact_lps_adjusted)。
 
-    端点取 2^-30 网格上略微向外的有理数；若精确检验不通过，逐步向外让步。
+    端点取 2^-30 网格上略微向外的有理数；若精确检验不通过，采用指数倍增步长 + 二分快速收敛。
     """
-    has_neg = any(any(float(v) < 0.0 for v in a_hz[h]) for h in scope)
-    lo_num = -_DEN if has_neg else 0
-    lo_frac = Fraction(-1, 1) if has_neg else Fraction(0, 1)
+    lo_frac, hi_frac = _exact_domain_bounds(poly, a_hz, b_table, scope, J)
     adjust = 0
-    L = Fraction(max(lo_num, math.floor(L_float * _DEN) - 1), _DEN)
-    while L > lo_frac:
-        if exact_min_contrast(poly, a_hz, b_table, L, scope, J) >= 0:
-            break
-        L = max(lo_frac, L - Fraction(1, 2 ** 20))
+    L = max(lo_frac, Fraction(math.floor(L_float * _DEN) - 1, _DEN))
+    if L > lo_frac and exact_min_contrast(poly, a_hz, b_table, L, scope, J) < 0:
+        hi_bad = L
+        step = Fraction(1, 2 ** 20)
+        lo_ok = max(lo_frac, L - step)
         adjust += 1
-    U = Fraction(min(_DEN, math.ceil(U_float * _DEN) + 1), _DEN)
-    while U < 1:
-        if exact_max_contrast(poly, a_hz, b_table, U, scope, J) <= 0:
-            break
-        U = min(Fraction(1), U + Fraction(1, 2 ** 20))
+        while lo_ok > lo_frac and exact_min_contrast(poly, a_hz, b_table, lo_ok, scope, J) < 0:
+            hi_bad = lo_ok
+            step *= 2
+            lo_ok = max(lo_frac, hi_bad - step)
+            adjust += 1
+        # Optional tight refinement over 2^-30 grid in <= 25 steps
+        for _ in range(24):
+            if hi_bad - lo_ok <= Fraction(1, _DEN):
+                break
+            mid_k = ((lo_ok + hi_bad) * _DEN) // 2
+            mid = Fraction(mid_k, _DEN)
+            if mid <= lo_ok or mid >= hi_bad:
+                break
+            adjust += 1
+            if exact_min_contrast(poly, a_hz, b_table, mid, scope, J) >= 0:
+                lo_ok = mid
+            else:
+                hi_bad = mid
+        L = lo_ok
+
+    U = min(hi_frac, Fraction(math.ceil(U_float * _DEN) + 1, _DEN))
+    if U < hi_frac and exact_max_contrast(poly, a_hz, b_table, U, scope, J) > 0:
+        lo_bad = U
+        step = Fraction(1, 2 ** 20)
+        hi_ok = min(hi_frac, U + step)
         adjust += 1
+        while hi_ok < hi_frac and exact_max_contrast(poly, a_hz, b_table, hi_ok, scope, J) > 0:
+            lo_bad = hi_ok
+            step *= 2
+            hi_ok = min(hi_frac, lo_bad + step)
+            adjust += 1
+        for _ in range(24):
+            if hi_ok - lo_bad <= Fraction(1, _DEN):
+                break
+            mid_k = ((lo_bad + hi_ok) * _DEN) // 2
+            mid = Fraction(mid_k, _DEN)
+            if mid <= lo_bad or mid >= hi_ok:
+                break
+            adjust += 1
+            if exact_max_contrast(poly, a_hz, b_table, mid, scope, J) <= 0:
+                hi_ok = mid
+            else:
+                lo_bad = mid
+        U = hi_ok
+
     if L > U:
         raise RuntimeError(f"audit_ratio_interval inverted bounds: L={L} > U={U}")
     return L, U, adjust

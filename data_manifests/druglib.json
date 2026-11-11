@@ -14,5 +14,41 @@
       "sha256": "3c2ac688ba841b8f420a0dd9a0c12b5de2b88c67672d303fac82a8718d24dca6",
       "bytes": 793618
     }
+  },
+  "triage_session_protocol": {
+    "history_nature": "simulated_triage_biased_history (15% of N=4,143 -> 621 reviews; 75% sampled without replacement from safety_alert=1 strata, 25% from safety_alert=0 strata; rng seed = sd*313 + 7)",
+    "safety_alert_rule": ">=2 regex matches of \\b(severe|stopped|discontinued|quit|switched|intolerable|horrible|awful|withdrawal|worse|terrible)\\b (case-insensitive)",
+    "stage1_strata_h4": {
+      "0": {
+        "label": "rating>=8 & safety_alert=0",
+        "N_h": 2137,
+        "E0_seed0": 99,
+        "E0_coverage_pct": 4.6
+      },
+      "1": {
+        "label": "rating>=8 & safety_alert=1",
+        "N_h": 192,
+        "E0_seed0": 153,
+        "E0_coverage_pct": 79.7
+      },
+      "2": {
+        "label": "rating<=7 & safety_alert=0",
+        "N_h": 1448,
+        "E0_seed0": 57,
+        "E0_coverage_pct": 3.9
+      },
+      "3": {
+        "label": "rating<=7 & safety_alert=1",
+        "N_h": 366,
+        "E0_seed0": 312,
+        "E0_coverage_pct": 85.2
+      }
+    },
+    "stage2_therapeutic_areas_h4": {
+      "other_chronic": 2087,
+      "psych_neuro": 1084,
+      "infect_derm": 623,
+      "pain_inflam": 349
+    }
   }
 }

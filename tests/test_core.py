@@ -313,10 +313,116 @@ def test_lambda_bisect_and_enclosure_regression():
     assert L_inv <= 0.3 <= U_inv and L_inv <= U_inv, (L_inv, U_inv)
     print("  _lambda_max_bisect 最小反例与区间单调性回归测试：全部通过")
 
+
+# ---------- 2e) Signed contrast 完整数值域测试（review6 反例：负真值、跨零、±1 边界、负阈值、精确有理数审计） ----------
+def test_signed_contrast_full_domain():
+    """验证 review6 第 IV.2 节提出的全部 5 类带符号对比数值域测试：
+      1) 真值为负且总体全已知：k=[3, 7], a=[1, -1], b=[1, 1] => theta = -0.4
+         验证普通 ratio_bounds、Dinkelbach、bisect、verify_outward_enclosure、exact.audit_ratio_interval 全部精确包围 -0.4；
+      2) 区间跨零（部分未见样本）：[-0.6, +0.2] 精确一致；
+      3) 正负极端边界（全 -1.0 与全 +1.0）；
+      4) 负阈值判断（theta > -0.6 为 true，theta <= -0.2 为 false，含 pipeline 端到端与 audit_exact=True）；
+      5) 超出 [-1, 1] 的一般加权条件对比（如 a=[-2, 3], b=[1, 1]）。
+    """
+    from cohortrag.projection import (
+        _lambda_min_bisect,
+        _lambda_max_bisect,
+        threshold_margins,
+        verify_outward_enclosure,
+    )
+    from cohortrag.exact import audit_ratio_interval, audit_threshold
+    from cohortrag.workload import Query
+
+    # 1) 全已知单点负真值 k=[3, 7], theta = -0.4
+    poly_neg = {
+        "N_h": {0: 10},
+        "o_hz": {0: np.array([3.0, 7.0], dtype=np.float64)},
+        "u_h": {0: 0},
+        "cs": [],
+    }
+    a = np.array([1.0, -1.0], dtype=np.float64)
+    b = np.array([1.0, 1.0], dtype=np.float64)
+    a_hz = {0: a}
+
+    L1, U1 = ratio_bounds(poly_neg, a, b, (0,), 2)
+    L2, U2 = ratio_bounds(poly_neg, a, b, (0,), 2, verify_enclosure=True)
+    L3, U3 = ratio_bounds_lambda(poly_neg, a, b, (0,), 2)
+    Lb = _lambda_min_bisect(poly_neg, a, b, (0,), 2)
+    Ub = _lambda_max_bisect(poly_neg, a, b, (0,), 2)
+    La, Ua, adj = audit_ratio_interval(poly_neg, a_hz, b, (0,), 2, L1, U1)
+
+    for tag, (lo, hi) in [("ratio_bounds", (L1, U1)), ("enclosure", (L2, U2)),
+                          ("dinkelbach", (L3, U3)), ("bisect", (Lb, Ub)),
+                          ("exact_audit", (float(La), float(Ua)))]:
+        assert lo <= -0.4 + 1e-12 and hi >= -0.4 - 1e-12, f"{tag} 未覆盖 -0.4: {(lo, hi)}"
+        assert abs(lo - (-0.4)) < 1e-6 and abs(hi - (-0.4)) < 1e-6, f"{tag} 不紧致: {(lo, hi)}"
+
+    # 故意传入错误正区间 [0.0, 0.0] 触发修复，必须拉回到包含 -0.4 的有效区间
+    L_rep, U_rep = verify_outward_enclosure(poly_neg, a, b, (0,), 2, 0.0, 0.0)
+    assert L_rep <= -0.4 <= U_rep <= 0.0 + 1e-8, (L_rep, U_rep)
+    La_rep, Ua_rep, _ = audit_ratio_interval(poly_neg, a_hz, b, (0,), 2, 0.0, 0.0)
+    assert float(La_rep) <= -0.4 <= float(Ua_rep), (La_rep, Ua_rep)
+
+    # 2) 区间跨零：N=10, 已见 [2, 4], 未见 u=4 => k0 in [2, 6], theta = (2*k0 - 10)/10 in [-0.6, +0.2]
+    poly_cross = {
+        "N_h": {0: 10},
+        "o_hz": {0: np.array([2.0, 4.0], dtype=np.float64)},
+        "u_h": {0: 4},
+        "cs": [],
+    }
+    Lc, Uc = ratio_bounds(poly_cross, a, b, (0,), 2, verify_enclosure=True)
+    Lac, Uac, _ = audit_ratio_interval(poly_cross, a_hz, b, (0,), 2, Lc, Uc)
+    assert abs(Lc - (-0.6)) < 1e-6 and abs(Uc - 0.2) < 1e-6, (Lc, Uc)
+    assert float(Lac) <= -0.6 and float(Uac) >= 0.2, (Lac, Uac)
+
+    # 3) 正负边界：全 -1.0 与全 +1.0
+    for obs_vec, target in [([0.0, 10.0], -1.0), ([10.0, 0.0], 1.0)]:
+        p_edge = {"N_h": {0: 10}, "o_hz": {0: np.array(obs_vec)}, "u_h": {0: 0}, "cs": []}
+        Le, Ue = ratio_bounds(p_edge, a, b, (0,), 2, verify_enclosure=True)
+        Lae, Uae, _ = audit_ratio_interval(p_edge, a_hz, b, (0,), 2, Le, Ue)
+        assert Le <= target <= Ue and abs(Ue - Le) < 1e-6, (target, Le, Ue)
+        assert float(Lae) <= target <= float(Uae), (target, Lae, Uae)
+
+    # 4) 负阈值判断（theta = -0.4 vs tau = -0.6 [true] and tau = -0.2 [false]）与 Pipeline 端到端
+    m_gt, _ = threshold_margins(poly_neg, a, b, -0.6, (0,), 2)
+    _, M_le = threshold_margins(poly_neg, a, b, -0.2, (0,), 2)
+    assert m_gt > 1.99 and M_le < -1.99, (m_gt, M_le)
+    assert audit_threshold(poly_neg, a_hz, b, -0.6, (0,), 2, "true") is True
+    assert audit_threshold(poly_neg, a_hz, b, -0.2, (0,), 2, "false") is True
+
+    # Pipeline end-to-end with audit_exact=True on negative contrast & negative thresholds
+    frame = pd.DataFrame({"id": np.arange(10), "stratum": np.zeros(10, dtype=np.int64), "text": ["x"] * 10})
+    snap = Snapshot(frame, "neg-e2e")
+    labs = {i: np.array([1, 0] if i < 3 else [0, 1], dtype=np.int8) for i in range(10)}
+    op = OracleOperator(labs, name="neg-op", K=2)
+    t0 = states.and_table(2, (0,))
+    t1 = states.and_table(2, (1,))
+    ca = t0.astype(np.float64) - t1.astype(np.float64)
+    qs = [
+        Query(1, "signed_val", (0,), (), (), kind="value", eps=0.05, custom_a=ca, extra_basis=[t0, t1]),
+        Query(2, "neg_thr_true", (0,), (), (), kind="threshold", tau=-0.6, custom_a=ca, extra_basis=[t0, t1]),
+        Query(3, "neg_thr_false", (0,), (), (), kind="threshold", tau=-0.2, custom_a=ca, extra_basis=[t0, t1]),
+    ]
+    for exact_mode in (False, True):
+        pipe = COHORTRAG(snap, op, Config(alpha=0.05, audit_exact=exact_mode), seed=0, cache_labels=labs)
+        res = pipe.run(qs, RoundRobinAllocator(), budget_total=10)
+        assert res[1].status == "certified" and res[1].L <= -0.4 <= res[1].U, res[1]
+        assert res[2].status == "certified_true", res[2]
+        assert res[3].status == "certified_false", res[3]
+
+    # 5) 一般加权系数 [-2, 3]：k=[3, 7] => (-6 + 21)/10 = +1.5 > 1.0!
+    a_gen = np.array([-2.0, 3.0], dtype=np.float64)
+    Lg, Ug = ratio_bounds(poly_neg, a_gen, b, (0,), 2, verify_enclosure=True)
+    Lag, Uag, _ = audit_ratio_interval(poly_neg, {0: a_gen}, b, (0,), 2, Lg, Ug)
+    assert Lg <= 1.5 <= Ug and abs(Ug - Lg) < 1e-6, (Lg, Ug)
+    assert float(Lag) <= 1.5 <= float(Uag), (Lag, Uag)
+    print("  signed contrast 完整数值域测试（负值、跨零、±1、负阈值、一般权重、精确审计）：全部通过")
+
 if __name__ == "__main__":
     for t in [test_cs_class_vs_bruteforce, test_projection_vs_integer_enumeration,
               test_projection_metadata_numerator, test_label_failure_fail_closed,
               test_lambda_bisect_and_enclosure_regression,
+              test_signed_contrast_full_domain,
               test_pipeline_smoke]:
         t()
     print("test_core 全部通过")

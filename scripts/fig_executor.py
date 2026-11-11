@@ -102,15 +102,15 @@ def draw_executor(out_dir):
     d = Drawing(516, 276, "fig_stage", out_dir)
 
     # ---- execution contract ------------------------------------------------------------------
-    d.text(8, 10, r"Declared closure $\mathcal{Q}_e$:", size=8.4, weight="bold")
-    d.text(8, 23, r"Active $\mathcal{A}_t \subseteq \mathcal{Q}_e$ (e.g., Q1: Exact | Rel)", size=7.5, color=MUTED)
-    d.arrow([(160, 17), (174, 17)], lw=0.65, head=3.6)
-    d.text(180, 10, "Compile basis once", size=8.4, weight="bold")
-    d.text(180, 23, "2 events × 6 strata = 12 CSs", size=7.6, color=MUTED)
-    d.line([(298, 4), (298, 30)], color=RULE, lw=0.55)
-    d.text(308, 10, r"Frozen pool $N=31{,}482$  ·  judge $\phi$", size=8.0)
-    d.text(308, 23, r"Version key $\kappa$  ·  stage risk $\alpha_e$", size=8.0, color=MUTED)
-    d.line([(8, 36), (508, 36)], color=RULE, lw=0.65)
+    d.text(8, 9, r"Declared closure $\mathcal{Q}_e$:", size=8.3, weight="bold")
+    d.text(8, 24.5, r"Active $\mathcal{A}_t \subseteq \mathcal{Q}_e$ (e.g., Q1: Exact | Rel)", size=7.4, color=MUTED)
+    d.arrow([(162, 17), (175, 17)], lw=0.65, head=3.6)
+    d.text(180, 9, "Compile basis once", size=8.3, weight="bold")
+    d.text(180, 24.5, "2 events × 6 strata = 12 CSs", size=7.5, color=MUTED)
+    d.line([(298, 4), (298, 32)], color=RULE, lw=0.55)
+    d.text(308, 9, r"Frozen pool $N=31{,}482$  ·  judge $\phi$", size=8.0)
+    d.text(308, 24.5, r"Version key $\kappa$  ·  stage risk $\alpha_e$", size=7.9, color=MUTED)
+    d.line([(8, 37), (508, 37)], color=RULE, lw=0.65)
 
     # ---- evidence ledger: three provenance classes, one visual code ---------------------------
     d.text(8, 49, "Evidence ledger", size=9.0, weight="bold")

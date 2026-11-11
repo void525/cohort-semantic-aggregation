@@ -87,30 +87,31 @@ def draw_fig1_motivation():
     t1_live = live["wands_relevance_5target_live"]
     pk_live = live["wands_split_cost_cascade_live"]
 
-    fig = plt.figure(figsize=(3.48, 2.38), facecolor=WHITE)
-    # Top band: compact top-k non-identifiability schematic (inset bar)
-    ax_top = fig.add_axes([0.02, 0.70, 0.96, 0.28])
+    fig = plt.figure(figsize=(3.48, 2.54), facecolor=WHITE)
+    # Top band: compact top-k non-identifiability schematic (inset bar, zero text overlap)
+    ax_top = fig.add_axes([0.02, 0.71, 0.96, 0.27])
     ax_top.set_xlim(0, 240)
-    ax_top.set_ylim(46, 0)
+    ax_top.set_ylim(48, 0)
     ax_top.axis("off")
 
-    ax_top.text(2, 7, "Why sampling is required:", fontsize=7.6, weight="bold", color=INK, va="center")
-    ax_top.text(105, 7, r"top-$k$ ($5/12$ pos. in $N{=}100$) leaves $\theta \in [5\%, 93\%]$",
-                fontsize=7.2, color=GRAY, va="center")
-    # Mini bar for 5% to 93%
-    bx, by, bw, bh = 2, 18, 234, 9.0
+    ax_top.text(2, 6.5, "Why sampling is required:", fontsize=7.5, weight="bold", color=INK, va="center")
+    ax_top.text(106, 6.5, r"top-$k$ ($5/12$ pos., $N{=}100$) $\Rightarrow \theta \in [5\%, 93\%]$",
+                fontsize=7.1, color=GRAY, va="center")
+    bx, by, bw, bh = 2, 16.5, 236, 11.5
     ax_top.add_patch(Rectangle((bx, by), bw * 0.05, bh, facecolor=ACCENT, edgecolor="none"))
     ax_top.add_patch(Rectangle((bx + bw * 0.05, by), bw * 0.88, bh, facecolor=TINT, edgecolor="none"))
     ax_top.add_patch(Rectangle((bx + bw * 0.93, by), bw * 0.07, bh, facecolor=WHITE, edgecolor="none"))
     ax_top.add_patch(Rectangle((bx, by), bw, bh, facecolor="none", edgecolor=INK, lw=0.6))
-    ax_top.text(bx + bw * 0.025, 36, "5% min", fontsize=6.8, color=ACCENT, weight="bold", ha="left", va="center")
-    ax_top.text(bx + bw * 0.49, 36, "88 unseen tuples unidentified without random prefix",
-                fontsize=6.8, color=GRAY, ha="center", va="center")
-    ax_top.text(bx + bw * 0.93, 36, "93% max", fontsize=6.8, color=INK, weight="bold", ha="right", va="center")
-    ax_top.add_line(Line2D([0, 240], [44, 44], color=RULE, lw=0.6))
+    ax_top.add_line(Line2D([bx + bw * 0.05, bx + bw * 0.05], [by, by + bh], color=ACCENT, lw=0.6))
+    ax_top.add_line(Line2D([bx + bw * 0.93, bx + bw * 0.93], [by, by + bh], color=INK, lw=0.6))
+    ax_top.text(bx + bw * 0.49, by + bh / 2, "88 unseen tuples unidentified",
+                fontsize=6.7, color=INK, ha="center", va="center")
+    ax_top.text(bx, 36.5, "5% min", fontsize=6.8, color=ACCENT, weight="bold", ha="left", va="center")
+    ax_top.text(bx + bw, 36.5, "93% max", fontsize=6.8, color=INK, weight="bold", ha="right", va="center")
+    ax_top.add_line(Line2D([2, 238], [45.5, 45.5], color=RULE, lw=0.6))
 
     # Bottom panel: Measured Live GPU Wall-Clock Plan Inversion (RTX 4080 SUPER, 0 mismatches)
-    ax = fig.add_axes([0.15, 0.14, 0.81, 0.46])
+    ax = fig.add_axes([0.15, 0.13, 0.82, 0.45])
     regimes = [
         "Balanced E0\n(2-rnd, 5 targets)",
         "Skewed proxy E0\n(4-rnd, 12 targets)",
@@ -144,11 +145,11 @@ def draw_fig1_motivation():
     ax.set_xticks(x)
     ax.set_xticklabels(regimes, fontsize=7.2)
     ax.set_ylabel("Live GPU time (s)", fontsize=7.6)
-    ax.set_ylim(0, 720)
+    ax.set_ylim(0, 735)
     ax.set_yticks([0, 200, 400, 600])
     ax.grid(axis="y", lw=0.35, alpha=0.45)
-    ax.legend(loc="lower left", bbox_to_anchor=(-0.16, 1.04), ncol=3, frameon=False,
-              fontsize=6.5, handlelength=1.2, columnspacing=0.65, handletextpad=0.35, borderaxespad=0.0)
+    ax.legend(loc="lower left", bbox_to_anchor=(-0.16, 1.05), ncol=3, frameon=False,
+              fontsize=6.5, handlelength=1.15, columnspacing=0.60, handletextpad=0.32, borderaxespad=0.0)
 
     fig.savefig(FIG / "fig_ambiguity.pdf", bbox_inches="tight", pad_inches=0.02)
     plt.close(fig)
@@ -283,7 +284,7 @@ def draw_fig4_geometry():
     r4 = load_json("exp_review4_suite.json")["coupled_lp_vs_partition"]
     PA, PB = np.array(g["polygon_A"]), np.array(g["polygon_B"])
 
-    fig, axs = plt.subplots(1, 2, figsize=(3.48, 1.92), gridspec_kw={"width_ratios": [1.15, 0.95], "wspace": 0.44})
+    fig, axs = plt.subplots(1, 2, figsize=(3.48, 1.92), gridspec_kw={"width_ratios": [1.12, 0.98], "wspace": 0.50})
 
     ax = axs[0]
     ax.fill(PB / 1000, PA / 1000, color=ACCENT, alpha=0.18, lw=0, zorder=2)
@@ -407,7 +408,7 @@ def draw_fig6_multicohort():
     pk = r5["wands_split_cost_cascade_8rounds"]
     dl = r5["druglib_triage_8rounds"]
 
-    fig, axs = plt.subplots(1, 3, figsize=(7.15, 2.28), gridspec_kw={"wspace": 0.28})
+    fig, axs = plt.subplots(1, 3, figsize=(7.15, 2.28), gridspec_kw={"wspace": 0.30})
 
     m_styles = [
         ("Adaptive dedup + E0", "Adaptive dedup + E0", C_DEDUP, "--", "^", 1.25, False),
@@ -418,9 +419,9 @@ def draw_fig6_multicohort():
     ]
 
     panels = [
-        (axs[0], t1, "WANDS Relevance (balanced E0, 24t)", 22.0, "0 new calls\n(R4–R8)"),
-        (axs[1], pk, "WANDS Cascade (skewed E0, 24t)", 17.5, "-38% vs. Prio\n-65% vs. DynE"),
-        (axs[2], dl, "UCI DrugLib Triage (N=4,143, 18t)", 3.35, "-38% vs. DynE\nties Prio"),
+        (axs[0], t1, "WANDS Relevance (bal. E0, 24t)", 22.0, "0 new calls\n(R4–R8)"),
+        (axs[1], pk, "WANDS Cascade (skew E0, 24t)", 17.5, "-38% vs. Prio\n-65% vs. DynE"),
+        (axs[2], dl, "UCI DrugLib (N=4,143, 18t)", 3.35, "-38% vs. DynE\n+0.6% vs. Prio"),
     ]
 
     for idx, (ax, data, title, ymax, note) in enumerate(panels):
@@ -428,7 +429,7 @@ def draw_fig6_multicohort():
         for key, lab, col, ls, mk, lw, band in m_styles:
             md = data["methods"][key]
             meds = np.array(md["round_cumulative_medians"], dtype=float) / 1000.0
-            ax.plot(rx, meds, color=col, ls=ls, marker=mk, ms=3.5, lw=lw, label=lab,
+            ax.plot(rx, meds, color=col, ls=ls, marker=mk, ms=3.4, lw=lw, label=lab,
                     zorder=(5 if key.startswith("COHORT") else 3))
             if band:
                 q25 = np.array(md["round_cumulative_q25"], dtype=float) / 1000.0
@@ -436,12 +437,23 @@ def draw_fig6_multicohort():
                 ax.fill_between(rx, q25, q75, color=col, alpha=0.10, lw=0, zorder=2)
 
         co_end = data["methods"]["COHORT (known mass E0 + shared region)"]["round_cumulative_medians"][-1] / 1000.0
+        box_kw = dict(facecolor=WHITE, edgecolor="none", pad=1.0, alpha=0.92)
         if idx == 0:
-            ax.text(5.8, co_end + 1.4, note, fontsize=6.7, color=ACCENT, weight="bold", ha="center")
+            # Place cleanly in empty space below all curves at R5.5-R8 (all curves >= 6.8 here!)
+            ax.annotate(note, xy=(6.2, co_end - 0.25), xytext=(6.1, 3.1),
+                        fontsize=6.6, color=ACCENT, weight="bold", ha="center", va="center",
+                        bbox=box_kw, arrowprops=dict(arrowstyle="-|>", color=ACCENT, lw=0.75, mutation_scale=6),
+                        zorder=7)
         elif idx == 1:
-            ax.text(5.6, co_end - 2.6, note, fontsize=6.7, color=ACCENT, weight="bold", ha="center")
+            ax.annotate(note, xy=(6.2, co_end - 0.18), xytext=(6.0, 1.55),
+                        fontsize=6.6, color=ACCENT, weight="bold", ha="center", va="center",
+                        bbox=box_kw, arrowprops=dict(arrowstyle="-|>", color=ACCENT, lw=0.75, mutation_scale=6),
+                        zorder=7)
         else:
-            ax.text(5.6, co_end - 0.58, note, fontsize=6.7, color=ACCENT, weight="bold", ha="center")
+            ax.annotate(note, xy=(6.2, co_end - 0.05), xytext=(6.0, 0.50),
+                        fontsize=6.6, color=ACCENT, weight="bold", ha="center", va="center",
+                        bbox=box_kw, arrowprops=dict(arrowstyle="-|>", color=ACCENT, lw=0.75, mutation_scale=6),
+                        zorder=7)
 
         ax.set_xticks([1, 2, 4, 6, 8])
         ax.set_xticklabels(["R1", "R2", "R4", "R6", "R8"], fontsize=7.2)
@@ -451,7 +463,7 @@ def draw_fig6_multicohort():
         ax.set_xlim(0.75, 8.30)
         ax.set_ylim(0, ymax)
         ax.grid(axis="y", lw=0.35, alpha=0.45)
-        ax.set_title(title, loc="left", weight="bold", fontsize=7.6, pad=6)
+        ax.set_title(title, loc="left", weight="bold", fontsize=7.25, pad=6)
 
     h, l = axs[0].get_legend_handles_labels()
     fig.legend(h, l, loc="upper center", ncol=3, frameon=False, bbox_to_anchor=(0.5, 1.20),
@@ -469,7 +481,7 @@ def draw_fig7_history_and_paired():
     paired = load_json("exp_paired.json")
     inter = load_json("exp_interleave.json")
 
-    fig, axs = plt.subplots(1, 3, figsize=(7.15, 2.22), gridspec_kw={"wspace": 0.38})
+    fig, axs = plt.subplots(1, 3, figsize=(7.15, 2.24), gridspec_kw={"wspace": 0.45})
 
     ax = axs[0]
     enr = sorted({v["ratio"] for v in d.values() if v["kind"] == "enrich"})
@@ -479,28 +491,36 @@ def draw_fig7_history_and_paired():
     ]:
         xs = [d[f"enrich:{r}@0.1"]["hit_hist"] / d[f"enrich:{r}@0.1"]["hit_pop"] for r in enr]
         ys = [100 * d[f"enrich:{r}@0.1"]["arms"][arm]["dec_err_rate"] for r in enr]
-        ax.plot(xs, ys, color=col, ls=ls, marker=mk, ms=3.8, lw=1.4, label=lab)
+        ax.plot(xs, ys, color=col, ls=ls, marker=mk, ms=3.1, lw=1.35, label=lab, zorder=3)
         vb = d["bm25:0@0.1"]
-        ax.scatter([vb["hit_hist"] / vb["hit_pop"]], [100 * vb["arms"][arm]["dec_err_rate"]],
-                   marker="D", s=26, facecolor="white", edgecolor=col, lw=1.2, zorder=6)
+        xb = vb["hit_hist"] / vb["hit_pop"]
+        yb = 100 * vb["arms"][arm]["dec_err_rate"]
+        ax.scatter([xb], [yb], marker="D", s=22, facecolor=WHITE, edgecolor=col, lw=1.15, zorder=6)
 
-    # Single clean zero line representing all three selection-safe rules without occlusion!
+    # Single clean zero line representing all three selection-safe rules without cross-panel spillover!
     xs_safe = [d[f"enrich:{r}@0.1"]["hit_hist"] / d[f"enrich:{r}@0.1"]["hit_pop"] for r in enr]
-    ax.plot(xs_safe, [0.0] * len(xs_safe), color=ACCENT, ls="-", marker="o", ms=3.8, lw=1.8,
-            label="COHORT / T / Discard")
-    ax.text(2.1, 5.2, "COHORT, Free-T, Discard:\nall 0.0% false certs", fontsize=6.6, color=ACCENT, weight="bold")
+    ax.plot(xs_safe, [0.0] * len(xs_safe), color=ACCENT, ls="-", marker="o", ms=3.2, lw=1.75,
+            label="COHORT / T / Discard", zorder=4)
+    ax.plot([], [], marker="D", ls="none", markerfacecolor=WHITE, markeredgecolor=INK, ms=4.0,
+            label="Real BM25 (2.2×)")
+    # Placed strictly inside axs[0] in the empty upper-left space (x in [1.05, 3.2], y in [36, 51])!
+    ax.text(0.05, 0.89, "E, T, Discard:\n0.0% false certs", transform=ax.transAxes,
+            fontsize=6.5, color=ACCENT, weight="bold", ha="left", va="top",
+            bbox=dict(facecolor=WHITE, edgecolor="none", pad=0.8, alpha=0.9))
 
     ax.set_xscale("log", base=2)
     ax.set_xticks([1, 2, 4, 8])
     ax.set_xticklabels(["1×", "2×", "4×", "8×"])
     ax.minorticks_off()
-    ax.set_ylim(-3.5, 55)
-    ax.set_xlabel("Exact-match enrichment in history", labelpad=4)
+    ax.set_xlim(0.90, 9.2)
+    ax.set_ylim(-3.5, 50)
+    ax.set_xlabel("Exact-match enrichment in history", labelpad=5.5)
     ax.set_ylabel("Wrong certified claims (%)")
-    ax.legend(loc="lower left", bbox_to_anchor=(-0.04, 1.03), ncol=2, frameon=False,
-              fontsize=6.8, handlelength=1.6, columnspacing=0.7, labelspacing=0.26, borderaxespad=0.0)
+    ax.grid(axis="y", lw=0.35, alpha=0.45)
+    ax.legend(loc="lower left", bbox_to_anchor=(-0.06, 1.03), ncol=2, frameon=False,
+              fontsize=6.5, handlelength=1.45, columnspacing=0.55, labelspacing=0.25, borderaxespad=0.0)
 
-    # Middle: Two-line non-overlapping x-tick labels!
+    # Middle: Two-line non-overlapping x-tick labels with generous xlabel pad!
     ax = axs[1]
     order = [("uniform", "Unif.\n(1.0×)"), ("bm25", "BM25\n(2.2×)"),
              ("mild", "Odds\n×4*"), ("strong", "Odds\n×16")]
@@ -514,13 +534,13 @@ def draw_fig7_history_and_paired():
         ax.plot([i - 0.22, i + 0.22], [med, med], color=INK, lw=1.8, zorder=4)
     ax.axhline(0, color="#888888", lw=0.6)
     ax.set_xticks(range(4))
-    ax.set_xticklabels([x[1] for x in order], fontsize=6.9, linespacing=1.08)
+    ax.set_xticklabels([x[1] for x in order], fontsize=6.8, linespacing=1.08)
     ax.set_xlim(-0.55, 3.55)
     ax.set_ylim(-4, 38)
     ax.grid(axis="y", lw=0.35, alpha=0.45)
-    ax.set_xlabel("History regime (*1 empty CS)", labelpad=3)
+    ax.set_xlabel("History regime (*1 empty CS)", labelpad=5.5)
     ax.set_ylabel("Paired saving: E vs. T (%)")
-    ax.set_title("Known mass E vs. free reads T", loc="left", weight="bold", fontsize=8.0, pad=7)
+    ax.set_title("Known mass E vs. free reads T", loc="left", weight="bold", fontsize=7.9, pad=7)
 
     ax = axs[2]
     cats = ["Free-read\nrestart", "Known-E\nrestart", "Continuous\nCOHORT"]
@@ -532,15 +552,15 @@ def draw_fig7_history_and_paired():
     cols = [TEAL_MID, C_DEDUP, ACCENT]
     ax.bar(range(3), meds, width=0.44, color=cols)
     for idx, v in enumerate(meds):
-        ax.text(idx, v + 0.28, f"{v:.2f}k", ha="center", va="bottom", fontsize=7.1,
+        ax.text(idx, v + 0.28, f"{v:.2f}k", ha="center", va="bottom", fontsize=7.0,
                 weight=("bold" if idx == 2 else "normal"), color=INK)
     ax.set_xticks(range(3))
-    ax.set_xticklabels(cats, fontsize=6.9, linespacing=1.12)
+    ax.set_xticklabels(cats, fontsize=6.8, linespacing=1.10)
     ax.set_xlim(-0.62, 2.62)
-    ax.set_ylim(0, 11.4)
-    ax.set_xlabel("Mid-stage retrieval protocol", labelpad=3)
+    ax.set_ylim(0, 11.5)
+    ax.set_xlabel("Mid-stage retrieval protocol", labelpad=5.5)
     ax.set_ylabel("Total calls for 5 targets (k)")
-    ax.set_title("Mid-stage retrieval + prefix", loc="left", weight="bold", fontsize=8.0, pad=7)
+    ax.set_title("Mid-stage retrieval + prefix", loc="left", weight="bold", fontsize=7.9, pad=7)
 
     fig.savefig(FIG / "fig_history.pdf", bbox_inches="tight", pad_inches=0.03)
     plt.close(fig)
@@ -556,32 +576,36 @@ def draw_fig8_session():
 
     ax = axs[0]
     style = {
-        "COHORT (E-inherit)": ("COHORT (E-inherit)", ACCENT, "-", "o"),
-        "COHORT-T (restart, free reads)": ("Restart + free reads", TEAL_MID, "--", "s"),
-        "EG-style": ("Evergreen-style", C_EG, "-.", "^"),
+        "COHORT-T (restart, free reads)": ("Restart + free reads", TEAL_MID, "--", "s", WHITE, 4.4, 4),
+        "EG-style": ("Evergreen-style", C_EG, "-.", "^", C_EG, 3.8, 3),
+        "COHORT (E-inherit)": ("COHORT (E-inherit)", ACCENT, "-", "o", ACCENT, 3.1, 6),
     }
     curves = {}
-    for m, (lab, col, ls, mk) in style.items():
+    for m, (lab, col, ls, mk, mfc, ms, zo) in style.items():
         runs = d["runs"][m]
         xs = np.array([[e["calls"] for e in r["traj"]] for r in runs], float)
         ys = np.array([[r["traj"][0]["certified"], r["traj"][1]["certified"], r["traj"][2]["certified"],
                         r["traj"][2]["certified"] + r["traj"][3]["certified"]] for r in runs], float)
         curves[m] = (xs, ys)
         ax.errorbar(xs.mean(0) / 1000.0, ys.mean(0), yerr=ys.std(0), color=col, ls=ls, marker=mk,
-                    ms=3.8, lw=1.4, capsize=1.5, elinewidth=0.7, label=lab)
+                    markerfacecolor=mfc, markeredgecolor=col, markeredgewidth=1.0,
+                    ms=ms, lw=1.35, capsize=1.5, elinewidth=0.7, label=lab, zorder=zo)
 
     X0, _ = curves["COHORT (E-inherit)"][0].mean(0) / 1000.0, curves["COHORT (E-inherit)"][1].mean(0)
     ax.axvline(X0[2], color="#888888", ls=":", lw=0.85, zorder=0)
-    ax.text(X0[2] - 0.25, 29.0, "Stage 1\n(5 num + 13 thr)", fontsize=6.5, color="#555555", ha="right", va="center")
-    ax.text(X0[2] + 0.25, 8.5, "Stage 2\n(8 num + 6 thr)", fontsize=6.5, color="#555555", ha="left", va="center")
+    ax.text(X0[2] - 0.32, 27.5, "Stage 1\n(5 num + 13 thr)", fontsize=6.5, color="#555555", ha="right", va="center")
+    ax.text(X0[2] + 0.32, 8.5, "Stage 2\n(8 num + 6 thr)", fontsize=6.5, color="#555555", ha="left", va="center")
 
     ax.set_xlabel("Cumulative semantic calls (thousands)", fontsize=7.6)
-    ax.set_ylabel("Certified claims (9+8 num, 15 thr)", fontsize=7.3)
+    ax.set_ylabel("Certified claims (13 num + 19 thr)", fontsize=7.2)
     ax.set_xlim(-0.4, 11.8)
     ax.set_ylim(-1, 36.5)
     ax.set_yticks([0, 10, 20, 30])
     ax.grid(axis="y", lw=0.35, alpha=0.45)
-    ax.legend(loc="lower left", bbox_to_anchor=(0.0, 1.03), ncol=2, frameon=False,
+    h, l = ax.get_legend_handles_labels()
+    order_leg = [2, 0, 1]
+    ax.legend([h[i] for i in order_leg], [l[i] for i in order_leg],
+              loc="lower left", bbox_to_anchor=(0.0, 1.03), ncol=2, frameon=False,
               fontsize=6.9, handlelength=1.7, columnspacing=1.0, labelspacing=0.26, borderaxespad=0.0)
 
     ax2 = axs[1]
@@ -598,7 +622,7 @@ def draw_fig8_session():
     ax2.set_yticklabels(methods_r4, fontsize=7.2)
     ax2.set_ylim(-0.55, 2.55)
     ax2.invert_yaxis()
-    ax2.set_xlim(0, 5.55)
+    ax2.set_xlim(0, 5.20)
     ax2.set_xticks([0, 1, 2, 3, 4, 5])
     ax2.set_xticklabels(["0", "1k", "2k", "3k", "4k", "5k"], fontsize=7.2)
     ax2.set_xlabel("Stage-2 new calls after category re-slice", fontsize=7.5)
@@ -616,7 +640,7 @@ def draw_fig9_denom():
     g_dy = r5["overlap_x_horizon_vs_dyne"]
     g_sp = r5["skew_x_horizon_vs_shared_prio"]
 
-    fig, axs = plt.subplots(1, 2, figsize=(3.48, 2.10), gridspec_kw={"wspace": 0.42})
+    fig, axs = plt.subplots(1, 2, figsize=(3.48, 2.08), gridspec_kw={"wspace": 0.58})
 
     # Left heatmap: COHORT / Dynamic-E call ratio across Overlap x Rounds
     ov_labs = ["Disjoint", "Subgroup", "Half-pool", "Multi-cohort"]
@@ -743,36 +767,64 @@ def write_tables():
 """
     (GEN / "tab_multicohort.tex").write_text(tab_mc)
 
-    # Live GPU table (replacing old redundant Table II!)
+    # Live GPU table (with effective batch fill & all executors!)
     l_pk = live["wands_split_cost_cascade_live"]
     l_t1 = live["wands_relevance_5target_live"]
+    bu = live["batch_utilization_and_tokens"]
     full_w = live["wands_full_table_scan"]["measured_full_table_wall_s"]
     tab_live = rf"""\begin{{table}}[t]
   \centering
-  \caption{{Measured end-to-end live GPU execution on NVIDIA RTX~4080~SUPER under the canonical fixed-shape protocol (Qwen3-8B BF16, zero tape shortcuts, \textbf{{0 label mismatches}} and \textbf{{0 false certificates}} against the measured {full_w:.0f}\,s full-table scan).}}
+  \caption{{Measured end-to-end live GPU execution on NVIDIA RTX~4080~SUPER under the canonical fixed-shape protocol (\texttt{{batch\_size}}=32, padded length 288, Qwen3-8B BF16; \textbf{{0 label mismatches}} and \textbf{{0 false certificates}} vs.\ the measured 1{{,}}814.2\,s full scan). ``Eff.\ BS'' is mean uncached tuples per 32-slot GPU batch.}}
   \label{{tab:livegpu}}
   \footnotesize
-  \renewcommand{{\arraystretch}}{{1.12}}
-  \setlength{{\tabcolsep}}{{3.3pt}}
-  \begin{{tabular}}{{@{{}}l rrrr@{{}}}}
+  \renewcommand{{\arraystretch}}{{1.11}}
+  \setlength{{\tabcolsep}}{{2.6pt}}
+  \begin{{tabular}}{{@{{}}l rrrrr@{{}}}}
     \toprule
-    Live executor & Calls & 1st\,(s) & Total\,(s) & CPU\,(s) \\
+    Live executor & Calls & Eff.\ BS & 1st\,(s) & Total\,(s) & CPU\,(s) \\
     \midrule
-    \multicolumn{{5}}{{@{{}}l}}{{\emph{{4-round Split-Cost Cascade (12 targets, skewed proxy $E_0$, 3 seeds)}}}} \\
-    Dedup + dynamic $E$ & {l_pk['Dedup-streams + dynamic E (live)']['mean_new_calls']:.0f} & \textbf{{{l_pk['Dedup-streams + dynamic E (live)']['mean_first_cert_wall_s']:.1f}}} & {l_pk['Dedup-streams + dynamic E (live)']['mean_total_wall_s']:.1f} & {l_pk['Dedup-streams + dynamic E (live)']['mean_cpu_s']:.2f} \\
-    Shared-priority + $E_0$ & {l_pk['Shared-priority + E0 + partition (live)']['mean_new_calls']:.0f} & {l_pk['Shared-priority + E0 + partition (live)']['mean_first_cert_wall_s']:.1f} & {l_pk['Shared-priority + E0 + partition (live)']['mean_total_wall_s']:.1f} & {l_pk['Shared-priority + E0 + partition (live)']['mean_cpu_s']:.2f} \\
-    \textbf{{\textsc{{Cohort}} (default)}} & \textbf{{{l_pk['COHORT (live, default)']['mean_new_calls']:.0f}}} & {l_pk['COHORT (live, default)']['mean_first_cert_wall_s']:.1f} & \textbf{{{l_pk['COHORT (live, default)']['mean_total_wall_s']:.1f}}} & {l_pk['COHORT (live, default)']['mean_cpu_s']:.2f} \\
-    \textbf{{\textsc{{Cohort}} (exact rational audit)}} & \textbf{{{l_pk['COHORT (live, exact rational audit)']['mean_new_calls']:.0f}}} & {l_pk['COHORT (live, exact rational audit)']['mean_first_cert_wall_s']:.1f} & \textbf{{{l_pk['COHORT (live, exact rational audit)']['mean_total_wall_s']:.1f}}} & {l_pk['COHORT (live, exact rational audit)']['mean_cpu_s']:.2f} \\
+    \multicolumn{{6}}{{@{{}}l}}{{\emph{{4-round Split-Cost Cascade (12 targets, skewed proxy $E_0$, 3 seeds)}}}} \\
+    Dedup + dynamic $E$ & {fmt_int(l_pk['Dedup-streams + dynamic E (live)']['mean_new_calls'])} & {bu['cascade_4round']['Dedup_dynamic_E']['mean_effective_batch_size']:.1f} & \textbf{{{l_pk['Dedup-streams + dynamic E (live)']['mean_first_cert_wall_s']:.1f}}} & {l_pk['Dedup-streams + dynamic E (live)']['mean_total_wall_s']:.1f} & {l_pk['Dedup-streams + dynamic E (live)']['mean_cpu_s']:.2f} \\
+    Shared-priority + $E_0$ & {fmt_int(l_pk['Shared-priority + E0 + partition (live)']['mean_new_calls'])} & {bu['cascade_4round']['Shared_priority_E0']['mean_effective_batch_size']:.1f} & {l_pk['Shared-priority + E0 + partition (live)']['mean_first_cert_wall_s']:.1f} & {l_pk['Shared-priority + E0 + partition (live)']['mean_total_wall_s']:.1f} & {l_pk['Shared-priority + E0 + partition (live)']['mean_cpu_s']:.2f} \\
+    \textbf{{\textsc{{Cohort}} (default)}} & \textbf{{{fmt_int(l_pk['COHORT (live, default)']['mean_new_calls'])}}} & {bu['cascade_4round']['COHORT']['mean_effective_batch_size']:.1f} & {l_pk['COHORT (live, default)']['mean_first_cert_wall_s']:.1f} & \textbf{{{l_pk['COHORT (live, default)']['mean_total_wall_s']:.1f}}} & {l_pk['COHORT (live, default)']['mean_cpu_s']:.2f} \\
+    \textbf{{\textsc{{Cohort}} (exact audit)}} & \textbf{{{fmt_int(l_pk['COHORT (live, exact rational audit)']['mean_new_calls'])}}} & {bu['cascade_4round']['COHORT']['mean_effective_batch_size']:.1f} & {l_pk['COHORT (live, exact rational audit)']['mean_first_cert_wall_s']:.1f} & \textbf{{{l_pk['COHORT (live, exact rational audit)']['mean_total_wall_s']:.1f}}} & {l_pk['COHORT (live, exact rational audit)']['mean_cpu_s']:.2f} \\
     \midrule
-    \multicolumn{{5}}{{@{{}}l}}{{\emph{{2-round Relevance batch (5 targets, balanced BM25 $E_0$, 2 seeds)}}}} \\
-    Dedup + dynamic $E$ & {l_t1['Dedup-streams + dynamic E (live)']['mean_new_calls']:.0f} & {l_t1['Dedup-streams + dynamic E (live)']['mean_first_cert_wall_s']:.1f} & {l_t1['Dedup-streams + dynamic E (live)']['mean_total_wall_s']:.1f} & {l_t1['Dedup-streams + dynamic E (live)']['mean_cpu_s']:.2f} \\
-    \textbf{{Shared-priority + $E_0$}} & \textbf{{{l_t1['Shared-priority + E0 + partition (live)']['mean_new_calls']:.0f}}} & \textbf{{{l_t1['Shared-priority + E0 + partition (live)']['mean_first_cert_wall_s']:.1f}}} & \textbf{{{l_t1['Shared-priority + E0 + partition (live)']['mean_total_wall_s']:.1f}}} & {l_t1['Shared-priority + E0 + partition (live)']['mean_cpu_s']:.2f} \\
-    \textsc{{Cohort}} (exact rational audit) & {l_t1['COHORT (live, exact rational audit)']['mean_new_calls']:.0f} & {l_t1['COHORT (live, exact rational audit)']['mean_first_cert_wall_s']:.1f} & {l_t1['COHORT (live, exact rational audit)']['mean_total_wall_s']:.1f} & {l_t1['COHORT (live, exact rational audit)']['mean_cpu_s']:.2f} \\
+    \multicolumn{{6}}{{@{{}}l}}{{\emph{{2-round Relevance batch (5 targets, balanced BM25 $E_0$, 2 seeds)}}}} \\
+    Dedup + dynamic $E$ & {fmt_int(l_t1['Dedup-streams + dynamic E (live)']['mean_new_calls'])} & {bu['relevance_2round']['Dedup_dynamic_E']['mean_effective_batch_size']:.1f} & {l_t1['Dedup-streams + dynamic E (live)']['mean_first_cert_wall_s']:.1f} & {l_t1['Dedup-streams + dynamic E (live)']['mean_total_wall_s']:.1f} & {l_t1['Dedup-streams + dynamic E (live)']['mean_cpu_s']:.2f} \\
+    \textbf{{Shared-priority + $E_0$}} & \textbf{{{fmt_int(l_t1['Shared-priority + E0 + partition (live)']['mean_new_calls'])}}} & {bu['relevance_2round']['Shared_priority_E0']['mean_effective_batch_size']:.1f} & \textbf{{{l_t1['Shared-priority + E0 + partition (live)']['mean_first_cert_wall_s']:.1f}}} & \textbf{{{l_t1['Shared-priority + E0 + partition (live)']['mean_total_wall_s']:.1f}}} & {l_t1['Shared-priority + E0 + partition (live)']['mean_cpu_s']:.2f} \\
+    \textsc{{Cohort}} (default) & {fmt_int(l_t1['COHORT (live, default)']['mean_new_calls'])} & {bu['relevance_2round']['COHORT']['mean_effective_batch_size']:.1f} & {l_t1['COHORT (live, default)']['mean_first_cert_wall_s']:.1f} & {l_t1['COHORT (live, default)']['mean_total_wall_s']:.1f} & {l_t1['COHORT (live, default)']['mean_cpu_s']:.2f} \\
+    \textsc{{Cohort}} (exact audit) & {fmt_int(l_t1['COHORT (live, exact rational audit)']['mean_new_calls'])} & {bu['relevance_2round']['COHORT']['mean_effective_batch_size']:.1f} & {l_t1['COHORT (live, exact rational audit)']['mean_first_cert_wall_s']:.1f} & {l_t1['COHORT (live, exact rational audit)']['mean_total_wall_s']:.1f} & {l_t1['COHORT (live, exact rational audit)']['mean_cpu_s']:.2f} \\
     \bottomrule
   \end{{tabular}}
 \end{{table}}
 """
     (GEN / "tab_livegpu.tex").write_text(tab_live)
+
+    # Plan-selection comparison table across all 45 held-out randomized sessions (Review 6 Section III.3)
+    sel = r5["unseen_multidomain_selector"]
+    vst = sel["vs_shared_priority_table"]
+    tab_sel = rf"""\begin{{table}}[t]
+  \centering
+  \caption{{Offline call-cost plan selection between \textsc{{Cohort}} and Coordinated Shared-Priority+$E_0$ across 45 randomized 1--6 round sessions (15 each on WANDS Relevance, WANDS Split-Cost Cascade, and UCI DrugLib; 0 ties: \textsc{{Cohort}} strictly cheaper on 8/45, Shared-priority on 37/45).}}
+  \label{{tab:selector}}
+  \footnotesize
+  \renewcommand{{\arraystretch}}{{1.11}}
+  \setlength{{\tabcolsep}}{{2.4pt}}
+  \begin{{tabular}}{{@{{}}l rrrr@{{}}}}
+    \toprule
+    Selection policy & Calls & Mean reg. & P90/Max & Win acc. \\
+    \midrule
+    Always \textsc{{Cohort}} & {fmt_int(vst['Always_COHORT']['mean_calls'])} & {vst['Always_COHORT']['mean_regret_pct']:.1f}\% & {vst['Always_COHORT']['p90_regret_pct']:.0f}/{vst['Always_COHORT']['max_regret_pct']:.0f}\% & {vst['Always_COHORT']['winner_accuracy_pct']:.1f}\% \\
+    Horizon + skew rule & {fmt_int(vst['Simple_Horizon_Skew_Rule']['mean_calls'])} & {vst['Simple_Horizon_Skew_Rule']['mean_regret_pct']:.1f}\% & {vst['Simple_Horizon_Skew_Rule']['p90_regret_pct']:.0f}/{vst['Simple_Horizon_Skew_Rule']['max_regret_pct']:.0f}\% & {vst['Simple_Horizon_Skew_Rule']['winner_accuracy_pct']:.1f}\% \\
+    Always Shared-priority & {fmt_int(vst['Always_Shared_Priority']['mean_calls'])} & \textbf{{{vst['Always_Shared_Priority']['mean_regret_pct']:.1f}\%}} & \textbf{{{vst['Always_Shared_Priority']['p90_regret_pct']:.1f}}}/{vst['Always_Shared_Priority']['max_regret_pct']:.0f}\% & \textbf{{{vst['Always_Shared_Priority']['winner_accuracy_pct']:.1f}\%}} \\
+    \textbf{{Metadata cost heuristic}} & \textbf{{{fmt_int(vst['Metadata_Call_Cost_Heuristic']['mean_calls'])}}} & {vst['Metadata_Call_Cost_Heuristic']['mean_regret_pct']:.1f}\% & {vst['Metadata_Call_Cost_Heuristic']['p90_regret_pct']:.1f}/{vst['Metadata_Call_Cost_Heuristic']['max_regret_pct']:.0f}\% & \textbf{{{vst['Metadata_Call_Cost_Heuristic']['winner_accuracy_pct']:.1f}\%}} \\
+    \midrule
+    Oracle best (ex-post) & {fmt_int(vst['Oracle_Best']['mean_calls'])} & 0.0\% & 0/0\% & 100.0\% \\
+    \bottomrule
+  \end{{tabular}}
+\end{{table}}
+"""
+    (GEN / "tab_selector.tex").write_text(tab_sel)
 
     # Update tab_ladder to say "Evergreen-style + cache" accurately
     tab_lad_old = (GEN / "tab_ladder.tex").read_text()
