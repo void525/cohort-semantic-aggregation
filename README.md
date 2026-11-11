@@ -123,11 +123,11 @@ reports/logs_round3/  logs of the final experiment runs
 | Basis-compilation ablation (§VI-B) | `run_icde2027_extra.py --exp basis` | `exp_basis.json` |
 | Table VII (composite claims) | `run_icde2027_suite.py --exp compose` | `exp_compose.json` |
 | Fig. 7 (history reuse, bias sweep + real BM25 history; 20 sessions per setting) | `run_icde2027_extra3.py --exp bias_real,bias_sweep` | `exp_bias20.json` (`exp_bias.json` is the earlier 4-session run, kept for provenance) |
-| Paired calls to certify the numeric targets (known mass vs free reads), per-target calls, intent bins, product classes | `run_paired_targets.py`, `run_session_features.py`, `make_paired.py` | `exp_paired.json`, `exp_sessions.json` → `fig_paired.pdf` and `tab_paired.tex`, `tab_bytarget.tex`, `tab_sessions.tex` |
-| Fig. 8 (four-round session; stage budgets α/2, α/4) | `run_icde2027_suite.py --exp session` | `exp_session.json` |
+| Fig. 8 (paired calls to certify the five numeric targets; known mass vs free reads), per-target calls, intent bins, product classes | `run_paired_targets.py`, `run_session_features.py`, `make_paired.py` | `exp_paired.json`, `exp_sessions.json` → `fig_paired.pdf` and `tab_paired.tex`, `tab_bytarget.tex`, `tab_sessions.tex` |
+| Fig. 9 (four-round session; stage budgets α/2, α/4) | `run_icde2027_suite.py --exp session` | `exp_session.json` |
 | Table VIII, audit grid (§VI-F) | `run_icde2027_suite.py --exp calib`, `run_icde2027_extra3.py --exp audit`, `tests/test_audit_enum.py` | `exp_calib.json`, `exp_audit_grid.json`, `exp_enum.json` |
 | Table IX (schedulers) | `run_icde2027_suite.py --exp sched` | `exp_sched.json` |
-| Fig. 9 (rare denominators) | `run_icde2027_suite.py --exp denom` | `exp_denom.json` |
+| Fig. 10 (rare denominators) | `run_icde2027_suite.py --exp denom` | `exp_denom.json` |
 | Second operator (§VI-G) | `run_icde2027_extra.py --exp operator` | `exp_operator.json` |
 | COHORT on LOTUS (§VI-G) | `run_icde2027_extra3.py --exp lotus` (venv with `lotus-ai`), `lotus_replay.py` | `exp_lotus.json` |
 | Cost, memory, scaling (§VI-G) | `run_icde2027_extra.py --exp cost,scale,nscale,auditime`, `run_icde2027_extra3.py --exp memory` | `exp_cost.json`, `exp_scale.json`, `exp_nscale.json`, `exp_audit_time.json`, `exp_memory.json` |

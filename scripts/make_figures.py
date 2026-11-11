@@ -78,24 +78,32 @@ def plot_ladder():
     for key, lab, col, ls, mk in LADDER_STYLE:
         if f"{key}@{GRID[0]}" not in d:
             continue
-        m = np.array([d[f"{key}@{b}"]["n_cert_mean"] for b in GRID])
-        sd = np.array([d[f"{key}@{b}"]["n_cert_std"] for b in GRID])
+        # five numeric targets (qids 1-5); the other 13 statements are thresholds on three of them
+        m, sd = [], []
+        for b in GRID:
+            r = d[f"{key}@{b}"]
+            freq = {int(k): v for k, v in r["cert_qid_freq"].items()}
+            per = sum(freq.get(q, 0) for q in (1, 2, 3, 4, 5)) / r["n_runs"]
+            m.append(per)
+            # seed-level counts are not stored; the band is omitted for this derived count
+        m = np.array(m)
+        sd = np.zeros_like(m)
         w = np.array([d[f"{key}@{b}"]["num_width_mean"] for b in GRID])
         axs[0].plot(GRID, m, color=col, ls=ls, marker=mk, ms=3.6, label=lab, lw=1.35)
         axs[0].fill_between(GRID, m - sd, m + sd, color=col, alpha=0.12, lw=0)
         axs[1].plot(GRID, w, color=col, ls=ls, marker=mk, ms=3.6, lw=1.35)
-    star = axs[0].scatter([31482], [18], marker="*", s=70, color="#D55E00", zorder=5, clip_on=False,
+    star = axs[0].scatter([31482], [5], marker="*", s=70, color="#D55E00", zorder=5, clip_on=False,
                           label="label all $N$ (exact)")
     for ax in axs:
         ax.set_xscale("log")
         ax.set_xticks(GRID)
         ax.set_xticklabels(GRID_LAB)
         ax.minorticks_off()
-        ax.set_xlabel("new semantic calls (share of $N$)")
+        ax.set_xlabel("available budget cap (share of $N$)")
         ax.grid(axis="y", lw=0.3, alpha=0.5)
-    axs[0].set_ylabel("claims certified (of 18)")
-    axs[0].set_ylim(-0.4, 19)
-    axs[0].set_title("(a)  certified claims", loc="left", fontweight="bold")
+    axs[0].set_ylabel("numeric targets certified (of 5)")
+    axs[0].set_ylim(-0.15, 5.4)
+    axs[0].set_title("(a)  numeric targets", loc="left", fontweight="bold")
     axs[1].set_ylabel("mean width, numeric claims")
     axs[1].set_title("(b)  interval width", loc="left", fontweight="bold")
     axs[1].set_ylim(0.08, 1.3)
@@ -112,11 +120,11 @@ def plot_ladder():
 # Fig. 7  历史选择偏差：连续偏置扫描 + 真实 BM25 检索历史
 # --------------------------------------------------------------------------- #
 ARM_STYLE = {
-    "discard": ("discard history", "#7f7f7f", "-", "o"),
-    "T-reads": ("exposed, free reads", C_VARIANT, "-", "s"),
+    "discard": ("discard history", "#7f7f7f", ":", "o"),
+    "T-reads": ("exposed, free reads", C_VARIANT, "-.", "s"),
     "E (ours)": ("known mass (COHORT)", C_COHORT, "-", "o"),
     "pooled-as-random": ("pooled as a sample", C_BAD, "--", "^"),
-    "naive": ("pooled, Wald interval", "#7a1f00", ":", "v"),
+    "naive": ("pooled, Wald interval", "#7a1f00", (0, (3, 1, 1, 1, 1, 1)), "v"),
 }
 
 
@@ -137,7 +145,7 @@ def plot_history():
     d = load("exp_bias20.json") or load("exp_bias.json")
     if d is None:
         return
-    fig, axs = plt.subplots(1, 3, figsize=(7.15, 2.3), gridspec_kw={"wspace": 0.34})
+    fig, axs = plt.subplots(1, 3, figsize=(516 / 72, 2.58), gridspec_kw={"wspace": 0.46})
     enr = sorted({v["ratio"] for v in d.values() if v["kind"] == "enrich"})
     n_sess = next(iter(d.values()))["arms"]["E (ours)"]["n_runs"]
 
@@ -158,7 +166,7 @@ def plot_history():
     for ai, (bf, metric, ylabel, title) in enumerate([
             (0.02, "dec_err_rate", "wrong certified claims (%)", "(a)  correctness, 2% of calls"),
             (0.10, "dec_err_rate", "wrong certified claims (%)", "(b)  correctness, 10% of calls"),
-            (0.02, "n_cert_mean", "claims certified (of 18)", "(c)  certified, 2% of calls")]):
+            (0.10, "n_cert_mean", "statements certified (of 18)", "(c)  certified, 10% of calls")]):
         ax = axs[ai]
         for arm, (lab, col, ls, mk) in ARM_STYLE.items():
             xs, ys, los, his = [], [], [], []
@@ -186,23 +194,25 @@ def plot_history():
         ax.set_xticks([1, 2, 4, 8])
         ax.set_xticklabels(["1", "2", "4", "8"])
         ax.minorticks_off()
-        ax.set_xlabel("exact-match enrichment in history ($\\times$)", fontsize=6.9)
-        ax.set_ylabel(ylabel)
-        ax.set_title(title, loc="left", fontweight="bold")
+        ax.set_xlabel("exact-match enrichment in history ($\\times$)", fontsize=8.0)
+        ax.tick_params(labelsize=8.0)
+        ax.set_ylabel(ylabel, fontsize=8.0)
+        ax.set_title(title, loc="left", fontweight="bold", fontsize=8.5)
         ax.grid(axis="y", lw=0.3, alpha=0.5)
         if metric == "dec_err_rate":
             ax.set_ylim(-2, 58)
         else:
             ax.set_ylim(6, 19)
-    axs[0].text(1.02, 56, "known mass, free reads,\nand discard: never wrong",
-                fontsize=6.4, color=C_COHORT, va="top", ha="left", linespacing=1.15)
     from matplotlib.lines import Line2D
     h, l = axs[0].get_legend_handles_labels()
-    h.append(Line2D([0], [0], marker="D", ls="", markerfacecolor="white", markeredgecolor="#333333", ms=4.5))
+    h.append(Line2D([0], [0], marker="D", ls="", markerfacecolor="white", markeredgecolor="#333333", ms=5.2))
     l.append("real lexical top-$k$ history")
-    fig.legend(h, l, loc="upper center", ncol=6, frameon=False, bbox_to_anchor=(0.5, 1.10), handlelength=2.2,
-               columnspacing=1.0, labelspacing=0.3, fontsize=6.4)
-    save(fig, "fig_history.pdf")
+    fig.legend(h, l, loc="upper center", ncol=3, frameon=False, bbox_to_anchor=(0.5, 0.995),
+               handlelength=2.8, columnspacing=1.5, labelspacing=0.45, fontsize=8.0)
+    fig.subplots_adjust(left=0.055, right=0.985, top=0.74, bottom=0.18)
+    fig.savefig(os.path.join(FIG, "fig_history.pdf"))
+    plt.close(fig)
+    print("saved fig_history.pdf")
 
 
 # --------------------------------------------------------------------------- #
@@ -241,19 +251,18 @@ def plot_session():
         ax.errorbar(X.mean(0), Y.mean(0), yerr=Y.std(0), color=col, ls=ls, marker=mk, ms=4, lw=1.3,
                     capsize=1.6, elinewidth=0.7, label=lab)
     X0, Y0 = curves["COHORT (E-inherit)"][0].mean(0), curves["COHORT (E-inherit)"][1].mean(0)
+    ax.axvline(X0[2], color="#888888", ls=":", lw=0.7, zorder=0)
     for i, (name, dx, dy) in enumerate([("R1", -2, 3.2), ("R2", -2, 3.2), ("R3", -13, 1.2), ("R4", -23, -1.0)]):
-        ax.text(X0[i] + 140 * (1 if name != "R3" else -1) * 0 + dx * 55, Y0[i] + dy, name, fontsize=6.6, color="#444444",
-                ha="center")
-    ax.text(11900, 1.0, "labelling all $N$ would take 31{,}482 calls".replace("{,}", ","), fontsize=6.5,
-            color="#D55E00", ha="right", va="bottom")
+        ax.text(X0[i] + dx * 55, Y0[i] + dy, name, fontsize=6.6, color="#444444", ha="center")
     ax.set_xlabel("cumulative new semantic calls")
     ax.set_ylabel("claims certified (cumulative)")
     ax.set_xlim(-150, 12000)
     ax.set_ylim(-0.8, 36)
     ax.legend(loc="upper left", frameon=False, fontsize=6.6, handlelength=2.3, labelspacing=0.3, borderaxespad=0.1)
     ax.grid(axis="y", lw=0.3, alpha=0.5)
-    ax.text(0.99, 0.17, "R4: new slicing, new stage;\nhistory carried over", transform=ax.transAxes, fontsize=6.5,
-            ha="right", va="bottom", color="#555555", linespacing=1.15)
+    fig.tight_layout()
+    fig.text(0.5, -0.02, "Round 4 new calls, both finish all 14:  known mass 2,794    free reads 3,016",
+             ha="center", va="top", fontsize=6.6, color="#333333")
     save(fig, "fig_session.pdf")
 
 
@@ -272,14 +281,14 @@ def plot_denom():
     ax.set_xticks(range(len(budgets)))
     ax.set_xticklabels(["5%", "10%", "20%", "50%", "100%"])
     ax.set_yticks(range(len(pops)))
-    ax.set_yticklabels([f"{100 * p['selectivity']:.0f}%  ($B$={p['B']})" for p in pops], fontsize=6.5)
+    ax.set_yticklabels([f"{100 * p['selectivity']:.0f}%   $\\theta$={100 * p['theta']:.0f}%" for p in pops], fontsize=6.3)
     for i in range(M.shape[0]):
         for j in range(M.shape[1]):
             v = M[i, j]
             ax.text(j, i, f"{v:.1f}" if 0 < v < 1 else ("1" if v >= 1 else "0"), ha="center", va="center",
                     fontsize=6.4, color=("white" if v > 0.6 else "#333333"))
     ax.set_xlabel("new calls (share of the population)")
-    ax.set_ylabel("relevant share (denominator size)")
+    ax.set_ylabel("relevant share, and the exact ratio $\\theta$")
     for sp in ax.spines.values():
         sp.set_visible(False)
     ax.tick_params(length=0)
@@ -309,9 +318,9 @@ def plot_geometry():
     ax.scatter([g["B_true"] / 1000], [g["A_true"] / 1000], marker="*", s=60, color="#222222", zorder=6)
     ax.annotate("truth", (g["B_true"] / 1000, g["A_true"] / 1000), xytext=(4, -9), textcoords="offset points",
                 fontsize=6.4)
-    ax.text(0.03, 0.99, f"separate intervals (dashed):\nratio in [{g['L_sep']:.2f}, {g['U_sep']:.2f}]", transform=ax.transAxes,
+    ax.text(0.03, 0.99, f"separate $A,B$ intervals:\n[{g['L_sep']:.2f}, {g['U_sep']:.2f}]", transform=ax.transAxes,
             fontsize=6.5, color="#555555", va="top")
-    ax.text(0.03, 0.88, f"joint region (teal):\nratio in [{g['L_joint']:.2f}, {g['U_joint']:.2f}]", transform=ax.transAxes,
+    ax.text(0.03, 0.84, f"partition formula $=$ region:\n[{g['L_joint']:.2f}, {g['U_joint']:.2f}]", transform=ax.transAxes,
             fontsize=6.5, color=C_COHORT, va="top", fontweight="bold")
     ax.set_xlim(12, 31)
     ax.set_ylim(8.5, 24.5)
@@ -328,31 +337,52 @@ CLAIM_LABELS = ["ratio", "ratio, rated \u2265 4", "ratio, rated < 4", "share rat
     [f"{c} > {t}%" for t in (30, 50, 70) for c in ("rated \u2265 4", "rated < 4")]
 
 
+def plot_paired():
+    import make_paired
+    make_paired.plot(make_paired.load("exp_paired.json"))
+
+
 def plot_claims():
     d = load("exp_ladder.json")
     if d is None:
         return
-    meths = [("+ certificate-guided scheduler", "COHORT"), ("EG-style claim-by-claim", "claim-by-claim")]
-    fig, axs = plt.subplots(1, 2, figsize=(3.45, 3.35), sharey=True, gridspec_kw={"wspace": 0.06})
+    labels = ["exact, all", "exact, $\\geq 4$", "exact, $< 4$", "rating share", "difference"]
+    meths = [("+ certificate-guided scheduler", "COHORT"),
+             ("Shared pool, dedup (no polytope)", "shared samples")]
+    fig = plt.figure(figsize=(252 / 72, 2.08))
+    gs = fig.add_gridspec(1, 3, width_ratios=[1, 1, 0.07], wspace=0.14,
+                          left=0.32, right=0.88, bottom=0.34, top=0.84)
+    axs = [fig.add_subplot(gs[0, 0]), fig.add_subplot(gs[0, 1])]
+    axs[1].sharey(axs[0])
+    im = None
     for ax, (key, title) in zip(axs, meths):
-        M = np.zeros((18, len(GRID)))
+        M = np.zeros((5, len(GRID)))
         for j, b in enumerate(GRID):
             r = d[f"{key}@{b}"]
             for qid, c in r["cert_qid_freq"].items():
-                M[int(qid) - 1, j] = c / r["n_runs"]
-        ax.imshow(M, cmap=TEAL_CMAP, vmin=0, vmax=1, aspect="auto")
+                qi = int(qid) - 1
+                if qi < 5:
+                    M[qi, j] = c / r["n_runs"]
+        im = ax.imshow(M, cmap=TEAL_CMAP, vmin=0, vmax=1, aspect="auto")
         ax.set_xticks(range(len(GRID)))
-        ax.set_xticklabels(GRID_LAB, fontsize=6.3, rotation=60)
-        ax.set_title(title, fontsize=7.4, fontweight="bold", pad=3)
-        ax.set_xlabel("new calls", fontsize=6.8)
+        ax.set_xticklabels(GRID_LAB, fontsize=8.0, rotation=90, ha="center", va="top")
+        ax.set_title(title, fontsize=8.0, fontweight="bold", pad=6)
+        ax.tick_params(axis="x", length=0, pad=1)
         for sp in ax.spines.values():
             sp.set_visible(False)
-        ax.tick_params(length=0)
-        ax.axhline(4.5, color="white", lw=1.4)
-        ax.axhline(11.5, color="white", lw=1.4)
-    axs[0].set_yticks(range(18))
-    axs[0].set_yticklabels(CLAIM_LABELS, fontsize=6.3)
-    save(fig, "fig_claims.pdf")
+    axs[0].set_yticks(range(5))
+    axs[0].set_yticklabels(labels, fontsize=8.0)
+    axs[0].tick_params(axis="y", length=0, pad=2)
+    axs[1].tick_params(axis="y", labelleft=False, length=0)
+    cax = fig.add_subplot(gs[0, 2])
+    cb = fig.colorbar(im, cax=cax)
+    cb.set_ticks([0, 0.5, 1])
+    cb.ax.tick_params(labelsize=8.0)
+    cb.set_label("share of 10 runs", fontsize=8.0, labelpad=2)
+    fig.text(0.55, 0.035, "available cap", ha="center", va="bottom", fontsize=8.0)
+    fig.savefig(os.path.join(FIG, "fig_claims.pdf"))
+    plt.close(fig)
+    print("saved fig_claims.pdf")
 
 
 if __name__ == "__main__":
@@ -367,6 +397,7 @@ if __name__ == "__main__":
         "history": plot_history,                              # Fig. 7
         "session": plot_session,                              # Fig. 8
         "denom": plot_denom,                                  # Fig. 9
+        "paired": plot_paired,
     }
     for name in which:
         if name not in jobs:

@@ -193,7 +193,7 @@ def tab_paired(d):
     body = "\n".join(lines)
     tex = r"""\begin{table}[t]
   \centering
-  \caption{New calls to certify all five numeric targets. Medians use only the seeds both arms finished. A run that stops with an empty confidence set has no completion cost. Done is out of eight. The reduction is the median paired ratio on the jointly completed seeds.}
+  \caption{New calls to certify all five numeric targets. For every row, both call medians and the reduction use the same seeds, those both arms finished. The 26\% at odds $\times 4$ is that median on the 7 jointly completed seeds. The known-mass run that stopped with an empty confidence set has no completion cost. Done is out of eight.}
   \label{tab:paired}
   \scriptsize
   \setlength{\tabcolsep}{2.5pt}
@@ -308,27 +308,36 @@ def tab_sessions(d):
 def plot(d):
     os.makedirs(FIG, exist_ok=True)
     order = [("uniform", "uniform"), ("bm25", "BM25"), ("mild", r"odds $\times 4$"), ("strong", r"odds $\times 16$")]
-    fig, ax = plt.subplots(figsize=(3.45, 2.35))
+    fig, ax = plt.subplots(figsize=(252 / 72, 2.15))
     labels = []
+    stopped = []
     for i, (key, lab) in enumerate(order):
         rows = d["full"][key]
         both = joint(rows)
         ys = [100 * (1 - r["E"]["calls_all"] / r["T"]["calls_all"]) for r in both]
-        ax.scatter([i] * len(ys), ys, color=C_COHORT, s=22, zorder=3)
-        ax.plot([i - 0.18, i + 0.18], [median(ys)] * 2, color="#222222", lw=1.4, zorder=4)
+        ax.scatter([i] * len(ys), ys, color=C_COHORT, s=26, zorder=3)
+        ax.plot([i - 0.18, i + 0.18], [median(ys)] * 2, color="#222222", lw=1.6, zorder=4)
         de, dt = done_count(rows, "E"), done_count(rows, "T")
-        labels.append(f"{lab}\n{dt}/{len(rows)}, {de}/{len(rows)}")
+        n = len(rows)
+        labels.append(f"{lab}\ncompleted\n{dt}/{n}, {de}/{n}")
+        if de < n or dt < n:
+            stopped.append(i)
     ax.axhline(0, color="#888888", lw=0.6)
     ax.set_xticks(range(len(order)))
-    ax.set_xticklabels(labels, fontsize=6.6)
-    ax.set_ylabel("fewer calls than free reads (%)")
-    ax.set_ylim(-8, 42)
-    ax.set_xlim(-0.65, 3.65)
-    ax.text(0.0, -0.28, "odds $\\times 4$: one known-mass run stopped (empty CS); not a completion cost",
-            transform=ax.transAxes, fontsize=6.3, color="#444444")
-    fig.tight_layout()
+    ax.set_xticklabels(labels, fontsize=7.5)
+    ax.tick_params(axis="y", labelsize=8.0)
+    ax.set_ylabel("paired reduction (%)", fontsize=8.0)
+    ax.set_ylim(-3, 37)
+    ax.set_xlim(-0.62, 3.62)
+    # A stopped seed is a status under its group, not a point on the reduction axis.
+    for j, i in enumerate(stopped):
+        ax.plot([i], [-0.44], transform=ax.get_xaxis_transform(), marker="x",
+                ms=6.5, color="#7a1f00", clip_on=False, zorder=5)
+        ax.text(i, -0.52, "stopped", transform=ax.get_xaxis_transform(),
+                ha="center", va="top", fontsize=7.5, color="#7a1f00", clip_on=False)
+    fig.subplots_adjust(left=0.18, right=0.98, top=0.96, bottom=0.40)
     path = os.path.join(FIG, "fig_paired.pdf")
-    fig.savefig(path, bbox_inches="tight", pad_inches=0.02)
+    fig.savefig(path)
     plt.close(fig)
     print("wrote", path)
 
