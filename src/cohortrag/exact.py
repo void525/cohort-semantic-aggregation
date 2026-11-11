@@ -214,14 +214,17 @@ _DEN = 2 ** 30
 def audit_ratio_interval(poly, a_hz, b_table, scope, J, L_float, U_float):
     """返回精确验证过的外包围端点 (L_safe, U_safe, n_exact_lps_adjusted)。
 
-    端点取 2^-30 网格上略微向外的有理数；若精确检验不通过，逐步向外让步（最坏退化为 [0,1]）。
+    端点取 2^-30 网格上略微向外的有理数；若精确检验不通过，逐步向外让步。
     """
+    has_neg = any(any(float(v) < 0.0 for v in a_hz[h]) for h in scope)
+    lo_num = -_DEN if has_neg else 0
+    lo_frac = Fraction(-1, 1) if has_neg else Fraction(0, 1)
     adjust = 0
-    L = Fraction(max(0, math.floor(L_float * _DEN) - 1), _DEN)
-    while L > 0:
+    L = Fraction(max(lo_num, math.floor(L_float * _DEN) - 1), _DEN)
+    while L > lo_frac:
         if exact_min_contrast(poly, a_hz, b_table, L, scope, J) >= 0:
             break
-        L = max(Fraction(0), L - Fraction(1, 2 ** 20))
+        L = max(lo_frac, L - Fraction(1, 2 ** 20))
         adjust += 1
     U = Fraction(min(_DEN, math.ceil(U_float * _DEN) + 1), _DEN)
     while U < 1:
@@ -229,6 +232,8 @@ def audit_ratio_interval(poly, a_hz, b_table, scope, J, L_float, U_float):
             break
         U = min(Fraction(1), U + Fraction(1, 2 ** 20))
         adjust += 1
+    if L > U:
+        raise RuntimeError(f"audit_ratio_interval inverted bounds: L={L} > U={U}")
     return L, U, adjust
 
 

@@ -1,0 +1,18 @@
+{
+  "dataset": "UCI Drug Review Dataset (DrugLib.com)",
+  "official_url": "https://archive.ics.uci.edu/dataset/461/drug+review+dataset+druglib+com",
+  "license": "CC BY 4.0 (Creative Commons Attribution 4.0 International, UCI ML Repository)",
+  "downloaded_at": "2026-11-11T13:43:10+00:00",
+  "sha256": "8ceeed1cb45fd530bf0fd539f3e45cc5c523d41476a2734b80af624d0016376b",
+  "scope": "Complete deduplicated union of drugLibTrain_raw.tsv and drugLibTest_raw.tsv (N=4,143 patient medication reviews)",
+  "files": {
+    "drugLibTrain_raw.tsv": {
+      "sha256": "b55635b01264a55f10f2b3c6071b25513461e2c071851c3b72b51e359ab29d5c",
+      "bytes": 2282292
+    },
+    "drugLibTest_raw.tsv": {
+      "sha256": "3c2ac688ba841b8f420a0dd9a0c12b5de2b88c67672d303fac82a8718d24dca6",
+      "bytes": 793618
+    }
+  }
+}

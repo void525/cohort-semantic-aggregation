@@ -31,7 +31,8 @@ class LocalLLMOperator(SemanticContract):
     def __init__(self, model_id="Qwen/Qwen3-8B", revision=None, K=4,
                  prompt_pack=None, max_input_tokens=1536, max_new_tokens=16,
                  batch_size=16, dtype="bfloat16", device="cuda",
-                 enable_thinking=False, name="local-llm"):
+                 enable_thinking=False, canonical_fixed_len=None,
+                 name="local-llm"):
         pack = prompt_pack if prompt_pack is not None else _contracts.cfpb_prompt_pack()
         super().__init__(name=name, K=K)
         self.model_id = model_id
@@ -43,9 +44,12 @@ class LocalLLMOperator(SemanticContract):
         self.dtype = dtype
         self.device = device
         self.enable_thinking = enable_thinking
+        self.canonical_fixed_len = int(canonical_fixed_len) if canonical_fixed_len else None
         self.decode_cfg = {"do_sample": False, "temperature": 0.0,
                           "max_new_tokens": max_new_tokens,
                           "rendering": "chat_template"}  # 渲染方式进入 κ（草案 7.1）
+        if self.canonical_fixed_len is not None:
+            self.decode_cfg["canonical_shape"] = [int(batch_size), self.canonical_fixed_len]
         self.view_policy = {"truncate": "head_tail", "max_input_tokens": max_input_tokens}
         # 模板字段校验（启动时暴露，而不是跑到一半才 KeyError）：
         # LocalLLMOperator 只注入 {narrative}（文本视图已在数据加载器里拼好）。
@@ -137,15 +141,23 @@ class LocalLLMOperator(SemanticContract):
         bad = []
         for start in range(0, len(ids), self.batch_size):
             chunk_txt = [self._build_prompt(t) for t in texts[start:start + self.batch_size]]
-            enc = self._tok(chunk_txt, return_tensors="pt", padding=True,
-                            truncation=True, max_length=self.max_input_tokens)
+            real_n = len(chunk_txt)
+            if self.canonical_fixed_len is not None:
+                if real_n < self.batch_size:
+                    chunk_txt = chunk_txt + [chunk_txt[-1]] * (self.batch_size - real_n)
+                enc = self._tok(chunk_txt, return_tensors="pt", padding="max_length",
+                                truncation=True, max_length=self.canonical_fixed_len)
+            else:
+                enc = self._tok(chunk_txt, return_tensors="pt", padding=True,
+                                truncation=True, max_length=self.max_input_tokens)
             enc = {k: v.to(self._model.device) for k, v in enc.items()}
             with torch.no_grad():
                 gen = self._model.generate(**enc, do_sample=False,
                                            max_new_tokens=self.max_new_tokens,
                                            temperature=None, top_p=None)
-            for r in range(gen.shape[0]):
-                new = gen[r][enc["input_ids"].shape[1]:]
+            in_len = enc["input_ids"].shape[1]
+            for r in range(real_n):
+                new = gen[r][in_len:]
                 txt = self._tok.decode(new, skip_special_tokens=True)
                 digits = self._parse_one(txt)
                 if len(digits) < self.K:

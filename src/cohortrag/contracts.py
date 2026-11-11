@@ -82,6 +82,35 @@ UCI_PRIMITIVES = [
      "forbidden": "不把中性陈述、纯产品描述或疑问判为正面"},
 ]
 
+DRUGLIB_PRIMITIVES = [
+    {"key": "d1", "name": "Moderate-to-severe adverse effect",
+     "rule": "The patient explicitly reports moderate, severe, distressing, or functionally limiting side effects",
+     "forbidden": "Do not count 'none' or explicitly mild/minor transient discomfort as moderate-to-severe"},
+    {"key": "d2", "name": "Discontinuation or dose reduction",
+     "rule": "The patient explicitly states they stopped taking the drug, switched medications, or reduced the dose due to side effects or lack of efficacy",
+     "forbidden": "Do not count routine completion of a short antibiotic course"},
+    {"key": "d3", "name": "Substantial symptom relief",
+     "rule": "The patient explicitly reports substantial, considerable, or high effectiveness/relief of the treated condition",
+     "forbidden": "Do not infer relief if the review states minimal, marginal, or no benefit"},
+]
+
+DRUGLIB_PROMPT_PACK_VERSION = "druglib-pharmacovig-v1"
+
+
+def druglib_prompt_pack():
+    """UCI DrugLib 临床药物警戒 3 原语固定 prompt 包（整体版本化）。"""
+    lines = ["You are auditing patient medication narratives with strict bounded criteria. "
+             "Judge ONLY what the text explicitly states."]
+    for p in DRUGLIB_PRIMITIVES:
+        lines.append(f"- {p['key']} ({p['name']}): {p['rule']}. Note: {p['forbidden']}.")
+    system = "\n".join(lines)
+    user = ("Patient review:\n<<<\n{narrative}\n>>>\n\n"
+            "Output ONLY a 3-character 0/1 string for d1 d2 d3 (1=yes, 0=no). "
+            "No spaces, punctuation, or explanation.")
+    return {"version": DRUGLIB_PROMPT_PACK_VERSION, "primitives": DRUGLIB_PRIMITIVES,
+            "system": system, "user_template": user,
+            "output_contract": "3-bit 0/1 string (exact length 3)"}
+
 
 def uci_prompt_pack():
     """UCI 情感原语 prompt 包（草案 4.3）：单原语 s1=正面情感。

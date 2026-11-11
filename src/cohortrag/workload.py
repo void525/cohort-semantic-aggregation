@@ -32,9 +32,14 @@ class Query:
     # 例：WANDS「Exact/Partial 商品中评分>=4 的比例」→ 评分>=4 的层为 1，其余为 0。
     r_meta: dict = None
     r_meta2: dict = None            # difference 查询第二侧的元数据分子条件
+    custom_a: object = None         # 可选一般线性分子系数 J-向量（如多谓词耦合对比 a1 - a2）
+    extra_basis: list = None        # custom_a 依赖的底层二值语义事件列表（供统计基编译去重）
 
     def build_tables(self, K):
         d = states.and_table(K, self.d_idx)
+        if self.custom_a is not None:
+            a = np.asarray(self.custom_a, dtype=np.float64)
+            return {"d": d, "a": a, "b": d, "extra_basis": list(self.extra_basis or [])}
         r = states.and_table(K, self.r_idx)
         a = d * r                    # 语义部分：a_z = d_z * r_z（草案 5.2）
         if self.kind == "difference":

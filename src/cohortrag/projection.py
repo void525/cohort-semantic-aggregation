@@ -207,17 +207,28 @@ def _cc_matrices(poly, a, b_table, scope, J):
     return (np.array(cc_Aub), np.array(cc_bub),
             np.array(cc_Aeq), np.array(cc_beq), c)
 
+_FALLBACK_COUNTS = {"lambda_min_bisect": 0, "lambda_max_bisect": 0}
+
+
+def _lo_bound_for_a(a_hz):
+    return -1.0 if any(np.any(v < 0) for v in a_hz.values()) else 0.0
+
+
 def _cc_min(poly, a, b_table, scope, J):
+    a_hz = _as_a_hz(a, scope, J)
+    lo_b = _lo_bound_for_a(a_hz)
     cc_Aub, cc_bub, cc_Aeq, cc_beq, c = _cc_matrices(poly, a, b_table, scope, J)
     st, _, obj = simplex.lp_max(-c, cc_Aub, cc_bub, cc_Aeq, cc_beq)
     _check(st, "ratio min (CC)")
-    return float(np.clip(-obj, 0.0, 1.0))
+    return float(np.clip(-obj, lo_b, 1.0))
 
 def _cc_max(poly, a, b_table, scope, J):
+    a_hz = _as_a_hz(a, scope, J)
+    lo_b = _lo_bound_for_a(a_hz)
     cc_Aub, cc_bub, cc_Aeq, cc_beq, c = _cc_matrices(poly, a, b_table, scope, J)
     st, _, obj = simplex.lp_max(c, cc_Aub, cc_bub, cc_Aeq, cc_beq)
     _check(st, "ratio max (CC)")
-    return float(np.clip(obj, 0.0, 1.0))
+    return float(np.clip(obj, lo_b, 1.0))
 
 # ---------------- λ 对偶兜底（分层可分解，Dinkelbach 超线性迭代） ----------------
 
@@ -227,8 +238,9 @@ def _lambda_min(poly, a, b_table, scope, J, iters=30):
     序列单调不减收敛到 θ_min；以相邻迭代变化量 < 1e-9 判收敛。
     前置 minB > 0 保证每个可行点的 B > 0，故 B(k*) > 0 恒成立。"""
     a_hz = _as_a_hz(a, scope, J)
+    lo_b = _lo_bound_for_a(a_hz)
     bb = b_table.astype(np.float64)
-    lam = 0.0
+    lam = lo_b
     lam_next = lam
     for _ in range(iters):
         A = B = 0.0
@@ -242,13 +254,14 @@ def _lambda_min(poly, a, b_table, scope, J, iters=30):
         if lam_next - lam < 1e-9:
             break
         lam = lam_next
-    return float(np.clip(lam_next, 0.0, 1.0))
+    return float(np.clip(lam_next, lo_b, 1.0))
 
 def _lambda_max(poly, a, b_table, scope, J, iters=30):
     """U = max A/B。Dinkelbach：k* ∈ argmax(A−λB) = argmin(λB−A)，λ ← A(k*)/B(k*)。
 
     序列单调不增收敛到 θ_max；以相邻迭代变化量 < 1e-9 判收敛。"""
     a_hz = _as_a_hz(a, scope, J)
+    lo_b = _lo_bound_for_a(a_hz)
     bb = b_table.astype(np.float64)
     lam = 1.0
     lam_next = lam
@@ -264,18 +277,22 @@ def _lambda_max(poly, a, b_table, scope, J, iters=30):
         if lam - lam_next < 1e-9:
             break
         lam = lam_next
-    return float(np.clip(lam_next, 0.0, 1.0))
+    return float(np.clip(lam_next, lo_b, 1.0))
 
 def _lambda_min_bisect(poly, a, b_table, scope, J, iters=45):
-    """数值安全网：对 λ 二分。"""
+    """数值安全网：对 λ 二分求 L = min_{k in P} A(k)/B(k)。"""
+    _FALLBACK_COUNTS["lambda_min_bisect"] += 1
     a_hz = _as_a_hz(a, scope, J)
+    lo_b = _lo_bound_for_a(a_hz)
     bb = b_table.astype(np.float64)
 
     def G(lam):
         return sum(_stratum_extreme(poly, h, a_hz[h] - lam * bb, J) for h in scope)
     if G(1.0) >= -1e-9:
         return 1.0
-    lo, hi = 0.0, 1.0
+    if G(lo_b) < -1e-9:
+        return float(lo_b)
+    lo, hi = lo_b, 1.0
     for _ in range(iters):
         mid = 0.5 * (lo + hi)
         if G(mid) >= -1e-9:
@@ -285,15 +302,21 @@ def _lambda_min_bisect(poly, a, b_table, scope, J, iters=45):
     return float(lo)
 
 def _lambda_max_bisect(poly, a, b_table, scope, J, iters=45):
-    """数值安全网：对 λ 二分。"""
+    """数值安全网：对 λ 二分求 U = max_{k in P} A(k)/B(k)。
+    注意：H(λ) = max_{k in P} {A(k) - λ B(k)} = sum_h (- min_{k_h in P_h} {λ B(k_h) - A_h(k_h)})。
+    """
+    _FALLBACK_COUNTS["lambda_max_bisect"] += 1
     a_hz = _as_a_hz(a, scope, J)
+    lo_b = _lo_bound_for_a(a_hz)
     bb = b_table.astype(np.float64)
 
     def H(lam):
-        return sum(-_stratum_extreme(poly, h, a_hz[h] - lam * bb, J) for h in scope)
-    if H(0.0) <= 1e-9:
-        return 0.0
-    lo, hi = 0.0, 1.0
+        return sum(-_stratum_extreme(poly, h, lam * bb - a_hz[h], J) for h in scope)
+    if H(lo_b) <= 1e-9:
+        return float(lo_b)
+    if H(1.0) > 1e-9:
+        return 1.0
+    lo, hi = lo_b, 1.0
     for _ in range(iters):
         mid = 0.5 * (lo + hi)
         if H(mid) <= 1e-9:
@@ -320,22 +343,30 @@ def threshold_margins(poly, a, b_table, tau, scope, J):
 
 def verify_outward_enclosure(poly, a, b_table, scope, J, L_cand, U_cand, tol=1e-9):
     """Verify and enforce outward-rounded safe endpoints [L_safe, U_safe] such that
-    for all k in P: A(k) - L_safe * B(k) >= -tol and A(k) - U_safe * B(k) <= tol.
+    for all k in P: A(k) - L_safe * B(k) >= -tol and A(k) - U_safe * B(k) <= tol,
+    with strict monotonicity guard L_safe <= U_safe.
     """
     a_hz = _as_a_hz(a, scope, J)
+    lo_b = _lo_bound_for_a(a_hz)
     bb = b_table.astype(np.float64)
-    L_safe = max(0.0, float(L_cand) - 1e-9)
+    L_safe = max(lo_b, float(L_cand) - 1e-9)
     U_safe = min(1.0, float(U_cand) + 1e-9)
-    if L_safe > 0.0:
+    if L_safe > lo_b:
         # Check min_{k in P} (A(k) - L_safe * B(k)) >= -tol
         g_val = sum(_stratum_extreme(poly, h, a_hz[h] - L_safe * bb, J) for h in scope)
         if g_val < -1e-6:
-            L_safe = max(0.0, _lambda_min_bisect(poly, a, b_table, scope, J) - 1e-9)
+            L_safe = max(lo_b, _lambda_min_bisect(poly, a, b_table, scope, J) - 1e-9)
     if U_safe < 1.0:
         # Check max_{k in P} (A(k) - U_safe * B(k)) = - min_{k in P} (U_safe * B(k) - A(k)) <= tol
         h_val = sum(-_stratum_extreme(poly, h, U_safe * bb - a_hz[h], J) for h in scope)
         if h_val > 1e-6:
             U_safe = min(1.0, _lambda_max_bisect(poly, a, b_table, scope, J) + 1e-9)
+    if L_safe > U_safe:
+        # Recompute both endpoints cleanly via bisection safety net; fail-closed if still inverted
+        L_safe = max(lo_b, _lambda_min_bisect(poly, a, b_table, scope, J) - 1e-9)
+        U_safe = min(1.0, _lambda_max_bisect(poly, a, b_table, scope, J) + 1e-9)
+        if L_safe > U_safe:
+            raise FeasibilityError(f"区间外包围退化异常：L={L_safe} > U={U_safe}")
     return float(L_safe), float(U_safe)
 
 def ratio_bounds(poly, a, b_table, scope, J, verify_enclosure=False):
@@ -344,6 +375,8 @@ def ratio_bounds(poly, a, b_table, scope, J, verify_enclosure=False):
     当变量数 len(scope)*J > 32 时，分层分解的 Dinkelbach 超线性迭代等价于全局 CC LP，
     且避免 O((|scope|*J)^3) 大单纯形转轴；小规模直接走 Charnes–Cooper。
     向外扩充 1e-9 浮点安全边距，并在认证临界点通过 verify_outward_enclosure 验证线性对比外包围不变量。"""
+    a_hz = _as_a_hz(a, scope, J)
+    lo_b = _lo_bound_for_a(a_hz)
     if len(scope) * J > 32:
         L = _lambda_min(poly, a, b_table, scope, J)
         U = _lambda_max(poly, a, b_table, scope, J)
@@ -361,7 +394,11 @@ def ratio_bounds(poly, a, b_table, scope, J, verify_enclosure=False):
             U = _lambda_max(poly, a, b_table, scope, J)
     if verify_enclosure:
         return verify_outward_enclosure(poly, a, b_table, scope, J, L, U)
-    return float(max(0.0, L - 1e-9)), float(min(1.0, U + 1e-9))
+    L_out = float(max(lo_b, L - 1e-9))
+    U_out = float(min(1.0, U + 1e-9))
+    if L_out > U_out:
+        raise FeasibilityError(f"区间投影异常：L={L_out} > U={U_out}")
+    return L_out, U_out
 
 def _ratio_bounds_cc(poly, a, b_table, scope, J):
     """（测试用）纯 CC 路径组合。"""

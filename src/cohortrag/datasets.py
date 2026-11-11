@@ -295,3 +295,73 @@ def load_uci(data_dir, manifest_path, files=("amazon_cells_labelled.txt",
             "strata_mapping": mapping,
             "note": "synth_group 为 synthetic 哈希分组，不是实际市场细分（草案 4.3）"}
     return frame, gold, info
+
+
+# ---------------------------------------------------------------------------
+# UCI DrugLib Pharmacovigilance Corpus (CC BY 4.0, N = 4,143)
+# ---------------------------------------------------------------------------
+def _classify_therapeutic_area(cond_str):
+    s = str(cond_str).lower()
+    if any(w in s for w in ("depress", "anxiet", "insomnia", "panic", "migraine",
+                            "bipolar", "adhd", "attention", "seizure", "sleep", "stress")):
+        return "psych_neuro"
+    if any(w in s for w in ("pain", "arthritis", "fibromyalgia", "muscle", "gout",
+                            "back", "spasm", "sciatica", "inflammation", "osteo")):
+        return "pain_inflam"
+    if any(w in s for w in ("infection", "acne", "sinus", "bronchitis", "skin",
+                            "rosacea", "herpes", "fungal", "pneumonia", "rash", "eczema")):
+        return "infect_derm"
+    return "other_chronic"
+
+
+def load_druglib(data_dir, manifest_path):
+    """载入 UCI DrugLib (CC BY 4.0) 全部 4,143 条患者临床用药评价并冻结快照。
+
+    - Stage 1 默认分层 (H=6)：rating_tier ({<=4, 5..7, >=8}) × drug_freq ({head40, tail})；
+    - 保留 therapeutic_area (H=4) 元数据列用于 Stage 2 兼容重切分；
+    - held-out gold 保存患者自评结构化标签 (Moderate+ sideEffects, Considerably+ effectiveness)，
+      仅用于算子质量诊断，绝不进入 frame 文本视图。
+    """
+    man = require_data_manifest(manifest_path)
+    p1 = os.path.join(data_dir, "drugLibTrain_raw.tsv")
+    p2 = os.path.join(data_dir, "drugLibTest_raw.tsv")
+    for p in (p1, p2):
+        if not os.path.exists(p):
+            raise DataPreparationError(f"缺少 DrugLib 文件：{p}")
+    d1 = pd.read_csv(p1, sep="\t")
+    d2 = pd.read_csv(p2, sep="\t")
+    dl = pd.concat([d1, d2], ignore_index=True)
+    id_col = dl.columns[0]
+    dl["id"] = pd.to_numeric(dl[id_col], errors="raise").astype("int64")
+    dl = dl.drop_duplicates(subset=["id"]).sort_values("id").reset_index(drop=True)
+
+    dl["text"] = (
+        "Drug: " + dl["urlDrugName"].fillna("unknown").astype(str).str.strip()
+        + " | Condition: " + dl["condition"].fillna("unknown").astype(str).str.strip()
+        + "\nBenefits: " + dl["benefitsReview"].fillna("none").astype(str).str.strip()
+        + "\nSide effects: " + dl["sideEffectsReview"].fillna("none").astype(str).str.strip()
+        + "\nComments: " + dl["commentsReview"].fillna("none").astype(str).str.strip()
+    )
+    r = pd.to_numeric(dl["rating"], errors="coerce").fillna(5.0)
+    dl["rating_tier"] = np.where(r <= 4, "<=4", np.where(r <= 7, "5..7", ">=8"))
+    top40_drugs = set(dl["urlDrugName"].fillna("unknown").astype(str).value_counts().head(40).index)
+    dl["drug_freq"] = np.where(dl["urlDrugName"].fillna("unknown").astype(str).isin(top40_drugs),
+                               "head", "tail")
+    dl["therapeutic_area"] = dl["condition"].apply(_classify_therapeutic_area)
+
+    strata, mapping = build_strata(dl, ["rating_tier", "drug_freq"], max_categories=8)
+    dl["stratum"] = strata.values
+
+    gold = {}
+    mod_plus = {"Moderate Side Effects", "Severe Side Effects", "Extremely Severe Side Effects"}
+    eff_plus = {"Highly Effective", "Considerably Effective"}
+    for _, row in dl.iterrows():
+        g_ae = 1 if str(row["sideEffects"]) in mod_plus else 0
+        g_ef = 1 if str(row["effectiveness"]) in eff_plus else 0
+        gold[int(row["id"])] = np.array([g_ae, g_ef], dtype=np.int8)
+
+    frame = _finalize(dl, "DrugLib", "id", "text",
+                      extra_cols=["urlDrugName", "condition", "rating_tier", "drug_freq", "therapeutic_area"])
+    info = {"dataset": "UCI DrugLib", "manifest": man, "n_records": len(frame),
+            "strata_mapping": mapping}
+    return frame, gold, info

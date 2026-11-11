@@ -140,13 +140,22 @@ class COHORTRAG:
                 return ("undefined", None, None, min(minB1, minB2), max(maxB1, maxB2))
             if minB1 <= 1e-9 or minB2 <= 1e-9:
                 return ("insufficient", None, None, min(minB1, minB2), max(maxB1, maxB2))
+            if L1 > U1 or L2 > U2:
+                raise FeasibilityError(f"差值查询子区间倒置：({L1}, {U1}), ({L2}, {U2})")
             dL, dU = L1 - U2, U1 - L2
-            if dU - dL <= 2 * q.eps:
+            if dL > dU:
+                raise FeasibilityError(f"差值区间倒置：dL={dL} > dU={dU}")
+            if 0.0 <= dU - dL <= 2 * q.eps:
                 if cfg.audit_exact:
                     a1, a2 = self._audit_side(poly, q.scope, q.a_hz, q.tables["b"], L1, U1)
                     b1, b2 = self._audit_side(poly, q.scope2, q.a_hz2, q.tables["b2"], L2, U2)
-                    dL, dU = a1 - b2, a2 - b1
-                if dU - dL <= 2 * q.eps:
+                else:
+                    a1, a2 = verify_outward_enclosure(poly, q.a_hz, q.tables["b"], q.scope, self.J, L1, U1)
+                    b1, b2 = verify_outward_enclosure(poly, q.a_hz2, q.tables["b2"], q.scope2, self.J, L2, U2)
+                dL, dU = a1 - b2, a2 - b1
+                if dL > dU:
+                    raise FeasibilityError(f"外包围复核后差值区间倒置：dL={dL} > dU={dU}")
+                if 0.0 <= dU - dL <= 2 * q.eps:
                     return ("certified", (dL + dU) / 2, (dL, dU), None, None)
             return ("undecided", None, (dL, dU), None, None)
         minB, maxB, L, U = self._side_bounds(poly, q.scope, q.a_hz, q.tables["b"])
@@ -154,14 +163,18 @@ class COHORTRAG:
             return ("undefined", None, None, minB, maxB)
         if minB <= 1e-9:
             return ("insufficient", None, None, minB, maxB)
+        if L > U:
+            raise FeasibilityError(f"比例区间倒置：L={L} > U={U}")
         if q.kind == "value":
-            if U - L <= 2 * q.eps:
+            if 0.0 <= U - L <= 2 * q.eps:
                 if cfg.audit_exact:
                     L, U = self._audit_side(poly, q.scope, q.a_hz, q.tables["b"], L, U)
                 else:
                     L, U = verify_outward_enclosure(poly, q.a_hz, q.tables["b"], q.scope,
                                                     self.J, L, U)
-                if U - L <= 2 * q.eps:
+                if L > U:
+                    raise FeasibilityError(f"外包围复核后比例区间倒置：L={L} > U={U}")
+                if 0.0 <= U - L <= 2 * q.eps:
                     return ("certified", (L + U) / 2, (L, U), minB, maxB)
             return ("undecided", None, (L, U), minB, maxB)
         if q.kind == "threshold":
@@ -275,8 +288,15 @@ class COHORTRAG:
         # 统计基编译：预声明闭包的所有分母/分子事件
         tables, names = [], []
         for q in declared_q:
-            tables += [q.tables["d"], q.tables["a"]]
-            names += [f"{q.name}:d", f"{q.name}:a"]
+            tables.append(q.tables["d"])
+            names.append(f"{q.name}:d")
+            if "extra_basis" in q.tables:
+                for bi, btab in enumerate(q.tables["extra_basis"]):
+                    tables.append(np.asarray(btab, dtype=np.int64))
+                    names.append(f"{q.name}:eb{bi}")
+            else:
+                tables.append(q.tables["a"])
+                names.append(f"{q.name}:a")
             if q.kind == "difference":
                 tables += [q.tables["d2"], q.tables["a2"]]
                 names += [f"{q.name}:d2", f"{q.name}:a2"]

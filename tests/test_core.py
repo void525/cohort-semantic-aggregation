@@ -274,9 +274,49 @@ def test_label_failure_fail_closed():
     assert pipe.calls == 0, "失败前不应计入任何标签调用"
     print("  语义算子失败：正确 fail-closed，未把失败当负例")
 
+# ---------- 2d) _lambda_max_bisect 符号修复与外包围单调性回归测试 ----------
+def test_lambda_bisect_and_enclosure_regression():
+    """复现并守护 review5 指出的最小反例：
+    N=10 完全已知，两状态计数 [3, 7]，分子取状态 0（计数 3），分母取全部（计数 10），真实比例 0.3。
+    验证：(1) _lambda_min_bisect 与 _lambda_max_bisect 均精确返回 ~0.3；
+          (2) 传入偏窄候选 [0.29, 0.29] 触发 verify_outward_enclosure 修复时，修复结果包含 0.3 且 L <= U；
+          (3) 传入倒置候选 [0.35, 0.25] 时，修复后仍严格满足 L <= 0.3 <= U。
+    """
+    from cohortrag.projection import (
+        _lambda_min_bisect,
+        _lambda_max_bisect,
+        verify_outward_enclosure,
+    )
+    poly = {
+        "N_h": {0: 10},
+        "o_hz": {0: np.array([3.0, 7.0], dtype=np.float64)},
+        "u_h": {0: 0},
+        "cs": [],
+    }
+    a = np.array([1.0, 0.0], dtype=np.float64)
+    b = np.array([1.0, 1.0], dtype=np.float64)
+
+    L_rb, U_rb = ratio_bounds(poly, a, b, (0,), 2)
+    assert L_rb <= 0.3 <= U_rb and L_rb <= U_rb, (L_rb, U_rb)
+
+    l_bi = _lambda_min_bisect(poly, a, b, (0,), 2)
+    u_bi = _lambda_max_bisect(poly, a, b, (0,), 2)
+    assert abs(l_bi - 0.3) < 1e-6, f"_lambda_min_bisect 错误: {l_bi}"
+    assert abs(u_bi - 0.3) < 1e-6, f"_lambda_max_bisect 错误: {u_bi}"
+
+    L_fix, U_fix = verify_outward_enclosure(poly, a, b, (0,), 2, 0.29, 0.29)
+    assert L_fix <= U_fix, f"修复后上下界倒置: ({L_fix}, {U_fix})"
+    assert L_fix <= 0.3 <= U_fix, f"修复区间未覆盖 0.3: ({L_fix}, {U_fix})"
+    assert abs(L_fix - 0.29) < 1e-6 and abs(U_fix - 0.30) < 1e-6, (L_fix, U_fix)
+
+    L_inv, U_inv = verify_outward_enclosure(poly, a, b, (0,), 2, 0.35, 0.25)
+    assert L_inv <= 0.3 <= U_inv and L_inv <= U_inv, (L_inv, U_inv)
+    print("  _lambda_max_bisect 最小反例与区间单调性回归测试：全部通过")
+
 if __name__ == "__main__":
     for t in [test_cs_class_vs_bruteforce, test_projection_vs_integer_enumeration,
               test_projection_metadata_numerator, test_label_failure_fail_closed,
+              test_lambda_bisect_and_enclosure_regression,
               test_pipeline_smoke]:
         t()
     print("test_core 全部通过")
