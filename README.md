@@ -36,7 +36,11 @@ python run_icde2027_extra.py --exp operator,scale,cost,example,basis,claims,nsca
 python run_icde2027_extra3.py --exp eg,pooled,memory,audit,bias_real,bias_sweep
 python make_geometry.py && python make_reuse_intervals.py
 python make_tables.py                        # -> paper/gen/*.tex (numbers are never typed by hand)
-python make_figures.py                       # all nine figures -> paper/figure/*.pdf (and figure/src/*.svg, *.png)
+python make_figures.py                       # the main figures -> paper/figure/*.pdf
+# paired known-mass vs free-read calls, intent bins, and product classes
+python run_paired_targets.py                 # -> reports/icde2027_suite/exp_paired.json
+python run_session_features.py               # -> reports/icde2027_suite/exp_sessions.json
+python make_paired.py                        # Tables for those runs and fig_paired.pdf
 ```
 
 `make_tables.py` writes to `paper/gen/` and `make_figures.py` to `paper/figure/` inside the repository
@@ -119,6 +123,7 @@ reports/logs_round3/  logs of the final experiment runs
 | Basis-compilation ablation (§VI-B) | `run_icde2027_extra.py --exp basis` | `exp_basis.json` |
 | Table VII (composite claims) | `run_icde2027_suite.py --exp compose` | `exp_compose.json` |
 | Fig. 7 (history reuse, bias sweep + real BM25 history; 20 sessions per setting) | `run_icde2027_extra3.py --exp bias_real,bias_sweep` | `exp_bias20.json` (`exp_bias.json` is the earlier 4-session run, kept for provenance) |
+| Paired calls to certify the numeric targets (known mass vs free reads), per-target calls, intent bins, product classes | `run_paired_targets.py`, `run_session_features.py`, `make_paired.py` | `exp_paired.json`, `exp_sessions.json` → `fig_paired.pdf` and `tab_paired.tex`, `tab_bytarget.tex`, `tab_sessions.tex` |
 | Fig. 8 (four-round session; stage budgets α/2, α/4) | `run_icde2027_suite.py --exp session` | `exp_session.json` |
 | Table VIII, audit grid (§VI-F) | `run_icde2027_suite.py --exp calib`, `run_icde2027_extra3.py --exp audit`, `tests/test_audit_enum.py` | `exp_calib.json`, `exp_audit_grid.json`, `exp_enum.json` |
 | Table IX (schedulers) | `run_icde2027_suite.py --exp sched` | `exp_sched.json` |

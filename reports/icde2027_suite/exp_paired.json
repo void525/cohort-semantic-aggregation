@@ -1,0 +1,6533 @@
+{
+ "cap_frac": 0.55,
+ "targets": [
+  {
+   "qid": 1,
+   "name": "theta(exact|relevant)",
+   "eps": 0.05
+  },
+  {
+   "qid": 2,
+   "name": "theta(exact|relevant, rating>=4)",
+   "eps": 0.05
+  },
+  {
+   "qid": 3,
+   "name": "theta(exact|relevant, rating<4)",
+   "eps": 0.05
+  },
+  {
+   "qid": 4,
+   "name": "theta(rating>=4 | relevant)",
+   "eps": 0.1
+  },
+  {
+   "qid": 5,
+   "name": "diff theta(exact|relevant) >=4 minus <4",
+   "eps": 0.05
+  }
+ ],
+ "full": {
+  "bm25": [
+   {
+    "seed": 0,
+    "hist_n": 4722,
+    "enrich": 2.286792887484091,
+    "E": {
+     "calls_used": 4480,
+     "calls_all": 4480,
+     "n_done": 5,
+     "n_targets": 5,
+     "errors": 0,
+     "targets": [
+      {
+       "qid": 1,
+       "name": "theta(exact|relevant)",
+       "calls": 3968,
+       "censored": false
+      },
+      {
+       "qid": 2,
+       "name": "theta(exact|relevant, rating>=4)",
+       "calls": 4480,
+       "censored": false
+      },
+      {
+       "qid": 3,
+       "name": "theta(exact|relevant, rating<4)",
+       "calls": 1920,
+       "censored": false
+      },
+      {
+       "qid": 4,
+       "name": "theta(rating>=4 | relevant)",
+       "calls": 384,
+       "censored": false
+      },
+      {
+       "qid": 5,
+       "name": "diff theta(exact|relevant) >=4 minus <4",
+       "calls": 4480,
+       "censored": false
+      }
+     ],
+     "stop_reason": "all_targets_certified"
+    },
+    "T": {
+     "calls_used": 5274,
+     "calls_all": 5274,
+     "n_done": 5,
+     "n_targets": 5,
+     "errors": 0,
+     "targets": [
+      {
+       "qid": 1,
+       "name": "theta(exact|relevant)",
+       "calls": 4487,
+       "censored": false
+      },
+      {
+       "qid": 2,
+       "name": "theta(exact|relevant, rating>=4)",
+       "calls": 5274,
+       "censored": false
+      },
+      {
+       "qid": 3,
+       "name": "theta(exact|relevant, rating<4)",
+       "calls": 1896,
+       "censored": false
+      },
+      {
+       "qid": 4,
+       "name": "theta(rating>=4 | relevant)",
+       "calls": 497,
+       "censored": false
+      },
+      {
+       "qid": 5,
+       "name": "diff theta(exact|relevant) >=4 minus <4",
+       "calls": 5274,
+       "censored": false
+      }
+     ],
+     "stop_reason": "all_targets_certified"
+    },
+    "seconds": 12.905125141143799,
+    "history": {
+     "kind": "bm25",
+     "ratio": 0,
+     "frac": 0.15,
+     "seed": 0,
+     "n": 4722,
+     "sha256": "c8cbecb5e086629c9a3aaabaae0dcb045ddd120d96fb9f07fcf876cef778384a"
+    }
+   },
+   {
+    "seed": 1,
+    "hist_n": 4722,
+    "enrich": 2.2786257700287904,
+    "E": {
+     "calls_used": 4736,
+     "calls_all": 4736,
+     "n_done": 5,
+     "n_targets": 5,
+     "errors": 0,
+     "targets": [
+      {
+       "qid": 1,
+       "name": "theta(exact|relevant)",
+       "calls": 4224,
+       "censored": false
+      },
+      {
+       "qid": 2,
+       "name": "theta(exact|relevant, rating>=4)",
+       "calls": 4736,
+       "censored": false
+      },
+      {
+       "qid": 3,
+       "name": "theta(exact|relevant, rating<4)",
+       "calls": 1920,
+       "censored": false
+      },
+      {
+       "qid": 4,
+       "name": "theta(rating>=4 | relevant)",
+       "calls": 256,
+       "censored": false
+      },
+      {
+       "qid": 5,
+       "name": "diff theta(exact|relevant) >=4 minus <4",
+       "calls": 4736,
+       "censored": false
+      }
+     ],
+     "stop_reason": "all_targets_certified"
+    },
+    "T": {
+     "calls_used": 5508,
+     "calls_all": 5508,
+     "n_done": 5,
+     "n_targets": 5,
+     "errors": 0,
+     "targets": [
+      {
+       "qid": 1,
+       "name": "theta(exact|relevant)",
+       "calls": 4729,
+       "censored": false
+      },
+      {
+       "qid": 2,
+       "name": "theta(exact|relevant, rating>=4)",
+       "calls": 5508,
+       "censored": false
+      },
+      {
+       "qid": 3,
+       "name": "theta(exact|relevant, rating<4)",
+       "calls": 1907,
+       "censored": false
+      },
+      {
+       "qid": 4,
+       "name": "theta(rating>=4 | relevant)",
+       "calls": 487,
+       "censored": false
+      },
+      {
+       "qid": 5,
+       "name": "diff theta(exact|relevant) >=4 minus <4",
+       "calls": 5508,
+       "censored": false
+      }
+     ],
+     "stop_reason": "all_targets_certified"
+    },
+    "seconds": 10.695584058761597,
+    "history": {
+     "kind": "bm25",
+     "ratio": 0,
+     "frac": 0.15,
+     "seed": 1,
+     "n": 4722,
+     "sha256": "4f457d99826f47f92bab371ad5d26c31d6f1aa6aa767f8c0cb94d2fb1fef35f9"
+    }
+   },
+   {
+    "seed": 2,
+    "hist_n": 4722,
+    "enrich": 2.248679672692689,
+    "E": {
+     "calls_used": 3968,
+     "calls_all": 3968,
+     "n_done": 5,
+     "n_targets": 5,
+     "errors": 0,
+     "targets": [
+      {
+       "qid": 1,
+       "name": "theta(exact|relevant)",
+       "calls": 3712,
+       "censored": false
+      },
+      {
+       "qid": 2,
+       "name": "theta(exact|relevant, rating>=4)",
+       "calls": 3968,
+       "censored": false
+      },
+      {
+       "qid": 3,
+       "name": "theta(exact|relevant, rating<4)",
+       "calls": 1920,
+       "censored": false
+      },
+      {
+       "qid": 4,
+       "name": "theta(rating>=4 | relevant)",
+       "calls": 256,
+       "censored": false
+      },
+      {
+       "qid": 5,
+       "name": "diff theta(exact|relevant) >=4 minus <4",
+       "calls": 3968,
+       "censored": false
+      }
+     ],
+     "stop_reason": "all_targets_certified"
+    },
+    "T": {
+     "calls_used": 5733,
+     "calls_all": 5733,
+     "n_done": 5,
+     "n_targets": 5,
+     "errors": 0,
+     "targets": [
+      {
+       "qid": 1,
+       "name": "theta(exact|relevant)",
+       "calls": 4961,
+       "censored": false
+      },
+      {
+       "qid": 2,
+       "name": "theta(exact|relevant, rating>=4)",
+       "calls": 5733,
+       "censored": false
+      },
+      {
+       "qid": 3,
+       "name": "theta(exact|relevant, rating<4)",
+       "calls": 2130,
+       "censored": false
+      },
+      {
+       "qid": 4,
+       "name": "theta(rating>=4 | relevant)",
+       "calls": 484,
+       "censored": false
+      },
+      {
+       "qid": 5,
+       "name": "diff theta(exact|relevant) >=4 minus <4",
+       "calls": 5733,
+       "censored": false
+      }
+     ],
+     "stop_reason": "all_targets_certified"
+    },
+    "seconds": 12.692799806594849,
+    "history": {
+     "kind": "bm25",
+     "ratio": 0,
+     "frac": 0.15,
+     "seed": 2,
+     "n": 4722,
+     "sha256": "c2d885534cf40c9dd6387e3b2753a264a3b37afae34ab7a8987ec557e1442952"
+    }
+   },
+   {
+    "seed": 3,
+    "hist_n": 4722,
+    "enrich": 1.9927766590932792,
+    "E": {
+     "calls_used": 4480,
+     "calls_all": 4480,
+     "n_done": 5,
+     "n_targets": 5,
+     "errors": 0,
+     "targets": [
+      {
+       "qid": 1,
+       "name": "theta(exact|relevant)",
+       "calls": 3968,
+       "censored": false
+      },
+      {
+       "qid": 2,
+       "name": "theta(exact|relevant, rating>=4)",
+       "calls": 4480,
+       "censored": false
+      },
+      {
+       "qid": 3,
+       "name": "theta(exact|relevant, rating<4)",
+       "calls": 1920,
+       "censored": false
+      },
+      {
+       "qid": 4,
+       "name": "theta(rating>=4 | relevant)",
+       "calls": 256,
+       "censored": false
+      },
+      {
+       "qid": 5,
+       "name": "diff theta(exact|relevant) >=4 minus <4",
+       "calls": 4480,
+       "censored": false
+      }
+     ],
+     "stop_reason": "all_targets_certified"
+    },
+    "T": {
+     "calls_used": 5244,
+     "calls_all": 5244,
+     "n_done": 5,
+     "n_targets": 5,
+     "errors": 0,
+     "targets": [
+      {
+       "qid": 1,
+       "name": "theta(exact|relevant)",
+       "calls": 4728,
+       "censored": false
+      },
+      {
+       "qid": 2,
+       "name": "theta(exact|relevant, rating>=4)",
+       "calls": 5244,
+       "censored": false
+      },
+      {
+       "qid": 3,
+       "name": "theta(exact|relevant, rating<4)",
+       "calls": 2042,
+       "censored": false
+      },
+      {
+       "qid": 4,
+       "name": "theta(rating>=4 | relevant)",
+       "calls": 616,
+       "censored": false
+      },
+      {
+       "qid": 5,
+       "name": "diff theta(exact|relevant) >=4 minus <4",
+       "calls": 5244,
+       "censored": false
+      }
+     ],
+     "stop_reason": "all_targets_certified"
+    },
+    "seconds": 12.302717208862305,
+    "history": {
+     "kind": "bm25",
+     "ratio": 0,
+     "frac": 0.15,
+     "seed": 3,
+     "n": 4722,
+     "sha256": "3356d8b9fc7e9fa6fda33816d6e015f96c640b09bce8f3435e9d282695709dc1"
+    }
+   },
+   {
+    "seed": 4,
+    "hist_n": 4722,
+    "enrich": 2.167008498139686,
+    "E": {
+     "calls_used": 3968,
+     "calls_all": 3968,
+     "n_done": 5,
+     "n_targets": 5,
+     "errors": 0,
+     "targets": [
+      {
+       "qid": 1,
+       "name": "theta(exact|relevant)",
+       "calls": 3456,
+       "censored": false
+      },
+      {
+       "qid": 2,
+       "name": "theta(exact|relevant, rating>=4)",
+       "calls": 3968,
+       "censored": false
+      },
+      {
+       "qid": 3,
+       "name": "theta(exact|relevant, rating<4)",
+       "calls": 1920,
+       "censored": false
+      },
+      {
+       "qid": 4,
+       "name": "theta(rating>=4 | relevant)",
+       "calls": 384,
+       "censored": false
+      },
+      {
+       "qid": 5,
+       "name": "diff theta(exact|relevant) >=4 minus <4",
+       "calls": 3968,
+       "censored": false
+      }
+     ],
+     "stop_reason": "all_targets_certified"
+    },
+    "T": {
+     "calls_used": 5500,
+     "calls_all": 5500,
+     "n_done": 5,
+     "n_targets": 5,
+     "errors": 0,
+     "targets": [
+      {
+       "qid": 1,
+       "name": "theta(exact|relevant)",
+       "calls": 4469,
+       "censored": false
+      },
+      {
+       "qid": 2,
+       "name": "theta(exact|relevant, rating>=4)",
+       "calls": 5500,
+       "censored": false
+      },
+      {
+       "qid": 3,
+       "name": "theta(exact|relevant, rating<4)",
+       "calls": 1791,
+       "censored": false
+      },
+      {
+       "qid": 4,
+       "name": "theta(rating>=4 | relevant)",
+       "calls": 499,
+       "censored": false
+      },
+      {
+       "qid": 5,
+       "name": "diff theta(exact|relevant) >=4 minus <4",
+       "calls": 5500,
+       "censored": false
+      }
+     ],
+     "stop_reason": "all_targets_certified"
+    },
+    "seconds": 9.992163181304932,
+    "history": {
+     "kind": "bm25",
+     "ratio": 0,
+     "frac": 0.15,
+     "seed": 4,
+     "n": 4722,
+     "sha256": "492cce700e24c1a9c4820cb4d21ef9e0bf0ce4eb416141a0f1f184715898e4a0"
+    }
+   },
+   {
+    "seed": 5,
+    "hist_n": 4722,
+    "enrich": 2.2759033975436904,
+    "E": {
+     "calls_used": 4736,
+     "calls_all": 4736,
+     "n_done": 5,
+     "n_targets": 5,
+     "errors": 0,
+     "targets": [
+      {
+       "qid": 1,
+       "name": "theta(exact|relevant)",
+       "calls": 3712,
+       "censored": false
+      },
+      {
+       "qid": 2,
+       "name": "theta(exact|relevant, rating>=4)",
+       "calls": 4736,
+       "censored": false
+      },
+      {
+       "qid": 3,
+       "name": "theta(exact|relevant, rating<4)",
+       "calls": 1920,
+       "censored": false
+      },
+      {
+       "qid": 4,
+       "name": "theta(rating>=4 | relevant)",
+       "calls": 384,
+       "censored": false
+      },
+      {
+       "qid": 5,
+       "name": "diff theta(exact|relevant) >=4 minus <4",
+       "calls": 4736,
+       "censored": false
+      }
+     ],
+     "stop_reason": "all_targets_certified"
+    },
+    "T": {
+     "calls_used": 5501,
+     "calls_all": 5501,
+     "n_done": 5,
+     "n_targets": 5,
+     "errors": 0,
+     "targets": [
+      {
+       "qid": 1,
+       "name": "theta(exact|relevant)",
+       "calls": 4470,
+       "censored": false
+      },
+      {
+       "qid": 2,
+       "name": "theta(exact|relevant, rating>=4)",
+       "calls": 5501,
+       "censored": false
+      },
+      {
+       "qid": 3,
+       "name": "theta(exact|relevant, rating<4)",
+       "calls": 1896,
+       "censored": false
+      },
+      {
+       "qid": 4,
+       "name": "theta(rating>=4 | relevant)",
+       "calls": 478,
+       "censored": false
+      },
+      {
+       "qid": 5,
+       "name": "diff theta(exact|relevant) >=4 minus <4",
+       "calls": 5501,
+       "censored": false
+      }
+     ],
+     "stop_reason": "all_targets_certified"
+    },
+    "seconds": 12.710203409194946,
+    "history": {
+     "kind": "bm25",
+     "ratio": 0,
+     "frac": 0.15,
+     "seed": 5,
+     "n": 4722,
+     "sha256": "b388f1c633866af563e7f4952db626188d2d3910332cf5fb27dd23c2115cc983"
+    }
+   },
+   {
+    "seed": 6,
+    "hist_n": 4722,
+    "enrich": 2.569919625934502,
+    "E": {
+     "calls_used": 4736,
+     "calls_all": 4736,
+     "n_done": 5,
+     "n_targets": 5,
+     "errors": 0,
+     "targets": [
+      {
+       "qid": 1,
+       "name": "theta(exact|relevant)",
+       "calls": 3968,
+       "censored": false
+      },
+      {
+       "qid": 2,
+       "name": "theta(exact|relevant, rating>=4)",
+       "calls": 4736,
+       "censored": false
+      },
+      {
+       "qid": 3,
+       "name": "theta(exact|relevant, rating<4)",
+       "calls": 1792,
+       "censored": false
+      },
+      {
+       "qid": 4,
+       "name": "theta(rating>=4 | relevant)",
+       "calls": 384,
+       "censored": false
+      },
+      {
+       "qid": 5,
+       "name": "diff theta(exact|relevant) >=4 minus <4",
+       "calls": 4736,
+       "censored": false
+      }
+     ],
+     "stop_reason": "all_targets_certified"
+    },
+    "T": {
+     "calls_used": 5478,
+     "calls_all": 5478,
+     "n_done": 5,
+     "n_targets": 5,
+     "errors": 0,
+     "targets": [
+      {
+       "qid": 1,
+       "name": "theta(exact|relevant)",
+       "calls": 4982,
+       "censored": false
+      },
+      {
+       "qid": 2,
+       "name": "theta(exact|relevant, rating>=4)",
+       "calls": 5478,
+       "censored": false
+      },
+      {
+       "qid": 3,
+       "name": "theta(exact|relevant, rating<4)",
+       "calls": 1893,
+       "censored": false
+      },
+      {
+       "qid": 4,
+       "name": "theta(rating>=4 | relevant)",
+       "calls": 614,
+       "censored": false
+      },
+      {
+       "qid": 5,
+       "name": "diff theta(exact|relevant) >=4 minus <4",
+       "calls": 5478,
+       "censored": false
+      }
+     ],
+     "stop_reason": "all_targets_certified"
+    },
+    "seconds": 12.527698278427124,
+    "history": {
+     "kind": "bm25",
+     "ratio": 0,
+     "frac": 0.15,
+     "seed": 6,
+     "n": 4722,
+     "sha256": "1eaeae362ed80ca787d2e6b63c035760ca13673660aed501402c8bd8d998b5a1"
+    }
+   },
+   {
+    "seed": 7,
+    "hist_n": 4722,
+    "enrich": 2.186065105535387,
+    "E": {
+     "calls_used": 4736,
+     "calls_all": 4736,
+     "n_done": 5,
+     "n_targets": 5,
+     "errors": 0,
+     "targets": [
+      {
+       "qid": 1,
+       "name": "theta(exact|relevant)",
+       "calls": 3968,
+       "censored": false
+      },
+      {
+       "qid": 2,
+       "name": "theta(exact|relevant, rating>=4)",
+       "calls": 4736,
+       "censored": false
+      },
+      {
+       "qid": 3,
+       "name": "theta(exact|relevant, rating<4)",
+       "calls": 1920,
+       "censored": false
+      },
+      {
+       "qid": 4,
+       "name": "theta(rating>=4 | relevant)",
+       "calls": 384,
+       "censored": false
+      },
+      {
+       "qid": 5,
+       "name": "diff theta(exact|relevant) >=4 minus <4",
+       "calls": 4736,
+       "censored": false
+      }
+     ],
+     "stop_reason": "all_targets_certified"
+    },
+    "T": {
+     "calls_used": 5204,
+     "calls_all": 5204,
+     "n_done": 5,
+     "n_targets": 5,
+     "errors": 0,
+     "targets": [
+      {
+       "qid": 1,
+       "name": "theta(exact|relevant)",
+       "calls": 4704,
+       "censored": false
+      },
+      {
+       "qid": 2,
+       "name": "theta(exact|relevant, rating>=4)",
+       "calls": 5204,
+       "censored": false
+      },
+      {
+       "qid": 3,
+       "name": "theta(exact|relevant, rating<4)",
+       "calls": 1888,
+       "censored": false
+      },
+      {
+       "qid": 4,
+       "name": "theta(rating>=4 | relevant)",
+       "calls": 624,
+       "censored": false
+      },
+      {
+       "qid": 5,
+       "name": "diff theta(exact|relevant) >=4 minus <4",
+       "calls": 5204,
+       "censored": false
+      }
+     ],
+     "stop_reason": "all_targets_certified"
+    },
+    "seconds": 11.767808198928833,
+    "history": {
+     "kind": "bm25",
+     "ratio": 0,
+     "frac": 0.15,
+     "seed": 7,
+     "n": 4722,
+     "sha256": "1413cda84bf50da0dd6e642ed21b939cd254159e3bbb920653601589746adb84"
+    }
+   }
+  ],
+  "uniform": [
+   {
+    "seed": 0,
+    "hist_n": 4722,
+    "enrich": 1.0345015443380412,
+    "E": {
+     "calls_used": 4992,
+     "calls_all": 4992,
+     "n_done": 5,
+     "n_targets": 5,
+     "errors": 0,
+     "targets": [
+      {
+       "qid": 1,
+       "name": "theta(exact|relevant)",
+       "calls": 3968,
+       "censored": false
+      },
+      {
+       "qid": 2,
+       "name": "theta(exact|relevant, rating>=4)",
+       "calls": 4992,
+       "censored": false
+      },
+      {
+       "qid": 3,
+       "name": "theta(exact|relevant, rating<4)",
+       "calls": 2048,
+       "censored": false
+      },
+      {
+       "qid": 4,
+       "name": "theta(rating>=4 | relevant)",
+       "calls": 384,
+       "censored": false
+      },
+      {
+       "qid": 5,
+       "name": "diff theta(exact|relevant) >=4 minus <4",
+       "calls": 4992,
+       "censored": false
+      }
+     ],
+     "stop_reason": "all_targets_certified"
+    },
+    "T": {
+     "calls_used": 5243,
+     "calls_all": 5243,
+     "n_done": 5,
+     "n_targets": 5,
+     "errors": 0,
+     "targets": [
+      {
+       "qid": 1,
+       "name": "theta(exact|relevant)",
+       "calls": 4730,
+       "censored": false
+      },
+      {
+       "qid": 2,
+       "name": "theta(exact|relevant, rating>=4)",
+       "calls": 5243,
+       "censored": false
+      },
+      {
+       "qid": 3,
+       "name": "theta(exact|relevant, rating<4)",
+       "calls": 2031,
+       "censored": false
+      },
+      {
+       "qid": 4,
+       "name": "theta(rating>=4 | relevant)",
+       "calls": 489,
+       "censored": false
+      },
+      {
+       "qid": 5,
+       "name": "diff theta(exact|relevant) >=4 minus <4",
+       "calls": 5243,
+       "censored": false
+      }
+     ],
+     "stop_reason": "all_targets_certified"
+    },
+    "seconds": 10.98913860321045,
+    "history": {
+     "kind": "enrich",
+     "ratio": 1,
+     "frac": 0.15,
+     "seed": 0,
+     "n": 4722,
+     "sha256": "1c07671a743817aae4d2abdc20775b4c74c03b4aa267882d33ae6c73732ec351"
+    }
+   },
+   {
+    "seed": 1,
+    "hist_n": 4722,
+    "enrich": 0.9256066449340368,
+    "E": {
+     "calls_used": 4736,
+     "calls_all": 4736,
+     "n_done": 5,
+     "n_targets": 5,
+     "errors": 0,
+     "targets": [
+      {
+       "qid": 1,
+       "name": "theta(exact|relevant)",
+       "calls": 4480,
+       "censored": false
+      },
+      {
+       "qid": 2,
+       "name": "theta(exact|relevant, rating>=4)",
+       "calls": 4736,
+       "censored": false
+      },
+      {
+       "qid": 3,
+       "name": "theta(exact|relevant, rating<4)",
+       "calls": 2048,
+       "censored": false
+      },
+      {
+       "qid": 4,
+       "name": "theta(rating>=4 | relevant)",
+       "calls": 384,
+       "censored": false
+      },
+      {
+       "qid": 5,
+       "name": "diff theta(exact|relevant) >=4 minus <4",
+       "calls": 4736,
+       "censored": false
+      }
+     ],
+     "stop_reason": "all_targets_certified"
+    },
+    "T": {
+     "calls_used": 5530,
+     "calls_all": 5530,
+     "n_done": 5,
+     "n_targets": 5,
+     "errors": 0,
+     "targets": [
+      {
+       "qid": 1,
+       "name": "theta(exact|relevant)",
+       "calls": 4769,
+       "censored": false
+      },
+      {
+       "qid": 2,
+       "name": "theta(exact|relevant, rating>=4)",
+       "calls": 5530,
+       "censored": false
+      },
+      {
+       "qid": 3,
+       "name": "theta(exact|relevant, rating<4)",
+       "calls": 2044,
+       "censored": false
+      },
+      {
+       "qid": 4,
+       "name": "theta(rating>=4 | relevant)",
+       "calls": 491,
+       "censored": false
+      },
+      {
+       "qid": 5,
+       "name": "diff theta(exact|relevant) >=4 minus <4",
+       "calls": 5530,
+       "censored": false
+      }
+     ],
+     "stop_reason": "all_targets_certified"
+    },
+    "seconds": 11.009749412536621,
+    "history": {
+     "kind": "enrich",
+     "ratio": 1,
+     "frac": 0.15,
+     "seed": 1,
+     "n": 4722,
+     "sha256": "685334694930895cb59af22848e6304d8749b5bef89cee5d8a8695bc8fee3206"
+    }
+   },
+   {
+    "seed": 2,
+    "hist_n": 4722,
+    "enrich": 1.0372239168231412,
+    "E": {
+     "calls_used": 4224,
+     "calls_all": 4224,
+     "n_done": 5,
+     "n_targets": 5,
+     "errors": 0,
+     "targets": [
+      {
+       "qid": 1,
+       "name": "theta(exact|relevant)",
+       "calls": 3712,
+       "censored": false
+      },
+      {
+       "qid": 2,
+       "name": "theta(exact|relevant, rating>=4)",
+       "calls": 4224,
+       "censored": false
+      },
+      {
+       "qid": 3,
+       "name": "theta(exact|relevant, rating<4)",
+       "calls": 1920,
+       "censored": false
+      },
+      {
+       "qid": 4,
+       "name": "theta(rating>=4 | relevant)",
+       "calls": 384,
+       "censored": false
+      },
+      {
+       "qid": 5,
+       "name": "diff theta(exact|relevant) >=4 minus <4",
+       "calls": 4224,
+       "censored": false
+      }
+     ],
+     "stop_reason": "all_targets_certified"
+    },
+    "T": {
+     "calls_used": 5781,
+     "calls_all": 5781,
+     "n_done": 5,
+     "n_targets": 5,
+     "errors": 0,
+     "targets": [
+      {
+       "qid": 1,
+       "name": "theta(exact|relevant)",
+       "calls": 4996,
+       "censored": false
+      },
+      {
+       "qid": 2,
+       "name": "theta(exact|relevant, rating>=4)",
+       "calls": 5781,
+       "censored": false
+      },
+      {
+       "qid": 3,
+       "name": "theta(exact|relevant, rating<4)",
+       "calls": 2041,
+       "censored": false
+      },
+      {
+       "qid": 4,
+       "name": "theta(rating>=4 | relevant)",
+       "calls": 497,
+       "censored": false
+      },
+      {
+       "qid": 5,
+       "name": "diff theta(exact|relevant) >=4 minus <4",
+       "calls": 5781,
+       "censored": false
+      }
+     ],
+     "stop_reason": "all_targets_certified"
+    },
+    "seconds": 11.302793502807617,
+    "history": {
+     "kind": "enrich",
+     "ratio": 1,
+     "frac": 0.15,
+     "seed": 2,
+     "n": 4722,
+     "sha256": "fe9126a55f9ac284211434fcddd61a2aef0e0a22bfc41efa355eeb1309bfd26d"
+    }
+   },
+   {
+    "seed": 3,
+    "hist_n": 4722,
+    "enrich": 1.0644476416741422,
+    "E": {
+     "calls_used": 4992,
+     "calls_all": 4992,
+     "n_done": 5,
+     "n_targets": 5,
+     "errors": 0,
+     "targets": [
+      {
+       "qid": 1,
+       "name": "theta(exact|relevant)",
+       "calls": 3968,
+       "censored": false
+      },
+      {
+       "qid": 2,
+       "name": "theta(exact|relevant, rating>=4)",
+       "calls": 4992,
+       "censored": false
+      },
+      {
+       "qid": 3,
+       "name": "theta(exact|relevant, rating<4)",
+       "calls": 2048,
+       "censored": false
+      },
+      {
+       "qid": 4,
+       "name": "theta(rating>=4 | relevant)",
+       "calls": 384,
+       "censored": false
+      },
+      {
+       "qid": 5,
+       "name": "diff theta(exact|relevant) >=4 minus <4",
+       "calls": 4992,
+       "censored": false
+      }
+     ],
+     "stop_reason": "all_targets_certified"
+    },
+    "T": {
+     "calls_used": 5244,
+     "calls_all": 5244,
+     "n_done": 5,
+     "n_targets": 5,
+     "errors": 0,
+     "targets": [
+      {
+       "qid": 1,
+       "name": "theta(exact|relevant)",
+       "calls": 4727,
+       "censored": false
+      },
+      {
+       "qid": 2,
+       "name": "theta(exact|relevant, rating>=4)",
+       "calls": 5244,
+       "censored": false
+      },
+      {
+       "qid": 3,
+       "name": "theta(exact|relevant, rating<4)",
+       "calls": 2031,
+       "censored": false
+      },
+      {
+       "qid": 4,
+       "name": "theta(rating>=4 | relevant)",
+       "calls": 628,
+       "censored": false
+      },
+      {
+       "qid": 5,
+       "name": "diff theta(exact|relevant) >=4 minus <4",
+       "calls": 5244,
+       "censored": false
+      }
+     ],
+     "stop_reason": "all_targets_certified"
+    },
+    "seconds": 12.195085287094116,
+    "history": {
+     "kind": "enrich",
+     "ratio": 1,
+     "frac": 0.15,
+     "seed": 3,
+     "n": 4722,
+     "sha256": "db4428b668f6273827a73e2522b8437db303ede27fbabc9bc727680fed8a5a53"
+    }
+   },
+   {
+    "seed": 4,
+    "hist_n": 4722,
+    "enrich": 1.0698923866443426,
+    "E": {
+     "calls_used": 4480,
+     "calls_all": 4480,
+     "n_done": 5,
+     "n_targets": 5,
+     "errors": 0,
+     "targets": [
+      {
+       "qid": 1,
+       "name": "theta(exact|relevant)",
+       "calls": 3968,
+       "censored": false
+      },
+      {
+       "qid": 2,
+       "name": "theta(exact|relevant, rating>=4)",
+       "calls": 4480,
+       "censored": false
+      },
+      {
+       "qid": 3,
+       "name": "theta(exact|relevant, rating<4)",
+       "calls": 2176,
+       "censored": false
+      },
+      {
+       "qid": 4,
+       "name": "theta(rating>=4 | relevant)",
+       "calls": 384,
+       "censored": false
+      },
+      {
+       "qid": 5,
+       "name": "diff theta(exact|relevant) >=4 minus <4",
+       "calls": 4480,
+       "censored": false
+      }
+     ],
+     "stop_reason": "all_targets_certified"
+    },
+    "T": {
+     "calls_used": 5478,
+     "calls_all": 5478,
+     "n_done": 5,
+     "n_targets": 5,
+     "errors": 0,
+     "targets": [
+      {
+       "qid": 1,
+       "name": "theta(exact|relevant)",
+       "calls": 4715,
+       "censored": false
+      },
+      {
+       "qid": 2,
+       "name": "theta(exact|relevant, rating>=4)",
+       "calls": 5478,
+       "censored": false
+      },
+      {
+       "qid": 3,
+       "name": "theta(exact|relevant, rating<4)",
+       "calls": 2035,
+       "censored": false
+      },
+      {
+       "qid": 4,
+       "name": "theta(rating>=4 | relevant)",
+       "calls": 491,
+       "censored": false
+      },
+      {
+       "qid": 5,
+       "name": "diff theta(exact|relevant) >=4 minus <4",
+       "calls": 5478,
+       "censored": false
+      }
+     ],
+     "stop_reason": "all_targets_certified"
+    },
+    "seconds": 11.111530065536499,
+    "history": {
+     "kind": "enrich",
+     "ratio": 1,
+     "frac": 0.15,
+     "seed": 4,
+     "n": 4722,
+     "sha256": "17c301674abf94e5f00ebd67d8748215c8cf29ee3458469560cb8a42c281dd6e"
+    }
+   },
+   {
+    "seed": 5,
+    "hist_n": 4722,
+    "enrich": 1.0345015443380412,
+    "E": {
+     "calls_used": 4992,
+     "calls_all": 4992,
+     "n_done": 5,
+     "n_targets": 5,
+     "errors": 0,
+     "targets": [
+      {
+       "qid": 1,
+       "name": "theta(exact|relevant)",
+       "calls": 4224,
+       "censored": false
+      },
+      {
+       "qid": 2,
+       "name": "theta(exact|relevant, rating>=4)",
+       "calls": 4992,
+       "censored": false
+      },
+      {
+       "qid": 3,
+       "name": "theta(exact|relevant, rating<4)",
+       "calls": 2048,
+       "censored": false
+      },
+      {
+       "qid": 4,
+       "name": "theta(rating>=4 | relevant)",
+       "calls": 384,
+       "censored": false
+      },
+      {
+       "qid": 5,
+       "name": "diff theta(exact|relevant) >=4 minus <4",
+       "calls": 4992,
+       "censored": false
+      }
+     ],
+     "stop_reason": "all_targets_certified"
+    },
+    "T": {
+     "calls_used": 5539,
+     "calls_all": 5539,
+     "n_done": 5,
+     "n_targets": 5,
+     "errors": 0,
+     "targets": [
+      {
+       "qid": 1,
+       "name": "theta(exact|relevant)",
+       "calls": 4764,
+       "censored": false
+      },
+      {
+       "qid": 2,
+       "name": "theta(exact|relevant, rating>=4)",
+       "calls": 5539,
+       "censored": false
+      },
+      {
+       "qid": 3,
+       "name": "theta(exact|relevant, rating<4)",
+       "calls": 2162,
+       "censored": false
+      },
+      {
+       "qid": 4,
+       "name": "theta(rating>=4 | relevant)",
+       "calls": 482,
+       "censored": false
+      },
+      {
+       "qid": 5,
+       "name": "diff theta(exact|relevant) >=4 minus <4",
+       "calls": 5539,
+       "censored": false
+      }
+     ],
+     "stop_reason": "all_targets_certified"
+    },
+    "seconds": 11.100949764251709,
+    "history": {
+     "kind": "enrich",
+     "ratio": 1,
+     "frac": 0.15,
+     "seed": 5,
+     "n": 4722,
+     "sha256": "a80c283fccbb20d996397eb0621e51475e8fe9aaecf4f3f1f45dfbf9bfcc3ccf"
+    }
+   },
+   {
+    "seed": 6,
+    "hist_n": 4722,
+    "enrich": 1.0481134067635416,
+    "E": {
+     "calls_used": 4992,
+     "calls_all": 4992,
+     "n_done": 5,
+     "n_targets": 5,
+     "errors": 0,
+     "targets": [
+      {
+       "qid": 1,
+       "name": "theta(exact|relevant)",
+       "calls": 4224,
+       "censored": false
+      },
+      {
+       "qid": 2,
+       "name": "theta(exact|relevant, rating>=4)",
+       "calls": 4992,
+       "censored": false
+      },
+      {
+       "qid": 3,
+       "name": "theta(exact|relevant, rating<4)",
+       "calls": 2048,
+       "censored": false
+      },
+      {
+       "qid": 4,
+       "name": "theta(rating>=4 | relevant)",
+       "calls": 512,
+       "censored": false
+      },
+      {
+       "qid": 5,
+       "name": "diff theta(exact|relevant) >=4 minus <4",
+       "calls": 4992,
+       "censored": false
+      }
+     ],
+     "stop_reason": "all_targets_certified"
+    },
+    "T": {
+     "calls_used": 5550,
+     "calls_all": 5550,
+     "n_done": 5,
+     "n_targets": 5,
+     "errors": 0,
+     "targets": [
+      {
+       "qid": 1,
+       "name": "theta(exact|relevant)",
+       "calls": 5029,
+       "censored": false
+      },
+      {
+       "qid": 2,
+       "name": "theta(exact|relevant, rating>=4)",
+       "calls": 5550,
+       "censored": false
+      },
+      {
+       "qid": 3,
+       "name": "theta(exact|relevant, rating<4)",
+       "calls": 2047,
+       "censored": false
+      },
+      {
+       "qid": 4,
+       "name": "theta(rating>=4 | relevant)",
+       "calls": 487,
+       "censored": false
+      },
+      {
+       "qid": 5,
+       "name": "diff theta(exact|relevant) >=4 minus <4",
+       "calls": 5550,
+       "censored": false
+      }
+     ],
+     "stop_reason": "all_targets_certified"
+    },
+    "seconds": 12.199339151382446,
+    "history": {
+     "kind": "enrich",
+     "ratio": 1,
+     "frac": 0.15,
+     "seed": 6,
+     "n": 4722,
+     "sha256": "9300ea062c997e963d5523fcbe25e1bad13d44536e5aa70d2c62385c6dbe8089"
+    }
+   },
+   {
+    "seed": 7,
+    "hist_n": 4722,
+    "enrich": 1.0263344268827408,
+    "E": {
+     "calls_used": 4736,
+     "calls_all": 4736,
+     "n_done": 5,
+     "n_targets": 5,
+     "errors": 0,
+     "targets": [
+      {
+       "qid": 1,
+       "name": "theta(exact|relevant)",
+       "calls": 4224,
+       "censored": false
+      },
+      {
+       "qid": 2,
+       "name": "theta(exact|relevant, rating>=4)",
+       "calls": 4736,
+       "censored": false
+      },
+      {
+       "qid": 3,
+       "name": "theta(exact|relevant, rating<4)",
+       "calls": 2048,
+       "censored": false
+      },
+      {
+       "qid": 4,
+       "name": "theta(rating>=4 | relevant)",
+       "calls": 384,
+       "censored": false
+      },
+      {
+       "qid": 5,
+       "name": "diff theta(exact|relevant) >=4 minus <4",
+       "calls": 4736,
+       "censored": false
+      }
+     ],
+     "stop_reason": "all_targets_certified"
+    },
+    "T": {
+     "calls_used": 5229,
+     "calls_all": 5229,
+     "n_done": 5,
+     "n_targets": 5,
+     "errors": 0,
+     "targets": [
+      {
+       "qid": 1,
+       "name": "theta(exact|relevant)",
+       "calls": 4720,
+       "censored": false
+      },
+      {
+       "qid": 2,
+       "name": "theta(exact|relevant, rating>=4)",
+       "calls": 5229,
+       "censored": false
+      },
+      {
+       "qid": 3,
+       "name": "theta(exact|relevant, rating<4)",
+       "calls": 1915,
+       "censored": false
+      },
+      {
+       "qid": 4,
+       "name": "theta(rating>=4 | relevant)",
+       "calls": 495,
+       "censored": false
+      },
+      {
+       "qid": 5,
+       "name": "diff theta(exact|relevant) >=4 minus <4",
+       "calls": 5229,
+       "censored": false
+      }
+     ],
+     "stop_reason": "all_targets_certified"
+    },
+    "seconds": 11.903927087783813,
+    "history": {
+     "kind": "enrich",
+     "ratio": 1,
+     "frac": 0.15,
+     "seed": 7,
+     "n": 4722,
+     "sha256": "91cd252f76f745011a6b950a07c73d1165c4a56ec4f9822f592ad27255c3892c"
+    }
+   }
+  ],
+  "mild": [
+   {
+    "seed": 0,
+    "hist_n": 4722,
+    "enrich": 2.820377894563712,
+    "E": {
+     "calls_used": 4224,
+     "calls_all": 4224,
+     "n_done": 5,
+     "n_targets": 5,
+     "errors": 0,
+     "targets": [
+      {
+       "qid": 1,
+       "name": "theta(exact|relevant)",
+       "calls": 3712,
+       "censored": false
+      },
+      {
+       "qid": 2,
+       "name": "theta(exact|relevant, rating>=4)",
+       "calls": 4224,
+       "censored": false
+      },
+      {
+       "qid": 3,
+       "name": "theta(exact|relevant, rating<4)",
+       "calls": 1536,
+       "censored": false
+      },
+      {
+       "qid": 4,
+       "name": "theta(rating>=4 | relevant)",
+       "calls": 512,
+       "censored": false
+      },
+      {
+       "qid": 5,
+       "name": "diff theta(exact|relevant) >=4 minus <4",
+       "calls": 4224,
+       "censored": false
+      }
+     ],
+     "stop_reason": "all_targets_certified"
+    },
+    "T": {
+     "calls_used": 5221,
+     "calls_all": 5221,
+     "n_done": 5,
+     "n_targets": 5,
+     "errors": 0,
+     "targets": [
+      {
+       "qid": 1,
+       "name": "theta(exact|relevant)",
+       "calls": 4703,
+       "censored": false
+      },
+      {
+       "qid": 2,
+       "name": "theta(exact|relevant, rating>=4)",
+       "calls": 5221,
+       "censored": false
+      },
+      {
+       "qid": 3,
+       "name": "theta(exact|relevant, rating<4)",
+       "calls": 1759,
+       "censored": false
+      },
+      {
+       "qid": 4,
+       "name": "theta(rating>=4 | relevant)",
+       "calls": 498,
+       "censored": false
+      },
+      {
+       "qid": 5,
+       "name": "diff theta(exact|relevant) >=4 minus <4",
+       "calls": 5221,
+       "censored": false
+      }
+     ],
+     "stop_reason": "all_targets_certified"
+    },
+    "seconds": 3.390930652618408,
+    "history": {
+     "kind": "enrich",
+     "ratio": 4,
+     "frac": 0.15,
+     "seed": 0,
+     "n": 4722,
+     "sha256": "4fe7f4ce5af83a32fabb642a4ca48d583d2fc4d9955acec81e2300ceeb9c0b59"
+    }
+   },
+   {
+    "seed": 1,
+    "hist_n": 4722,
+    "enrich": 2.735984347525609,
+    "E": {
+     "calls_used": 3968,
+     "calls_all": 3968,
+     "n_done": 5,
+     "n_targets": 5,
+     "errors": 0,
+     "targets": [
+      {
+       "qid": 1,
+       "name": "theta(exact|relevant)",
+       "calls": 3712,
+       "censored": false
+      },
+      {
+       "qid": 2,
+       "name": "theta(exact|relevant, rating>=4)",
+       "calls": 3968,
+       "censored": false
+      },
+      {
+       "qid": 3,
+       "name": "theta(exact|relevant, rating<4)",
+       "calls": 1792,
+       "censored": false
+      },
+      {
+       "qid": 4,
+       "name": "theta(rating>=4 | relevant)",
+       "calls": 512,
+       "censored": false
+      },
+      {
+       "qid": 5,
+       "name": "diff theta(exact|relevant) >=4 minus <4",
+       "calls": 3968,
+       "censored": false
+      }
+     ],
+     "stop_reason": "all_targets_certified"
+    },
+    "T": {
+     "calls_used": 5483,
+     "calls_all": 5483,
+     "n_done": 5,
+     "n_targets": 5,
+     "errors": 0,
+     "targets": [
+      {
+       "qid": 1,
+       "name": "theta(exact|relevant)",
+       "calls": 4731,
+       "censored": false
+      },
+      {
+       "qid": 2,
+       "name": "theta(exact|relevant, rating>=4)",
+       "calls": 5483,
+       "censored": false
+      },
+      {
+       "qid": 3,
+       "name": "theta(exact|relevant, rating<4)",
+       "calls": 1792,
+       "censored": false
+      },
+      {
+       "qid": 4,
+       "name": "theta(rating>=4 | relevant)",
+       "calls": 502,
+       "censored": false
+      },
+      {
+       "qid": 5,
+       "name": "diff theta(exact|relevant) >=4 minus <4",
+       "calls": 5483,
+       "censored": false
+      }
+     ],
+     "stop_reason": "all_targets_certified"
+    },
+    "seconds": 2.900346517562866,
+    "history": {
+     "kind": "enrich",
+     "ratio": 4,
+     "frac": 0.15,
+     "seed": 1,
+     "n": 4722,
+     "sha256": "5e0a8487724b7993e306236aa3da162eccc887979f2f68f28d8b7d78a3cf3b0f"
+    }
+   },
+   {
+    "seed": 2,
+    "hist_n": 4722,
+    "enrich": 2.8094884046233113,
+    "E": {
+     "calls_used": 4224,
+     "calls_all": 4224,
+     "n_done": 5,
+     "n_targets": 5,
+     "errors": 0,
+     "targets": [
+      {
+       "qid": 1,
+       "name": "theta(exact|relevant)",
+       "calls": 3712,
+       "censored": false
+      },
+      {
+       "qid": 2,
+       "name": "theta(exact|relevant, rating>=4)",
+       "calls": 4224,
+       "censored": false
+      },
+      {
+       "qid": 3,
+       "name": "theta(exact|relevant, rating<4)",
+       "calls": 1664,
+       "censored": false
+      },
+      {
+       "qid": 4,
+       "name": "theta(rating>=4 | relevant)",
+       "calls": 256,
+       "censored": false
+      },
+      {
+       "qid": 5,
+       "name": "diff theta(exact|relevant) >=4 minus <4",
+       "calls": 4224,
+       "censored": false
+      }
+     ],
+     "stop_reason": "all_targets_certified"
+    },
+    "T": {
+     "calls_used": 5746,
+     "calls_all": 5746,
+     "n_done": 5,
+     "n_targets": 5,
+     "errors": 0,
+     "targets": [
+      {
+       "qid": 1,
+       "name": "theta(exact|relevant)",
+       "calls": 4983,
+       "censored": false
+      },
+      {
+       "qid": 2,
+       "name": "theta(exact|relevant, rating>=4)",
+       "calls": 5746,
+       "censored": false
+      },
+      {
+       "qid": 3,
+       "name": "theta(exact|relevant, rating<4)",
+       "calls": 2042,
+       "censored": false
+      },
+      {
+       "qid": 4,
+       "name": "theta(rating>=4 | relevant)",
+       "calls": 496,
+       "censored": false
+      },
+      {
+       "qid": 5,
+       "name": "diff theta(exact|relevant) >=4 minus <4",
+       "calls": 5746,
+       "censored": false
+      }
+     ],
+     "stop_reason": "all_targets_certified"
+    },
+    "seconds": 2.80078387260437,
+    "history": {
+     "kind": "enrich",
+     "ratio": 4,
+     "frac": 0.15,
+     "seed": 2,
+     "n": 4722,
+     "sha256": "7fb487c8c8b846dd0930a9f795386cc30ee344cda7e3baba95833ea9fbbddad2"
+    }
+   },
+   {
+    "seed": 3,
+    "hist_n": 4722,
+    "enrich": 2.77409756231701,
+    "E": {
+     "calls_used": 4480,
+     "calls_all": 4480,
+     "n_done": 5,
+     "n_targets": 5,
+     "errors": 0,
+     "targets": [
+      {
+       "qid": 1,
+       "name": "theta(exact|relevant)",
+       "calls": 3968,
+       "censored": false
+      },
+      {
+       "qid": 2,
+       "name": "theta(exact|relevant, rating>=4)",
+       "calls": 4480,
+       "censored": false
+      },
+      {
+       "qid": 3,
+       "name": "theta(exact|relevant, rating<4)",
+       "calls": 1792,
+       "censored": false
+      },
+      {
+       "qid": 4,
+       "name": "theta(rating>=4 | relevant)",
+       "calls": 256,
+       "censored": false
+      },
+      {
+       "qid": 5,
+       "name": "diff theta(exact|relevant) >=4 minus <4",
+       "calls": 4480,
+       "censored": false
+      }
+     ],
+     "stop_reason": "all_targets_certified"
+    },
+    "T": {
+     "calls_used": 5291,
+     "calls_all": 5291,
+     "n_done": 5,
+     "n_targets": 5,
+     "errors": 0,
+     "targets": [
+      {
+       "qid": 1,
+       "name": "theta(exact|relevant)",
+       "calls": 4768,
+       "censored": false
+      },
+      {
+       "qid": 2,
+       "name": "theta(exact|relevant, rating>=4)",
+       "calls": 5291,
+       "censored": false
+      },
+      {
+       "qid": 3,
+       "name": "theta(exact|relevant, rating<4)",
+       "calls": 1947,
+       "censored": false
+      },
+      {
+       "qid": 4,
+       "name": "theta(rating>=4 | relevant)",
+       "calls": 630,
+       "censored": false
+      },
+      {
+       "qid": 5,
+       "name": "diff theta(exact|relevant) >=4 minus <4",
+       "calls": 5291,
+       "censored": false
+      }
+     ],
+     "stop_reason": "all_targets_certified"
+    },
+    "seconds": 2.9010632038116455,
+    "history": {
+     "kind": "enrich",
+     "ratio": 4,
+     "frac": 0.15,
+     "seed": 3,
+     "n": 4722,
+     "sha256": "c0d5b4832eed84ce2d7dfbe4eca0879378796005b4889c248942137bd743bc03"
+    }
+   },
+   {
+    "seed": 4,
+    "hist_n": 4722,
+    "enrich": 2.686981642793807,
+    "E": {
+     "calls_used": 4480,
+     "calls_all": 4480,
+     "n_done": 5,
+     "n_targets": 5,
+     "errors": 0,
+     "targets": [
+      {
+       "qid": 1,
+       "name": "theta(exact|relevant)",
+       "calls": 3968,
+       "censored": false
+      },
+      {
+       "qid": 2,
+       "name": "theta(exact|relevant, rating>=4)",
+       "calls": 4480,
+       "censored": false
+      },
+      {
+       "qid": 3,
+       "name": "theta(exact|relevant, rating<4)",
+       "calls": 1920,
+       "censored": false
+      },
+      {
+       "qid": 4,
+       "name": "theta(rating>=4 | relevant)",
+       "calls": 384,
+       "censored": false
+      },
+      {
+       "qid": 5,
+       "name": "diff theta(exact|relevant) >=4 minus <4",
+       "calls": 4480,
+       "censored": false
+      }
+     ],
+     "stop_reason": "all_targets_certified"
+    },
+    "T": {
+     "calls_used": 5488,
+     "calls_all": 5488,
+     "n_done": 5,
+     "n_targets": 5,
+     "errors": 0,
+     "targets": [
+      {
+       "qid": 1,
+       "name": "theta(exact|relevant)",
+       "calls": 4726,
+       "censored": false
+      },
+      {
+       "qid": 2,
+       "name": "theta(exact|relevant, rating>=4)",
+       "calls": 5488,
+       "censored": false
+      },
+      {
+       "qid": 3,
+       "name": "theta(exact|relevant, rating<4)",
+       "calls": 1893,
+       "censored": false
+      },
+      {
+       "qid": 4,
+       "name": "theta(rating>=4 | relevant)",
+       "calls": 489,
+       "censored": false
+      },
+      {
+       "qid": 5,
+       "name": "diff theta(exact|relevant) >=4 minus <4",
+       "calls": 5488,
+       "censored": false
+      }
+     ],
+     "stop_reason": "all_targets_certified"
+    },
+    "seconds": 3.2961087226867676,
+    "history": {
+     "kind": "enrich",
+     "ratio": 4,
+     "frac": 0.15,
+     "seed": 4,
+     "n": 4722,
+     "sha256": "758c324ef84cbeef0af641c6243ec29c8728dcc5939a3bf046e49fb824dada84"
+    }
+   },
+   {
+    "seed": 5,
+    "hist_n": 4722,
+    "enrich": 2.839434501959413,
+    "E": {
+     "calls_used": 3712,
+     "calls_all": 3712,
+     "n_done": 5,
+     "n_targets": 5,
+     "errors": 0,
+     "targets": [
+      {
+       "qid": 1,
+       "name": "theta(exact|relevant)",
+       "calls": 3200,
+       "censored": false
+      },
+      {
+       "qid": 2,
+       "name": "theta(exact|relevant, rating>=4)",
+       "calls": 3712,
+       "censored": false
+      },
+      {
+       "qid": 3,
+       "name": "theta(exact|relevant, rating<4)",
+       "calls": 1664,
+       "censored": false
+      },
+      {
+       "qid": 4,
+       "name": "theta(rating>=4 | relevant)",
+       "calls": 384,
+       "censored": false
+      },
+      {
+       "qid": 5,
+       "name": "diff theta(exact|relevant) >=4 minus <4",
+       "calls": 3712,
+       "censored": false
+      }
+     ],
+     "stop_reason": "all_targets_certified"
+    },
+    "T": {
+     "calls_used": 5532,
+     "calls_all": 5532,
+     "n_done": 5,
+     "n_targets": 5,
+     "errors": 0,
+     "targets": [
+      {
+       "qid": 1,
+       "name": "theta(exact|relevant)",
+       "calls": 4762,
+       "censored": false
+      },
+      {
+       "qid": 2,
+       "name": "theta(exact|relevant, rating>=4)",
+       "calls": 5532,
+       "censored": false
+      },
+      {
+       "qid": 3,
+       "name": "theta(exact|relevant, rating<4)",
+       "calls": 1904,
+       "censored": false
+      },
+      {
+       "qid": 4,
+       "name": "theta(rating>=4 | relevant)",
+       "calls": 486,
+       "censored": false
+      },
+      {
+       "qid": 5,
+       "name": "diff theta(exact|relevant) >=4 minus <4",
+       "calls": 5532,
+       "censored": false
+      }
+     ],
+     "stop_reason": "all_targets_certified"
+    },
+    "seconds": 3.0268783569335938,
+    "history": {
+     "kind": "enrich",
+     "ratio": 4,
+     "frac": 0.15,
+     "seed": 5,
+     "n": 4722,
+     "sha256": "038ec401859ea2ffd4b97eb3e83de991ff0957f5d6fff35d895f82dc6f153e65"
+    }
+   },
+   {
+    "seed": 6,
+    "hist_n": 4722,
+    "enrich": 2.8312673845041125,
+    "E": {
+     "calls_used": 3968,
+     "calls_all": 3968,
+     "n_done": 5,
+     "n_targets": 5,
+     "errors": 0,
+     "targets": [
+      {
+       "qid": 1,
+       "name": "theta(exact|relevant)",
+       "calls": 3456,
+       "censored": false
+      },
+      {
+       "qid": 2,
+       "name": "theta(exact|relevant, rating>=4)",
+       "calls": 3968,
+       "censored": false
+      },
+      {
+       "qid": 3,
+       "name": "theta(exact|relevant, rating<4)",
+       "calls": 1792,
+       "censored": false
+      },
+      {
+       "qid": 4,
+       "name": "theta(rating>=4 | relevant)",
+       "calls": 512,
+       "censored": false
+      },
+      {
+       "qid": 5,
+       "name": "diff theta(exact|relevant) >=4 minus <4",
+       "calls": 3968,
+       "censored": false
+      }
+     ],
+     "stop_reason": "all_targets_certified"
+    },
+    "T": {
+     "calls_used": 5513,
+     "calls_all": 5513,
+     "n_done": 5,
+     "n_targets": 5,
+     "errors": 0,
+     "targets": [
+      {
+       "qid": 1,
+       "name": "theta(exact|relevant)",
+       "calls": 4990,
+       "censored": false
+      },
+      {
+       "qid": 2,
+       "name": "theta(exact|relevant, rating>=4)",
+       "calls": 5513,
+       "censored": false
+      },
+      {
+       "qid": 3,
+       "name": "theta(exact|relevant, rating<4)",
+       "calls": 1767,
+       "censored": false
+      },
+      {
+       "qid": 4,
+       "name": "theta(rating>=4 | relevant)",
+       "calls": 621,
+       "censored": false
+      },
+      {
+       "qid": 5,
+       "name": "diff theta(exact|relevant) >=4 minus <4",
+       "calls": 5513,
+       "censored": false
+      }
+     ],
+     "stop_reason": "all_targets_certified"
+    },
+    "seconds": 3.083177089691162,
+    "history": {
+     "kind": "enrich",
+     "ratio": 4,
+     "frac": 0.15,
+     "seed": 6,
+     "n": 4722,
+     "sha256": "c23f738514852d12ed851c90bd34b46590740583f4d063cfa0b4a86bf1861f11"
+    }
+   },
+   {
+    "seed": 7,
+    "hist_n": 4722,
+    "enrich": 2.8367121294743125,
+    "E": {
+     "calls_used": 3072,
+     "calls_all": null,
+     "n_done": 2,
+     "n_targets": 5,
+     "errors": 0,
+     "targets": [
+      {
+       "qid": 1,
+       "name": "theta(exact|relevant)",
+       "calls": null,
+       "censored": true
+      },
+      {
+       "qid": 2,
+       "name": "theta(exact|relevant, rating>=4)",
+       "calls": null,
+       "censored": true
+      },
+      {
+       "qid": 3,
+       "name": "theta(exact|relevant, rating<4)",
+       "calls": 1664,
+       "censored": false
+      },
+      {
+       "qid": 4,
+       "name": "theta(rating>=4 | relevant)",
+       "calls": 384,
+       "censored": false
+      },
+      {
+       "qid": 5,
+       "name": "diff theta(exact|relevant) >=4 minus <4",
+       "calls": null,
+       "censored": true
+      }
+     ],
+     "stop_reason": "empty_confidence_set"
+    },
+    "T": {
+     "calls_used": 5251,
+     "calls_all": 5251,
+     "n_done": 5,
+     "n_targets": 5,
+     "errors": 0,
+     "targets": [
+      {
+       "qid": 1,
+       "name": "theta(exact|relevant)",
+       "calls": 4733,
+       "censored": false
+      },
+      {
+       "qid": 2,
+       "name": "theta(exact|relevant, rating>=4)",
+       "calls": 5251,
+       "censored": false
+      },
+      {
+       "qid": 3,
+       "name": "theta(exact|relevant, rating<4)",
+       "calls": 1792,
+       "censored": false
+      },
+      {
+       "qid": 4,
+       "name": "theta(rating>=4 | relevant)",
+       "calls": 504,
+       "censored": false
+      },
+      {
+       "qid": 5,
+       "name": "diff theta(exact|relevant) >=4 minus <4",
+       "calls": 5251,
+       "censored": false
+      }
+     ],
+     "stop_reason": "all_targets_certified"
+    },
+    "seconds": 2.7032113075256348,
+    "history": {
+     "kind": "enrich",
+     "ratio": 4,
+     "frac": 0.15,
+     "seed": 7,
+     "n": 4722,
+     "sha256": "863f76001db146e824d1a61b55ef2d3717b4ed8974157142eb2cb171e3ce7251"
+    }
+   }
+  ],
+  "strong": [
+   {
+    "seed": 0,
+    "hist_n": 4722,
+    "enrich": 5.384852775528014,
+    "E": {
+     "calls_used": 3072,
+     "calls_all": 3072,
+     "n_done": 5,
+     "n_targets": 5,
+     "errors": 0,
+     "targets": [
+      {
+       "qid": 1,
+       "name": "theta(exact|relevant)",
+       "calls": 2432,
+       "censored": false
+      },
+      {
+       "qid": 2,
+       "name": "theta(exact|relevant, rating>=4)",
+       "calls": 2560,
+       "censored": false
+      },
+      {
+       "qid": 3,
+       "name": "theta(exact|relevant, rating<4)",
+       "calls": 1536,
+       "censored": false
+      },
+      {
+       "qid": 4,
+       "name": "theta(rating>=4 | relevant)",
+       "calls": 384,
+       "censored": false
+      },
+      {
+       "qid": 5,
+       "name": "diff theta(exact|relevant) >=4 minus <4",
+       "calls": 3072,
+       "censored": false
+      }
+     ],
+     "stop_reason": "all_targets_certified"
+    },
+    "T": {
+     "calls_used": 4216,
+     "calls_all": 4216,
+     "n_done": 5,
+     "n_targets": 5,
+     "errors": 0,
+     "targets": [
+      {
+       "qid": 1,
+       "name": "theta(exact|relevant)",
+       "calls": 3712,
+       "censored": false
+      },
+      {
+       "qid": 2,
+       "name": "theta(exact|relevant, rating>=4)",
+       "calls": 4216,
+       "censored": false
+      },
+      {
+       "qid": 3,
+       "name": "theta(exact|relevant, rating<4)",
+       "calls": 1657,
+       "censored": false
+      },
+      {
+       "qid": 4,
+       "name": "theta(rating>=4 | relevant)",
+       "calls": 497,
+       "censored": false
+      },
+      {
+       "qid": 5,
+       "name": "diff theta(exact|relevant) >=4 minus <4",
+       "calls": 4216,
+       "censored": false
+      }
+     ],
+     "stop_reason": "all_targets_certified"
+    },
+    "seconds": 2.5664150714874268,
+    "history": {
+     "kind": "enrich",
+     "ratio": 16,
+     "frac": 0.15,
+     "seed": 0,
+     "n": 4722,
+     "sha256": "9492be4cf157a1616a0f3d2600bd5ac326cf502438f9ec9d27f7e6fef5dbe387"
+    }
+   },
+   {
+    "seed": 1,
+    "hist_n": 4722,
+    "enrich": 5.341294815766412,
+    "E": {
+     "calls_used": 2944,
+     "calls_all": 2944,
+     "n_done": 5,
+     "n_targets": 5,
+     "errors": 0,
+     "targets": [
+      {
+       "qid": 1,
+       "name": "theta(exact|relevant)",
+       "calls": 1792,
+       "censored": false
+      },
+      {
+       "qid": 2,
+       "name": "theta(exact|relevant, rating>=4)",
+       "calls": 1920,
+       "censored": false
+      },
+      {
+       "qid": 3,
+       "name": "theta(exact|relevant, rating<4)",
+       "calls": 1408,
+       "censored": false
+      },
+      {
+       "qid": 4,
+       "name": "theta(rating>=4 | relevant)",
+       "calls": 256,
+       "censored": false
+      },
+      {
+       "qid": 5,
+       "name": "diff theta(exact|relevant) >=4 minus <4",
+       "calls": 2944,
+       "censored": false
+      }
+     ],
+     "stop_reason": "all_targets_certified"
+    },
+    "T": {
+     "calls_used": 4165,
+     "calls_all": 4165,
+     "n_done": 5,
+     "n_targets": 5,
+     "errors": 0,
+     "targets": [
+      {
+       "qid": 1,
+       "name": "theta(exact|relevant)",
+       "calls": 3411,
+       "censored": false
+      },
+      {
+       "qid": 2,
+       "name": "theta(exact|relevant, rating>=4)",
+       "calls": 4165,
+       "censored": false
+      },
+      {
+       "qid": 3,
+       "name": "theta(exact|relevant, rating<4)",
+       "calls": 1631,
+       "censored": false
+      },
+      {
+       "qid": 4,
+       "name": "theta(rating>=4 | relevant)",
+       "calls": 497,
+       "censored": false
+      },
+      {
+       "qid": 5,
+       "name": "diff theta(exact|relevant) >=4 minus <4",
+       "calls": 4165,
+       "censored": false
+      }
+     ],
+     "stop_reason": "all_targets_certified"
+    },
+    "seconds": 2.2381162643432617,
+    "history": {
+     "kind": "enrich",
+     "ratio": 16,
+     "frac": 0.15,
+     "seed": 1,
+     "n": 4722,
+     "sha256": "fe98861e1437df9e707dffffb4fc1d12532d4aae175dd21dd84c63aabfaae396"
+    }
+   },
+   {
+    "seed": 2,
+    "hist_n": 4722,
+    "enrich": 5.3140710909154105,
+    "E": {
+     "calls_used": 3072,
+     "calls_all": 3072,
+     "n_done": 5,
+     "n_targets": 5,
+     "errors": 0,
+     "targets": [
+      {
+       "qid": 1,
+       "name": "theta(exact|relevant)",
+       "calls": 2176,
+       "censored": false
+      },
+      {
+       "qid": 2,
+       "name": "theta(exact|relevant, rating>=4)",
+       "calls": 2432,
+       "censored": false
+      },
+      {
+       "qid": 3,
+       "name": "theta(exact|relevant, rating<4)",
+       "calls": 1536,
+       "censored": false
+      },
+      {
+       "qid": 4,
+       "name": "theta(rating>=4 | relevant)",
+       "calls": 384,
+       "censored": false
+      },
+      {
+       "qid": 5,
+       "name": "diff theta(exact|relevant) >=4 minus <4",
+       "calls": 3072,
+       "censored": false
+      }
+     ],
+     "stop_reason": "all_targets_certified"
+    },
+    "T": {
+     "calls_used": 4466,
+     "calls_all": 4466,
+     "n_done": 5,
+     "n_targets": 5,
+     "errors": 0,
+     "targets": [
+      {
+       "qid": 1,
+       "name": "theta(exact|relevant)",
+       "calls": 3699,
+       "censored": false
+      },
+      {
+       "qid": 2,
+       "name": "theta(exact|relevant, rating>=4)",
+       "calls": 4466,
+       "censored": false
+      },
+      {
+       "qid": 3,
+       "name": "theta(exact|relevant, rating<4)",
+       "calls": 1902,
+       "censored": false
+      },
+      {
+       "qid": 4,
+       "name": "theta(rating>=4 | relevant)",
+       "calls": 477,
+       "censored": false
+      },
+      {
+       "qid": 5,
+       "name": "diff theta(exact|relevant) >=4 minus <4",
+       "calls": 4466,
+       "censored": false
+      }
+     ],
+     "stop_reason": "all_targets_certified"
+    },
+    "seconds": 2.5693917274475098,
+    "history": {
+     "kind": "enrich",
+     "ratio": 16,
+     "frac": 0.15,
+     "seed": 2,
+     "n": 4722,
+     "sha256": "f60d1e316ea56e0d3b6324816152393a41d54a9fb8d35609d1e0789ad3f107e4"
+    }
+   },
+   {
+    "seed": 3,
+    "hist_n": 4722,
+    "enrich": 5.286847366064411,
+    "E": {
+     "calls_used": 3200,
+     "calls_all": 3200,
+     "n_done": 5,
+     "n_targets": 5,
+     "errors": 0,
+     "targets": [
+      {
+       "qid": 1,
+       "name": "theta(exact|relevant)",
+       "calls": 2560,
+       "censored": false
+      },
+      {
+       "qid": 2,
+       "name": "theta(exact|relevant, rating>=4)",
+       "calls": 3200,
+       "censored": false
+      },
+      {
+       "qid": 3,
+       "name": "theta(exact|relevant, rating<4)",
+       "calls": 1408,
+       "censored": false
+      },
+      {
+       "qid": 4,
+       "name": "theta(rating>=4 | relevant)",
+       "calls": 384,
+       "censored": false
+      },
+      {
+       "qid": 5,
+       "name": "diff theta(exact|relevant) >=4 minus <4",
+       "calls": 3200,
+       "censored": false
+      }
+     ],
+     "stop_reason": "all_targets_certified"
+    },
+    "T": {
+     "calls_used": 3721,
+     "calls_all": 3721,
+     "n_done": 5,
+     "n_targets": 5,
+     "errors": 0,
+     "targets": [
+      {
+       "qid": 1,
+       "name": "theta(exact|relevant)",
+       "calls": 3460,
+       "censored": false
+      },
+      {
+       "qid": 2,
+       "name": "theta(exact|relevant, rating>=4)",
+       "calls": 3721,
+       "censored": false
+      },
+      {
+       "qid": 3,
+       "name": "theta(exact|relevant, rating<4)",
+       "calls": 1672,
+       "censored": false
+      },
+      {
+       "qid": 4,
+       "name": "theta(rating>=4 | relevant)",
+       "calls": 621,
+       "censored": false
+      },
+      {
+       "qid": 5,
+       "name": "diff theta(exact|relevant) >=4 minus <4",
+       "calls": 3721,
+       "censored": false
+      }
+     ],
+     "stop_reason": "all_targets_certified"
+    },
+    "seconds": 2.237898349761963,
+    "history": {
+     "kind": "enrich",
+     "ratio": 16,
+     "frac": 0.15,
+     "seed": 3,
+     "n": 4722,
+     "sha256": "8fc71c2e548723d340e5f932cec118997b91c529292f4c66fcdb287933d8c25e"
+    }
+   },
+   {
+    "seed": 4,
+    "hist_n": 4722,
+    "enrich": 5.322238208370711,
+    "E": {
+     "calls_used": 2816,
+     "calls_all": 2816,
+     "n_done": 5,
+     "n_targets": 5,
+     "errors": 0,
+     "targets": [
+      {
+       "qid": 1,
+       "name": "theta(exact|relevant)",
+       "calls": 2048,
+       "censored": false
+      },
+      {
+       "qid": 2,
+       "name": "theta(exact|relevant, rating>=4)",
+       "calls": 2304,
+       "censored": false
+      },
+      {
+       "qid": 3,
+       "name": "theta(exact|relevant, rating<4)",
+       "calls": 1408,
+       "censored": false
+      },
+      {
+       "qid": 4,
+       "name": "theta(rating>=4 | relevant)",
+       "calls": 384,
+       "censored": false
+      },
+      {
+       "qid": 5,
+       "name": "diff theta(exact|relevant) >=4 minus <4",
+       "calls": 2816,
+       "censored": false
+      }
+     ],
+     "stop_reason": "all_targets_certified"
+    },
+    "T": {
+     "calls_used": 3959,
+     "calls_all": 3959,
+     "n_done": 5,
+     "n_targets": 5,
+     "errors": 0,
+     "targets": [
+      {
+       "qid": 1,
+       "name": "theta(exact|relevant)",
+       "calls": 3175,
+       "censored": false
+      },
+      {
+       "qid": 2,
+       "name": "theta(exact|relevant, rating>=4)",
+       "calls": 3959,
+       "censored": false
+      },
+      {
+       "qid": 3,
+       "name": "theta(exact|relevant, rating<4)",
+       "calls": 1517,
+       "censored": false
+      },
+      {
+       "qid": 4,
+       "name": "theta(rating>=4 | relevant)",
+       "calls": 495,
+       "censored": false
+      },
+      {
+       "qid": 5,
+       "name": "diff theta(exact|relevant) >=4 minus <4",
+       "calls": 3959,
+       "censored": false
+      }
+     ],
+     "stop_reason": "all_targets_certified"
+    },
+    "seconds": 2.456015110015869,
+    "history": {
+     "kind": "enrich",
+     "ratio": 16,
+     "frac": 0.15,
+     "seed": 4,
+     "n": 4722,
+     "sha256": "1c677d09e6e1a9205c0b36eb1f0c18ecef5653eabdcd56e04e57689113aac318"
+    }
+   },
+   {
+    "seed": 5,
+    "hist_n": 4722,
+    "enrich": 5.368518540617413,
+    "E": {
+     "calls_used": 3072,
+     "calls_all": 3072,
+     "n_done": 5,
+     "n_targets": 5,
+     "errors": 0,
+     "targets": [
+      {
+       "qid": 1,
+       "name": "theta(exact|relevant)",
+       "calls": 2176,
+       "censored": false
+      },
+      {
+       "qid": 2,
+       "name": "theta(exact|relevant, rating>=4)",
+       "calls": 2304,
+       "censored": false
+      },
+      {
+       "qid": 3,
+       "name": "theta(exact|relevant, rating<4)",
+       "calls": 1280,
+       "censored": false
+      },
+      {
+       "qid": 4,
+       "name": "theta(rating>=4 | relevant)",
+       "calls": 384,
+       "censored": false
+      },
+      {
+       "qid": 5,
+       "name": "diff theta(exact|relevant) >=4 minus <4",
+       "calls": 3072,
+       "censored": false
+      }
+     ],
+     "stop_reason": "all_targets_certified"
+    },
+    "T": {
+     "calls_used": 3943,
+     "calls_all": 3943,
+     "n_done": 5,
+     "n_targets": 5,
+     "errors": 0,
+     "targets": [
+      {
+       "qid": 1,
+       "name": "theta(exact|relevant)",
+       "calls": 3170,
+       "censored": false
+      },
+      {
+       "qid": 2,
+       "name": "theta(exact|relevant, rating>=4)",
+       "calls": 3943,
+       "censored": false
+      },
+      {
+       "qid": 3,
+       "name": "theta(exact|relevant, rating<4)",
+       "calls": 1646,
+       "censored": false
+      },
+      {
+       "qid": 4,
+       "name": "theta(rating>=4 | relevant)",
+       "calls": 497,
+       "censored": false
+      },
+      {
+       "qid": 5,
+       "name": "diff theta(exact|relevant) >=4 minus <4",
+       "calls": 3943,
+       "censored": false
+      }
+     ],
+     "stop_reason": "all_targets_certified"
+    },
+    "seconds": 2.608595132827759,
+    "history": {
+     "kind": "enrich",
+     "ratio": 16,
+     "frac": 0.15,
+     "seed": 5,
+     "n": 4722,
+     "sha256": "c7071780bb7dfe723d5e30a5e57a2f15f937cff761b8461025cd37b0a0a8afe0"
+    }
+   },
+   {
+    "seed": 6,
+    "hist_n": 4722,
+    "enrich": 5.308626345945211,
+    "E": {
+     "calls_used": 3072,
+     "calls_all": 3072,
+     "n_done": 5,
+     "n_targets": 5,
+     "errors": 0,
+     "targets": [
+      {
+       "qid": 1,
+       "name": "theta(exact|relevant)",
+       "calls": 2304,
+       "censored": false
+      },
+      {
+       "qid": 2,
+       "name": "theta(exact|relevant, rating>=4)",
+       "calls": 2560,
+       "censored": false
+      },
+      {
+       "qid": 3,
+       "name": "theta(exact|relevant, rating<4)",
+       "calls": 1536,
+       "censored": false
+      },
+      {
+       "qid": 4,
+       "name": "theta(rating>=4 | relevant)",
+       "calls": 512,
+       "censored": false
+      },
+      {
+       "qid": 5,
+       "name": "diff theta(exact|relevant) >=4 minus <4",
+       "calls": 3072,
+       "censored": false
+      }
+     ],
+     "stop_reason": "all_targets_certified"
+    },
+    "T": {
+     "calls_used": 3535,
+     "calls_all": 3535,
+     "n_done": 5,
+     "n_targets": 5,
+     "errors": 0,
+     "targets": [
+      {
+       "qid": 1,
+       "name": "theta(exact|relevant)",
+       "calls": 3272,
+       "censored": false
+      },
+      {
+       "qid": 2,
+       "name": "theta(exact|relevant, rating>=4)",
+       "calls": 3535,
+       "censored": false
+      },
+      {
+       "qid": 3,
+       "name": "theta(exact|relevant, rating<4)",
+       "calls": 1636,
+       "censored": false
+      },
+      {
+       "qid": 4,
+       "name": "theta(rating>=4 | relevant)",
+       "calls": 629,
+       "censored": false
+      },
+      {
+       "qid": 5,
+       "name": "diff theta(exact|relevant) >=4 minus <4",
+       "calls": 3535,
+       "censored": false
+      }
+     ],
+     "stop_reason": "all_targets_certified"
+    },
+    "seconds": 2.3222098350524902,
+    "history": {
+     "kind": "enrich",
+     "ratio": 16,
+     "frac": 0.15,
+     "seed": 6,
+     "n": 4722,
+     "sha256": "554b0e054d16c584589f4524ce17f05438c2808b9f8bb95ee9381af8dcb701c5"
+    }
+   },
+   {
+    "seed": 7,
+    "hist_n": 4722,
+    "enrich": 5.428410735289616,
+    "E": {
+     "calls_used": 3072,
+     "calls_all": 3072,
+     "n_done": 5,
+     "n_targets": 5,
+     "errors": 0,
+     "targets": [
+      {
+       "qid": 1,
+       "name": "theta(exact|relevant)",
+       "calls": 2432,
+       "censored": false
+      },
+      {
+       "qid": 2,
+       "name": "theta(exact|relevant, rating>=4)",
+       "calls": 2816,
+       "censored": false
+      },
+      {
+       "qid": 3,
+       "name": "theta(exact|relevant, rating<4)",
+       "calls": 1408,
+       "censored": false
+      },
+      {
+       "qid": 4,
+       "name": "theta(rating>=4 | relevant)",
+       "calls": 512,
+       "censored": false
+      },
+      {
+       "qid": 5,
+       "name": "diff theta(exact|relevant) >=4 minus <4",
+       "calls": 3072,
+       "censored": false
+      }
+     ],
+     "stop_reason": "all_targets_certified"
+    },
+    "T": {
+     "calls_used": 4428,
+     "calls_all": 4428,
+     "n_done": 5,
+     "n_targets": 5,
+     "errors": 0,
+     "targets": [
+      {
+       "qid": 1,
+       "name": "theta(exact|relevant)",
+       "calls": 3425,
+       "censored": false
+      },
+      {
+       "qid": 2,
+       "name": "theta(exact|relevant, rating>=4)",
+       "calls": 4428,
+       "censored": false
+      },
+      {
+       "qid": 3,
+       "name": "theta(exact|relevant, rating<4)",
+       "calls": 1515,
+       "censored": false
+      },
+      {
+       "qid": 4,
+       "name": "theta(rating>=4 | relevant)",
+       "calls": 628,
+       "censored": false
+      },
+      {
+       "qid": 5,
+       "name": "diff theta(exact|relevant) >=4 minus <4",
+       "calls": 4428,
+       "censored": false
+      }
+     ],
+     "stop_reason": "all_targets_certified"
+    },
+    "seconds": 2.477489471435547,
+    "history": {
+     "kind": "enrich",
+     "ratio": 16,
+     "frac": 0.15,
+     "seed": 7,
+     "n": 4722,
+     "sha256": "6dcb0a86f824d9fbe77a69077e9d5aeffb6e1d08f882e0d9b559fb70420a9758"
+    }
+   }
+  ]
+ },
+ "classes": [
+  {
+   "name": "Coffee & Cocktail Tables",
+   "feat": {
+    "N": 1059,
+    "relevant_share": 0.49291784702549574,
+    "exact_given_relevant": 0.03065134099616858,
+    "n_lt4": 44,
+    "n_ge4": 754
+   },
+   "rows": [
+    {
+     "seed": 0,
+     "hist_n": 158,
+     "enrich": 5.026898734177215,
+     "E": {
+      "calls_used": 582,
+      "calls_all": 582,
+      "n_done": 5,
+      "n_targets": 5,
+      "errors": 0,
+      "targets": [
+       {
+        "qid": 1,
+        "name": "theta(exact|relevant)",
+        "calls": 582,
+        "censored": false
+       },
+       {
+        "qid": 2,
+        "name": "theta(exact|relevant, rating>=4)",
+        "calls": 582,
+        "censored": false
+       },
+       {
+        "qid": 3,
+        "name": "theta(exact|relevant, rating<4)",
+        "calls": 128,
+        "censored": false
+       },
+       {
+        "qid": 4,
+        "name": "theta(rating>=4 | relevant)",
+        "calls": 384,
+        "censored": false
+       },
+       {
+        "qid": 5,
+        "name": "diff theta(exact|relevant) >=4 minus <4",
+        "calls": 582,
+        "censored": false
+       }
+      ]
+     },
+     "T": {
+      "calls_used": 582,
+      "calls_all": null,
+      "n_done": 2,
+      "n_targets": 5,
+      "errors": 0,
+      "targets": [
+       {
+        "qid": 1,
+        "name": "theta(exact|relevant)",
+        "calls": null,
+        "censored": true
+       },
+       {
+        "qid": 2,
+        "name": "theta(exact|relevant, rating>=4)",
+        "calls": null,
+        "censored": true
+       },
+       {
+        "qid": 3,
+        "name": "theta(exact|relevant, rating<4)",
+        "calls": 112,
+        "censored": false
+       },
+       {
+        "qid": 4,
+        "name": "theta(rating>=4 | relevant)",
+        "calls": 345,
+        "censored": false
+       },
+       {
+        "qid": 5,
+        "name": "diff theta(exact|relevant) >=4 minus <4",
+        "calls": null,
+        "censored": true
+       }
+      ]
+     },
+     "seconds": 0.20302462577819824
+    },
+    {
+     "seed": 1,
+     "hist_n": 158,
+     "enrich": 5.864715189873418,
+     "E": {
+      "calls_used": 582,
+      "calls_all": 582,
+      "n_done": 5,
+      "n_targets": 5,
+      "errors": 0,
+      "targets": [
+       {
+        "qid": 1,
+        "name": "theta(exact|relevant)",
+        "calls": 384,
+        "censored": false
+       },
+       {
+        "qid": 2,
+        "name": "theta(exact|relevant, rating>=4)",
+        "calls": 582,
+        "censored": false
+       },
+       {
+        "qid": 3,
+        "name": "theta(exact|relevant, rating<4)",
+        "calls": 128,
+        "censored": false
+       },
+       {
+        "qid": 4,
+        "name": "theta(rating>=4 | relevant)",
+        "calls": 384,
+        "censored": false
+       },
+       {
+        "qid": 5,
+        "name": "diff theta(exact|relevant) >=4 minus <4",
+        "calls": 582,
+        "censored": false
+       }
+      ]
+     },
+     "T": {
+      "calls_used": 582,
+      "calls_all": 582,
+      "n_done": 5,
+      "n_targets": 5,
+      "errors": 0,
+      "targets": [
+       {
+        "qid": 1,
+        "name": "theta(exact|relevant)",
+        "calls": 582,
+        "censored": false
+       },
+       {
+        "qid": 2,
+        "name": "theta(exact|relevant, rating>=4)",
+        "calls": 582,
+        "censored": false
+       },
+       {
+        "qid": 3,
+        "name": "theta(exact|relevant, rating<4)",
+        "calls": 112,
+        "censored": false
+       },
+       {
+        "qid": 4,
+        "name": "theta(rating>=4 | relevant)",
+        "calls": 362,
+        "censored": false
+       },
+       {
+        "qid": 5,
+        "name": "diff theta(exact|relevant) >=4 minus <4",
+        "calls": 582,
+        "censored": false
+       }
+      ]
+     },
+     "seconds": 0.2102491855621338
+    },
+    {
+     "seed": 2,
+     "hist_n": 158,
+     "enrich": 0.4189082278481012,
+     "E": {
+      "calls_used": 582,
+      "calls_all": 582,
+      "n_done": 5,
+      "n_targets": 5,
+      "errors": 0,
+      "targets": [
+       {
+        "qid": 1,
+        "name": "theta(exact|relevant)",
+        "calls": 582,
+        "censored": false
+       },
+       {
+        "qid": 2,
+        "name": "theta(exact|relevant, rating>=4)",
+        "calls": 582,
+        "censored": false
+       },
+       {
+        "qid": 3,
+        "name": "theta(exact|relevant, rating<4)",
+        "calls": 128,
+        "censored": false
+       },
+       {
+        "qid": 4,
+        "name": "theta(rating>=4 | relevant)",
+        "calls": 384,
+        "censored": false
+       },
+       {
+        "qid": 5,
+        "name": "diff theta(exact|relevant) >=4 minus <4",
+        "calls": 582,
+        "censored": false
+       }
+      ]
+     },
+     "T": {
+      "calls_used": 582,
+      "calls_all": null,
+      "n_done": 2,
+      "n_targets": 5,
+      "errors": 0,
+      "targets": [
+       {
+        "qid": 1,
+        "name": "theta(exact|relevant)",
+        "calls": null,
+        "censored": true
+       },
+       {
+        "qid": 2,
+        "name": "theta(exact|relevant, rating>=4)",
+        "calls": null,
+        "censored": true
+       },
+       {
+        "qid": 3,
+        "name": "theta(exact|relevant, rating<4)",
+        "calls": 110,
+        "censored": false
+       },
+       {
+        "qid": 4,
+        "name": "theta(rating>=4 | relevant)",
+        "calls": 362,
+        "censored": false
+       },
+       {
+        "qid": 5,
+        "name": "diff theta(exact|relevant) >=4 minus <4",
+        "calls": null,
+        "censored": true
+       }
+      ]
+     },
+     "seconds": 0.2153911590576172
+    },
+    {
+     "seed": 3,
+     "hist_n": 158,
+     "enrich": 6.70253164556962,
+     "E": {
+      "calls_used": 582,
+      "calls_all": 582,
+      "n_done": 5,
+      "n_targets": 5,
+      "errors": 0,
+      "targets": [
+       {
+        "qid": 1,
+        "name": "theta(exact|relevant)",
+        "calls": 582,
+        "censored": false
+       },
+       {
+        "qid": 2,
+        "name": "theta(exact|relevant, rating>=4)",
+        "calls": 582,
+        "censored": false
+       },
+       {
+        "qid": 3,
+        "name": "theta(exact|relevant, rating<4)",
+        "calls": 128,
+        "censored": false
+       },
+       {
+        "qid": 4,
+        "name": "theta(rating>=4 | relevant)",
+        "calls": 384,
+        "censored": false
+       },
+       {
+        "qid": 5,
+        "name": "diff theta(exact|relevant) >=4 minus <4",
+        "calls": 582,
+        "censored": false
+       }
+      ]
+     },
+     "T": {
+      "calls_used": 582,
+      "calls_all": null,
+      "n_done": 2,
+      "n_targets": 5,
+      "errors": 0,
+      "targets": [
+       {
+        "qid": 1,
+        "name": "theta(exact|relevant)",
+        "calls": null,
+        "censored": true
+       },
+       {
+        "qid": 2,
+        "name": "theta(exact|relevant, rating>=4)",
+        "calls": null,
+        "censored": true
+       },
+       {
+        "qid": 3,
+        "name": "theta(exact|relevant, rating<4)",
+        "calls": 112,
+        "censored": false
+       },
+       {
+        "qid": 4,
+        "name": "theta(rating>=4 | relevant)",
+        "calls": 363,
+        "censored": false
+       },
+       {
+        "qid": 5,
+        "name": "diff theta(exact|relevant) >=4 minus <4",
+        "calls": null,
+        "censored": true
+       }
+      ]
+     },
+     "seconds": 0.699709415435791
+    },
+    {
+     "seed": 4,
+     "hist_n": 158,
+     "enrich": 0.8378164556962024,
+     "E": {
+      "calls_used": 582,
+      "calls_all": 582,
+      "n_done": 5,
+      "n_targets": 5,
+      "errors": 0,
+      "targets": [
+       {
+        "qid": 1,
+        "name": "theta(exact|relevant)",
+        "calls": 582,
+        "censored": false
+       },
+       {
+        "qid": 2,
+        "name": "theta(exact|relevant, rating>=4)",
+        "calls": 582,
+        "censored": false
+       },
+       {
+        "qid": 3,
+        "name": "theta(exact|relevant, rating<4)",
+        "calls": 128,
+        "censored": false
+       },
+       {
+        "qid": 4,
+        "name": "theta(rating>=4 | relevant)",
+        "calls": 384,
+        "censored": false
+       },
+       {
+        "qid": 5,
+        "name": "diff theta(exact|relevant) >=4 minus <4",
+        "calls": 582,
+        "censored": false
+       }
+      ]
+     },
+     "T": {
+      "calls_used": 582,
+      "calls_all": 582,
+      "n_done": 5,
+      "n_targets": 5,
+      "errors": 0,
+      "targets": [
+       {
+        "qid": 1,
+        "name": "theta(exact|relevant)",
+        "calls": 513,
+        "censored": false
+       },
+       {
+        "qid": 2,
+        "name": "theta(exact|relevant, rating>=4)",
+        "calls": 582,
+        "censored": false
+       },
+       {
+        "qid": 3,
+        "name": "theta(exact|relevant, rating<4)",
+        "calls": 104,
+        "censored": false
+       },
+       {
+        "qid": 4,
+        "name": "theta(rating>=4 | relevant)",
+        "calls": 239,
+        "censored": false
+       },
+       {
+        "qid": 5,
+        "name": "diff theta(exact|relevant) >=4 minus <4",
+        "calls": 582,
+        "censored": false
+       }
+      ]
+     },
+     "seconds": 0.7099895477294922
+    },
+    {
+     "seed": 5,
+     "hist_n": 158,
+     "enrich": 6.283623417721519,
+     "E": {
+      "calls_used": 582,
+      "calls_all": 582,
+      "n_done": 5,
+      "n_targets": 5,
+      "errors": 0,
+      "targets": [
+       {
+        "qid": 1,
+        "name": "theta(exact|relevant)",
+        "calls": 384,
+        "censored": false
+       },
+       {
+        "qid": 2,
+        "name": "theta(exact|relevant, rating>=4)",
+        "calls": 582,
+        "censored": false
+       },
+       {
+        "qid": 3,
+        "name": "theta(exact|relevant, rating<4)",
+        "calls": 128,
+        "censored": false
+       },
+       {
+        "qid": 4,
+        "name": "theta(rating>=4 | relevant)",
+        "calls": 384,
+        "censored": false
+       },
+       {
+        "qid": 5,
+        "name": "diff theta(exact|relevant) >=4 minus <4",
+        "calls": 582,
+        "censored": false
+       }
+      ]
+     },
+     "T": {
+      "calls_used": 577,
+      "calls_all": 577,
+      "n_done": 5,
+      "n_targets": 5,
+      "errors": 0,
+      "targets": [
+       {
+        "qid": 1,
+        "name": "theta(exact|relevant)",
+        "calls": 503,
+        "censored": false
+       },
+       {
+        "qid": 2,
+        "name": "theta(exact|relevant, rating>=4)",
+        "calls": 577,
+        "censored": false
+       },
+       {
+        "qid": 3,
+        "name": "theta(exact|relevant, rating<4)",
+        "calls": 105,
+        "censored": false
+       },
+       {
+        "qid": 4,
+        "name": "theta(rating>=4 | relevant)",
+        "calls": 251,
+        "censored": false
+       },
+       {
+        "qid": 5,
+        "name": "diff theta(exact|relevant) >=4 minus <4",
+        "calls": 577,
+        "censored": false
+       }
+      ]
+     },
+     "seconds": 0.7748761177062988
+    },
+    {
+     "seed": 6,
+     "hist_n": 158,
+     "enrich": 5.864715189873418,
+     "E": {
+      "calls_used": 582,
+      "calls_all": 582,
+      "n_done": 5,
+      "n_targets": 5,
+      "errors": 0,
+      "targets": [
+       {
+        "qid": 1,
+        "name": "theta(exact|relevant)",
+        "calls": 582,
+        "censored": false
+       },
+       {
+        "qid": 2,
+        "name": "theta(exact|relevant, rating>=4)",
+        "calls": 582,
+        "censored": false
+       },
+       {
+        "qid": 3,
+        "name": "theta(exact|relevant, rating<4)",
+        "calls": 128,
+        "censored": false
+       },
+       {
+        "qid": 4,
+        "name": "theta(rating>=4 | relevant)",
+        "calls": 384,
+        "censored": false
+       },
+       {
+        "qid": 5,
+        "name": "diff theta(exact|relevant) >=4 minus <4",
+        "calls": 582,
+        "censored": false
+       }
+      ]
+     },
+     "T": {
+      "calls_used": 574,
+      "calls_all": 574,
+      "n_done": 5,
+      "n_targets": 5,
+      "errors": 0,
+      "targets": [
+       {
+        "qid": 1,
+        "name": "theta(exact|relevant)",
+        "calls": 574,
+        "censored": false
+       },
+       {
+        "qid": 2,
+        "name": "theta(exact|relevant, rating>=4)",
+        "calls": 574,
+        "censored": false
+       },
+       {
+        "qid": 3,
+        "name": "theta(exact|relevant, rating<4)",
+        "calls": 111,
+        "censored": false
+       },
+       {
+        "qid": 4,
+        "name": "theta(rating>=4 | relevant)",
+        "calls": 368,
+        "censored": false
+       },
+       {
+        "qid": 5,
+        "name": "diff theta(exact|relevant) >=4 minus <4",
+        "calls": 574,
+        "censored": false
+       }
+      ]
+     },
+     "seconds": 0.713545560836792
+    },
+    {
+     "seed": 7,
+     "hist_n": 158,
+     "enrich": 5.026898734177215,
+     "E": {
+      "calls_used": 582,
+      "calls_all": 582,
+      "n_done": 5,
+      "n_targets": 5,
+      "errors": 0,
+      "targets": [
+       {
+        "qid": 1,
+        "name": "theta(exact|relevant)",
+        "calls": 384,
+        "censored": false
+       },
+       {
+        "qid": 2,
+        "name": "theta(exact|relevant, rating>=4)",
+        "calls": 582,
+        "censored": false
+       },
+       {
+        "qid": 3,
+        "name": "theta(exact|relevant, rating<4)",
+        "calls": 128,
+        "censored": false
+       },
+       {
+        "qid": 4,
+        "name": "theta(rating>=4 | relevant)",
+        "calls": 384,
+        "censored": false
+       },
+       {
+        "qid": 5,
+        "name": "diff theta(exact|relevant) >=4 minus <4",
+        "calls": 582,
+        "censored": false
+       }
+      ]
+     },
+     "T": {
+      "calls_used": 496,
+      "calls_all": 496,
+      "n_done": 5,
+      "n_targets": 5,
+      "errors": 0,
+      "targets": [
+       {
+        "qid": 1,
+        "name": "theta(exact|relevant)",
+        "calls": 496,
+        "censored": false
+       },
+       {
+        "qid": 2,
+        "name": "theta(exact|relevant, rating>=4)",
+        "calls": 496,
+        "censored": false
+       },
+       {
+        "qid": 3,
+        "name": "theta(exact|relevant, rating<4)",
+        "calls": 104,
+        "censored": false
+       },
+       {
+        "qid": 4,
+        "name": "theta(rating>=4 | relevant)",
+        "calls": 244,
+        "censored": false
+       },
+       {
+        "qid": 5,
+        "name": "diff theta(exact|relevant) >=4 minus <4",
+        "calls": 496,
+        "censored": false
+       }
+      ]
+     },
+     "seconds": 0.6981945037841797
+    }
+   ],
+   "n_targets": 5
+  },
+  {
+   "name": "Beds",
+   "feat": {
+    "N": 1024,
+    "relevant_share": 0.6337890625,
+    "exact_given_relevant": 0.07858243451463791,
+    "n_lt4": 34,
+    "n_ge4": 627
+   },
+   "rows": [
+    {
+     "seed": 0,
+     "hist_n": 153,
+     "enrich": 0.2624631551967192,
+     "E": {
+      "calls_used": 563,
+      "calls_all": null,
+      "n_done": 3,
+      "n_targets": 5,
+      "errors": 0,
+      "targets": [
+       {
+        "qid": 1,
+        "name": "theta(exact|relevant)",
+        "calls": 563,
+        "censored": false
+       },
+       {
+        "qid": 2,
+        "name": "theta(exact|relevant, rating>=4)",
+        "calls": null,
+        "censored": true
+       },
+       {
+        "qid": 3,
+        "name": "theta(exact|relevant, rating<4)",
+        "calls": 128,
+        "censored": false
+       },
+       {
+        "qid": 4,
+        "name": "theta(rating>=4 | relevant)",
+        "calls": 384,
+        "censored": false
+       },
+       {
+        "qid": 5,
+        "name": "diff theta(exact|relevant) >=4 minus <4",
+        "calls": null,
+        "censored": true
+       }
+      ]
+     },
+     "T": {
+      "calls_used": 563,
+      "calls_all": null,
+      "n_done": 2,
+      "n_targets": 5,
+      "errors": 0,
+      "targets": [
+       {
+        "qid": 1,
+        "name": "theta(exact|relevant)",
+        "calls": null,
+        "censored": true
+       },
+       {
+        "qid": 2,
+        "name": "theta(exact|relevant, rating>=4)",
+        "calls": null,
+        "censored": true
+       },
+       {
+        "qid": 3,
+        "name": "theta(exact|relevant, rating<4)",
+        "calls": 103,
+        "censored": false
+       },
+       {
+        "qid": 4,
+        "name": "theta(rating>=4 | relevant)",
+        "calls": 381,
+        "censored": false
+       },
+       {
+        "qid": 5,
+        "name": "diff theta(exact|relevant) >=4 minus <4",
+        "calls": null,
+        "censored": true
+       }
+      ]
+     },
+     "seconds": 0.8208997249603271
+    },
+    {
+     "seed": 1,
+     "hist_n": 153,
+     "enrich": 0.39369473279507883,
+     "E": {
+      "calls_used": 563,
+      "calls_all": null,
+      "n_done": 2,
+      "n_targets": 5,
+      "errors": 0,
+      "targets": [
+       {
+        "qid": 1,
+        "name": "theta(exact|relevant)",
+        "calls": null,
+        "censored": true
+       },
+       {
+        "qid": 2,
+        "name": "theta(exact|relevant, rating>=4)",
+        "calls": null,
+        "censored": true
+       },
+       {
+        "qid": 3,
+        "name": "theta(exact|relevant, rating<4)",
+        "calls": 128,
+        "censored": false
+       },
+       {
+        "qid": 4,
+        "name": "theta(rating>=4 | relevant)",
+        "calls": 384,
+        "censored": false
+       },
+       {
+        "qid": 5,
+        "name": "diff theta(exact|relevant) >=4 minus <4",
+        "calls": null,
+        "censored": true
+       }
+      ]
+     },
+     "T": {
+      "calls_used": 563,
+      "calls_all": null,
+      "n_done": 2,
+      "n_targets": 5,
+      "errors": 0,
+      "targets": [
+       {
+        "qid": 1,
+        "name": "theta(exact|relevant)",
+        "calls": null,
+        "censored": true
+       },
+       {
+        "qid": 2,
+        "name": "theta(exact|relevant, rating>=4)",
+        "calls": null,
+        "censored": true
+       },
+       {
+        "qid": 3,
+        "name": "theta(exact|relevant, rating<4)",
+        "calls": 109,
+        "censored": false
+       },
+       {
+        "qid": 4,
+        "name": "theta(rating>=4 | relevant)",
+        "calls": 360,
+        "censored": false
+       },
+       {
+        "qid": 5,
+        "name": "diff theta(exact|relevant) >=4 minus <4",
+        "calls": null,
+        "censored": true
+       }
+      ]
+     },
+     "seconds": 0.5968730449676514
+    },
+    {
+     "seed": 2,
+     "hist_n": 153,
+     "enrich": 4.986799948737665,
+     "E": {
+      "calls_used": 563,
+      "calls_all": null,
+      "n_done": 3,
+      "n_targets": 5,
+      "errors": 0,
+      "targets": [
+       {
+        "qid": 1,
+        "name": "theta(exact|relevant)",
+        "calls": 563,
+        "censored": false
+       },
+       {
+        "qid": 2,
+        "name": "theta(exact|relevant, rating>=4)",
+        "calls": null,
+        "censored": true
+       },
+       {
+        "qid": 3,
+        "name": "theta(exact|relevant, rating<4)",
+        "calls": 128,
+        "censored": false
+       },
+       {
+        "qid": 4,
+        "name": "theta(rating>=4 | relevant)",
+        "calls": 384,
+        "censored": false
+       },
+       {
+        "qid": 5,
+        "name": "diff theta(exact|relevant) >=4 minus <4",
+        "calls": null,
+        "censored": true
+       }
+      ]
+     },
+     "T": {
+      "calls_used": 563,
+      "calls_all": null,
+      "n_done": 2,
+      "n_targets": 5,
+      "errors": 0,
+      "targets": [
+       {
+        "qid": 1,
+        "name": "theta(exact|relevant)",
+        "calls": null,
+        "censored": true
+       },
+       {
+        "qid": 2,
+        "name": "theta(exact|relevant, rating>=4)",
+        "calls": null,
+        "censored": true
+       },
+       {
+        "qid": 3,
+        "name": "theta(exact|relevant, rating<4)",
+        "calls": 107,
+        "censored": false
+       },
+       {
+        "qid": 4,
+        "name": "theta(rating>=4 | relevant)",
+        "calls": 376,
+        "censored": false
+       },
+       {
+        "qid": 5,
+        "name": "diff theta(exact|relevant) >=4 minus <4",
+        "calls": null,
+        "censored": true
+       }
+      ]
+     },
+     "seconds": 0.48763322830200195
+    },
+    {
+     "seed": 3,
+     "hist_n": 153,
+     "enrich": 0.2624631551967192,
+     "E": {
+      "calls_used": 563,
+      "calls_all": null,
+      "n_done": 3,
+      "n_targets": 5,
+      "errors": 0,
+      "targets": [
+       {
+        "qid": 1,
+        "name": "theta(exact|relevant)",
+        "calls": 563,
+        "censored": false
+       },
+       {
+        "qid": 2,
+        "name": "theta(exact|relevant, rating>=4)",
+        "calls": null,
+        "censored": true
+       },
+       {
+        "qid": 3,
+        "name": "theta(exact|relevant, rating<4)",
+        "calls": 128,
+        "censored": false
+       },
+       {
+        "qid": 4,
+        "name": "theta(rating>=4 | relevant)",
+        "calls": 384,
+        "censored": false
+       },
+       {
+        "qid": 5,
+        "name": "diff theta(exact|relevant) >=4 minus <4",
+        "calls": null,
+        "censored": true
+       }
+      ]
+     },
+     "T": {
+      "calls_used": 563,
+      "calls_all": null,
+      "n_done": 2,
+      "n_targets": 5,
+      "errors": 0,
+      "targets": [
+       {
+        "qid": 1,
+        "name": "theta(exact|relevant)",
+        "calls": null,
+        "censored": true
+       },
+       {
+        "qid": 2,
+        "name": "theta(exact|relevant, rating>=4)",
+        "calls": null,
+        "censored": true
+       },
+       {
+        "qid": 3,
+        "name": "theta(exact|relevant, rating<4)",
+        "calls": 113,
+        "censored": false
+       },
+       {
+        "qid": 4,
+        "name": "theta(rating>=4 | relevant)",
+        "calls": 344,
+        "censored": false
+       },
+       {
+        "qid": 5,
+        "name": "diff theta(exact|relevant) >=4 minus <4",
+        "calls": null,
+        "censored": true
+       }
+      ]
+     },
+     "seconds": 0.48989367485046387
+    },
+    {
+     "seed": 4,
+     "hist_n": 153,
+     "enrich": 4.330642060745867,
+     "E": {
+      "calls_used": 563,
+      "calls_all": null,
+      "n_done": 3,
+      "n_targets": 5,
+      "errors": 0,
+      "targets": [
+       {
+        "qid": 1,
+        "name": "theta(exact|relevant)",
+        "calls": 563,
+        "censored": false
+       },
+       {
+        "qid": 2,
+        "name": "theta(exact|relevant, rating>=4)",
+        "calls": null,
+        "censored": true
+       },
+       {
+        "qid": 3,
+        "name": "theta(exact|relevant, rating<4)",
+        "calls": 128,
+        "censored": false
+       },
+       {
+        "qid": 4,
+        "name": "theta(rating>=4 | relevant)",
+        "calls": 384,
+        "censored": false
+       },
+       {
+        "qid": 5,
+        "name": "diff theta(exact|relevant) >=4 minus <4",
+        "calls": null,
+        "censored": true
+       }
+      ]
+     },
+     "T": {
+      "calls_used": 563,
+      "calls_all": null,
+      "n_done": 2,
+      "n_targets": 5,
+      "errors": 0,
+      "targets": [
+       {
+        "qid": 1,
+        "name": "theta(exact|relevant)",
+        "calls": null,
+        "censored": true
+       },
+       {
+        "qid": 2,
+        "name": "theta(exact|relevant, rating>=4)",
+        "calls": null,
+        "censored": true
+       },
+       {
+        "qid": 3,
+        "name": "theta(exact|relevant, rating<4)",
+        "calls": 109,
+        "censored": false
+       },
+       {
+        "qid": 4,
+        "name": "theta(rating>=4 | relevant)",
+        "calls": 359,
+        "censored": false
+       },
+       {
+        "qid": 5,
+        "name": "diff theta(exact|relevant) >=4 minus <4",
+        "calls": null,
+        "censored": true
+       }
+      ]
+     },
+     "seconds": 0.4245431423187256
+    },
+    {
+     "seed": 5,
+     "hist_n": 153,
+     "enrich": 5.118031526336024,
+     "E": {
+      "calls_used": 563,
+      "calls_all": 563,
+      "n_done": 5,
+      "n_targets": 5,
+      "errors": 0,
+      "targets": [
+       {
+        "qid": 1,
+        "name": "theta(exact|relevant)",
+        "calls": 563,
+        "censored": false
+       },
+       {
+        "qid": 2,
+        "name": "theta(exact|relevant, rating>=4)",
+        "calls": 563,
+        "censored": false
+       },
+       {
+        "qid": 3,
+        "name": "theta(exact|relevant, rating<4)",
+        "calls": 128,
+        "censored": false
+       },
+       {
+        "qid": 4,
+        "name": "theta(rating>=4 | relevant)",
+        "calls": 384,
+        "censored": false
+       },
+       {
+        "qid": 5,
+        "name": "diff theta(exact|relevant) >=4 minus <4",
+        "calls": 563,
+        "censored": false
+       }
+      ]
+     },
+     "T": {
+      "calls_used": 563,
+      "calls_all": null,
+      "n_done": 2,
+      "n_targets": 5,
+      "errors": 0,
+      "targets": [
+       {
+        "qid": 1,
+        "name": "theta(exact|relevant)",
+        "calls": null,
+        "censored": true
+       },
+       {
+        "qid": 2,
+        "name": "theta(exact|relevant, rating>=4)",
+        "calls": null,
+        "censored": true
+       },
+       {
+        "qid": 3,
+        "name": "theta(exact|relevant, rating<4)",
+        "calls": 109,
+        "censored": false
+       },
+       {
+        "qid": 4,
+        "name": "theta(rating>=4 | relevant)",
+        "calls": 366,
+        "censored": false
+       },
+       {
+        "qid": 5,
+        "name": "diff theta(exact|relevant) >=4 minus <4",
+        "calls": null,
+        "censored": true
+       }
+      ]
+     },
+     "seconds": 0.6760857105255127
+    },
+    {
+     "seed": 6,
+     "hist_n": 153,
+     "enrich": 4.855568371139306,
+     "E": {
+      "calls_used": 563,
+      "calls_all": 563,
+      "n_done": 5,
+      "n_targets": 5,
+      "errors": 0,
+      "targets": [
+       {
+        "qid": 1,
+        "name": "theta(exact|relevant)",
+        "calls": 384,
+        "censored": false
+       },
+       {
+        "qid": 2,
+        "name": "theta(exact|relevant, rating>=4)",
+        "calls": 563,
+        "censored": false
+       },
+       {
+        "qid": 3,
+        "name": "theta(exact|relevant, rating<4)",
+        "calls": 128,
+        "censored": false
+       },
+       {
+        "qid": 4,
+        "name": "theta(rating>=4 | relevant)",
+        "calls": 384,
+        "censored": false
+       },
+       {
+        "qid": 5,
+        "name": "diff theta(exact|relevant) >=4 minus <4",
+        "calls": 563,
+        "censored": false
+       }
+      ]
+     },
+     "T": {
+      "calls_used": 563,
+      "calls_all": null,
+      "n_done": 2,
+      "n_targets": 5,
+      "errors": 0,
+      "targets": [
+       {
+        "qid": 1,
+        "name": "theta(exact|relevant)",
+        "calls": null,
+        "censored": true
+       },
+       {
+        "qid": 2,
+        "name": "theta(exact|relevant, rating>=4)",
+        "calls": null,
+        "censored": true
+       },
+       {
+        "qid": 3,
+        "name": "theta(exact|relevant, rating<4)",
+        "calls": 115,
+        "censored": false
+       },
+       {
+        "qid": 4,
+        "name": "theta(rating>=4 | relevant)",
+        "calls": 365,
+        "censored": false
+       },
+       {
+        "qid": 5,
+        "name": "diff theta(exact|relevant) >=4 minus <4",
+        "calls": null,
+        "censored": true
+       }
+      ]
+     },
+     "seconds": 0.6222379207611084
+    },
+    {
+     "seed": 7,
+     "hist_n": 153,
+     "enrich": 0.0,
+     "E": {
+      "calls_used": 563,
+      "calls_all": null,
+      "n_done": 2,
+      "n_targets": 5,
+      "errors": 0,
+      "targets": [
+       {
+        "qid": 1,
+        "name": "theta(exact|relevant)",
+        "calls": null,
+        "censored": true
+       },
+       {
+        "qid": 2,
+        "name": "theta(exact|relevant, rating>=4)",
+        "calls": null,
+        "censored": true
+       },
+       {
+        "qid": 3,
+        "name": "theta(exact|relevant, rating<4)",
+        "calls": 128,
+        "censored": false
+       },
+       {
+        "qid": 4,
+        "name": "theta(rating>=4 | relevant)",
+        "calls": 384,
+        "censored": false
+       },
+       {
+        "qid": 5,
+        "name": "diff theta(exact|relevant) >=4 minus <4",
+        "calls": null,
+        "censored": true
+       }
+      ]
+     },
+     "T": {
+      "calls_used": 563,
+      "calls_all": null,
+      "n_done": 2,
+      "n_targets": 5,
+      "errors": 0,
+      "targets": [
+       {
+        "qid": 1,
+        "name": "theta(exact|relevant)",
+        "calls": null,
+        "censored": true
+       },
+       {
+        "qid": 2,
+        "name": "theta(exact|relevant, rating>=4)",
+        "calls": null,
+        "censored": true
+       },
+       {
+        "qid": 3,
+        "name": "theta(exact|relevant, rating<4)",
+        "calls": 108,
+        "censored": false
+       },
+       {
+        "qid": 4,
+        "name": "theta(rating>=4 | relevant)",
+        "calls": 375,
+        "censored": false
+       },
+       {
+        "qid": 5,
+        "name": "diff theta(exact|relevant) >=4 minus <4",
+        "calls": null,
+        "censored": true
+       }
+      ]
+     },
+     "seconds": 0.7174124717712402
+    }
+   ],
+   "n_targets": 5
+  },
+  {
+   "name": "Accent Chairs",
+   "feat": {
+    "N": 902,
+    "relevant_share": 0.8669623059866962,
+    "exact_given_relevant": 0.056265984654731455,
+    "n_lt4": 17,
+    "n_ge4": 690
+   },
+   "rows": [
+    {
+     "seed": 0,
+     "hist_n": 135,
+     "enrich": 3.340740740740741,
+     "E": {
+      "calls_used": 496,
+      "calls_all": 496,
+      "n_done": 5,
+      "n_targets": 5,
+      "errors": 0,
+      "targets": [
+       {
+        "qid": 1,
+        "name": "theta(exact|relevant)",
+        "calls": 384,
+        "censored": false
+       },
+       {
+        "qid": 2,
+        "name": "theta(exact|relevant, rating>=4)",
+        "calls": 496,
+        "censored": false
+       },
+       {
+        "qid": 3,
+        "name": "theta(exact|relevant, rating<4)",
+        "calls": 128,
+        "censored": false
+       },
+       {
+        "qid": 4,
+        "name": "theta(rating>=4 | relevant)",
+        "calls": 128,
+        "censored": false
+       },
+       {
+        "qid": 5,
+        "name": "diff theta(exact|relevant) >=4 minus <4",
+        "calls": 496,
+        "censored": false
+       }
+      ]
+     },
+     "T": {
+      "calls_used": 366,
+      "calls_all": 366,
+      "n_done": 5,
+      "n_targets": 5,
+      "errors": 0,
+      "targets": [
+       {
+        "qid": 1,
+        "name": "theta(exact|relevant)",
+        "calls": 366,
+        "censored": false
+       },
+       {
+        "qid": 2,
+        "name": "theta(exact|relevant, rating>=4)",
+        "calls": 366,
+        "censored": false
+       },
+       {
+        "qid": 3,
+        "name": "theta(exact|relevant, rating<4)",
+        "calls": 107,
+        "censored": false
+       },
+       {
+        "qid": 4,
+        "name": "theta(rating>=4 | relevant)",
+        "calls": 107,
+        "censored": false
+       },
+       {
+        "qid": 5,
+        "name": "diff theta(exact|relevant) >=4 minus <4",
+        "calls": 366,
+        "censored": false
+       }
+      ]
+     },
+     "seconds": 0.2078838348388672
+    },
+    {
+     "seed": 1,
+     "hist_n": 135,
+     "enrich": 5.011111111111111,
+     "E": {
+      "calls_used": 384,
+      "calls_all": 384,
+      "n_done": 5,
+      "n_targets": 5,
+      "errors": 0,
+      "targets": [
+       {
+        "qid": 1,
+        "name": "theta(exact|relevant)",
+        "calls": 384,
+        "censored": false
+       },
+       {
+        "qid": 2,
+        "name": "theta(exact|relevant, rating>=4)",
+        "calls": 384,
+        "censored": false
+       },
+       {
+        "qid": 3,
+        "name": "theta(exact|relevant, rating<4)",
+        "calls": 128,
+        "censored": false
+       },
+       {
+        "qid": 4,
+        "name": "theta(rating>=4 | relevant)",
+        "calls": 128,
+        "censored": false
+       },
+       {
+        "qid": 5,
+        "name": "diff theta(exact|relevant) >=4 minus <4",
+        "calls": 384,
+        "censored": false
+       }
+      ]
+     },
+     "T": {
+      "calls_used": 361,
+      "calls_all": 361,
+      "n_done": 5,
+      "n_targets": 5,
+      "errors": 0,
+      "targets": [
+       {
+        "qid": 1,
+        "name": "theta(exact|relevant)",
+        "calls": 361,
+        "censored": false
+       },
+       {
+        "qid": 2,
+        "name": "theta(exact|relevant, rating>=4)",
+        "calls": 361,
+        "censored": false
+       },
+       {
+        "qid": 3,
+        "name": "theta(exact|relevant, rating<4)",
+        "calls": 110,
+        "censored": false
+       },
+       {
+        "qid": 4,
+        "name": "theta(rating>=4 | relevant)",
+        "calls": 110,
+        "censored": false
+       },
+       {
+        "qid": 5,
+        "name": "diff theta(exact|relevant) >=4 minus <4",
+        "calls": 361,
+        "censored": false
+       }
+      ]
+     },
+     "seconds": 0.17129921913146973
+    },
+    {
+     "seed": 2,
+     "hist_n": 135,
+     "enrich": 3.0370370370370368,
+     "E": {
+      "calls_used": 384,
+      "calls_all": 384,
+      "n_done": 5,
+      "n_targets": 5,
+      "errors": 0,
+      "targets": [
+       {
+        "qid": 1,
+        "name": "theta(exact|relevant)",
+        "calls": 384,
+        "censored": false
+       },
+       {
+        "qid": 2,
+        "name": "theta(exact|relevant, rating>=4)",
+        "calls": 384,
+        "censored": false
+       },
+       {
+        "qid": 3,
+        "name": "theta(exact|relevant, rating<4)",
+        "calls": 128,
+        "censored": false
+       },
+       {
+        "qid": 4,
+        "name": "theta(rating>=4 | relevant)",
+        "calls": 128,
+        "censored": false
+       },
+       {
+        "qid": 5,
+        "name": "diff theta(exact|relevant) >=4 minus <4",
+        "calls": 384,
+        "censored": false
+       }
+      ]
+     },
+     "T": {
+      "calls_used": 496,
+      "calls_all": 496,
+      "n_done": 5,
+      "n_targets": 5,
+      "errors": 0,
+      "targets": [
+       {
+        "qid": 1,
+        "name": "theta(exact|relevant)",
+        "calls": 357,
+        "censored": false
+       },
+       {
+        "qid": 2,
+        "name": "theta(exact|relevant, rating>=4)",
+        "calls": 496,
+        "censored": false
+       },
+       {
+        "qid": 3,
+        "name": "theta(exact|relevant, rating<4)",
+        "calls": 108,
+        "censored": false
+       },
+       {
+        "qid": 4,
+        "name": "theta(rating>=4 | relevant)",
+        "calls": 108,
+        "censored": false
+       },
+       {
+        "qid": 5,
+        "name": "diff theta(exact|relevant) >=4 minus <4",
+        "calls": 496,
+        "censored": false
+       }
+      ]
+     },
+     "seconds": 0.2003324031829834
+    },
+    {
+     "seed": 3,
+     "hist_n": 135,
+     "enrich": 1.5185185185185184,
+     "E": {
+      "calls_used": 496,
+      "calls_all": 496,
+      "n_done": 5,
+      "n_targets": 5,
+      "errors": 0,
+      "targets": [
+       {
+        "qid": 1,
+        "name": "theta(exact|relevant)",
+        "calls": 384,
+        "censored": false
+       },
+       {
+        "qid": 2,
+        "name": "theta(exact|relevant, rating>=4)",
+        "calls": 496,
+        "censored": false
+       },
+       {
+        "qid": 3,
+        "name": "theta(exact|relevant, rating<4)",
+        "calls": 128,
+        "censored": false
+       },
+       {
+        "qid": 4,
+        "name": "theta(rating>=4 | relevant)",
+        "calls": 128,
+        "censored": false
+       },
+       {
+        "qid": 5,
+        "name": "diff theta(exact|relevant) >=4 minus <4",
+        "calls": 496,
+        "censored": false
+       }
+      ]
+     },
+     "T": {
+      "calls_used": 495,
+      "calls_all": 495,
+      "n_done": 5,
+      "n_targets": 5,
+      "errors": 0,
+      "targets": [
+       {
+        "qid": 1,
+        "name": "theta(exact|relevant)",
+        "calls": 367,
+        "censored": false
+       },
+       {
+        "qid": 2,
+        "name": "theta(exact|relevant, rating>=4)",
+        "calls": 495,
+        "censored": false
+       },
+       {
+        "qid": 3,
+        "name": "theta(exact|relevant, rating<4)",
+        "calls": 105,
+        "censored": false
+       },
+       {
+        "qid": 4,
+        "name": "theta(rating>=4 | relevant)",
+        "calls": 105,
+        "censored": false
+       },
+       {
+        "qid": 5,
+        "name": "diff theta(exact|relevant) >=4 minus <4",
+        "calls": 495,
+        "censored": false
+       }
+      ]
+     },
+     "seconds": 0.13622713088989258
+    },
+    {
+     "seed": 4,
+     "hist_n": 135,
+     "enrich": 1.974074074074074,
+     "E": {
+      "calls_used": 496,
+      "calls_all": 496,
+      "n_done": 5,
+      "n_targets": 5,
+      "errors": 0,
+      "targets": [
+       {
+        "qid": 1,
+        "name": "theta(exact|relevant)",
+        "calls": 384,
+        "censored": false
+       },
+       {
+        "qid": 2,
+        "name": "theta(exact|relevant, rating>=4)",
+        "calls": 496,
+        "censored": false
+       },
+       {
+        "qid": 3,
+        "name": "theta(exact|relevant, rating<4)",
+        "calls": 128,
+        "censored": false
+       },
+       {
+        "qid": 4,
+        "name": "theta(rating>=4 | relevant)",
+        "calls": 128,
+        "censored": false
+       },
+       {
+        "qid": 5,
+        "name": "diff theta(exact|relevant) >=4 minus <4",
+        "calls": 496,
+        "censored": false
+       }
+      ]
+     },
+     "T": {
+      "calls_used": 494,
+      "calls_all": 494,
+      "n_done": 5,
+      "n_targets": 5,
+      "errors": 0,
+      "targets": [
+       {
+        "qid": 1,
+        "name": "theta(exact|relevant)",
+        "calls": 359,
+        "censored": false
+       },
+       {
+        "qid": 2,
+        "name": "theta(exact|relevant, rating>=4)",
+        "calls": 494,
+        "censored": false
+       },
+       {
+        "qid": 3,
+        "name": "theta(exact|relevant, rating<4)",
+        "calls": 115,
+        "censored": false
+       },
+       {
+        "qid": 4,
+        "name": "theta(rating>=4 | relevant)",
+        "calls": 115,
+        "censored": false
+       },
+       {
+        "qid": 5,
+        "name": "diff theta(exact|relevant) >=4 minus <4",
+        "calls": 494,
+        "censored": false
+       }
+      ]
+     },
+     "seconds": 0.18397736549377441
+    },
+    {
+     "seed": 5,
+     "hist_n": 135,
+     "enrich": 0.9111111111111111,
+     "E": {
+      "calls_used": 496,
+      "calls_all": 496,
+      "n_done": 5,
+      "n_targets": 5,
+      "errors": 0,
+      "targets": [
+       {
+        "qid": 1,
+        "name": "theta(exact|relevant)",
+        "calls": 384,
+        "censored": false
+       },
+       {
+        "qid": 2,
+        "name": "theta(exact|relevant, rating>=4)",
+        "calls": 496,
+        "censored": false
+       },
+       {
+        "qid": 3,
+        "name": "theta(exact|relevant, rating<4)",
+        "calls": 128,
+        "censored": false
+       },
+       {
+        "qid": 4,
+        "name": "theta(rating>=4 | relevant)",
+        "calls": 128,
+        "censored": false
+       },
+       {
+        "qid": 5,
+        "name": "diff theta(exact|relevant) >=4 minus <4",
+        "calls": 496,
+        "censored": false
+       }
+      ]
+     },
+     "T": {
+      "calls_used": 496,
+      "calls_all": null,
+      "n_done": 3,
+      "n_targets": 5,
+      "errors": 0,
+      "targets": [
+       {
+        "qid": 1,
+        "name": "theta(exact|relevant)",
+        "calls": 367,
+        "censored": false
+       },
+       {
+        "qid": 2,
+        "name": "theta(exact|relevant, rating>=4)",
+        "calls": null,
+        "censored": true
+       },
+       {
+        "qid": 3,
+        "name": "theta(exact|relevant, rating<4)",
+        "calls": 106,
+        "censored": false
+       },
+       {
+        "qid": 4,
+        "name": "theta(rating>=4 | relevant)",
+        "calls": 106,
+        "censored": false
+       },
+       {
+        "qid": 5,
+        "name": "diff theta(exact|relevant) >=4 minus <4",
+        "calls": null,
+        "censored": true
+       }
+      ]
+     },
+     "seconds": 0.28696775436401367
+    },
+    {
+     "seed": 6,
+     "hist_n": 135,
+     "enrich": 4.555555555555555,
+     "E": {
+      "calls_used": 384,
+      "calls_all": 384,
+      "n_done": 5,
+      "n_targets": 5,
+      "errors": 0,
+      "targets": [
+       {
+        "qid": 1,
+        "name": "theta(exact|relevant)",
+        "calls": 384,
+        "censored": false
+       },
+       {
+        "qid": 2,
+        "name": "theta(exact|relevant, rating>=4)",
+        "calls": 384,
+        "censored": false
+       },
+       {
+        "qid": 3,
+        "name": "theta(exact|relevant, rating<4)",
+        "calls": 128,
+        "censored": false
+       },
+       {
+        "qid": 4,
+        "name": "theta(rating>=4 | relevant)",
+        "calls": 128,
+        "censored": false
+       },
+       {
+        "qid": 5,
+        "name": "diff theta(exact|relevant) >=4 minus <4",
+        "calls": 384,
+        "censored": false
+       }
+      ]
+     },
+     "T": {
+      "calls_used": 496,
+      "calls_all": null,
+      "n_done": 3,
+      "n_targets": 5,
+      "errors": 0,
+      "targets": [
+       {
+        "qid": 1,
+        "name": "theta(exact|relevant)",
+        "calls": 357,
+        "censored": false
+       },
+       {
+        "qid": 2,
+        "name": "theta(exact|relevant, rating>=4)",
+        "calls": null,
+        "censored": true
+       },
+       {
+        "qid": 3,
+        "name": "theta(exact|relevant, rating<4)",
+        "calls": 107,
+        "censored": false
+       },
+       {
+        "qid": 4,
+        "name": "theta(rating>=4 | relevant)",
+        "calls": 107,
+        "censored": false
+       },
+       {
+        "qid": 5,
+        "name": "diff theta(exact|relevant) >=4 minus <4",
+        "calls": null,
+        "censored": true
+       }
+      ]
+     },
+     "seconds": 0.12275862693786621
+    },
+    {
+     "seed": 7,
+     "hist_n": 135,
+     "enrich": 0.15185185185185185,
+     "E": {
+      "calls_used": 496,
+      "calls_all": 496,
+      "n_done": 5,
+      "n_targets": 5,
+      "errors": 0,
+      "targets": [
+       {
+        "qid": 1,
+        "name": "theta(exact|relevant)",
+        "calls": 384,
+        "censored": false
+       },
+       {
+        "qid": 2,
+        "name": "theta(exact|relevant, rating>=4)",
+        "calls": 496,
+        "censored": false
+       },
+       {
+        "qid": 3,
+        "name": "theta(exact|relevant, rating<4)",
+        "calls": 128,
+        "censored": false
+       },
+       {
+        "qid": 4,
+        "name": "theta(rating>=4 | relevant)",
+        "calls": 128,
+        "censored": false
+       },
+       {
+        "qid": 5,
+        "name": "diff theta(exact|relevant) >=4 minus <4",
+        "calls": 496,
+        "censored": false
+       }
+      ]
+     },
+     "T": {
+      "calls_used": 496,
+      "calls_all": 496,
+      "n_done": 5,
+      "n_targets": 5,
+      "errors": 0,
+      "targets": [
+       {
+        "qid": 1,
+        "name": "theta(exact|relevant)",
+        "calls": 367,
+        "censored": false
+       },
+       {
+        "qid": 2,
+        "name": "theta(exact|relevant, rating>=4)",
+        "calls": 496,
+        "censored": false
+       },
+       {
+        "qid": 3,
+        "name": "theta(exact|relevant, rating<4)",
+        "calls": 108,
+        "censored": false
+       },
+       {
+        "qid": 4,
+        "name": "theta(rating>=4 | relevant)",
+        "calls": 108,
+        "censored": false
+       },
+       {
+        "qid": 5,
+        "name": "diff theta(exact|relevant) >=4 minus <4",
+        "calls": 496,
+        "censored": false
+       }
+      ]
+     },
+     "seconds": 0.18294787406921387
+    }
+   ],
+   "n_targets": 5
+  },
+  {
+   "name": "Desks",
+   "feat": {
+    "N": 836,
+    "relevant_share": 0.819377990430622,
+    "exact_given_relevant": 0.1386861313868613,
+    "n_lt4": 63,
+    "n_ge4": 577
+   },
+   "rows": [
+    {
+     "seed": 0,
+     "hist_n": 125,
+     "enrich": 4.224,
+     "E": {
+      "calls_used": 459,
+      "calls_all": null,
+      "n_done": 3,
+      "n_targets": 5,
+      "errors": 0,
+      "targets": [
+       {
+        "qid": 1,
+        "name": "theta(exact|relevant)",
+        "calls": 459,
+        "censored": false
+       },
+       {
+        "qid": 2,
+        "name": "theta(exact|relevant, rating>=4)",
+        "calls": null,
+        "censored": true
+       },
+       {
+        "qid": 3,
+        "name": "theta(exact|relevant, rating<4)",
+        "calls": 384,
+        "censored": false
+       },
+       {
+        "qid": 4,
+        "name": "theta(rating>=4 | relevant)",
+        "calls": 128,
+        "censored": false
+       },
+       {
+        "qid": 5,
+        "name": "diff theta(exact|relevant) >=4 minus <4",
+        "calls": null,
+        "censored": true
+       }
+      ]
+     },
+     "T": {
+      "calls_used": 459,
+      "calls_all": null,
+      "n_done": 2,
+      "n_targets": 5,
+      "errors": 0,
+      "targets": [
+       {
+        "qid": 1,
+        "name": "theta(exact|relevant)",
+        "calls": null,
+        "censored": true
+       },
+       {
+        "qid": 2,
+        "name": "theta(exact|relevant, rating>=4)",
+        "calls": null,
+        "censored": true
+       },
+       {
+        "qid": 3,
+        "name": "theta(exact|relevant, rating<4)",
+        "calls": 356,
+        "censored": false
+       },
+       {
+        "qid": 4,
+        "name": "theta(rating>=4 | relevant)",
+        "calls": 356,
+        "censored": false
+       },
+       {
+        "qid": 5,
+        "name": "diff theta(exact|relevant) >=4 minus <4",
+        "calls": null,
+        "censored": true
+       }
+      ]
+     },
+     "seconds": 0.20813345909118652
+    },
+    {
+     "seed": 1,
+     "hist_n": 125,
+     "enrich": 4.224,
+     "E": {
+      "calls_used": 459,
+      "calls_all": null,
+      "n_done": 3,
+      "n_targets": 5,
+      "errors": 0,
+      "targets": [
+       {
+        "qid": 1,
+        "name": "theta(exact|relevant)",
+        "calls": 459,
+        "censored": false
+       },
+       {
+        "qid": 2,
+        "name": "theta(exact|relevant, rating>=4)",
+        "calls": null,
+        "censored": true
+       },
+       {
+        "qid": 3,
+        "name": "theta(exact|relevant, rating<4)",
+        "calls": 384,
+        "censored": false
+       },
+       {
+        "qid": 4,
+        "name": "theta(rating>=4 | relevant)",
+        "calls": 128,
+        "censored": false
+       },
+       {
+        "qid": 5,
+        "name": "diff theta(exact|relevant) >=4 minus <4",
+        "calls": null,
+        "censored": true
+       }
+      ]
+     },
+     "T": {
+      "calls_used": 459,
+      "calls_all": null,
+      "n_done": 2,
+      "n_targets": 5,
+      "errors": 0,
+      "targets": [
+       {
+        "qid": 1,
+        "name": "theta(exact|relevant)",
+        "calls": null,
+        "censored": true
+       },
+       {
+        "qid": 2,
+        "name": "theta(exact|relevant, rating>=4)",
+        "calls": null,
+        "censored": true
+       },
+       {
+        "qid": 3,
+        "name": "theta(exact|relevant, rating<4)",
+        "calls": 355,
+        "censored": false
+       },
+       {
+        "qid": 4,
+        "name": "theta(rating>=4 | relevant)",
+        "calls": 112,
+        "censored": false
+       },
+       {
+        "qid": 5,
+        "name": "diff theta(exact|relevant) >=4 minus <4",
+        "calls": null,
+        "censored": true
+       }
+      ]
+     },
+     "seconds": 0.19138860702514648
+    },
+    {
+     "seed": 2,
+     "hist_n": 125,
+     "enrich": 1.7600000000000002,
+     "E": {
+      "calls_used": 459,
+      "calls_all": null,
+      "n_done": 3,
+      "n_targets": 5,
+      "errors": 0,
+      "targets": [
+       {
+        "qid": 1,
+        "name": "theta(exact|relevant)",
+        "calls": 459,
+        "censored": false
+       },
+       {
+        "qid": 2,
+        "name": "theta(exact|relevant, rating>=4)",
+        "calls": null,
+        "censored": true
+       },
+       {
+        "qid": 3,
+        "name": "theta(exact|relevant, rating<4)",
+        "calls": 384,
+        "censored": false
+       },
+       {
+        "qid": 4,
+        "name": "theta(rating>=4 | relevant)",
+        "calls": 128,
+        "censored": false
+       },
+       {
+        "qid": 5,
+        "name": "diff theta(exact|relevant) >=4 minus <4",
+        "calls": null,
+        "censored": true
+       }
+      ]
+     },
+     "T": {
+      "calls_used": 459,
+      "calls_all": null,
+      "n_done": 3,
+      "n_targets": 5,
+      "errors": 0,
+      "targets": [
+       {
+        "qid": 1,
+        "name": "theta(exact|relevant)",
+        "calls": 452,
+        "censored": false
+       },
+       {
+        "qid": 2,
+        "name": "theta(exact|relevant, rating>=4)",
+        "calls": null,
+        "censored": true
+       },
+       {
+        "qid": 3,
+        "name": "theta(exact|relevant, rating<4)",
+        "calls": 377,
+        "censored": false
+       },
+       {
+        "qid": 4,
+        "name": "theta(rating>=4 | relevant)",
+        "calls": 107,
+        "censored": false
+       },
+       {
+        "qid": 5,
+        "name": "diff theta(exact|relevant) >=4 minus <4",
+        "calls": null,
+        "censored": true
+       }
+      ]
+     },
+     "seconds": 0.19497990608215332
+    },
+    {
+     "seed": 3,
+     "hist_n": 125,
+     "enrich": 5.632000000000001,
+     "E": {
+      "calls_used": 384,
+      "calls_all": 384,
+      "n_done": 5,
+      "n_targets": 5,
+      "errors": 0,
+      "targets": [
+       {
+        "qid": 1,
+        "name": "theta(exact|relevant)",
+        "calls": 384,
+        "censored": false
+       },
+       {
+        "qid": 2,
+        "name": "theta(exact|relevant, rating>=4)",
+        "calls": 384,
+        "censored": false
+       },
+       {
+        "qid": 3,
+        "name": "theta(exact|relevant, rating<4)",
+        "calls": 384,
+        "censored": false
+       },
+       {
+        "qid": 4,
+        "name": "theta(rating>=4 | relevant)",
+        "calls": 128,
+        "censored": false
+       },
+       {
+        "qid": 5,
+        "name": "diff theta(exact|relevant) >=4 minus <4",
+        "calls": 384,
+        "censored": false
+       }
+      ]
+     },
+     "T": {
+      "calls_used": 459,
+      "calls_all": null,
+      "n_done": 3,
+      "n_targets": 5,
+      "errors": 0,
+      "targets": [
+       {
+        "qid": 1,
+        "name": "theta(exact|relevant)",
+        "calls": 361,
+        "censored": false
+       },
+       {
+        "qid": 2,
+        "name": "theta(exact|relevant, rating>=4)",
+        "calls": null,
+        "censored": true
+       },
+       {
+        "qid": 3,
+        "name": "theta(exact|relevant, rating<4)",
+        "calls": 361,
+        "censored": false
+       },
+       {
+        "qid": 4,
+        "name": "theta(rating>=4 | relevant)",
+        "calls": 113,
+        "censored": false
+       },
+       {
+        "qid": 5,
+        "name": "diff theta(exact|relevant) >=4 minus <4",
+        "calls": null,
+        "censored": true
+       }
+      ]
+     },
+     "seconds": 0.1858518123626709
+    },
+    {
+     "seed": 4,
+     "hist_n": 125,
+     "enrich": 3.5200000000000005,
+     "E": {
+      "calls_used": 459,
+      "calls_all": null,
+      "n_done": 3,
+      "n_targets": 5,
+      "errors": 0,
+      "targets": [
+       {
+        "qid": 1,
+        "name": "theta(exact|relevant)",
+        "calls": 459,
+        "censored": false
+       },
+       {
+        "qid": 2,
+        "name": "theta(exact|relevant, rating>=4)",
+        "calls": null,
+        "censored": true
+       },
+       {
+        "qid": 3,
+        "name": "theta(exact|relevant, rating<4)",
+        "calls": 384,
+        "censored": false
+       },
+       {
+        "qid": 4,
+        "name": "theta(rating>=4 | relevant)",
+        "calls": 128,
+        "censored": false
+       },
+       {
+        "qid": 5,
+        "name": "diff theta(exact|relevant) >=4 minus <4",
+        "calls": null,
+        "censored": true
+       }
+      ]
+     },
+     "T": {
+      "calls_used": 459,
+      "calls_all": null,
+      "n_done": 3,
+      "n_targets": 5,
+      "errors": 0,
+      "targets": [
+       {
+        "qid": 1,
+        "name": "theta(exact|relevant)",
+        "calls": 458,
+        "censored": false
+       },
+       {
+        "qid": 2,
+        "name": "theta(exact|relevant, rating>=4)",
+        "calls": null,
+        "censored": true
+       },
+       {
+        "qid": 3,
+        "name": "theta(exact|relevant, rating<4)",
+        "calls": 366,
+        "censored": false
+       },
+       {
+        "qid": 4,
+        "name": "theta(rating>=4 | relevant)",
+        "calls": 366,
+        "censored": false
+       },
+       {
+        "qid": 5,
+        "name": "diff theta(exact|relevant) >=4 minus <4",
+        "calls": null,
+        "censored": true
+       }
+      ]
+     },
+     "seconds": 0.19072556495666504
+    },
+    {
+     "seed": 5,
+     "hist_n": 125,
+     "enrich": 5.4208,
+     "E": {
+      "calls_used": 459,
+      "calls_all": 459,
+      "n_done": 5,
+      "n_targets": 5,
+      "errors": 0,
+      "targets": [
+       {
+        "qid": 1,
+        "name": "theta(exact|relevant)",
+        "calls": 384,
+        "censored": false
+       },
+       {
+        "qid": 2,
+        "name": "theta(exact|relevant, rating>=4)",
+        "calls": 459,
+        "censored": false
+       },
+       {
+        "qid": 3,
+        "name": "theta(exact|relevant, rating<4)",
+        "calls": 384,
+        "censored": false
+       },
+       {
+        "qid": 4,
+        "name": "theta(rating>=4 | relevant)",
+        "calls": 128,
+        "censored": false
+       },
+       {
+        "qid": 5,
+        "name": "diff theta(exact|relevant) >=4 minus <4",
+        "calls": 459,
+        "censored": false
+       }
+      ]
+     },
+     "T": {
+      "calls_used": 459,
+      "calls_all": null,
+      "n_done": 3,
+      "n_targets": 5,
+      "errors": 0,
+      "targets": [
+       {
+        "qid": 1,
+        "name": "theta(exact|relevant)",
+        "calls": 452,
+        "censored": false
+       },
+       {
+        "qid": 2,
+        "name": "theta(exact|relevant, rating>=4)",
+        "calls": null,
+        "censored": true
+       },
+       {
+        "qid": 3,
+        "name": "theta(exact|relevant, rating<4)",
+        "calls": 365,
+        "censored": false
+       },
+       {
+        "qid": 4,
+        "name": "theta(rating>=4 | relevant)",
+        "calls": 114,
+        "censored": false
+       },
+       {
+        "qid": 5,
+        "name": "diff theta(exact|relevant) >=4 minus <4",
+        "calls": null,
+        "censored": true
+       }
+      ]
+     },
+     "seconds": 0.12659883499145508
+    },
+    {
+     "seed": 6,
+     "hist_n": 125,
+     "enrich": 3.7312,
+     "E": {
+      "calls_used": 459,
+      "calls_all": null,
+      "n_done": 3,
+      "n_targets": 5,
+      "errors": 0,
+      "targets": [
+       {
+        "qid": 1,
+        "name": "theta(exact|relevant)",
+        "calls": 459,
+        "censored": false
+       },
+       {
+        "qid": 2,
+        "name": "theta(exact|relevant, rating>=4)",
+        "calls": null,
+        "censored": true
+       },
+       {
+        "qid": 3,
+        "name": "theta(exact|relevant, rating<4)",
+        "calls": 384,
+        "censored": false
+       },
+       {
+        "qid": 4,
+        "name": "theta(rating>=4 | relevant)",
+        "calls": 128,
+        "censored": false
+       },
+       {
+        "qid": 5,
+        "name": "diff theta(exact|relevant) >=4 minus <4",
+        "calls": null,
+        "censored": true
+       }
+      ]
+     },
+     "T": {
+      "calls_used": 459,
+      "calls_all": null,
+      "n_done": 2,
+      "n_targets": 5,
+      "errors": 0,
+      "targets": [
+       {
+        "qid": 1,
+        "name": "theta(exact|relevant)",
+        "calls": null,
+        "censored": true
+       },
+       {
+        "qid": 2,
+        "name": "theta(exact|relevant, rating>=4)",
+        "calls": null,
+        "censored": true
+       },
+       {
+        "qid": 3,
+        "name": "theta(exact|relevant, rating<4)",
+        "calls": 378,
+        "censored": false
+       },
+       {
+        "qid": 4,
+        "name": "theta(rating>=4 | relevant)",
+        "calls": 108,
+        "censored": false
+       },
+       {
+        "qid": 5,
+        "name": "diff theta(exact|relevant) >=4 minus <4",
+        "calls": null,
+        "censored": true
+       }
+      ]
+     },
+     "seconds": 0.1832261085510254
+    },
+    {
+     "seed": 7,
+     "hist_n": 125,
+     "enrich": 2.2528,
+     "E": {
+      "calls_used": 459,
+      "calls_all": null,
+      "n_done": 3,
+      "n_targets": 5,
+      "errors": 0,
+      "targets": [
+       {
+        "qid": 1,
+        "name": "theta(exact|relevant)",
+        "calls": 459,
+        "censored": false
+       },
+       {
+        "qid": 2,
+        "name": "theta(exact|relevant, rating>=4)",
+        "calls": null,
+        "censored": true
+       },
+       {
+        "qid": 3,
+        "name": "theta(exact|relevant, rating<4)",
+        "calls": 384,
+        "censored": false
+       },
+       {
+        "qid": 4,
+        "name": "theta(rating>=4 | relevant)",
+        "calls": 128,
+        "censored": false
+       },
+       {
+        "qid": 5,
+        "name": "diff theta(exact|relevant) >=4 minus <4",
+        "calls": null,
+        "censored": true
+       }
+      ]
+     },
+     "T": {
+      "calls_used": 367,
+      "calls_all": 367,
+      "n_done": 5,
+      "n_targets": 5,
+      "errors": 3,
+      "targets": [
+       {
+        "qid": 1,
+        "name": "theta(exact|relevant)",
+        "calls": 367,
+        "censored": false
+       },
+       {
+        "qid": 2,
+        "name": "theta(exact|relevant, rating>=4)",
+        "calls": 367,
+        "censored": false
+       },
+       {
+        "qid": 3,
+        "name": "theta(exact|relevant, rating<4)",
+        "calls": 367,
+        "censored": false
+       },
+       {
+        "qid": 4,
+        "name": "theta(rating>=4 | relevant)",
+        "calls": 111,
+        "censored": false
+       },
+       {
+        "qid": 5,
+        "name": "diff theta(exact|relevant) >=4 minus <4",
+        "calls": 367,
+        "censored": false
+       }
+      ]
+     },
+     "seconds": 0.1898665428161621
+    }
+   ],
+   "n_targets": 5
+  },
+  {
+   "name": "Vanities",
+   "feat": {
+    "N": 820,
+    "relevant_share": 0.5353658536585366,
+    "exact_given_relevant": 0.05466970387243736,
+    "n_lt4": 38,
+    "n_ge4": 594
+   },
+   "rows": [
+    {
+     "seed": 0,
+     "hist_n": 123,
+     "enrich": 1.1111111111111112,
+     "E": {
+      "calls_used": 451,
+      "calls_all": null,
+      "n_done": 3,
+      "n_targets": 5,
+      "errors": 0,
+      "targets": [
+       {
+        "qid": 1,
+        "name": "theta(exact|relevant)",
+        "calls": 451,
+        "censored": false
+       },
+       {
+        "qid": 2,
+        "name": "theta(exact|relevant, rating>=4)",
+        "calls": null,
+        "censored": true
+       },
+       {
+        "qid": 3,
+        "name": "theta(exact|relevant, rating<4)",
+        "calls": 128,
+        "censored": false
+       },
+       {
+        "qid": 4,
+        "name": "theta(rating>=4 | relevant)",
+        "calls": 384,
+        "censored": false
+       },
+       {
+        "qid": 5,
+        "name": "diff theta(exact|relevant) >=4 minus <4",
+        "calls": null,
+        "censored": true
+       }
+      ]
+     },
+     "T": {
+      "calls_used": 451,
+      "calls_all": null,
+      "n_done": 2,
+      "n_targets": 5,
+      "errors": 0,
+      "targets": [
+       {
+        "qid": 1,
+        "name": "theta(exact|relevant)",
+        "calls": null,
+        "censored": true
+       },
+       {
+        "qid": 2,
+        "name": "theta(exact|relevant, rating>=4)",
+        "calls": null,
+        "censored": true
+       },
+       {
+        "qid": 3,
+        "name": "theta(exact|relevant, rating<4)",
+        "calls": 107,
+        "censored": false
+       },
+       {
+        "qid": 4,
+        "name": "theta(rating>=4 | relevant)",
+        "calls": 356,
+        "censored": false
+       },
+       {
+        "qid": 5,
+        "name": "diff theta(exact|relevant) >=4 minus <4",
+        "calls": null,
+        "censored": true
+       }
+      ]
+     },
+     "seconds": 0.2823755741119385
+    },
+    {
+     "seed": 1,
+     "hist_n": 123,
+     "enrich": 0.8333333333333333,
+     "E": {
+      "calls_used": 451,
+      "calls_all": null,
+      "n_done": 2,
+      "n_targets": 5,
+      "errors": 0,
+      "targets": [
+       {
+        "qid": 1,
+        "name": "theta(exact|relevant)",
+        "calls": null,
+        "censored": true
+       },
+       {
+        "qid": 2,
+        "name": "theta(exact|relevant, rating>=4)",
+        "calls": null,
+        "censored": true
+       },
+       {
+        "qid": 3,
+        "name": "theta(exact|relevant, rating<4)",
+        "calls": 128,
+        "censored": false
+       },
+       {
+        "qid": 4,
+        "name": "theta(rating>=4 | relevant)",
+        "calls": 384,
+        "censored": false
+       },
+       {
+        "qid": 5,
+        "name": "diff theta(exact|relevant) >=4 minus <4",
+        "calls": null,
+        "censored": true
+       }
+      ]
+     },
+     "T": {
+      "calls_used": 451,
+      "calls_all": null,
+      "n_done": 2,
+      "n_targets": 5,
+      "errors": 0,
+      "targets": [
+       {
+        "qid": 1,
+        "name": "theta(exact|relevant)",
+        "calls": null,
+        "censored": true
+       },
+       {
+        "qid": 2,
+        "name": "theta(exact|relevant, rating>=4)",
+        "calls": null,
+        "censored": true
+       },
+       {
+        "qid": 3,
+        "name": "theta(exact|relevant, rating<4)",
+        "calls": 109,
+        "censored": false
+       },
+       {
+        "qid": 4,
+        "name": "theta(rating>=4 | relevant)",
+        "calls": 369,
+        "censored": false
+       },
+       {
+        "qid": 5,
+        "name": "diff theta(exact|relevant) >=4 minus <4",
+        "calls": null,
+        "censored": true
+       }
+      ]
+     },
+     "seconds": 0.1292705535888672
+    },
+    {
+     "seed": 2,
+     "hist_n": 123,
+     "enrich": 0.0,
+     "E": {
+      "calls_used": 451,
+      "calls_all": null,
+      "n_done": 3,
+      "n_targets": 5,
+      "errors": 0,
+      "targets": [
+       {
+        "qid": 1,
+        "name": "theta(exact|relevant)",
+        "calls": 451,
+        "censored": false
+       },
+       {
+        "qid": 2,
+        "name": "theta(exact|relevant, rating>=4)",
+        "calls": null,
+        "censored": true
+       },
+       {
+        "qid": 3,
+        "name": "theta(exact|relevant, rating<4)",
+        "calls": 128,
+        "censored": false
+       },
+       {
+        "qid": 4,
+        "name": "theta(rating>=4 | relevant)",
+        "calls": 384,
+        "censored": false
+       },
+       {
+        "qid": 5,
+        "name": "diff theta(exact|relevant) >=4 minus <4",
+        "calls": null,
+        "censored": true
+       }
+      ]
+     },
+     "T": {
+      "calls_used": 451,
+      "calls_all": null,
+      "n_done": 2,
+      "n_targets": 5,
+      "errors": 0,
+      "targets": [
+       {
+        "qid": 1,
+        "name": "theta(exact|relevant)",
+        "calls": null,
+        "censored": true
+       },
+       {
+        "qid": 2,
+        "name": "theta(exact|relevant, rating>=4)",
+        "calls": null,
+        "censored": true
+       },
+       {
+        "qid": 3,
+        "name": "theta(exact|relevant, rating<4)",
+        "calls": 112,
+        "censored": false
+       },
+       {
+        "qid": 4,
+        "name": "theta(rating>=4 | relevant)",
+        "calls": 352,
+        "censored": false
+       },
+       {
+        "qid": 5,
+        "name": "diff theta(exact|relevant) >=4 minus <4",
+        "calls": null,
+        "censored": true
+       }
+      ]
+     },
+     "seconds": 0.2898530960083008
+    },
+    {
+     "seed": 3,
+     "hist_n": 123,
+     "enrich": 6.388888888888888,
+     "E": {
+      "calls_used": 451,
+      "calls_all": 451,
+      "n_done": 5,
+      "n_targets": 5,
+      "errors": 0,
+      "targets": [
+       {
+        "qid": 1,
+        "name": "theta(exact|relevant)",
+        "calls": 384,
+        "censored": false
+       },
+       {
+        "qid": 2,
+        "name": "theta(exact|relevant, rating>=4)",
+        "calls": 451,
+        "censored": false
+       },
+       {
+        "qid": 3,
+        "name": "theta(exact|relevant, rating<4)",
+        "calls": 128,
+        "censored": false
+       },
+       {
+        "qid": 4,
+        "name": "theta(rating>=4 | relevant)",
+        "calls": 384,
+        "censored": false
+       },
+       {
+        "qid": 5,
+        "name": "diff theta(exact|relevant) >=4 minus <4",
+        "calls": 451,
+        "censored": false
+       }
+      ]
+     },
+     "T": {
+      "calls_used": 451,
+      "calls_all": null,
+      "n_done": 2,
+      "n_targets": 5,
+      "errors": 0,
+      "targets": [
+       {
+        "qid": 1,
+        "name": "theta(exact|relevant)",
+        "calls": null,
+        "censored": true
+       },
+       {
+        "qid": 2,
+        "name": "theta(exact|relevant, rating>=4)",
+        "calls": null,
+        "censored": true
+       },
+       {
+        "qid": 3,
+        "name": "theta(exact|relevant, rating<4)",
+        "calls": 115,
+        "censored": false
+       },
+       {
+        "qid": 4,
+        "name": "theta(rating>=4 | relevant)",
+        "calls": 352,
+        "censored": false
+       },
+       {
+        "qid": 5,
+        "name": "diff theta(exact|relevant) >=4 minus <4",
+        "calls": null,
+        "censored": true
+       }
+      ]
+     },
+     "seconds": 0.1889338493347168
+    },
+    {
+     "seed": 4,
+     "hist_n": 123,
+     "enrich": 0.0,
+     "E": {
+      "calls_used": 451,
+      "calls_all": null,
+      "n_done": 3,
+      "n_targets": 5,
+      "errors": 0,
+      "targets": [
+       {
+        "qid": 1,
+        "name": "theta(exact|relevant)",
+        "calls": 451,
+        "censored": false
+       },
+       {
+        "qid": 2,
+        "name": "theta(exact|relevant, rating>=4)",
+        "calls": null,
+        "censored": true
+       },
+       {
+        "qid": 3,
+        "name": "theta(exact|relevant, rating<4)",
+        "calls": 128,
+        "censored": false
+       },
+       {
+        "qid": 4,
+        "name": "theta(rating>=4 | relevant)",
+        "calls": 384,
+        "censored": false
+       },
+       {
+        "qid": 5,
+        "name": "diff theta(exact|relevant) >=4 minus <4",
+        "calls": null,
+        "censored": true
+       }
+      ]
+     },
+     "T": {
+      "calls_used": 451,
+      "calls_all": null,
+      "n_done": 3,
+      "n_targets": 5,
+      "errors": 0,
+      "targets": [
+       {
+        "qid": 1,
+        "name": "theta(exact|relevant)",
+        "calls": 449,
+        "censored": false
+       },
+       {
+        "qid": 2,
+        "name": "theta(exact|relevant, rating>=4)",
+        "calls": null,
+        "censored": true
+       },
+       {
+        "qid": 3,
+        "name": "theta(exact|relevant, rating<4)",
+        "calls": 114,
+        "censored": false
+       },
+       {
+        "qid": 4,
+        "name": "theta(rating>=4 | relevant)",
+        "calls": 374,
+        "censored": false
+       },
+       {
+        "qid": 5,
+        "name": "diff theta(exact|relevant) >=4 minus <4",
+        "calls": null,
+        "censored": true
+       }
+      ]
+     },
+     "seconds": 0.12923407554626465
+    },
+    {
+     "seed": 5,
+     "hist_n": 123,
+     "enrich": 6.388888888888888,
+     "E": {
+      "calls_used": 451,
+      "calls_all": 451,
+      "n_done": 5,
+      "n_targets": 5,
+      "errors": 0,
+      "targets": [
+       {
+        "qid": 1,
+        "name": "theta(exact|relevant)",
+        "calls": 384,
+        "censored": false
+       },
+       {
+        "qid": 2,
+        "name": "theta(exact|relevant, rating>=4)",
+        "calls": 451,
+        "censored": false
+       },
+       {
+        "qid": 3,
+        "name": "theta(exact|relevant, rating<4)",
+        "calls": 128,
+        "censored": false
+       },
+       {
+        "qid": 4,
+        "name": "theta(rating>=4 | relevant)",
+        "calls": 384,
+        "censored": false
+       },
+       {
+        "qid": 5,
+        "name": "diff theta(exact|relevant) >=4 minus <4",
+        "calls": 451,
+        "censored": false
+       }
+      ]
+     },
+     "T": {
+      "calls_used": 451,
+      "calls_all": null,
+      "n_done": 3,
+      "n_targets": 5,
+      "errors": 0,
+      "targets": [
+       {
+        "qid": 1,
+        "name": "theta(exact|relevant)",
+        "calls": 373,
+        "censored": false
+       },
+       {
+        "qid": 2,
+        "name": "theta(exact|relevant, rating>=4)",
+        "calls": null,
+        "censored": true
+       },
+       {
+        "qid": 3,
+        "name": "theta(exact|relevant, rating<4)",
+        "calls": 111,
+        "censored": false
+       },
+       {
+        "qid": 4,
+        "name": "theta(rating>=4 | relevant)",
+        "calls": 373,
+        "censored": false
+       },
+       {
+        "qid": 5,
+        "name": "diff theta(exact|relevant) >=4 minus <4",
+        "calls": null,
+        "censored": true
+       }
+      ]
+     },
+     "seconds": 0.18920683860778809
+    },
+    {
+     "seed": 6,
+     "hist_n": 123,
+     "enrich": 1.1111111111111112,
+     "E": {
+      "calls_used": 451,
+      "calls_all": null,
+      "n_done": 3,
+      "n_targets": 5,
+      "errors": 0,
+      "targets": [
+       {
+        "qid": 1,
+        "name": "theta(exact|relevant)",
+        "calls": 451,
+        "censored": false
+       },
+       {
+        "qid": 2,
+        "name": "theta(exact|relevant, rating>=4)",
+        "calls": null,
+        "censored": true
+       },
+       {
+        "qid": 3,
+        "name": "theta(exact|relevant, rating<4)",
+        "calls": 128,
+        "censored": false
+       },
+       {
+        "qid": 4,
+        "name": "theta(rating>=4 | relevant)",
+        "calls": 384,
+        "censored": false
+       },
+       {
+        "qid": 5,
+        "name": "diff theta(exact|relevant) >=4 minus <4",
+        "calls": null,
+        "censored": true
+       }
+      ]
+     },
+     "T": {
+      "calls_used": 451,
+      "calls_all": null,
+      "n_done": 3,
+      "n_targets": 5,
+      "errors": 0,
+      "targets": [
+       {
+        "qid": 1,
+        "name": "theta(exact|relevant)",
+        "calls": 450,
+        "censored": false
+       },
+       {
+        "qid": 2,
+        "name": "theta(exact|relevant, rating>=4)",
+        "calls": null,
+        "censored": true
+       },
+       {
+        "qid": 3,
+        "name": "theta(exact|relevant, rating<4)",
+        "calls": 101,
+        "censored": false
+       },
+       {
+        "qid": 4,
+        "name": "theta(rating>=4 | relevant)",
+        "calls": 367,
+        "censored": false
+       },
+       {
+        "qid": 5,
+        "name": "diff theta(exact|relevant) >=4 minus <4",
+        "calls": null,
+        "censored": true
+       }
+      ]
+     },
+     "seconds": 0.18790793418884277
+    },
+    {
+     "seed": 7,
+     "hist_n": 123,
+     "enrich": 6.388888888888888,
+     "E": {
+      "calls_used": 451,
+      "calls_all": 451,
+      "n_done": 5,
+      "n_targets": 5,
+      "errors": 0,
+      "targets": [
+       {
+        "qid": 1,
+        "name": "theta(exact|relevant)",
+        "calls": 384,
+        "censored": false
+       },
+       {
+        "qid": 2,
+        "name": "theta(exact|relevant, rating>=4)",
+        "calls": 451,
+        "censored": false
+       },
+       {
+        "qid": 3,
+        "name": "theta(exact|relevant, rating<4)",
+        "calls": 128,
+        "censored": false
+       },
+       {
+        "qid": 4,
+        "name": "theta(rating>=4 | relevant)",
+        "calls": 128,
+        "censored": false
+       },
+       {
+        "qid": 5,
+        "name": "diff theta(exact|relevant) >=4 minus <4",
+        "calls": 451,
+        "censored": false
+       }
+      ]
+     },
+     "T": {
+      "calls_used": 451,
+      "calls_all": null,
+      "n_done": 2,
+      "n_targets": 5,
+      "errors": 0,
+      "targets": [
+       {
+        "qid": 1,
+        "name": "theta(exact|relevant)",
+        "calls": null,
+        "censored": true
+       },
+       {
+        "qid": 2,
+        "name": "theta(exact|relevant, rating>=4)",
+        "calls": null,
+        "censored": true
+       },
+       {
+        "qid": 3,
+        "name": "theta(exact|relevant, rating<4)",
+        "calls": 105,
+        "censored": false
+       },
+       {
+        "qid": 4,
+        "name": "theta(rating>=4 | relevant)",
+        "calls": 393,
+        "censored": false
+       },
+       {
+        "qid": 5,
+        "name": "diff theta(exact|relevant) >=4 minus <4",
+        "calls": null,
+        "censored": true
+       }
+      ]
+     },
+     "seconds": 0.12630867958068848
+    }
+   ],
+   "n_targets": 5
+  }
+ ],
+ "protocol": {
+  "cap_frac": 0.55,
+  "history_frac": 0.15,
+  "seeds": [
+   0,
+   1,
+   2,
+   3,
+   4,
+   5,
+   6,
+   7
+  ],
+  "allocator": "RoundRobinAllocator",
+  "alpha": 0.05,
+  "event_basis": "compile_basis=True on the same five numeric targets; two semantic events (relevant, relevant-and-exact)",
+  "risk": "alpha divided evenly across stratum-event sequences whose remaining population is non-empty",
+  "projection": "build_polytope and ratio_bounds, the partition-aware projection, same function for both arms",
+  "deterministic_counts": "both arms insert every historical label into obs before the first new call",
+  "stopping": [
+   "all targets certified",
+   "calls reach the cap",
+   "a confidence sequence returns no feasible count; open targets are not certified"
+  ],
+  "arms": {
+   "T": "tcache via add_targeted; confidence sequence on the full stratum; history event offset E_f=0",
+   "E": "cache as known mass; confidence sequence on the records outside the history; E_f is the exact history count"
+  }
+ },
+ "empty_cs": {
+  "history_kind": "enrich",
+  "ratio": 4,
+  "frac": 0.15,
+  "seed": 7,
+  "arm": "E",
+  "calls_used": 3072,
+  "cap_calls": 17315,
+  "stop_reason": "empty_confidence_set",
+  "budget_exhausted": false,
+  "stratum_full_N": 634,
+  "history_in_stratum": 90,
+  "remainder_N": 544,
+  "prefix_n": 537,
+  "positives_in_prefix": 372,
+  "true_relevant_in_remainder": 377,
+  "n_sequences": 12,
+  "delta": 0.004166666666666667,
+  "threshold_nats": 5.480638923341991,
+  "least_violating_k": 379,
+  "least_violating_logE": 5.683984787659121,
+  "exact_replay_feasible": false,
+  "fast_window": [
+   383,
+   382
+  ],
+  "open_targets_certified_after_stop": false,
+  "already_certified_missed_truth": false
+ }
+}
