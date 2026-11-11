@@ -102,14 +102,14 @@ def draw_executor(out_dir):
     d = Drawing(516, 276, "fig_stage", out_dir)
 
     # ---- execution contract ------------------------------------------------------------------
-    d.text(8, 10, "Declared closure", size=8.4, weight="bold")
-    d.text(8, 23, "value, threshold, difference", size=7.6, color=MUTED)
-    d.arrow([(128, 17), (143, 17)], lw=0.65, head=3.6)
-    d.text(150, 10, "Compile events", size=8.4, weight="bold")
-    d.text(150, 23, "shared statistical basis", size=7.6, color=MUTED)
-    d.line([(262, 4), (262, 30)], color=RULE, lw=0.55)
-    d.text(274, 10, r"Frozen snapshot  ·  operator $\phi$  ·  strata", size=8.0)
-    d.text(274, 23, r"Version key $\kappa$  ·  stage risk $\alpha_e$", size=8.0, color=MUTED)
+    d.text(8, 10, r"Declared closure $\mathcal{Q}_e$:", size=8.4, weight="bold")
+    d.text(8, 23, r"Active $\mathcal{A}_t \subseteq \mathcal{Q}_e$ (e.g., Q1: Exact | Rel)", size=7.5, color=MUTED)
+    d.arrow([(160, 17), (174, 17)], lw=0.65, head=3.6)
+    d.text(180, 10, "Compile basis once", size=8.4, weight="bold")
+    d.text(180, 23, "2 events × 6 strata = 12 CSs", size=7.6, color=MUTED)
+    d.line([(298, 4), (298, 30)], color=RULE, lw=0.55)
+    d.text(308, 10, r"Frozen pool $N=31{,}482$  ·  judge $\phi$", size=8.0)
+    d.text(308, 23, r"Version key $\kappa$  ·  stage risk $\alpha_e$", size=8.0, color=MUTED)
     d.line([(8, 36), (508, 36)], color=RULE, lw=0.65)
 
     # ---- evidence ledger: three provenance classes, one visual code ---------------------------
@@ -148,32 +148,32 @@ def draw_executor(out_dir):
     poly = [(281, 93), (304, 74), (347, 82), (362, 108), (342, 137), (296, 134)]
     d.ax.add_patch(Polygon(poly, closed=True, facecolor=TINT, edgecolor=ACCENT, linewidth=1.0,
                            joinstyle="miter", zorder=2))
-    d.text(321, 106, r"$\mathcal{P}_t$", size=18, color=ACCENT, ha="center")
+    d.text(321, 103, r"$\mathcal{P}_t$", size=16.5, color=ACCENT, ha="center")
     d.arrow([(248, 82), (265, 82), (281, 95)], color=ACCENT, lw=0.9, head=3.9)
     d.arrow([(248, 140), (265, 140), (291, 128)], lw=0.75, head=3.9)
-    d.text(322, 153, r"$\sum_z k_{h,z}=N_h$", size=10.0, ha="center")
+    d.text(322, 153, r"$\Sigma_z\, k_{h,z} = N_h$", size=9.2, ha="center")
     d.text(322, 169, "stratum sizes add up", size=7.4, color=MUTED, ha="center")
 
     # ---- projection: the region, not the LLM, feeds the projector ----------------------------
-    d.text(450, 49, "Projection & check", size=9.0, weight="bold", ha="center")
-    d.rect(392, 62, 116, 76, face=WHITE, edge=RULE, lw=0.65)
-    d.text(450, 73, "Denominator guard", size=8.1, weight="bold", ha="center")
-    d.text(450, 86, r"$B(\mathbf{k})>0$ on $\mathcal{P}_t$", size=9.2, ha="center")
-    d.line([(402, 96), (498, 96)], color=RULE, lw=0.45)
-    d.text(450, 107, "Linear programs", size=8.1, weight="bold", ha="center")
-    d.text(450, 119, "Charnes–Cooper · contrast", size=7.4, ha="center")
-    d.text(450, 130, "outward-rounded endpoints", size=7.2, color=MUTED, ha="center")
+    d.text(450, 49, r"Project active $\mathcal{A}_t$", size=9.0, weight="bold", ha="center")
+    d.rect(392, 60, 116, 80, face=WHITE, edge=RULE, lw=0.65)
+    d.text(450, 71, "Denominator guard", size=8.1, weight="bold", ha="center")
+    d.text(450, 88, r"$B(\mathbf{k})>0$ on $\mathcal{P}_t$", size=8.8, ha="center")
+    d.line([(402, 100), (498, 100)], color=RULE, lw=0.45)
+    d.text(450, 110, "Exact projections", size=8.1, weight="bold", ha="center")
+    d.text(450, 122, "partition / Charnes–Cooper", size=7.3, ha="center")
+    d.text(450, 133, "outward-rounded endpoints", size=7.2, color=MUTED, ha="center")
     d.arrow([(362, 108), (392, 108)], color=ACCENT, lw=0.9, head=4)
 
-    d.arrow([(450, 138), (450, 148)], color=ACCENT, lw=0.8, head=3.8)
-    d.rect(392, 148, 116, 36, face=TINT, edge=ACCENT, lw=0.7)
-    d.text(450, 158, "Certified claims", size=8.8, weight="bold", color=ACCENT, ha="center")
-    d.text(450, 169, "intervals and verdicts", size=7.7, ha="center")
-    d.text(450, 179, "cohort differences", size=7.7, ha="center")
+    d.arrow([(450, 140), (450, 150)], color=ACCENT, lw=0.8, head=3.8)
+    d.rect(392, 150, 116, 36, face=TINT, edge=ACCENT, lw=0.7)
+    d.text(450, 160, "Certified answers", size=8.8, weight="bold", color=ACCENT, ha="center")
+    d.text(450, 171, "intervals, verdicts, diffs", size=7.6, ha="center")
+    d.text(450, 181, r"zero new risk on follow-ups", size=7.2, color=MUTED, ha="center")
 
     # ---- feedback loop: undecided claims -> scheduler -> pointer -> cache hit or paid miss ----
     d.arrow([(508, 124), (513, 124), (513, 230), (455, 230)], color=MUTED, lw=0.7, dash=(2.5, 2.4), head=3.7)
-    d.text(506, 199, "Undecided claims", size=7.7, color=MUTED, ha="right")
+    d.text(506, 199, r"Undecided in $\mathcal{A}_t$", size=7.6, color=MUTED, ha="right")
 
     d.rect(347, 211, 108, 39, face=WHITE, edge=RULE, lw=0.65)
     d.text(401, 221, "Scheduler", size=8.6, weight="bold", ha="center")
@@ -196,12 +196,12 @@ def draw_executor(out_dir):
     d.arrow([(129, 230), (104, 230)], color=MUTED, lw=0.75, head=3.8)
     d.text(117, 221, "miss", size=7.3, color=MUTED, ha="center")
 
-    d.line([(56, 211), (56, 189), (62, 189)], color=ACCENT, lw=0.8)         # paid label and free read merge
-    d.line([(170, 211), (170, 189), (62, 189)], color=ACCENT, lw=0.8)
-    d.dot(62, 189, color=ACCENT, r=1.1)
-    d.arrow([(62, 189), (62, 162)], color=ACCENT, lw=0.8, head=3.8)
-    d.text(177, 201, "hit: free read", size=7.4, color=MUTED)
-    d.text(116, 180, r"extend the prefix $S$", size=7.5, color=MUTED, ha="center")
+    d.line([(56, 211), (56, 191), (62, 191)], color=ACCENT, lw=0.8)         # paid label and free read merge
+    d.line([(170, 211), (170, 191), (62, 191)], color=ACCENT, lw=0.8)
+    d.dot(62, 191, color=ACCENT, r=1.1)
+    d.arrow([(62, 191), (62, 164)], color=ACCENT, lw=0.8, head=3.8)
+    d.text(177, 200, "hit: free read", size=7.4, color=MUTED)
+    d.text(116, 179, r"extend the prefix $S$", size=7.5, color=MUTED, ha="center")
 
     d.line([(8, 259), (508, 259)], color=RULE, lw=0.55)
     d.text(258, 268, r"Claims in the closure share one stage risk $\alpha_e$; certificates concern the operator's "

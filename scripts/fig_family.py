@@ -155,10 +155,10 @@ def draw_reuse(out_dir, iv=None):
     truth = iv["truth"]
     inside = lambda r: r[0] <= truth <= r[1]
     # the caption says: discarding and COHORT contain the full-run value, pooling as a sample misses it
-    assert inside(iv["discard"]) and inside(iv["cohort"]) and not inside(iv["pooled"]), iv
+    assert inside(iv["discard"]) and inside(iv["cohort"]) and inside(iv.get("free", iv["cohort"])) and not inside(iv["pooled"]), iv
     assert iv["cohort"][1] - iv["cohort"][0] < iv["discard"][1] - iv["discard"][0], iv
 
-    W, H = 516, 200
+    W, H = 516, 222
     fig, ax = canvas(W, H)
     text(ax, 9, 10, "One stratum within a stage", 10.0, weight="bold")
     line(ax, 330, 8, 330, 191, RULE, .65)
@@ -214,11 +214,12 @@ def draw_reuse(out_dir, iv=None):
     # three ways to use the same history, at the same new-call budget (one real session)
     px0, px1, vmax = 420, 507, .4
     X = lambda v: px0 + (px1 - px0) * v / vmax
-    line(ax, X(truth), 48, X(truth), 169, GRAY, .75, (0, (3, 2.2)))
-    text(ax, X(truth), 39, rf"$\theta_{{\mathrm{{run}}}}={truth:.3f}$", 8.7, ha="center")
-    items = [("Discard\nhistory", iv["discard"], 65, MID, GRAY, 1.9),          # bar colour, text colour, bar width
-             ("Pool as\na sample", iv["pooled"], 106, INK, INK, 1.9),
-             ("COHORT\nknown mass", iv["cohort"], 148, ACCENT, ACCENT, 2.6)]
+    line(ax, X(truth), 46, X(truth), 176, GRAY, .75, (0, (3, 2.2)))
+    text(ax, X(truth), 36, rf"$\theta_{{\mathrm{{run}}}}={truth:.3f}$", 8.2, ha="center")
+    items = [("Discard\nhistory", iv["discard"], 56, MID, GRAY, 1.7),
+             ("Free\nreads", iv["free"], 88, MID, GRAY, 1.7),
+             ("Pool as\na sample", iv["pooled"], 120, INK, INK, 1.7),
+             ("COHORT\nknown mass", iv["cohort"], 152, ACCENT, ACCENT, 2.4)]
     for label, (lo, hi), y, color, tcolor, width in items:
         text(ax, 411, y, label, 8.2, tcolor, "bold" if label.startswith("COHORT") else "normal", ha="right")
         line(ax, X(lo), y, X(hi), y, color, width)
@@ -226,12 +227,12 @@ def draw_reuse(out_dir, iv=None):
             line(ax, X(v), y - 3.0, X(v), y + 3.0, color, .85)
         text(ax, (X(lo) + X(hi)) / 2, y - 10.5, f"[{lo:.2f}, {hi:.2f}]", 8.0, tcolor, ha="center",
              bbox=dict(facecolor=WHITE, edgecolor="none", pad=.65))
-    text(ax, 507, 119, r"Misses $\theta_{\mathrm{run}}$", 7.6, GRAY, ha="right")
-    line(ax, px0, 171, px1, 171, INK, .65)
+    text(ax, 507, 132, r"Misses $\theta_{\mathrm{run}}$", 7.4, GRAY, ha="right")
+    line(ax, px0, 178, px1, 178, INK, .65)
     for v in (0, .2, .4):
-        line(ax, X(v), 171, X(v), 174, INK, .65)
-        text(ax, X(v), 181, f"{v:.1f}", 7.7, GRAY, ha="center")
-    text(ax, (px0 + px1) / 2, 194, "Exact | Relevant", 8.1, ha="center")
+        line(ax, X(v), 178, X(v), 181, INK, .65)
+        text(ax, X(v), 190, f"{v:.1f}", 7.5, GRAY, ha="center")
+    text(ax, (px0 + px1) / 2, 204, "Exact | Relevant", 8.0, ha="center")
     save(fig, ax, "fig_reuse", out_dir, W, H)
 
 

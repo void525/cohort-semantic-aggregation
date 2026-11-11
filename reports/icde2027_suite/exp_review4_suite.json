@@ -1,0 +1,5710 @@
+{
+  "task1_8rounds": {
+    "n_rounds": 8,
+    "n_targets": 24,
+    "targets_per_round_cum": [
+      2,
+      5,
+      8,
+      12,
+      15,
+      18,
+      21,
+      24
+    ],
+    "seeds": 10,
+    "methods": {
+      "Shared prefix + free reads (T)": {
+        "round_done": [
+          "10/10",
+          "10/10",
+          "10/10",
+          "10/10",
+          "10/10",
+          "10/10",
+          "10/10",
+          "10/10"
+        ],
+        "round_cumulative_medians": [
+          3945.5,
+          4729.5,
+          10878.5,
+          10878.5,
+          10878.5,
+          10878.5,
+          10878.5,
+          10878.5
+        ],
+        "round_cumulative_q25": [
+          3920.0,
+          4705.0,
+          10620.75,
+          10620.75,
+          10620.75,
+          10620.75,
+          10620.75,
+          10620.75
+        ],
+        "round_cumulative_q75": [
+          4128.5,
+          4904.25,
+          11067.25,
+          11067.25,
+          11067.25,
+          11067.25,
+          11067.25,
+          11067.25
+        ],
+        "round_marginal_medians": [
+          3945.5,
+          766.5,
+          6110.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0
+        ],
+        "round_first_cert_medians": [
+          365.5,
+          3945.5,
+          4729.5,
+          10878.5,
+          10878.5,
+          10878.5,
+          10878.5,
+          10878.5
+        ],
+        "cohort_paired_saving_median_by_round_pct": [
+          23.784792357387303,
+          18.723811029476472,
+          21.18316107868958,
+          21.18316107868958,
+          21.18316107868958,
+          21.18316107868958,
+          21.18316107868958,
+          21.18316107868958
+        ],
+        "cohort_paired_saving_mean_by_round_pct": [
+          22.538563571207906,
+          17.736729885981962,
+          21.09458251317074,
+          21.09458251317074,
+          21.09458251317074,
+          21.09458251317074,
+          21.09458251317074,
+          21.09458251317074
+        ],
+        "cohort_paired_joint_seeds_by_round": [
+          10,
+          10,
+          10,
+          10,
+          10,
+          10,
+          10,
+          10
+        ],
+        "total_errors": 0,
+        "empty_cs_halts": 0,
+        "rows": [
+          {
+            "seed": 0,
+            "calls_spent": 10620,
+            "all_done": true,
+            "halted_empty_cs": false,
+            "round_done": [
+              true,
+              true,
+              true,
+              true,
+              true,
+              true,
+              true,
+              true
+            ],
+            "round_calls": [
+              3703,
+              4746,
+              10620,
+              10620,
+              10620,
+              10620,
+              10620,
+              10620
+            ],
+            "round_first_calls": [
+              361,
+              3703,
+              4746,
+              10620,
+              10620,
+              10620,
+              10620,
+              10620
+            ],
+            "errors": 0
+          },
+          {
+            "seed": 1,
+            "calls_spent": 11044,
+            "all_done": true,
+            "halted_empty_cs": false,
+            "round_done": [
+              true,
+              true,
+              true,
+              true,
+              true,
+              true,
+              true,
+              true
+            ],
+            "round_calls": [
+              3947,
+              4714,
+              11044,
+              11044,
+              11044,
+              11044,
+              11044,
+              11044
+            ],
+            "round_first_calls": [
+              492,
+              3947,
+              4714,
+              11044,
+              11044,
+              11044,
+              11044,
+              11044
+            ],
+            "errors": 0
+          },
+          {
+            "seed": 2,
+            "calls_spent": 11074,
+            "all_done": true,
+            "halted_empty_cs": false,
+            "round_done": [
+              true,
+              true,
+              true,
+              true,
+              true,
+              true,
+              true,
+              true
+            ],
+            "round_calls": [
+              4186,
+              4957,
+              11074,
+              11074,
+              11074,
+              11074,
+              11074,
+              11074
+            ],
+            "round_first_calls": [
+              365,
+              4186,
+              4957,
+              11074,
+              11074,
+              11074,
+              11074,
+              11074
+            ],
+            "errors": 0
+          },
+          {
+            "seed": 3,
+            "calls_spent": 10525,
+            "all_done": true,
+            "halted_empty_cs": false,
+            "round_done": [
+              true,
+              true,
+              true,
+              true,
+              true,
+              true,
+              true,
+              true
+            ],
+            "round_calls": [
+              3944,
+              4718,
+              10525,
+              10525,
+              10525,
+              10525,
+              10525,
+              10525
+            ],
+            "round_first_calls": [
+              486,
+              3944,
+              4718,
+              10525,
+              10525,
+              10525,
+              10525,
+              10525
+            ],
+            "errors": 0
+          },
+          {
+            "seed": 4,
+            "calls_spent": 11130,
+            "all_done": true,
+            "halted_empty_cs": false,
+            "round_done": [
+              true,
+              true,
+              true,
+              true,
+              true,
+              true,
+              true,
+              true
+            ],
+            "round_calls": [
+              3938,
+              4702,
+              11130,
+              11130,
+              11130,
+              11130,
+              11130,
+              11130
+            ],
+            "round_first_calls": [
+              370,
+              3938,
+              4702,
+              11130,
+              11130,
+              11130,
+              11130,
+              11130
+            ],
+            "errors": 0
+          },
+          {
+            "seed": 5,
+            "calls_spent": 10602,
+            "all_done": true,
+            "halted_empty_cs": false,
+            "round_done": [
+              true,
+              true,
+              true,
+              true,
+              true,
+              true,
+              true,
+              true
+            ],
+            "round_calls": [
+              3956,
+              4741,
+              10602,
+              10602,
+              10602,
+              10602,
+              10602,
+              10602
+            ],
+            "round_first_calls": [
+              352,
+              3956,
+              4741,
+              10602,
+              10602,
+              10602,
+              10602,
+              10602
+            ],
+            "errors": 0
+          },
+          {
+            "seed": 6,
+            "calls_spent": 10713,
+            "all_done": true,
+            "halted_empty_cs": false,
+            "round_done": [
+              true,
+              true,
+              true,
+              true,
+              true,
+              true,
+              true,
+              true
+            ],
+            "round_calls": [
+              4293,
+              5048,
+              10713,
+              10713,
+              10713,
+              10713,
+              10713,
+              10713
+            ],
+            "round_first_calls": [
+              366,
+              4293,
+              5048,
+              10713,
+              10713,
+              10713,
+              10713,
+              10713
+            ],
+            "errors": 0
+          },
+          {
+            "seed": 7,
+            "calls_spent": 11047,
+            "all_done": true,
+            "halted_empty_cs": false,
+            "round_done": [
+              true,
+              true,
+              true,
+              true,
+              true,
+              true,
+              true,
+              true
+            ],
+            "round_calls": [
+              3914,
+              4674,
+              11047,
+              11047,
+              11047,
+              11047,
+              11047,
+              11047
+            ],
+            "round_first_calls": [
+              494,
+              3914,
+              4674,
+              11047,
+              11047,
+              11047,
+              11047,
+              11047
+            ],
+            "errors": 0
+          },
+          {
+            "seed": 8,
+            "calls_spent": 10623,
+            "all_done": true,
+            "halted_empty_cs": false,
+            "round_done": [
+              true,
+              true,
+              true,
+              true,
+              true,
+              true,
+              true,
+              true
+            ],
+            "round_calls": [
+              3709,
+              4464,
+              10623,
+              10623,
+              10623,
+              10623,
+              10623,
+              10623
+            ],
+            "round_first_calls": [
+              363,
+              3709,
+              4464,
+              10623,
+              10623,
+              10623,
+              10623,
+              10623
+            ],
+            "errors": 0
+          },
+          {
+            "seed": 9,
+            "calls_spent": 11091,
+            "all_done": true,
+            "halted_empty_cs": false,
+            "round_done": [
+              true,
+              true,
+              true,
+              true,
+              true,
+              true,
+              true,
+              true
+            ],
+            "round_calls": [
+              4222,
+              4988,
+              11091,
+              11091,
+              11091,
+              11091,
+              11091,
+              11091
+            ],
+            "round_first_calls": [
+              365,
+              4222,
+              4988,
+              11091,
+              11091,
+              11091,
+              11091,
+              11091
+            ],
+            "errors": 0
+          }
+        ]
+      },
+      "Adaptive dedup-streams + T": {
+        "round_done": [
+          "10/10",
+          "10/10",
+          "10/10",
+          "10/10",
+          "10/10",
+          "10/10",
+          "10/10",
+          "10/10"
+        ],
+        "round_cumulative_medians": [
+          1223.0,
+          3190.0,
+          9094.5,
+          10670.0,
+          12673.5,
+          15722.5,
+          18313.0,
+          20761.0
+        ],
+        "round_cumulative_q25": [
+          1181.25,
+          3146.5,
+          8891.25,
+          10630.0,
+          12575.75,
+          15520.25,
+          18169.25,
+          20622.5
+        ],
+        "round_cumulative_q75": [
+          1281.75,
+          3274.25,
+          9183.75,
+          10714.75,
+          12867.25,
+          15779.5,
+          18673.0,
+          20979.75
+        ],
+        "round_marginal_medians": [
+          1223.0,
+          2012.0,
+          5824.0,
+          1676.0,
+          2012.5,
+          2986.5,
+          2750.0,
+          2404.0
+        ],
+        "round_first_cert_medians": [
+          887.5,
+          2158.0,
+          4834.0,
+          9688.0,
+          11380.5,
+          14062.5,
+          16965.5,
+          18704.0
+        ],
+        "cohort_paired_saving_median_by_round_pct": [
+          -159.33989432792495,
+          -21.846611318101594,
+          6.423940823401714,
+          19.15366474729424,
+          31.962032970209766,
+          45.00852145408236,
+          53.43645203983293,
+          59.2724986911932
+        ],
+        "cohort_paired_saving_mean_by_round_pct": [
+          -156.57657179594298,
+          -21.683339951457036,
+          3.231964382764725,
+          18.942058428732096,
+          31.890968844438,
+          45.0862371248419,
+          53.40311618576332,
+          58.821953861122516
+        ],
+        "cohort_paired_joint_seeds_by_round": [
+          10,
+          10,
+          10,
+          10,
+          10,
+          10,
+          10,
+          10
+        ],
+        "total_errors": 0,
+        "empty_cs_halts": 0,
+        "rows": [
+          {
+            "seed": 0,
+            "calls_spent": 21060,
+            "all_done": true,
+            "halted_empty_cs": false,
+            "round_done": [
+              true,
+              true,
+              true,
+              true,
+              true,
+              true,
+              true,
+              true
+            ],
+            "round_calls": [
+              1294,
+              3292,
+              9455,
+              10933,
+              12887,
+              15956,
+              18535,
+              21060
+            ],
+            "round_first_calls": [
+              856,
+              2333,
+              5154,
+              10161,
+              11400,
+              14190,
+              17590,
+              19108
+            ],
+            "errors": 0
+          },
+          {
+            "seed": 1,
+            "calls_spent": 20789,
+            "all_done": true,
+            "halted_empty_cs": false,
+            "round_done": [
+              true,
+              true,
+              true,
+              true,
+              true,
+              true,
+              true,
+              true
+            ],
+            "round_calls": [
+              1223,
+              3184,
+              8901,
+              10651,
+              12670,
+              15697,
+              18719,
+              20789
+            ],
+            "round_first_calls": [
+              794,
+              2168,
+              4019,
+              9338,
+              11435,
+              13874,
+              16953,
+              19320
+            ],
+            "errors": 0
+          },
+          {
+            "seed": 2,
+            "calls_spent": 20799,
+            "all_done": true,
+            "halted_empty_cs": false,
+            "round_done": [
+              true,
+              true,
+              true,
+              true,
+              true,
+              true,
+              true,
+              true
+            ],
+            "round_calls": [
+              1116,
+              3142,
+              6970,
+              9201,
+              11305,
+              14593,
+              17739,
+              20799
+            ],
+            "round_first_calls": [
+              980,
+              2112,
+              4063,
+              7635,
+              9812,
+              12946,
+              16533,
+              18286
+            ],
+            "errors": 0
+          },
+          {
+            "seed": 3,
+            "calls_spent": 21319,
+            "all_done": true,
+            "halted_empty_cs": false,
+            "round_done": [
+              true,
+              true,
+              true,
+              true,
+              true,
+              true,
+              true,
+              true
+            ],
+            "round_calls": [
+              1384,
+              3505,
+              9367,
+              10696,
+              12677,
+              15748,
+              18728,
+              21319
+            ],
+            "round_first_calls": [
+              864,
+              2373,
+              4839,
+              10110,
+              11260,
+              14080,
+              17103,
+              19133
+            ],
+            "errors": 0
+          },
+          {
+            "seed": 4,
+            "calls_spent": 20155,
+            "all_done": true,
+            "halted_empty_cs": false,
+            "round_done": [
+              true,
+              true,
+              true,
+              true,
+              true,
+              true,
+              true,
+              true
+            ],
+            "round_calls": [
+              1311,
+              3401,
+              9188,
+              10721,
+              12808,
+              15778,
+              18151,
+              20155
+            ],
+            "round_first_calls": [
+              912,
+              2148,
+              4940,
+              9812,
+              11408,
+              14200,
+              17193,
+              18399
+            ],
+            "errors": 0
+          },
+          {
+            "seed": 5,
+            "calls_spent": 20675,
+            "all_done": true,
+            "halted_empty_cs": false,
+            "round_done": [
+              true,
+              true,
+              true,
+              true,
+              true,
+              true,
+              true,
+              true
+            ],
+            "round_calls": [
+              933,
+              3014,
+              9168,
+              10521,
+              12548,
+              15473,
+              18224,
+              20675
+            ],
+            "round_first_calls": [
+              858,
+              1813,
+              4526,
+              9672,
+              10968,
+              13977,
+              16667,
+              18789
+            ],
+            "errors": 0
+          },
+          {
+            "seed": 6,
+            "calls_spent": 20445,
+            "all_done": true,
+            "halted_empty_cs": false,
+            "round_done": [
+              true,
+              true,
+              true,
+              true,
+              true,
+              true,
+              true,
+              true
+            ],
+            "round_calls": [
+              1245,
+              3196,
+              8888,
+              10687,
+              12284,
+              15250,
+              17999,
+              20445
+            ],
+            "round_first_calls": [
+              961,
+              2185,
+              4829,
+              9490,
+              11460,
+              13682,
+              16506,
+              18543
+            ],
+            "errors": 0
+          },
+          {
+            "seed": 7,
+            "calls_spent": 21040,
+            "all_done": true,
+            "halted_empty_cs": false,
+            "round_done": [
+              true,
+              true,
+              true,
+              true,
+              true,
+              true,
+              true,
+              true
+            ],
+            "round_calls": [
+              1191,
+              3221,
+              9171,
+              10977,
+              12934,
+              15816,
+              18762,
+              21040
+            ],
+            "round_first_calls": [
+              594,
+              2133,
+              4681,
+              9704,
+              11911,
+              14318,
+              17484,
+              19396
+            ],
+            "errors": 0
+          },
+          {
+            "seed": 8,
+            "calls_spent": 20733,
+            "all_done": true,
+            "halted_empty_cs": false,
+            "round_done": [
+              true,
+              true,
+              true,
+              true,
+              true,
+              true,
+              true,
+              true
+            ],
+            "round_calls": [
+              1178,
+              3125,
+              8773,
+              10653,
+              12659,
+              15662,
+              18383,
+              20733
+            ],
+            "round_first_calls": [
+              911,
+              2039,
+              4937,
+              9381,
+              11361,
+              14045,
+              16978,
+              18619
+            ],
+            "errors": 0
+          },
+          {
+            "seed": 9,
+            "calls_spent": 20605,
+            "all_done": true,
+            "halted_empty_cs": false,
+            "round_done": [
+              true,
+              true,
+              true,
+              true,
+              true,
+              true,
+              true,
+              true
+            ],
+            "round_calls": [
+              1223,
+              3160,
+              9021,
+              10623,
+              12906,
+              15780,
+              18243,
+              20605
+            ],
+            "round_first_calls": [
+              919,
+              2209,
+              4894,
+              9795,
+              11219,
+              14303,
+              16789,
+              18420
+            ],
+            "errors": 0
+          }
+        ]
+      },
+      "Adaptive dedup-streams + E0": {
+        "round_done": [
+          "10/10",
+          "10/10",
+          "9/10",
+          "9/10",
+          "9/10",
+          "9/10",
+          "9/10",
+          "9/10"
+        ],
+        "round_cumulative_medians": [
+          950.5,
+          2914.0,
+          7250.0,
+          8828.0,
+          10606.0,
+          13428.0,
+          16556.0,
+          19251.0
+        ],
+        "round_cumulative_q25": [
+          922.0,
+          2831.75,
+          6931.0,
+          8420.0,
+          10154.0,
+          13149.0,
+          16293.0,
+          19060.0
+        ],
+        "round_cumulative_q75": [
+          1018.75,
+          2930.0,
+          7651.0,
+          9013.0,
+          10725.0,
+          13592.0,
+          16805.0,
+          19423.0
+        ],
+        "round_marginal_medians": [
+          950.5,
+          1921.5,
+          4396.0,
+          1390.0,
+          1686.0,
+          2935.0,
+          3153.0,
+          2729.0
+        ],
+        "round_first_cert_medians": [
+          701.0,
+          1782.5,
+          3918.0,
+          7745.0,
+          9483.0,
+          11856.0,
+          15091.0,
+          17036.0
+        ],
+        "cohort_paired_saving_median_by_round_pct": [
+          -218.81070407683285,
+          -33.64441049092601,
+          -19.76830536165157,
+          0.21466500960343193,
+          17.258362405089265,
+          35.3819139596137,
+          47.78598876736624,
+          55.005246589716684
+        ],
+        "cohort_paired_saving_mean_by_round_pct": [
+          -222.2469866889553,
+          -35.36997323236901,
+          -18.718211834530095,
+          1.1586308068795816,
+          17.37524351993074,
+          35.53150360349766,
+          47.854570379440055,
+          55.279890605235366
+        ],
+        "cohort_paired_joint_seeds_by_round": [
+          10,
+          10,
+          9,
+          9,
+          9,
+          9,
+          9,
+          9
+        ],
+        "total_errors": 1,
+        "empty_cs_halts": 1,
+        "rows": [
+          {
+            "seed": 0,
+            "calls_spent": 19251,
+            "all_done": true,
+            "halted_empty_cs": false,
+            "round_done": [
+              true,
+              true,
+              true,
+              true,
+              true,
+              true,
+              true,
+              true
+            ],
+            "round_calls": [
+              1151,
+              3169,
+              7667,
+              9013,
+              10766,
+              13652,
+              16805,
+              19251
+            ],
+            "round_first_calls": [
+              704,
+              2010,
+              4280,
+              8137,
+              9645,
+              12135,
+              15249,
+              17061
+            ],
+            "errors": 0
+          },
+          {
+            "seed": 1,
+            "calls_spent": 19470,
+            "all_done": true,
+            "halted_empty_cs": false,
+            "round_done": [
+              true,
+              true,
+              true,
+              true,
+              true,
+              true,
+              true,
+              true
+            ],
+            "round_calls": [
+              948,
+              2910,
+              7250,
+              8851,
+              10725,
+              13668,
+              16915,
+              19470
+            ],
+            "round_first_calls": [
+              820,
+              1870,
+              4177,
+              7927,
+              9602,
+              11895,
+              15249,
+              17275
+            ],
+            "errors": 0
+          },
+          {
+            "seed": 2,
+            "calls_spent": 19285,
+            "all_done": true,
+            "halted_empty_cs": false,
+            "round_done": [
+              true,
+              true,
+              true,
+              true,
+              true,
+              true,
+              true,
+              true
+            ],
+            "round_calls": [
+              1020,
+              2934,
+              7672,
+              9016,
+              10702,
+              13428,
+              16556,
+              19285
+            ],
+            "round_first_calls": [
+              767,
+              1943,
+              4145,
+              8224,
+              9561,
+              11856,
+              14617,
+              17036
+            ],
+            "errors": 0
+          },
+          {
+            "seed": 3,
+            "calls_spent": 19423,
+            "all_done": true,
+            "halted_empty_cs": false,
+            "round_done": [
+              true,
+              true,
+              true,
+              true,
+              true,
+              true,
+              true,
+              true
+            ],
+            "round_calls": [
+              953,
+              2918,
+              7651,
+              9169,
+              10782,
+              13592,
+              16563,
+              19423
+            ],
+            "round_first_calls": [
+              700,
+              1815,
+              3918,
+              8145,
+              9805,
+              12116,
+              15175,
+              17139
+            ],
+            "errors": 0
+          },
+          {
+            "seed": 4,
+            "calls_spent": 19827,
+            "all_done": true,
+            "halted_empty_cs": false,
+            "round_done": [
+              true,
+              true,
+              true,
+              true,
+              true,
+              true,
+              true,
+              true
+            ],
+            "round_calls": [
+              827,
+              2827,
+              7365,
+              8702,
+              10296,
+              13231,
+              16912,
+              19827
+            ],
+            "round_first_calls": [
+              383,
+              1760,
+              3752,
+              7745,
+              9082,
+              11660,
+              15091,
+              17483
+            ],
+            "errors": 0
+          },
+          {
+            "seed": 5,
+            "calls_spent": 19060,
+            "all_done": true,
+            "halted_empty_cs": false,
+            "round_done": [
+              true,
+              true,
+              true,
+              true,
+              true,
+              true,
+              true,
+              true
+            ],
+            "round_calls": [
+              1046,
+              2935,
+              6931,
+              8420,
+              10154,
+              13149,
+              16333,
+              19060
+            ],
+            "round_first_calls": [
+              702,
+              1778,
+              3963,
+              7335,
+              9075,
+              11657,
+              15029,
+              16752
+            ],
+            "errors": 0
+          },
+          {
+            "seed": 6,
+            "calls_spent": 4269,
+            "all_done": false,
+            "halted_empty_cs": true,
+            "round_done": [
+              true,
+              true,
+              false,
+              false,
+              false,
+              false,
+              false,
+              false
+            ],
+            "round_calls": [
+              1015,
+              2918,
+              4269,
+              4269,
+              4269,
+              4269,
+              4269,
+              4269
+            ],
+            "round_first_calls": [
+              702,
+              1565,
+              3427,
+              null,
+              null,
+              null,
+              null,
+              null
+            ],
+            "errors": 1
+          },
+          {
+            "seed": 7,
+            "calls_spent": 19021,
+            "all_done": true,
+            "halted_empty_cs": false,
+            "round_done": [
+              true,
+              true,
+              true,
+              true,
+              true,
+              true,
+              true,
+              true
+            ],
+            "round_calls": [
+              922,
+              2846,
+              6737,
+              8060,
+              9705,
+              12683,
+              16054,
+              19021
+            ],
+            "round_first_calls": [
+              700,
+              1787,
+              3748,
+              7236,
+              8630,
+              10759,
+              14568,
+              16512
+            ],
+            "errors": 0
+          },
+          {
+            "seed": 8,
+            "calls_spent": 19203,
+            "all_done": true,
+            "halted_empty_cs": false,
+            "round_done": [
+              true,
+              true,
+              true,
+              true,
+              true,
+              true,
+              true,
+              true
+            ],
+            "round_calls": [
+              825,
+              2744,
+              7140,
+              8828,
+              10606,
+              13501,
+              16293,
+              19203
+            ],
+            "round_first_calls": [
+              638,
+              1630,
+              3736,
+              7726,
+              9483,
+              12018,
+              15248,
+              16875
+            ],
+            "errors": 0
+          },
+          {
+            "seed": 9,
+            "calls_spent": 18107,
+            "all_done": true,
+            "halted_empty_cs": false,
+            "round_done": [
+              true,
+              true,
+              true,
+              true,
+              true,
+              true,
+              true,
+              true
+            ],
+            "round_calls": [
+              922,
+              2783,
+              6733,
+              8123,
+              9746,
+              12826,
+              15629,
+              18107
+            ],
+            "round_first_calls": [
+              699,
+              1662,
+              3808,
+              7418,
+              8799,
+              11202,
+              14330,
+              16335
+            ],
+            "errors": 0
+          }
+        ]
+      },
+      "Adaptive dedup-streams + dynamic E": {
+        "round_done": [
+          "10/10",
+          "10/10",
+          "10/10",
+          "10/10",
+          "10/10",
+          "10/10",
+          "10/10",
+          "10/10"
+        ],
+        "round_cumulative_medians": [
+          950.5,
+          2856.5,
+          7004.0,
+          8068.0,
+          9319.5,
+          11381.0,
+          13919.0,
+          16003.5
+        ],
+        "round_cumulative_q25": [
+          922.0,
+          2761.25,
+          6698.0,
+          7871.75,
+          9252.75,
+          11312.75,
+          13737.25,
+          15843.0
+        ],
+        "round_cumulative_q75": [
+          1018.75,
+          2923.25,
+          7088.25,
+          8333.75,
+          9593.5,
+          11579.25,
+          14098.25,
+          16164.0
+        ],
+        "round_marginal_medians": [
+          950.5,
+          1920.0,
+          4032.0,
+          1203.0,
+          1250.5,
+          2042.5,
+          2449.0,
+          2084.5
+        ],
+        "round_first_cert_medians": [
+          701.0,
+          1782.5,
+          3815.0,
+          7496.0,
+          8487.5,
+          10195.5,
+          12308.0,
+          14396.0
+        ],
+        "cohort_paired_saving_median_by_round_pct": [
+          -218.81070407683285,
+          -36.62135106475044,
+          -22.357237599193013,
+          -5.173671206244823,
+          8.698445002166345,
+          25.251677650014848,
+          38.72973608605919,
+          46.70905232731836
+        ],
+        "cohort_paired_saving_mean_by_round_pct": [
+          -222.2469866889553,
+          -37.27567360926669,
+          -24.021246762745033,
+          -5.905324544926191,
+          8.482681408637214,
+          25.07567129975225,
+          38.357368994690376,
+          46.412313857122086
+        ],
+        "cohort_paired_joint_seeds_by_round": [
+          10,
+          10,
+          10,
+          10,
+          10,
+          10,
+          10,
+          10
+        ],
+        "total_errors": 0,
+        "empty_cs_halts": 0,
+        "rows": [
+          {
+            "seed": 0,
+            "calls_spent": 15989,
+            "all_done": true,
+            "halted_empty_cs": false,
+            "round_done": [
+              true,
+              true,
+              true,
+              true,
+              true,
+              true,
+              true,
+              true
+            ],
+            "round_calls": [
+              1151,
+              3071,
+              7039,
+              8027,
+              9261,
+              11401,
+              13712,
+              15989
+            ],
+            "round_first_calls": [
+              704,
+              1855,
+              4031,
+              7420,
+              8410,
+              10010,
+              12207,
+              14191
+            ],
+            "errors": 0
+          },
+          {
+            "seed": 1,
+            "calls_spent": 15918,
+            "all_done": true,
+            "halted_empty_cs": false,
+            "round_done": [
+              true,
+              true,
+              true,
+              true,
+              true,
+              true,
+              true,
+              true
+            ],
+            "round_calls": [
+              948,
+              2804,
+              6580,
+              7844,
+              9270,
+              11300,
+              13924,
+              15918
+            ],
+            "round_first_calls": [
+              820,
+              1780,
+              3828,
+              7341,
+              8482,
+              10109,
+              12262,
+              14401
+            ],
+            "errors": 0
+          },
+          {
+            "seed": 2,
+            "calls_spent": 16210,
+            "all_done": true,
+            "halted_empty_cs": false,
+            "round_done": [
+              true,
+              true,
+              true,
+              true,
+              true,
+              true,
+              true,
+              true
+            ],
+            "round_calls": [
+              1020,
+              2940,
+              7356,
+              8623,
+              9731,
+              11703,
+              14189,
+              16210
+            ],
+            "round_first_calls": [
+              767,
+              1916,
+              4092,
+              7991,
+              9134,
+              10574,
+              12334,
+              14662
+            ],
+            "errors": 0
+          },
+          {
+            "seed": 3,
+            "calls_spent": 16212,
+            "all_done": true,
+            "halted_empty_cs": false,
+            "round_done": [
+              true,
+              true,
+              true,
+              true,
+              true,
+              true,
+              true,
+              true
+            ],
+            "round_calls": [
+              953,
+              2873,
+              6969,
+              8109,
+              9369,
+              11361,
+              14104,
+              16212
+            ],
+            "round_first_calls": [
+              700,
+              1785,
+              3705,
+              7605,
+              8493,
+              10210,
+              12498,
+              14674
+            ],
+            "errors": 0
+          },
+          {
+            "seed": 4,
+            "calls_spent": 15818,
+            "all_done": true,
+            "halted_empty_cs": false,
+            "round_done": [
+              true,
+              true,
+              true,
+              true,
+              true,
+              true,
+              true,
+              true
+            ],
+            "round_calls": [
+              827,
+              2747,
+              6651,
+              7733,
+              9250,
+              11351,
+              13813,
+              15818
+            ],
+            "round_first_calls": [
+              383,
+              1723,
+              3579,
+              7032,
+              8368,
+              10181,
+              12241,
+              14194
+            ],
+            "errors": 0
+          },
+          {
+            "seed": 5,
+            "calls_spent": 16018,
+            "all_done": true,
+            "halted_empty_cs": false,
+            "round_done": [
+              true,
+              true,
+              true,
+              true,
+              true,
+              true,
+              true,
+              true
+            ],
+            "round_calls": [
+              1046,
+              2966,
+              7062,
+              8362,
+              9603,
+              11658,
+              14081,
+              16018
+            ],
+            "round_first_calls": [
+              702,
+              1814,
+              3990,
+              7572,
+              8999,
+              10543,
+              12711,
+              14652
+            ],
+            "errors": 0
+          },
+          {
+            "seed": 6,
+            "calls_spent": 15619,
+            "all_done": true,
+            "halted_empty_cs": false,
+            "round_done": [
+              true,
+              true,
+              true,
+              true,
+              true,
+              true,
+              true,
+              true
+            ],
+            "round_calls": [
+              1015,
+              2871,
+              6839,
+              7955,
+              8905,
+              11126,
+              13498,
+              15619
+            ],
+            "round_first_calls": [
+              702,
+              1719,
+              3447,
+              7222,
+              8463,
+              9846,
+              12282,
+              14068
+            ],
+            "errors": 0
+          },
+          {
+            "seed": 7,
+            "calls_spent": 16086,
+            "all_done": true,
+            "halted_empty_cs": false,
+            "round_done": [
+              true,
+              true,
+              true,
+              true,
+              true,
+              true,
+              true,
+              true
+            ],
+            "round_calls": [
+              922,
+              2842,
+              7130,
+              8336,
+              9565,
+              11478,
+              13914,
+              16086
+            ],
+            "round_first_calls": [
+              700,
+              1818,
+              3802,
+              7764,
+              8718,
+              10406,
+              12631,
+              14391
+            ],
+            "errors": 0
+          },
+          {
+            "seed": 8,
+            "calls_spent": 16190,
+            "all_done": true,
+            "halted_empty_cs": false,
+            "round_done": [
+              true,
+              true,
+              true,
+              true,
+              true,
+              true,
+              true,
+              true
+            ],
+            "round_calls": [
+              825,
+              2745,
+              7097,
+              8327,
+              9659,
+              11613,
+              14129,
+              16190
+            ],
+            "round_first_calls": [
+              638,
+              1721,
+              3897,
+              7734,
+              8837,
+              10507,
+              12668,
+              14604
+            ],
+            "errors": 0
+          },
+          {
+            "seed": 9,
+            "calls_spent": 15480,
+            "all_done": true,
+            "halted_empty_cs": false,
+            "round_done": [
+              true,
+              true,
+              true,
+              true,
+              true,
+              true,
+              true,
+              true
+            ],
+            "round_calls": [
+              922,
+              2714,
+              6298,
+              7498,
+              8855,
+              11133,
+              13352,
+              15480
+            ],
+            "round_first_calls": [
+              699,
+              1626,
+              3546,
+              6929,
+              8138,
+              9881,
+              11752,
+              14017
+            ],
+            "errors": 0
+          }
+        ]
+      },
+      "Oracle dedup-streams + E0": {
+        "round_done": [
+          "10/10",
+          "10/10",
+          "9/10",
+          "9/10",
+          "9/10",
+          "9/10",
+          "9/10",
+          "9/10"
+        ],
+        "round_cumulative_medians": [
+          1154.5,
+          3114.5,
+          7466.0,
+          8893.0,
+          10453.0,
+          12851.0,
+          15711.0,
+          18174.0
+        ],
+        "round_cumulative_q25": [
+          1137.5,
+          3068.75,
+          7155.0,
+          8431.0,
+          9974.0,
+          12528.0,
+          15279.0,
+          17704.0
+        ],
+        "round_cumulative_q75": [
+          1259.5,
+          3137.5,
+          7801.0,
+          9026.0,
+          10548.0,
+          12975.0,
+          15882.0,
+          18316.0
+        ],
+        "round_marginal_medians": [
+          1154.5,
+          1947.5,
+          4409.0,
+          1228.0,
+          1540.0,
+          2493.0,
+          2779.0,
+          2505.0
+        ],
+        "round_first_cert_medians": [
+          825.0,
+          2058.5,
+          4064.0,
+          8036.0,
+          9361.0,
+          11375.0,
+          14190.0,
+          16055.0
+        ],
+        "cohort_paired_saving_median_by_round_pct": [
+          -147.86544818532093,
+          -23.09098718973699,
+          -15.019255455712454,
+          0.6859327561003048,
+          16.268486916951087,
+          31.614401858304298,
+          44.83447845096814,
+          51.77986459925747
+        ],
+        "cohort_paired_saving_mean_by_round_pct": [
+          -159.81060055974459,
+          -25.44622303939206,
+          -14.686497176595887,
+          1.824585092683454,
+          16.39915439670704,
+          32.79593710954158,
+          44.95014330111789,
+          52.4287245062606
+        ],
+        "cohort_paired_joint_seeds_by_round": [
+          10,
+          10,
+          9,
+          9,
+          9,
+          9,
+          9,
+          9
+        ],
+        "total_errors": 1,
+        "empty_cs_halts": 1,
+        "rows": [
+          {
+            "seed": 0,
+            "calls_spent": 18174,
+            "all_done": true,
+            "halted_empty_cs": false,
+            "round_done": [
+              true,
+              true,
+              true,
+              true,
+              true,
+              true,
+              true,
+              true
+            ],
+            "round_calls": [
+              1400,
+              3395,
+              7907,
+              9026,
+              10701,
+              13238,
+              16017,
+              18174
+            ],
+            "round_first_calls": [
+              894,
+              2312,
+              4555,
+              8280,
+              9558,
+              11839,
+              14600,
+              16244
+            ],
+            "errors": 0
+          },
+          {
+            "seed": 1,
+            "calls_spent": 18316,
+            "all_done": true,
+            "halted_empty_cs": false,
+            "round_done": [
+              true,
+              true,
+              true,
+              true,
+              true,
+              true,
+              true,
+              true
+            ],
+            "round_calls": [
+              1168,
+              3113,
+              7466,
+              8893,
+              10548,
+              12915,
+              16010,
+              18316
+            ],
+            "round_first_calls": [
+              884,
+              2082,
+              4369,
+              8141,
+              9458,
+              11562,
+              14190,
+              16293
+            ],
+            "errors": 0
+          },
+          {
+            "seed": 2,
+            "calls_spent": 18308,
+            "all_done": true,
+            "halted_empty_cs": false,
+            "round_done": [
+              true,
+              true,
+              true,
+              true,
+              true,
+              true,
+              true,
+              true
+            ],
+            "round_calls": [
+              1271,
+              3221,
+              7957,
+              9146,
+              10530,
+              12851,
+              15747,
+              18308
+            ],
+            "round_first_calls": [
+              955,
+              2249,
+              4469,
+              8411,
+              9594,
+              11349,
+              13944,
+              16055
+            ],
+            "errors": 0
+          },
+          {
+            "seed": 3,
+            "calls_spent": 18629,
+            "all_done": true,
+            "halted_empty_cs": false,
+            "round_done": [
+              true,
+              true,
+              true,
+              true,
+              true,
+              true,
+              true,
+              true
+            ],
+            "round_calls": [
+              1078,
+              3036,
+              7801,
+              9152,
+              10611,
+              13104,
+              15711,
+              18629
+            ],
+            "round_first_calls": [
+              764,
+              2000,
+              4029,
+              8194,
+              9691,
+              11865,
+              14343,
+              16248
+            ],
+            "errors": 0
+          },
+          {
+            "seed": 4,
+            "calls_spent": 18397,
+            "all_done": true,
+            "halted_empty_cs": false,
+            "round_done": [
+              true,
+              true,
+              true,
+              true,
+              true,
+              true,
+              true,
+              true
+            ],
+            "round_calls": [
+              1137,
+              3115,
+              7751,
+              8902,
+              10224,
+              12699,
+              15882,
+              18397
+            ],
+            "round_first_calls": [
+              699,
+              2121,
+              4024,
+              8036,
+              9267,
+              11375,
+              14345,
+              16340
+            ],
+            "errors": 0
+          },
+          {
+            "seed": 5,
+            "calls_spent": 17704,
+            "all_done": true,
+            "halted_empty_cs": false,
+            "round_done": [
+              true,
+              true,
+              true,
+              true,
+              true,
+              true,
+              true,
+              true
+            ],
+            "round_calls": [
+              1268,
+              3142,
+              7155,
+              8431,
+              9974,
+              12528,
+              15279,
+              17704
+            ],
+            "round_first_calls": [
+              891,
+              2055,
+              4159,
+              7450,
+              8984,
+              11152,
+              14158,
+              15650
+            ],
+            "errors": 0
+          },
+          {
+            "seed": 6,
+            "calls_spent": 4632,
+            "all_done": false,
+            "halted_empty_cs": true,
+            "round_done": [
+              true,
+              true,
+              false,
+              false,
+              false,
+              false,
+              false,
+              false
+            ],
+            "round_calls": [
+              1234,
+              3124,
+              4632,
+              4632,
+              4632,
+              4632,
+              4632,
+              4632
+            ],
+            "round_first_calls": [
+              763,
+              1903,
+              3630,
+              null,
+              null,
+              null,
+              null,
+              null
+            ],
+            "errors": 1
+          },
+          {
+            "seed": 7,
+            "calls_spent": 17660,
+            "all_done": true,
+            "halted_empty_cs": false,
+            "round_done": [
+              true,
+              true,
+              true,
+              true,
+              true,
+              true,
+              true,
+              true
+            ],
+            "round_calls": [
+              1139,
+              3114,
+              7012,
+              8123,
+              9663,
+              12065,
+              15155,
+              17660
+            ],
+            "round_first_calls": [
+              824,
+              2062,
+              4005,
+              7503,
+              8689,
+              10284,
+              13601,
+              15452
+            ],
+            "errors": 0
+          },
+          {
+            "seed": 8,
+            "calls_spent": 18157,
+            "all_done": true,
+            "halted_empty_cs": false,
+            "round_done": [
+              true,
+              true,
+              true,
+              true,
+              true,
+              true,
+              true,
+              true
+            ],
+            "round_calls": [
+              1076,
+              2966,
+              7375,
+              8811,
+              10453,
+              12975,
+              15501,
+              18157
+            ],
+            "round_first_calls": [
+              824,
+              1932,
+              4007,
+              7850,
+              9361,
+              11496,
+              14392,
+              15963
+            ],
+            "errors": 0
+          },
+          {
+            "seed": 9,
+            "calls_spent": 16960,
+            "all_done": true,
+            "halted_empty_cs": false,
+            "round_done": [
+              true,
+              true,
+              true,
+              true,
+              true,
+              true,
+              true,
+              true
+            ],
+            "round_calls": [
+              1141,
+              3054,
+              7011,
+              8239,
+              9673,
+              12496,
+              14933,
+              16960
+            ],
+            "round_first_calls": [
+              826,
+              2001,
+              4064,
+              7602,
+              8907,
+              10792,
+              13702,
+              15458
+            ],
+            "errors": 0
+          }
+        ]
+      },
+      "COHORT (known mass E0 + shared prefix)": {
+        "round_done": [
+          "10/10",
+          "10/10",
+          "10/10",
+          "10/10",
+          "10/10",
+          "10/10",
+          "10/10",
+          "10/10"
+        ],
+        "round_cumulative_medians": [
+          3072.0,
+          3968.0,
+          8576.0,
+          8576.0,
+          8576.0,
+          8576.0,
+          8576.0,
+          8576.0
+        ],
+        "round_cumulative_q25": [
+          2944.0,
+          3712.0,
+          8320.0,
+          8320.0,
+          8320.0,
+          8320.0,
+          8320.0,
+          8320.0
+        ],
+        "round_cumulative_q75": [
+          3200.0,
+          3968.0,
+          8768.0,
+          8768.0,
+          8768.0,
+          8768.0,
+          8768.0,
+          8768.0
+        ],
+        "round_marginal_medians": [
+          3072.0,
+          768.0,
+          4608.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0
+        ],
+        "round_first_cert_medians": [
+          320.0,
+          3072.0,
+          3968.0,
+          8576.0,
+          8576.0,
+          8576.0,
+          8576.0,
+          8576.0
+        ],
+        "cohort_paired_saving_median_by_round_pct": [
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0
+        ],
+        "cohort_paired_saving_mean_by_round_pct": [
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0
+        ],
+        "cohort_paired_joint_seeds_by_round": [
+          10,
+          10,
+          10,
+          10,
+          10,
+          10,
+          10,
+          10
+        ],
+        "total_errors": 0,
+        "empty_cs_halts": 0,
+        "rows": [
+          {
+            "seed": 0,
+            "calls_spent": 9088,
+            "all_done": true,
+            "halted_empty_cs": false,
+            "round_done": [
+              true,
+              true,
+              true,
+              true,
+              true,
+              true,
+              true,
+              true
+            ],
+            "round_calls": [
+              3072,
+              3968,
+              9088,
+              9088,
+              9088,
+              9088,
+              9088,
+              9088
+            ],
+            "round_first_calls": [
+              384,
+              3072,
+              3968,
+              9088,
+              9088,
+              9088,
+              9088,
+              9088
+            ],
+            "errors": 0
+          },
+          {
+            "seed": 1,
+            "calls_spent": 8832,
+            "all_done": true,
+            "halted_empty_cs": false,
+            "round_done": [
+              true,
+              true,
+              true,
+              true,
+              true,
+              true,
+              true,
+              true
+            ],
+            "round_calls": [
+              3200,
+              3968,
+              8832,
+              8832,
+              8832,
+              8832,
+              8832,
+              8832
+            ],
+            "round_first_calls": [
+              256,
+              3200,
+              3968,
+              8832,
+              8832,
+              8832,
+              8832,
+              8832
+            ],
+            "errors": 0
+          },
+          {
+            "seed": 2,
+            "calls_spent": 8320,
+            "all_done": true,
+            "halted_empty_cs": false,
+            "round_done": [
+              true,
+              true,
+              true,
+              true,
+              true,
+              true,
+              true,
+              true
+            ],
+            "round_calls": [
+              2944,
+              3712,
+              8320,
+              8320,
+              8320,
+              8320,
+              8320,
+              8320
+            ],
+            "round_first_calls": [
+              256,
+              2944,
+              3712,
+              8320,
+              8320,
+              8320,
+              8320,
+              8320
+            ],
+            "errors": 0
+          },
+          {
+            "seed": 3,
+            "calls_spent": 8576,
+            "all_done": true,
+            "halted_empty_cs": false,
+            "round_done": [
+              true,
+              true,
+              true,
+              true,
+              true,
+              true,
+              true,
+              true
+            ],
+            "round_calls": [
+              3072,
+              3968,
+              8576,
+              8576,
+              8576,
+              8576,
+              8576,
+              8576
+            ],
+            "round_first_calls": [
+              256,
+              3072,
+              3968,
+              8576,
+              8576,
+              8576,
+              8576,
+              8576
+            ],
+            "errors": 0
+          },
+          {
+            "seed": 4,
+            "calls_spent": 8064,
+            "all_done": true,
+            "halted_empty_cs": false,
+            "round_done": [
+              true,
+              true,
+              true,
+              true,
+              true,
+              true,
+              true,
+              true
+            ],
+            "round_calls": [
+              2688,
+              3712,
+              8064,
+              8064,
+              8064,
+              8064,
+              8064,
+              8064
+            ],
+            "round_first_calls": [
+              384,
+              2688,
+              3712,
+              8064,
+              8064,
+              8064,
+              8064,
+              8064
+            ],
+            "errors": 0
+          },
+          {
+            "seed": 5,
+            "calls_spent": 8576,
+            "all_done": true,
+            "halted_empty_cs": false,
+            "round_done": [
+              true,
+              true,
+              true,
+              true,
+              true,
+              true,
+              true,
+              true
+            ],
+            "round_calls": [
+              2944,
+              3712,
+              8576,
+              8576,
+              8576,
+              8576,
+              8576,
+              8576
+            ],
+            "round_first_calls": [
+              256,
+              2944,
+              3712,
+              8576,
+              8576,
+              8576,
+              8576,
+              8576
+            ],
+            "errors": 0
+          },
+          {
+            "seed": 6,
+            "calls_spent": 8320,
+            "all_done": true,
+            "halted_empty_cs": false,
+            "round_done": [
+              true,
+              true,
+              true,
+              true,
+              true,
+              true,
+              true,
+              true
+            ],
+            "round_calls": [
+              3200,
+              3968,
+              8320,
+              8320,
+              8320,
+              8320,
+              8320,
+              8320
+            ],
+            "round_first_calls": [
+              256,
+              3200,
+              3968,
+              8320,
+              8320,
+              8320,
+              8320,
+              8320
+            ],
+            "errors": 0
+          },
+          {
+            "seed": 7,
+            "calls_spent": 8576,
+            "all_done": true,
+            "halted_empty_cs": false,
+            "round_done": [
+              true,
+              true,
+              true,
+              true,
+              true,
+              true,
+              true,
+              true
+            ],
+            "round_calls": [
+              3456,
+              4224,
+              8576,
+              8576,
+              8576,
+              8576,
+              8576,
+              8576
+            ],
+            "round_first_calls": [
+              384,
+              3456,
+              4224,
+              8576,
+              8576,
+              8576,
+              8576,
+              8576
+            ],
+            "errors": 0
+          },
+          {
+            "seed": 8,
+            "calls_spent": 9088,
+            "all_done": true,
+            "halted_empty_cs": false,
+            "round_done": [
+              true,
+              true,
+              true,
+              true,
+              true,
+              true,
+              true,
+              true
+            ],
+            "round_calls": [
+              3456,
+              4480,
+              9088,
+              9088,
+              9088,
+              9088,
+              9088,
+              9088
+            ],
+            "round_first_calls": [
+              384,
+              3456,
+              4480,
+              9088,
+              9088,
+              9088,
+              9088,
+              9088
+            ],
+            "errors": 0
+          },
+          {
+            "seed": 9,
+            "calls_spent": 8064,
+            "all_done": true,
+            "halted_empty_cs": false,
+            "round_done": [
+              true,
+              true,
+              true,
+              true,
+              true,
+              true,
+              true,
+              true
+            ],
+            "round_calls": [
+              2688,
+              3456,
+              8064,
+              8064,
+              8064,
+              8064,
+              8064,
+              8064
+            ],
+            "round_first_calls": [
+              384,
+              2688,
+              3456,
+              8064,
+              8064,
+              8064,
+              8064,
+              8064
+            ],
+            "errors": 0
+          }
+        ]
+      }
+    }
+  },
+  "task2_8rounds": {
+    "n_rounds": 8,
+    "n_targets": 24,
+    "targets_per_round_cum": [
+      2,
+      5,
+      8,
+      12,
+      15,
+      18,
+      21,
+      24
+    ],
+    "seeds": 10,
+    "methods": {
+      "Shared prefix + free reads (T)": {
+        "round_done": [
+          "10/10",
+          "10/10",
+          "10/10",
+          "10/10",
+          "10/10",
+          "10/10",
+          "10/10",
+          "10/10"
+        ],
+        "round_cumulative_medians": [
+          10547.0,
+          10547.0,
+          11575.5,
+          13623.0,
+          13623.0,
+          14132.5,
+          14132.5,
+          14132.5
+        ],
+        "round_cumulative_q25": [
+          10087.5,
+          10087.5,
+          11115.0,
+          13616.25,
+          13616.25,
+          13811.25,
+          13811.25,
+          13811.25
+        ],
+        "round_cumulative_q75": [
+          10556.5,
+          10556.5,
+          11586.25,
+          13686.5,
+          13686.5,
+          14176.0,
+          14176.0,
+          14176.0
+        ],
+        "round_marginal_medians": [
+          10547.0,
+          0.0,
+          1027.0,
+          2048.5,
+          0.0,
+          515.0,
+          0.0,
+          0.0
+        ],
+        "round_first_cert_medians": [
+          3838.5,
+          10547.0,
+          10547.0,
+          11575.5,
+          13623.0,
+          13623.0,
+          14132.5,
+          14132.5
+        ],
+        "cohort_paired_saving_median_by_round_pct": [
+          10.191876272663054,
+          10.191876272663054,
+          13.106451778294698,
+          7.205205423617528,
+          7.205205423617528,
+          3.1400282885431396,
+          3.1400282885431396,
+          3.1400282885431396
+        ],
+        "cohort_paired_saving_mean_by_round_pct": [
+          11.9453538852569,
+          11.9453538852569,
+          15.172231600088143,
+          8.645253118467346,
+          8.645253118467346,
+          4.07279256038785,
+          4.07279256038785,
+          4.07279256038785
+        ],
+        "cohort_paired_joint_seeds_by_round": [
+          10,
+          10,
+          10,
+          10,
+          10,
+          9,
+          9,
+          9
+        ],
+        "total_errors": 0,
+        "empty_cs_halts": 0,
+        "rows": [
+          {
+            "seed": 0,
+            "calls_spent": 14140,
+            "all_done": true,
+            "halted_empty_cs": false,
+            "round_done": [
+              true,
+              true,
+              true,
+              true,
+              true,
+              true,
+              true,
+              true
+            ],
+            "round_calls": [
+              10040,
+              10040,
+              11071,
+              13627,
+              13627,
+              14140,
+              14140,
+              14140
+            ],
+            "round_first_calls": [
+              3665,
+              10040,
+              10040,
+              11071,
+              13627,
+              13627,
+              14140,
+              14140
+            ],
+            "errors": 0
+          },
+          {
+            "seed": 1,
+            "calls_spent": 13616,
+            "all_done": true,
+            "halted_empty_cs": false,
+            "round_done": [
+              true,
+              true,
+              true,
+              true,
+              true,
+              true,
+              true,
+              true
+            ],
+            "round_calls": [
+              9553,
+              9553,
+              10075,
+              13097,
+              13097,
+              13616,
+              13616,
+              13616
+            ],
+            "round_first_calls": [
+              3916,
+              9553,
+              9553,
+              10075,
+              13097,
+              13097,
+              13616,
+              13616
+            ],
+            "errors": 0
+          },
+          {
+            "seed": 2,
+            "calls_spent": 13617,
+            "all_done": true,
+            "halted_empty_cs": false,
+            "round_done": [
+              true,
+              true,
+              true,
+              true,
+              true,
+              true,
+              true,
+              true
+            ],
+            "round_calls": [
+              10557,
+              10557,
+              11587,
+              13617,
+              13617,
+              13617,
+              13617,
+              13617
+            ],
+            "round_first_calls": [
+              3930,
+              10557,
+              10557,
+              11587,
+              13617,
+              13617,
+              13617,
+              13617
+            ],
+            "errors": 0
+          },
+          {
+            "seed": 3,
+            "calls_spent": 13714,
+            "all_done": true,
+            "halted_empty_cs": false,
+            "round_done": [
+              true,
+              true,
+              true,
+              true,
+              true,
+              true,
+              true,
+              true
+            ],
+            "round_calls": [
+              10122,
+              10122,
+              11163,
+              13714,
+              13714,
+              13714,
+              13714,
+              13714
+            ],
+            "round_first_calls": [
+              3681,
+              10122,
+              10122,
+              11163,
+              13714,
+              13714,
+              13714,
+              13714
+            ],
+            "errors": 0
+          },
+          {
+            "seed": 4,
+            "calls_spent": 14188,
+            "all_done": true,
+            "halted_empty_cs": false,
+            "round_done": [
+              true,
+              true,
+              true,
+              true,
+              true,
+              true,
+              true,
+              true
+            ],
+            "round_calls": [
+              10626,
+              10626,
+              11641,
+              13699,
+              13699,
+              14188,
+              14188,
+              14188
+            ],
+            "round_first_calls": [
+              4218,
+              10626,
+              10626,
+              11641,
+              13699,
+              13699,
+              14188,
+              14188
+            ],
+            "errors": 0
+          },
+          {
+            "seed": 5,
+            "calls_spent": 14202,
+            "all_done": true,
+            "halted_empty_cs": false,
+            "round_done": [
+              true,
+              true,
+              true,
+              true,
+              true,
+              true,
+              true,
+              true
+            ],
+            "round_calls": [
+              10643,
+              10643,
+              11658,
+              13685,
+              13685,
+              14202,
+              14202,
+              14202
+            ],
+            "round_first_calls": [
+              3772,
+              10643,
+              10643,
+              11658,
+              13685,
+              13685,
+              14202,
+              14202
+            ],
+            "errors": 0
+          },
+          {
+            "seed": 6,
+            "calls_spent": 14103,
+            "all_done": true,
+            "halted_empty_cs": false,
+            "round_done": [
+              true,
+              true,
+              true,
+              true,
+              true,
+              true,
+              true,
+              true
+            ],
+            "round_calls": [
+              10542,
+              10542,
+              11571,
+              13584,
+              13584,
+              14103,
+              14103,
+              14103
+            ],
+            "round_first_calls": [
+              3678,
+              10542,
+              10542,
+              11571,
+              13584,
+              13584,
+              14103,
+              14103
+            ],
+            "errors": 0
+          },
+          {
+            "seed": 7,
+            "calls_spent": 14730,
+            "all_done": true,
+            "halted_empty_cs": false,
+            "round_done": [
+              true,
+              true,
+              true,
+              true,
+              true,
+              true,
+              true,
+              true
+            ],
+            "round_calls": [
+              10076,
+              10076,
+              11099,
+              13687,
+              13687,
+              14730,
+              14730,
+              14730
+            ],
+            "round_first_calls": [
+              3905,
+              10076,
+              10076,
+              11099,
+              13687,
+              13687,
+              14730,
+              14730
+            ],
+            "errors": 0
+          },
+          {
+            "seed": 8,
+            "calls_spent": 14131,
+            "all_done": true,
+            "halted_empty_cs": false,
+            "round_done": [
+              true,
+              true,
+              true,
+              true,
+              true,
+              true,
+              true,
+              true
+            ],
+            "round_calls": [
+              10552,
+              10552,
+              11584,
+              13616,
+              13616,
+              14131,
+              14131,
+              14131
+            ],
+            "round_first_calls": [
+              3931,
+              10552,
+              10552,
+              11584,
+              13616,
+              13616,
+              14131,
+              14131
+            ],
+            "errors": 0
+          },
+          {
+            "seed": 9,
+            "calls_spent": 14134,
+            "all_done": true,
+            "halted_empty_cs": false,
+            "round_done": [
+              true,
+              true,
+              true,
+              true,
+              true,
+              true,
+              true,
+              true
+            ],
+            "round_calls": [
+              10555,
+              10555,
+              11580,
+              13619,
+              13619,
+              14134,
+              14134,
+              14134
+            ],
+            "round_first_calls": [
+              3679,
+              10555,
+              10555,
+              11580,
+              13619,
+              13619,
+              14134,
+              14134
+            ],
+            "errors": 0
+          }
+        ]
+      },
+      "Adaptive dedup-streams + T": {
+        "round_done": [
+          "10/10",
+          "10/10",
+          "10/10",
+          "10/10",
+          "10/10",
+          "10/10",
+          "10/10",
+          "10/10"
+        ],
+        "round_cumulative_medians": [
+          2902.0,
+          5419.0,
+          8085.5,
+          13343.5,
+          14431.5,
+          15654.5,
+          18212.5,
+          19547.0
+        ],
+        "round_cumulative_q25": [
+          2868.25,
+          5322.0,
+          8044.5,
+          12971.5,
+          14302.0,
+          15507.0,
+          18058.5,
+          19426.0
+        ],
+        "round_cumulative_q75": [
+          2943.0,
+          5522.25,
+          8218.75,
+          13458.25,
+          14541.25,
+          15714.0,
+          18297.75,
+          19683.75
+        ],
+        "round_marginal_medians": [
+          2902.0,
+          2479.0,
+          2668.0,
+          5238.0,
+          1224.5,
+          1200.5,
+          2528.0,
+          1293.5
+        ],
+        "round_first_cert_medians": [
+          2714.5,
+          3920.0,
+          6275.5,
+          9727.0,
+          13384.5,
+          14996.0,
+          17745.0,
+          19338.5
+        ],
+        "cohort_paired_saving_median_by_round_pct": [
+          -228.16416967580537,
+          -76.80409994136969,
+          -21.309640376332993,
+          3.9409837042168885,
+          12.700162213875593,
+          12.880859996183446,
+          25.285036277344386,
+          30.1295786144271
+        ],
+        "cohort_paired_saving_mean_by_round_pct": [
+          -210.24393565240115,
+          -66.81558199721836,
+          -18.88923393076404,
+          6.0524896284961685,
+          13.707544053026222,
+          13.294445389839982,
+          25.41200895099254,
+          30.68965291299496
+        ],
+        "cohort_paired_joint_seeds_by_round": [
+          10,
+          10,
+          10,
+          10,
+          10,
+          9,
+          9,
+          9
+        ],
+        "total_errors": 0,
+        "empty_cs_halts": 0,
+        "rows": [
+          {
+            "seed": 0,
+            "calls_spent": 19536,
+            "all_done": true,
+            "halted_empty_cs": false,
+            "round_done": [
+              true,
+              true,
+              true,
+              true,
+              true,
+              true,
+              true,
+              true
+            ],
+            "round_calls": [
+              3061,
+              5529,
+              8046,
+              13314,
+              14504,
+              15721,
+              18236,
+              19536
+            ],
+            "round_first_calls": [
+              2916,
+              3927,
+              6245,
+              9767,
+              13479,
+              15231,
+              18152,
+              18927
+            ],
+            "errors": 0
+          },
+          {
+            "seed": 1,
+            "calls_spent": 19450,
+            "all_done": true,
+            "halted_empty_cs": false,
+            "round_done": [
+              true,
+              true,
+              true,
+              true,
+              true,
+              true,
+              true,
+              true
+            ],
+            "round_calls": [
+              2912,
+              5502,
+              8112,
+              13072,
+              14527,
+              15594,
+              18331,
+              19450
+            ],
+            "round_first_calls": [
+              2888,
+              3855,
+              6293,
+              9851,
+              13130,
+              14886,
+              18088,
+              19249
+            ],
+            "errors": 0
+          },
+          {
+            "seed": 2,
+            "calls_spent": 19558,
+            "all_done": true,
+            "halted_empty_cs": false,
+            "round_done": [
+              true,
+              true,
+              true,
+              true,
+              true,
+              true,
+              true,
+              true
+            ],
+            "round_calls": [
+              2872,
+              5254,
+              8044,
+              13479,
+              14854,
+              16038,
+              18288,
+              19558
+            ],
+            "round_first_calls": [
+              2699,
+              3952,
+              6187,
+              9367,
+              13479,
+              15257,
+              17686,
+              19457
+            ],
+            "errors": 0
+          },
+          {
+            "seed": 3,
+            "calls_spent": 19602,
+            "all_done": true,
+            "halted_empty_cs": false,
+            "round_done": [
+              true,
+              true,
+              true,
+              true,
+              true,
+              true,
+              true,
+              true
+            ],
+            "round_calls": [
+              3033,
+              5602,
+              8318,
+              13801,
+              14546,
+              15840,
+              18353,
+              19602
+            ],
+            "round_first_calls": [
+              2733,
+              4016,
+              6569,
+              9886,
+              13801,
+              15162,
+              17858,
+              19457
+            ],
+            "errors": 0
+          },
+          {
+            "seed": 4,
+            "calls_spent": 19418,
+            "all_done": true,
+            "halted_empty_cs": false,
+            "round_done": [
+              true,
+              true,
+              true,
+              true,
+              true,
+              true,
+              true,
+              true
+            ],
+            "round_calls": [
+              2867,
+              5621,
+              8229,
+              13373,
+              14298,
+              15478,
+              18046,
+              19418
+            ],
+            "round_first_calls": [
+              2710,
+              3898,
+              6559,
+              9835,
+              13373,
+              14684,
+              17699,
+              19238
+            ],
+            "errors": 0
+          },
+          {
+            "seed": 5,
+            "calls_spent": 19824,
+            "all_done": true,
+            "halted_empty_cs": false,
+            "round_done": [
+              true,
+              true,
+              true,
+              true,
+              true,
+              true,
+              true,
+              true
+            ],
+            "round_calls": [
+              2836,
+              5439,
+              8059,
+              12907,
+              14147,
+              15693,
+              18189,
+              19824
+            ],
+            "round_first_calls": [
+              2491,
+              3913,
+              6258,
+              9453,
+              13034,
+              14811,
+              17693,
+              19661
+            ],
+            "errors": 0
+          },
+          {
+            "seed": 6,
+            "calls_spent": 19111,
+            "all_done": true,
+            "halted_empty_cs": false,
+            "round_done": [
+              true,
+              true,
+              true,
+              true,
+              true,
+              true,
+              true,
+              true
+            ],
+            "round_calls": [
+              2934,
+              5399,
+              7244,
+              12938,
+              14359,
+              15693,
+              17824,
+              19111
+            ],
+            "round_first_calls": [
+              2440,
+              4051,
+              6330,
+              8642,
+              12938,
+              14990,
+              16866,
+              18755
+            ],
+            "errors": 0
+          },
+          {
+            "seed": 7,
+            "calls_spent": 19711,
+            "all_done": true,
+            "halted_empty_cs": false,
+            "round_done": [
+              true,
+              true,
+              true,
+              true,
+              true,
+              true,
+              true,
+              true
+            ],
+            "round_calls": [
+              2892,
+              5382,
+              8246,
+              13517,
+              14752,
+              15616,
+              18301,
+              19711
+            ],
+            "round_first_calls": [
+              2719,
+              3818,
+              6336,
+              9894,
+              13517,
+              15229,
+              18122,
+              19637
+            ],
+            "errors": 0
+          },
+          {
+            "seed": 8,
+            "calls_spent": 19886,
+            "all_done": true,
+            "halted_empty_cs": false,
+            "round_done": [
+              true,
+              true,
+              true,
+              true,
+              true,
+              true,
+              true,
+              true
+            ],
+            "round_calls": [
+              2839,
+              5268,
+              8000,
+              12560,
+              13774,
+              15462,
+              18096,
+              19886
+            ],
+            "round_first_calls": [
+              2612,
+              3616,
+              6173,
+              9489,
+              12762,
+              14397,
+              17791,
+              19428
+            ],
+            "errors": 0
+          },
+          {
+            "seed": 9,
+            "calls_spent": 19101,
+            "all_done": true,
+            "halted_empty_cs": false,
+            "round_done": [
+              true,
+              true,
+              true,
+              true,
+              true,
+              true,
+              true,
+              true
+            ],
+            "round_calls": [
+              2946,
+              5302,
+              8188,
+              13396,
+              14314,
+              15280,
+              17821,
+              19101
+            ],
+            "round_first_calls": [
+              2800,
+              4024,
+              6108,
+              9687,
+              13396,
+              15002,
+              17662,
+              18773
+            ],
+            "errors": 0
+          }
+        ]
+      },
+      "Adaptive dedup-streams + E0": {
+        "round_done": [
+          "10/10",
+          "10/10",
+          "10/10",
+          "10/10",
+          "10/10",
+          "10/10",
+          "10/10",
+          "10/10"
+        ],
+        "round_cumulative_medians": [
+          2544.5,
+          4599.5,
+          7177.0,
+          12179.5,
+          13279.0,
+          14221.5,
+          16905.5,
+          18322.0
+        ],
+        "round_cumulative_q25": [
+          2434.0,
+          4483.5,
+          7146.75,
+          12051.0,
+          13079.0,
+          14070.75,
+          16670.5,
+          18087.5
+        ],
+        "round_cumulative_q75": [
+          2615.0,
+          4715.0,
+          7227.0,
+          12329.0,
+          13411.0,
+          14413.0,
+          16960.75,
+          18443.75
+        ],
+        "round_marginal_medians": [
+          2544.5,
+          1992.5,
+          2609.0,
+          5053.0,
+          1017.0,
+          947.5,
+          2714.0,
+          1418.5
+        ],
+        "round_first_cert_medians": [
+          2231.5,
+          3411.5,
+          5467.5,
+          8754.5,
+          12260.0,
+          13885.5,
+          16525.0,
+          17899.5
+        ],
+        "cohort_paired_saving_median_by_round_pct": [
+          -278.9254153881652,
+          -107.35801388285702,
+          -40.49379701827257,
+          -4.876137228046817,
+          4.5711224732242375,
+          4.311220786761504,
+          19.254804857917694,
+          25.770960923527177
+        ],
+        "cohort_paired_saving_mean_by_round_pct": [
+          -260.7583437835776,
+          -100.81186062340673,
+          -34.09622467134949,
+          -2.1829346768719082,
+          5.770917911759583,
+          4.322246300888068,
+          19.45492794523973,
+          25.74032805684389
+        ],
+        "cohort_paired_joint_seeds_by_round": [
+          10,
+          10,
+          10,
+          10,
+          10,
+          9,
+          9,
+          9
+        ],
+        "total_errors": 0,
+        "empty_cs_halts": 0,
+        "rows": [
+          {
+            "seed": 0,
+            "calls_spent": 18626,
+            "all_done": true,
+            "halted_empty_cs": false,
+            "round_done": [
+              true,
+              true,
+              true,
+              true,
+              true,
+              true,
+              true,
+              true
+            ],
+            "round_calls": [
+              2667,
+              4562,
+              7170,
+              12266,
+              13276,
+              14457,
+              17041,
+              18626
+            ],
+            "round_first_calls": [
+              2204,
+              3616,
+              5409,
+              8752,
+              12379,
+              13810,
+              16798,
+              18113
+            ],
+            "errors": 0
+          },
+          {
+            "seed": 1,
+            "calls_spent": 18215,
+            "all_done": true,
+            "halted_empty_cs": false,
+            "round_done": [
+              true,
+              true,
+              true,
+              true,
+              true,
+              true,
+              true,
+              true
+            ],
+            "round_calls": [
+              2764,
+              4637,
+              7171,
+              12037,
+              13282,
+              14302,
+              16897,
+              18215
+            ],
+            "round_first_calls": [
+              2428,
+              3530,
+              5385,
+              8746,
+              12217,
+              13960,
+              16557,
+              17853
+            ],
+            "errors": 0
+          },
+          {
+            "seed": 2,
+            "calls_spent": 18422,
+            "all_done": true,
+            "halted_empty_cs": false,
+            "round_done": [
+              true,
+              true,
+              true,
+              true,
+              true,
+              true,
+              true,
+              true
+            ],
+            "round_calls": [
+              2600,
+              4467,
+              7034,
+              12093,
+              12976,
+              14034,
+              16777,
+              18422
+            ],
+            "round_first_calls": [
+              2505,
+              3646,
+              5233,
+              8617,
+              12181,
+              13573,
+              16378,
+              18021
+            ],
+            "errors": 0
+          },
+          {
+            "seed": 3,
+            "calls_spent": 17508,
+            "all_done": true,
+            "halted_empty_cs": false,
+            "round_done": [
+              true,
+              true,
+              true,
+              true,
+              true,
+              true,
+              true,
+              true
+            ],
+            "round_calls": [
+              2199,
+              3758,
+              6470,
+              11411,
+              12152,
+              13122,
+              15915,
+              17508
+            ],
+            "round_first_calls": [
+              1705,
+              3087,
+              4638,
+              7790,
+              11540,
+              12728,
+              15720,
+              17067
+            ],
+            "errors": 0
+          },
+          {
+            "seed": 4,
+            "calls_spent": 18502,
+            "all_done": true,
+            "halted_empty_cs": false,
+            "round_done": [
+              true,
+              true,
+              true,
+              true,
+              true,
+              true,
+              true,
+              true
+            ],
+            "round_calls": [
+              2554,
+              4688,
+              7298,
+              12552,
+              13549,
+              14638,
+              17351,
+              18502
+            ],
+            "round_first_calls": [
+              2373,
+              3421,
+              5558,
+              8992,
+              12660,
+              14288,
+              16887,
+              18300
+            ],
+            "errors": 0
+          },
+          {
+            "seed": 5,
+            "calls_spent": 18278,
+            "all_done": true,
+            "halted_empty_cs": false,
+            "round_done": [
+              true,
+              true,
+              true,
+              true,
+              true,
+              true,
+              true,
+              true
+            ],
+            "round_calls": [
+              2410,
+              4734,
+              7232,
+              12129,
+              13416,
+              14196,
+              16914,
+              18278
+            ],
+            "round_first_calls": [
+              2012,
+              3374,
+              5640,
+              9050,
+              12129,
+              14089,
+              16493,
+              17862
+            ],
+            "errors": 0
+          },
+          {
+            "seed": 6,
+            "calls_spent": 18366,
+            "all_done": true,
+            "halted_empty_cs": false,
+            "round_done": [
+              true,
+              true,
+              true,
+              true,
+              true,
+              true,
+              true,
+              true
+            ],
+            "round_calls": [
+              2535,
+              4533,
+              7212,
+              12350,
+              13531,
+              14450,
+              16957,
+              18366
+            ],
+            "round_first_calls": [
+              2133,
+              3402,
+              5526,
+              8757,
+              12563,
+              14049,
+              16615,
+              18231
+            ],
+            "errors": 0
+          },
+          {
+            "seed": 7,
+            "calls_spent": 18451,
+            "all_done": true,
+            "halted_empty_cs": false,
+            "round_done": [
+              true,
+              true,
+              true,
+              true,
+              true,
+              true,
+              true,
+              true
+            ],
+            "round_calls": [
+              2443,
+              4724,
+              7360,
+              12537,
+              13396,
+              14247,
+              16962,
+              18451
+            ],
+            "round_first_calls": [
+              2259,
+              3309,
+              5762,
+              9199,
+              12571,
+              14004,
+              16714,
+              17937
+            ],
+            "errors": 0
+          },
+          {
+            "seed": 8,
+            "calls_spent": 17986,
+            "all_done": true,
+            "halted_empty_cs": false,
+            "round_done": [
+              true,
+              true,
+              true,
+              true,
+              true,
+              true,
+              true,
+              true
+            ],
+            "round_calls": [
+              2431,
+              4418,
+              7139,
+              11996,
+              13020,
+              13778,
+              16559,
+              17986
+            ],
+            "round_first_calls": [
+              1817,
+              3396,
+              5381,
+              8691,
+              12150,
+              13442,
+              16186,
+              17794
+            ],
+            "errors": 0
+          },
+          {
+            "seed": 9,
+            "calls_spent": 18045,
+            "all_done": true,
+            "halted_empty_cs": false,
+            "round_done": [
+              true,
+              true,
+              true,
+              true,
+              true,
+              true,
+              true,
+              true
+            ],
+            "round_calls": [
+              2620,
+              4794,
+              7183,
+              12230,
+              13256,
+              14181,
+              16635,
+              18045
+            ],
+            "round_first_calls": [
+              2320,
+              3642,
+              5635,
+              8760,
+              12303,
+              13811,
+              15948,
+              17706
+            ],
+            "errors": 0
+          }
+        ]
+      },
+      "Adaptive dedup-streams + dynamic E": {
+        "round_done": [
+          "10/10",
+          "10/10",
+          "10/10",
+          "10/10",
+          "10/10",
+          "10/10",
+          "10/10",
+          "10/10"
+        ],
+        "round_cumulative_medians": [
+          2544.5,
+          4416.5,
+          6665.0,
+          11324.5,
+          11919.0,
+          12761.5,
+          14744.0,
+          15530.5
+        ],
+        "round_cumulative_q25": [
+          2434.0,
+          4383.75,
+          6544.0,
+          11160.25,
+          11771.75,
+          12578.25,
+          14578.5,
+          15428.25
+        ],
+        "round_cumulative_q75": [
+          2615.0,
+          4627.25,
+          6726.75,
+          11395.75,
+          11950.75,
+          12900.5,
+          14830.25,
+          15599.0
+        ],
+        "round_marginal_medians": [
+          2544.5,
+          1872.0,
+          2176.0,
+          4652.0,
+          567.5,
+          899.5,
+          1944.0,
+          802.0
+        ],
+        "round_first_cert_medians": [
+          2231.5,
+          3401.0,
+          5025.5,
+          8547.5,
+          11415.5,
+          12219.5,
+          14020.5,
+          15393.5
+        ],
+        "cohort_paired_saving_median_by_round_pct": [
+          -278.9254153881652,
+          -117.2314312710192,
+          -51.770036914202805,
+          -13.443541130356884,
+          -8.079543765778174,
+          -6.178773548337091,
+          7.652889218528758,
+          12.23325857097084
+        ],
+        "cohort_paired_saving_mean_by_round_pct": [
+          -260.7583437835776,
+          -105.18195154164475,
+          -44.38012843928089,
+          -9.859970985479405,
+          -4.54615617976162,
+          -6.221119009058991,
+          8.033339656911256,
+          12.833533386141118
+        ],
+        "cohort_paired_joint_seeds_by_round": [
+          10,
+          10,
+          10,
+          10,
+          10,
+          9,
+          9,
+          9
+        ],
+        "total_errors": 0,
+        "empty_cs_halts": 0,
+        "rows": [
+          {
+            "seed": 0,
+            "calls_spent": 15605,
+            "all_done": true,
+            "halted_empty_cs": false,
+            "round_done": [
+              true,
+              true,
+              true,
+              true,
+              true,
+              true,
+              true,
+              true
+            ],
+            "round_calls": [
+              2667,
+              4651,
+              6731,
+              11598,
+              12110,
+              12899,
+              14828,
+              15605
+            ],
+            "round_first_calls": [
+              2204,
+              3435,
+              5227,
+              8671,
+              11690,
+              12396,
+              14168,
+              15486
+            ],
+            "errors": 0
+          },
+          {
+            "seed": 1,
+            "calls_spent": 15581,
+            "all_done": true,
+            "halted_empty_cs": false,
+            "round_done": [
+              true,
+              true,
+              true,
+              true,
+              true,
+              true,
+              true,
+              true
+            ],
+            "round_calls": [
+              2764,
+              4556,
+              6604,
+              11128,
+              11757,
+              12582,
+              14832,
+              15581
+            ],
+            "round_first_calls": [
+              2428,
+              3532,
+              5132,
+              8201,
+              11218,
+              12043,
+              14086,
+              15397
+            ],
+            "errors": 0
+          },
+          {
+            "seed": 2,
+            "calls_spent": 15420,
+            "all_done": true,
+            "halted_empty_cs": false,
+            "round_done": [
+              true,
+              true,
+              true,
+              true,
+              true,
+              true,
+              true,
+              true
+            ],
+            "round_calls": [
+              2600,
+              4712,
+              6888,
+              11415,
+              11927,
+              12901,
+              14543,
+              15420
+            ],
+            "round_first_calls": [
+              2505,
+              3464,
+              5192,
+              8822,
+              11509,
+              12311,
+              13604,
+              15390
+            ],
+            "errors": 0
+          },
+          {
+            "seed": 3,
+            "calls_spent": 15224,
+            "all_done": true,
+            "halted_empty_cs": false,
+            "round_done": [
+              true,
+              true,
+              true,
+              true,
+              true,
+              true,
+              true,
+              true
+            ],
+            "round_calls": [
+              2199,
+              3959,
+              6295,
+              10957,
+              11519,
+              12493,
+              14323,
+              15224
+            ],
+            "round_first_calls": [
+              1705,
+              2967,
+              4631,
+              8402,
+              11046,
+              11805,
+              13844,
+              15071
+            ],
+            "errors": 0
+          },
+          {
+            "seed": 4,
+            "calls_spent": 15554,
+            "all_done": true,
+            "halted_empty_cs": false,
+            "round_done": [
+              true,
+              true,
+              true,
+              true,
+              true,
+              true,
+              true,
+              true
+            ],
+            "round_calls": [
+              2554,
+              4410,
+              6714,
+              11338,
+              11911,
+              12577,
+              14769,
+              15554
+            ],
+            "round_first_calls": [
+              2373,
+              3322,
+              4986,
+              8815,
+              11428,
+              12198,
+              13997,
+              15526
+            ],
+            "errors": 0
+          },
+          {
+            "seed": 5,
+            "calls_spent": 15507,
+            "all_done": true,
+            "halted_empty_cs": false,
+            "round_done": [
+              true,
+              true,
+              true,
+              true,
+              true,
+              true,
+              true,
+              true
+            ],
+            "round_calls": [
+              2410,
+              4682,
+              6826,
+              11064,
+              11692,
+              12760,
+              14719,
+              15507
+            ],
+            "round_first_calls": [
+              2012,
+              3466,
+              5162,
+              8602,
+              11156,
+              11979,
+              14044,
+              15382
+            ],
+            "errors": 0
+          },
+          {
+            "seed": 6,
+            "calls_spent": 15399,
+            "all_done": true,
+            "halted_empty_cs": false,
+            "round_done": [
+              true,
+              true,
+              true,
+              true,
+              true,
+              true,
+              true,
+              true
+            ],
+            "round_calls": [
+              2535,
+              4423,
+              6695,
+              11337,
+              11954,
+              12940,
+              14559,
+              15399
+            ],
+            "round_first_calls": [
+              2133,
+              3399,
+              4999,
+              8453,
+              11426,
+              12241,
+              14309,
+              15306
+            ],
+            "errors": 0
+          },
+          {
+            "seed": 7,
+            "calls_spent": 15710,
+            "all_done": true,
+            "halted_empty_cs": false,
+            "round_done": [
+              true,
+              true,
+              true,
+              true,
+              true,
+              true,
+              true,
+              true
+            ],
+            "round_calls": [
+              2443,
+              4395,
+              6635,
+              11312,
+              11941,
+              12763,
+              14831,
+              15710
+            ],
+            "round_first_calls": [
+              2259,
+              3403,
+              4875,
+              8412,
+              11405,
+              12324,
+              13889,
+              15679
+            ],
+            "errors": 0
+          },
+          {
+            "seed": 8,
+            "calls_spent": 15453,
+            "all_done": true,
+            "halted_empty_cs": false,
+            "round_done": [
+              true,
+              true,
+              true,
+              true,
+              true,
+              true,
+              true,
+              true
+            ],
+            "round_calls": [
+              2431,
+              4191,
+              6367,
+              11257,
+              11816,
+              12448,
+              14637,
+              15453
+            ],
+            "round_first_calls": [
+              1817,
+              3103,
+              4767,
+              8493,
+              11346,
+              12196,
+              13953,
+              15389
+            ],
+            "errors": 0
+          },
+          {
+            "seed": 9,
+            "calls_spent": 15633,
+            "all_done": true,
+            "halted_empty_cs": false,
+            "round_done": [
+              true,
+              true,
+              true,
+              true,
+              true,
+              true,
+              true,
+              true
+            ],
+            "round_calls": [
+              2620,
+              4380,
+              6524,
+              11666,
+              12165,
+              13163,
+              14889,
+              15633
+            ],
+            "round_first_calls": [
+              2320,
+              3292,
+              5052,
+              8609,
+              11757,
+              12451,
+              14287,
+              15542
+            ],
+            "errors": 0
+          }
+        ]
+      },
+      "Oracle dedup-streams + E0": {
+        "round_done": [
+          "10/10",
+          "10/10",
+          "10/10",
+          "10/10",
+          "10/10",
+          "10/10",
+          "10/10",
+          "10/10"
+        ],
+        "round_cumulative_medians": [
+          2937.5,
+          5075.5,
+          7555.5,
+          12314.5,
+          13356.0,
+          14090.5,
+          16336.5,
+          17584.5
+        ],
+        "round_cumulative_q25": [
+          2873.0,
+          4997.25,
+          7455.5,
+          12248.0,
+          13200.25,
+          13849.75,
+          16111.0,
+          17289.0
+        ],
+        "round_cumulative_q75": [
+          3079.5,
+          5157.0,
+          7597.0,
+          12560.25,
+          13502.75,
+          14296.25,
+          16565.25,
+          17656.0
+        ],
+        "round_marginal_medians": [
+          2937.5,
+          2058.5,
+          2501.5,
+          4822.5,
+          918.0,
+          731.5,
+          2271.5,
+          1169.0
+        ],
+        "round_first_cert_medians": [
+          2502.5,
+          3878.5,
+          5904.0,
+          9180.5,
+          12449.5,
+          13788.0,
+          15934.0,
+          17205.0
+        ],
+        "cohort_paired_saving_median_by_round_pct": [
+          -224.54270053965703,
+          -85.03834060330041,
+          -34.06545640640469,
+          -3.335458714838313,
+          5.12060447544318,
+          3.9976698463554894,
+          17.429312111894856,
+          22.468157373337107
+        ],
+        "cohort_paired_saving_mean_by_round_pct": [
+          -207.632437333702,
+          -80.71213670887903,
+          -26.84626523514975,
+          -0.3624184301476342,
+          6.558811789385167,
+          3.604087408901946,
+          17.07970541535132,
+          22.589430761557445
+        ],
+        "cohort_paired_joint_seeds_by_round": [
+          10,
+          10,
+          10,
+          10,
+          10,
+          9,
+          9,
+          9
+        ],
+        "total_errors": 0,
+        "empty_cs_halts": 0,
+        "rows": [
+          {
+            "seed": 0,
+            "calls_spent": 17940,
+            "all_done": true,
+            "halted_empty_cs": false,
+            "round_done": [
+              true,
+              true,
+              true,
+              true,
+              true,
+              true,
+              true,
+              true
+            ],
+            "round_calls": [
+              3089,
+              5041,
+              7564,
+              12569,
+              13490,
+              14358,
+              16687,
+              17940
+            ],
+            "round_first_calls": [
+              2631,
+              4027,
+              5863,
+              9241,
+              12603,
+              13815,
+              16339,
+              17485
+            ],
+            "errors": 0
+          },
+          {
+            "seed": 1,
+            "calls_spent": 17572,
+            "all_done": true,
+            "halted_empty_cs": false,
+            "round_done": [
+              true,
+              true,
+              true,
+              true,
+              true,
+              true,
+              true,
+              true
+            ],
+            "round_calls": [
+              3160,
+              5145,
+              7591,
+              12281,
+              13320,
+              14225,
+              16500,
+              17572
+            ],
+            "round_first_calls": [
+              2795,
+              3917,
+              5872,
+              8991,
+              12473,
+              13924,
+              15952,
+              17177
+            ],
+            "errors": 0
+          },
+          {
+            "seed": 2,
+            "calls_spent": 17597,
+            "all_done": true,
+            "halted_empty_cs": false,
+            "round_done": [
+              true,
+              true,
+              true,
+              true,
+              true,
+              true,
+              true,
+              true
+            ],
+            "round_calls": [
+              3051,
+              4995,
+              7445,
+              12183,
+              13031,
+              13864,
+              16132,
+              17597
+            ],
+            "round_first_calls": [
+              2877,
+              4159,
+              5659,
+              8858,
+              12260,
+              13582,
+              15740,
+              17233
+            ],
+            "errors": 0
+          },
+          {
+            "seed": 3,
+            "calls_spent": 16758,
+            "all_done": true,
+            "halted_empty_cs": false,
+            "round_done": [
+              true,
+              true,
+              true,
+              true,
+              true,
+              true,
+              true,
+              true
+            ],
+            "round_calls": [
+              2703,
+              4299,
+              6945,
+              11657,
+              12310,
+              13062,
+              15286,
+              16758
+            ],
+            "round_first_calls": [
+              2308,
+              3578,
+              5161,
+              8238,
+              11779,
+              12734,
+              15240,
+              16341
+            ],
+            "errors": 0
+          },
+          {
+            "seed": 4,
+            "calls_spent": 17941,
+            "all_done": true,
+            "halted_empty_cs": false,
+            "round_done": [
+              true,
+              true,
+              true,
+              true,
+              true,
+              true,
+              true,
+              true
+            ],
+            "round_calls": [
+              3210,
+              5520,
+              8000,
+              13004,
+              13850,
+              14731,
+              17052,
+              17941
+            ],
+            "round_first_calls": [
+              2918,
+              4135,
+              6359,
+              9513,
+              13106,
+              14444,
+              16470,
+              17662
+            ],
+            "errors": 0
+          },
+          {
+            "seed": 5,
+            "calls_spent": 17282,
+            "all_done": true,
+            "halted_empty_cs": false,
+            "round_done": [
+              true,
+              true,
+              true,
+              true,
+              true,
+              true,
+              true,
+              true
+            ],
+            "round_calls": [
+              2749,
+              5161,
+              7547,
+              12245,
+              13392,
+              13845,
+              16104,
+              17282
+            ],
+            "round_first_calls": [
+              2374,
+              3791,
+              6036,
+              9204,
+              12245,
+              13655,
+              15674,
+              16710
+            ],
+            "errors": 0
+          },
+          {
+            "seed": 6,
+            "calls_spent": 17665,
+            "all_done": true,
+            "halted_empty_cs": false,
+            "round_done": [
+              true,
+              true,
+              true,
+              true,
+              true,
+              true,
+              true,
+              true
+            ],
+            "round_calls": [
+              2869,
+              4867,
+              7487,
+              12534,
+              13612,
+              14320,
+              16433,
+              17665
+            ],
+            "round_first_calls": [
+              2498,
+              3723,
+              5777,
+              9157,
+              12712,
+              13974,
+              16104,
+              17550
+            ],
+            "errors": 0
+          },
+          {
+            "seed": 7,
+            "calls_spent": 17629,
+            "all_done": true,
+            "halted_empty_cs": false,
+            "round_done": [
+              true,
+              true,
+              true,
+              true,
+              true,
+              true,
+              true,
+              true
+            ],
+            "round_calls": [
+              2952,
+              5236,
+              7775,
+              12731,
+              13507,
+              14218,
+              16587,
+              17629
+            ],
+            "round_first_calls": [
+              2503,
+              3800,
+              6186,
+              9583,
+              12805,
+              14031,
+              16459,
+              17348
+            ],
+            "errors": 0
+          },
+          {
+            "seed": 8,
+            "calls_spent": 17310,
+            "all_done": true,
+            "halted_empty_cs": false,
+            "round_done": [
+              true,
+              true,
+              true,
+              true,
+              true,
+              true,
+              true,
+              true
+            ],
+            "round_calls": [
+              2885,
+              5004,
+              7599,
+              12257,
+              13172,
+              13733,
+              16240,
+              17310
+            ],
+            "round_first_calls": [
+              2304,
+              3840,
+              5944,
+              9250,
+              12294,
+              13423,
+              15916,
+              17050
+            ],
+            "errors": 0
+          },
+          {
+            "seed": 9,
+            "calls_spent": 17245,
+            "all_done": true,
+            "halted_empty_cs": false,
+            "round_done": [
+              true,
+              true,
+              true,
+              true,
+              true,
+              true,
+              true,
+              true
+            ],
+            "round_calls": [
+              2923,
+              5110,
+              7441,
+              12348,
+              13285,
+              13963,
+              16085,
+              17245
+            ],
+            "round_first_calls": [
+              2502,
+              3926,
+              5936,
+              8994,
+              12426,
+              13761,
+              15024,
+              16787
+            ],
+            "errors": 0
+          }
+        ]
+      },
+      "COHORT (known mass E0 + shared prefix)": {
+        "round_done": [
+          "10/10",
+          "10/10",
+          "10/10",
+          "10/10",
+          "10/10",
+          "9/10",
+          "9/10",
+          "9/10"
+        ],
+        "round_cumulative_medians": [
+          9344.0,
+          9344.0,
+          9856.0,
+          12672.0,
+          12672.0,
+          13696.0,
+          13696.0,
+          13696.0
+        ],
+        "round_cumulative_q25": [
+          9344.0,
+          9344.0,
+          9600.0,
+          12672.0,
+          12672.0,
+          13184.0,
+          13184.0,
+          13184.0
+        ],
+        "round_cumulative_q75": [
+          9600.0,
+          9600.0,
+          10112.0,
+          13056.0,
+          13056.0,
+          13696.0,
+          13696.0,
+          13696.0
+        ],
+        "round_marginal_medians": [
+          9344.0,
+          0.0,
+          512.0,
+          3072.0,
+          0.0,
+          1024.0,
+          0.0,
+          0.0
+        ],
+        "round_first_cert_medians": [
+          3072.0,
+          9344.0,
+          9344.0,
+          9856.0,
+          12672.0,
+          12672.0,
+          13696.0,
+          13696.0
+        ],
+        "cohort_paired_saving_median_by_round_pct": [
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0
+        ],
+        "cohort_paired_saving_mean_by_round_pct": [
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0
+        ],
+        "cohort_paired_joint_seeds_by_round": [
+          10,
+          10,
+          10,
+          10,
+          10,
+          9,
+          9,
+          9
+        ],
+        "total_errors": 0,
+        "empty_cs_halts": 1,
+        "rows": [
+          {
+            "seed": 0,
+            "calls_spent": 13696,
+            "all_done": true,
+            "halted_empty_cs": false,
+            "round_done": [
+              true,
+              true,
+              true,
+              true,
+              true,
+              true,
+              true,
+              true
+            ],
+            "round_calls": [
+              10112,
+              10112,
+              10624,
+              12672,
+              12672,
+              13696,
+              13696,
+              13696
+            ],
+            "round_first_calls": [
+              2816,
+              10112,
+              10112,
+              10624,
+              12672,
+              12672,
+              13696,
+              13696
+            ],
+            "errors": 0
+          },
+          {
+            "seed": 1,
+            "calls_spent": 13696,
+            "all_done": true,
+            "halted_empty_cs": false,
+            "round_done": [
+              true,
+              true,
+              true,
+              true,
+              true,
+              true,
+              true,
+              true
+            ],
+            "round_calls": [
+              10112,
+              10112,
+              10624,
+              12672,
+              12672,
+              13696,
+              13696,
+              13696
+            ],
+            "round_first_calls": [
+              3456,
+              10112,
+              10112,
+              10624,
+              12672,
+              12672,
+              13696,
+              13696
+            ],
+            "errors": 0
+          },
+          {
+            "seed": 2,
+            "calls_spent": 11648,
+            "all_done": false,
+            "halted_empty_cs": true,
+            "round_done": [
+              true,
+              true,
+              true,
+              true,
+              true,
+              false,
+              false,
+              false
+            ],
+            "round_calls": [
+              5760,
+              5760,
+              6784,
+              9600,
+              9600
+            ],
+            "round_first_calls": [
+              3072,
+              5760,
+              5760,
+              6784,
+              9600,
+              9600,
+              null,
+              null
+            ],
+            "errors": 0
+          },
+          {
+            "seed": 3,
+            "calls_spent": 13696,
+            "all_done": true,
+            "halted_empty_cs": false,
+            "round_done": [
+              true,
+              true,
+              true,
+              true,
+              true,
+              true,
+              true,
+              true
+            ],
+            "round_calls": [
+              9344,
+              9344,
+              9600,
+              12672,
+              12672,
+              13696,
+              13696,
+              13696
+            ],
+            "round_first_calls": [
+              3072,
+              9344,
+              9344,
+              9600,
+              12672,
+              12672,
+              13696,
+              13696
+            ],
+            "errors": 0
+          },
+          {
+            "seed": 4,
+            "calls_spent": 12672,
+            "all_done": true,
+            "halted_empty_cs": false,
+            "round_done": [
+              true,
+              true,
+              true,
+              true,
+              true,
+              true,
+              true,
+              true
+            ],
+            "round_calls": [
+              8064,
+              8064,
+              8320,
+              11648,
+              11648,
+              12672,
+              12672,
+              12672
+            ],
+            "round_first_calls": [
+              3200,
+              8064,
+              8064,
+              8320,
+              11648,
+              11648,
+              12672,
+              12672
+            ],
+            "errors": 0
+          },
+          {
+            "seed": 5,
+            "calls_spent": 14208,
+            "all_done": true,
+            "halted_empty_cs": false,
+            "round_done": [
+              true,
+              true,
+              true,
+              true,
+              true,
+              true,
+              true,
+              true
+            ],
+            "round_calls": [
+              9344,
+              9344,
+              9600,
+              12672,
+              12672,
+              14208,
+              14208,
+              14208
+            ],
+            "round_first_calls": [
+              2688,
+              9344,
+              9344,
+              9600,
+              12672,
+              12672,
+              14208,
+              14208
+            ],
+            "errors": 0
+          },
+          {
+            "seed": 6,
+            "calls_spent": 13696,
+            "all_done": true,
+            "halted_empty_cs": false,
+            "round_done": [
+              true,
+              true,
+              true,
+              true,
+              true,
+              true,
+              true,
+              true
+            ],
+            "round_calls": [
+              9600,
+              9600,
+              10112,
+              13184,
+              13184,
+              13696,
+              13696,
+              13696
+            ],
+            "round_first_calls": [
+              3072,
+              9600,
+              9600,
+              10112,
+              13184,
+              13184,
+              13696,
+              13696
+            ],
+            "errors": 0
+          },
+          {
+            "seed": 7,
+            "calls_spent": 13696,
+            "all_done": true,
+            "halted_empty_cs": false,
+            "round_done": [
+              true,
+              true,
+              true,
+              true,
+              true,
+              true,
+              true,
+              true
+            ],
+            "round_calls": [
+              9600,
+              9600,
+              9600,
+              12672,
+              12672,
+              13696,
+              13696,
+              13696
+            ],
+            "round_first_calls": [
+              2944,
+              9600,
+              9600,
+              9600,
+              12672,
+              12672,
+              13696,
+              13696
+            ],
+            "errors": 0
+          },
+          {
+            "seed": 8,
+            "calls_spent": 13184,
+            "all_done": true,
+            "halted_empty_cs": false,
+            "round_done": [
+              true,
+              true,
+              true,
+              true,
+              true,
+              true,
+              true,
+              true
+            ],
+            "round_calls": [
+              9344,
+              9344,
+              10112,
+              13184,
+              13184,
+              13184,
+              13184,
+              13184
+            ],
+            "round_first_calls": [
+              2560,
+              9344,
+              9344,
+              10112,
+              13184,
+              13184,
+              13184,
+              13184
+            ],
+            "errors": 0
+          },
+          {
+            "seed": 9,
+            "calls_spent": 13184,
+            "all_done": true,
+            "halted_empty_cs": false,
+            "round_done": [
+              true,
+              true,
+              true,
+              true,
+              true,
+              true,
+              true,
+              true
+            ],
+            "round_calls": [
+              9344,
+              9344,
+              10112,
+              13184,
+              13184,
+              13184,
+              13184,
+              13184
+            ],
+            "round_first_calls": [
+              3200,
+              9344,
+              9344,
+              10112,
+              13184,
+              13184,
+              13184,
+              13184
+            ],
+            "errors": 0
+          }
+        ]
+      }
+    }
+  },
+  "overlap_regimes": {
+    "low_overlap_4targets": {
+      "dedup_E0_median": 1296.0,
+      "dedup_Edyn_median": 1296.0,
+      "cohort_median": 1984.0,
+      "cohort_paired_saving_vs_E0_median_pct": -53.94736842105263,
+      "cohort_paired_saving_vs_Edyn_median_pct": -53.94736842105263,
+      "joint_seeds_E0": 10
+    },
+    "high_overlap_16targets": {
+      "dedup_E0_median": 16166.5,
+      "dedup_Edyn_median": 13766.5,
+      "cohort_median": 7552.0,
+      "cohort_paired_saving_vs_E0_median_pct": 53.784913774499884,
+      "cohort_paired_saving_vs_Edyn_median_pct": 45.76708048712254,
+      "joint_seeds_E0": 10
+    }
+  },
+  "live_gpu_session": {
+    "gpu_device": "NVIDIA GeForce RTX 4080 SUPER",
+    "batch_size": 64,
+    "model_load_s": 9.43,
+    "steady_throughput_rec_per_s": 24.36,
+    "full_pool_live_equiv_s": 1292.1,
+    "runs": [
+      {
+        "seed": 0,
+        "n_certified": "5/5",
+        "incremental_calls": 3456,
+        "first_cert_calls": 384,
+        "first_cert_wall_s": 18.21,
+        "all_5_wall_s": 160.3,
+        "gpu_inference_s": 159.57,
+        "cohort_cpu_s": 0.73,
+        "cpu_share_pct": 0.46,
+        "tape_mismatches": 61
+      },
+      {
+        "seed": 1,
+        "n_certified": "5/5",
+        "incremental_calls": 3712,
+        "first_cert_calls": 256,
+        "first_cert_wall_s": 11.93,
+        "all_5_wall_s": 171.14,
+        "gpu_inference_s": 170.32,
+        "cohort_cpu_s": 0.82,
+        "cpu_share_pct": 0.48,
+        "tape_mismatches": 84
+      },
+      {
+        "seed": 2,
+        "n_certified": "5/5",
+        "incremental_calls": 3072,
+        "first_cert_calls": 256,
+        "first_cert_wall_s": 12.02,
+        "all_5_wall_s": 141.12,
+        "gpu_inference_s": 140.4,
+        "cohort_cpu_s": 0.72,
+        "cpu_share_pct": 0.51,
+        "tape_mismatches": 48
+      }
+    ],
+    "mean_first_cert_wall_s": 14.05,
+    "mean_all_5_wall_s": 157.52,
+    "mean_gpu_inference_s": 156.76,
+    "mean_cohort_cpu_s": 0.76,
+    "total_mismatches": 193
+  },
+  "coupled_lp_vs_partition": {
+    "1280": {
+      "sep_partition_mean_width": 0.4298,
+      "joint_lp_mean_width": 0.389,
+      "width_reduction_pct": 9.48
+    },
+    "3200": {
+      "sep_partition_mean_width": 0.2687,
+      "joint_lp_mean_width": 0.2449,
+      "width_reduction_pct": 8.87
+    },
+    "6400": {
+      "sep_partition_mean_width": 0.1766,
+      "joint_lp_mean_width": 0.1617,
+      "width_reduction_pct": 8.41
+    }
+  }
+}

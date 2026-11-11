@@ -1,0 +1,6 @@
+{
+  "n_pairs": 31482,
+  "text_view": "query text and product_name",
+  "relevant": {"tn": 4356, "fp": 1915, "fn": 4769, "tp": 20442, "precision": 0.914345842375274, "recall": 0.8108365396057277},
+  "exact": {"tn": 25471, "fp": 723, "fn": 3561, "tp": 1727, "precision": 0.7048979591836735, "recall": 0.326588502269289}
+}

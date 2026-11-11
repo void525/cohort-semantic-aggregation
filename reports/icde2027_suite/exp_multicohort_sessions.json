@@ -1,0 +1,1771 @@
+{
+ "task1_12targets": {
+  "n_targets": 12,
+  "n_rounds": 4,
+  "seeds": 10,
+  "methods": {
+   "Adaptive Dedup-Streams+Cache+Partition": {
+    "done": "10/10",
+    "median_calls": 10540.0,
+    "mean_calls": 10428.4,
+    "round_cumulative_medians": [
+     1223.0,
+     3178.0,
+     9069.0,
+     10540.0
+    ],
+    "cohort_paired_saving_vs_this_pct": 18.30770293699931,
+    "errors": 0,
+    "rows": [
+     {
+      "seed": 0,
+      "total_calls": 10744,
+      "calls_spent": 10744,
+      "n_done": 12,
+      "n_total": 12,
+      "round_calls": [
+       1294,
+       3292,
+       9358,
+       10744
+      ],
+      "errors": 0
+     },
+     {
+      "seed": 1,
+      "total_calls": 10384,
+      "calls_spent": 10384,
+      "n_done": 12,
+      "n_total": 12,
+      "round_calls": [
+       1223,
+       3144,
+       8820,
+       10384
+      ],
+      "errors": 0
+     },
+     {
+      "seed": 2,
+      "total_calls": 9058,
+      "calls_spent": 9058,
+      "n_done": 12,
+      "n_total": 12,
+      "round_calls": [
+       1116,
+       3113,
+       6944,
+       9058
+      ],
+      "errors": 0
+     },
+     {
+      "seed": 3,
+      "total_calls": 10605,
+      "calls_spent": 10605,
+      "n_done": 12,
+      "n_total": 12,
+      "round_calls": [
+       1360,
+       3458,
+       9335,
+       10605
+      ],
+      "errors": 0
+     },
+     {
+      "seed": 4,
+      "total_calls": 10639,
+      "calls_spent": 10639,
+      "n_done": 12,
+      "n_total": 12,
+      "round_calls": [
+       1311,
+       3401,
+       9140,
+       10639
+      ],
+      "errors": 0
+     },
+     {
+      "seed": 5,
+      "total_calls": 10393,
+      "calls_spent": 10393,
+      "n_done": 12,
+      "n_total": 12,
+      "round_calls": [
+       933,
+       3014,
+       9117,
+       10393
+      ],
+      "errors": 0
+     },
+     {
+      "seed": 6,
+      "total_calls": 10579,
+      "calls_spent": 10579,
+      "n_done": 12,
+      "n_total": 12,
+      "round_calls": [
+       1245,
+       3196,
+       8888,
+       10579
+      ],
+      "errors": 0
+     },
+     {
+      "seed": 7,
+      "total_calls": 10882,
+      "calls_spent": 10882,
+      "n_done": 12,
+      "n_total": 12,
+      "round_calls": [
+       1191,
+       3221,
+       9171,
+       10882
+      ],
+      "errors": 0
+     },
+     {
+      "seed": 8,
+      "total_calls": 10501,
+      "calls_spent": 10501,
+      "n_done": 12,
+      "n_total": 12,
+      "round_calls": [
+       1150,
+       3101,
+       8759,
+       10501
+      ],
+      "errors": 0
+     },
+     {
+      "seed": 9,
+      "total_calls": 10499,
+      "calls_spent": 10499,
+      "n_done": 12,
+      "n_total": 12,
+      "round_calls": [
+       1223,
+       3160,
+       9021,
+       10499
+      ],
+      "errors": 0
+     }
+    ]
+   },
+   "Oracle Dedup-Streams+Cache+Partition": {
+    "done": "10/10",
+    "median_calls": 10259.0,
+    "mean_calls": 10124.0,
+    "round_cumulative_medians": [
+     1368.0,
+     3356.0,
+     8908.0,
+     10259.0
+    ],
+    "cohort_paired_saving_vs_this_pct": 16.551510176235077,
+    "errors": 1,
+    "rows": [
+     {
+      "seed": 0,
+      "total_calls": 10571,
+      "calls_spent": 10571,
+      "n_done": 12,
+      "n_total": 12,
+      "round_calls": [
+       1395,
+       3385,
+       9280,
+       10571
+      ],
+      "errors": 0
+     },
+     {
+      "seed": 1,
+      "total_calls": 10123,
+      "calls_spent": 10123,
+      "n_done": 12,
+      "n_total": 12,
+      "round_calls": [
+       1407,
+       3355,
+       8777,
+       10123
+      ],
+      "errors": 0
+     },
+     {
+      "seed": 2,
+      "total_calls": 8549,
+      "calls_spent": 8549,
+      "n_done": 12,
+      "n_total": 12,
+      "round_calls": [
+       1383,
+       3385,
+       6714,
+       8549
+      ],
+      "errors": 1
+     },
+     {
+      "seed": 3,
+      "total_calls": 10273,
+      "calls_spent": 10273,
+      "n_done": 12,
+      "n_total": 12,
+      "round_calls": [
+       1469,
+       3583,
+       9131,
+       10273
+      ],
+      "errors": 0
+     },
+     {
+      "seed": 4,
+      "total_calls": 10408,
+      "calls_spent": 10408,
+      "n_done": 12,
+      "n_total": 12,
+      "round_calls": [
+       1501,
+       3601,
+       9108,
+       10408
+      ],
+      "errors": 0
+     },
+     {
+      "seed": 5,
+      "total_calls": 10320,
+      "calls_spent": 10320,
+      "n_done": 12,
+      "n_total": 12,
+      "round_calls": [
+       1008,
+       3080,
+       9065,
+       10320
+      ],
+      "errors": 0
+     },
+     {
+      "seed": 6,
+      "total_calls": 10234,
+      "calls_spent": 10234,
+      "n_done": 12,
+      "n_total": 12,
+      "round_calls": [
+       1323,
+       3269,
+       8748,
+       10234
+      ],
+      "errors": 0
+     },
+     {
+      "seed": 7,
+      "total_calls": 10281,
+      "calls_spent": 10281,
+      "n_done": 12,
+      "n_total": 12,
+      "round_calls": [
+       1317,
+       3357,
+       8893,
+       10281
+      ],
+      "errors": 0
+     },
+     {
+      "seed": 8,
+      "total_calls": 10236,
+      "calls_spent": 10236,
+      "n_done": 12,
+      "n_total": 12,
+      "round_calls": [
+       1334,
+       3263,
+       8728,
+       10236
+      ],
+      "errors": 0
+     },
+     {
+      "seed": 9,
+      "total_calls": 10245,
+      "calls_spent": 10245,
+      "n_done": 12,
+      "n_total": 12,
+      "round_calls": [
+       1353,
+       3281,
+       8923,
+       10245
+      ],
+      "errors": 0
+     }
+    ]
+   },
+   "Shared-Prefix + Free Reads": {
+    "done": "10/10",
+    "median_calls": 10878.5,
+    "mean_calls": 10846.9,
+    "round_cumulative_medians": [
+     3945.5,
+     4729.5,
+     10878.5,
+     10878.5
+    ],
+    "cohort_paired_saving_vs_this_pct": 21.18316107868958,
+    "errors": 0,
+    "rows": [
+     {
+      "seed": 0,
+      "total_calls": 10620,
+      "calls_spent": 10620,
+      "n_done": 12,
+      "n_total": 12,
+      "round_calls": [
+       3703,
+       4746,
+       10620,
+       10620
+      ],
+      "errors": 0
+     },
+     {
+      "seed": 1,
+      "total_calls": 11044,
+      "calls_spent": 11044,
+      "n_done": 12,
+      "n_total": 12,
+      "round_calls": [
+       3947,
+       4714,
+       11044,
+       11044
+      ],
+      "errors": 0
+     },
+     {
+      "seed": 2,
+      "total_calls": 11074,
+      "calls_spent": 11074,
+      "n_done": 12,
+      "n_total": 12,
+      "round_calls": [
+       4186,
+       4957,
+       11074,
+       11074
+      ],
+      "errors": 0
+     },
+     {
+      "seed": 3,
+      "total_calls": 10525,
+      "calls_spent": 10525,
+      "n_done": 12,
+      "n_total": 12,
+      "round_calls": [
+       3944,
+       4718,
+       10525,
+       10525
+      ],
+      "errors": 0
+     },
+     {
+      "seed": 4,
+      "total_calls": 11130,
+      "calls_spent": 11130,
+      "n_done": 12,
+      "n_total": 12,
+      "round_calls": [
+       3938,
+       4702,
+       11130,
+       11130
+      ],
+      "errors": 0
+     },
+     {
+      "seed": 5,
+      "total_calls": 10602,
+      "calls_spent": 10602,
+      "n_done": 12,
+      "n_total": 12,
+      "round_calls": [
+       3956,
+       4741,
+       10602,
+       10602
+      ],
+      "errors": 0
+     },
+     {
+      "seed": 6,
+      "total_calls": 10713,
+      "calls_spent": 10713,
+      "n_done": 12,
+      "n_total": 12,
+      "round_calls": [
+       4293,
+       5048,
+       10713,
+       10713
+      ],
+      "errors": 0
+     },
+     {
+      "seed": 7,
+      "total_calls": 11047,
+      "calls_spent": 11047,
+      "n_done": 12,
+      "n_total": 12,
+      "round_calls": [
+       3914,
+       4674,
+       11047,
+       11047
+      ],
+      "errors": 0
+     },
+     {
+      "seed": 8,
+      "total_calls": 10623,
+      "calls_spent": 10623,
+      "n_done": 12,
+      "n_total": 12,
+      "round_calls": [
+       3709,
+       4464,
+       10623,
+       10623
+      ],
+      "errors": 0
+     },
+     {
+      "seed": 9,
+      "total_calls": 11091,
+      "calls_spent": 11091,
+      "n_done": 12,
+      "n_total": 12,
+      "round_calls": [
+       4222,
+       4988,
+       11091,
+       11091
+      ],
+      "errors": 0
+     }
+    ]
+   },
+   "COHORT (Known Mass + Shared Prefix)": {
+    "done": "10/10",
+    "median_calls": 8576.0,
+    "mean_calls": 8550.4,
+    "round_cumulative_medians": [
+     3072.0,
+     3968.0,
+     8576.0,
+     8576.0
+    ],
+    "cohort_paired_saving_vs_this_pct": 0.0,
+    "errors": 0,
+    "rows": [
+     {
+      "seed": 0,
+      "total_calls": 9088,
+      "calls_spent": 9088,
+      "n_done": 12,
+      "n_total": 12,
+      "round_calls": [
+       3072,
+       3968,
+       9088,
+       9088
+      ],
+      "errors": 0
+     },
+     {
+      "seed": 1,
+      "total_calls": 8832,
+      "calls_spent": 8832,
+      "n_done": 12,
+      "n_total": 12,
+      "round_calls": [
+       3200,
+       3968,
+       8832,
+       8832
+      ],
+      "errors": 0
+     },
+     {
+      "seed": 2,
+      "total_calls": 8320,
+      "calls_spent": 8320,
+      "n_done": 12,
+      "n_total": 12,
+      "round_calls": [
+       2944,
+       3712,
+       8320,
+       8320
+      ],
+      "errors": 0
+     },
+     {
+      "seed": 3,
+      "total_calls": 8576,
+      "calls_spent": 8576,
+      "n_done": 12,
+      "n_total": 12,
+      "round_calls": [
+       3072,
+       3968,
+       8576,
+       8576
+      ],
+      "errors": 0
+     },
+     {
+      "seed": 4,
+      "total_calls": 8064,
+      "calls_spent": 8064,
+      "n_done": 12,
+      "n_total": 12,
+      "round_calls": [
+       2688,
+       3712,
+       8064,
+       8064
+      ],
+      "errors": 0
+     },
+     {
+      "seed": 5,
+      "total_calls": 8576,
+      "calls_spent": 8576,
+      "n_done": 12,
+      "n_total": 12,
+      "round_calls": [
+       2944,
+       3712,
+       8576,
+       8576
+      ],
+      "errors": 0
+     },
+     {
+      "seed": 6,
+      "total_calls": 8320,
+      "calls_spent": 8320,
+      "n_done": 12,
+      "n_total": 12,
+      "round_calls": [
+       3200,
+       3968,
+       8320,
+       8320
+      ],
+      "errors": 0
+     },
+     {
+      "seed": 7,
+      "total_calls": 8576,
+      "calls_spent": 8576,
+      "n_done": 12,
+      "n_total": 12,
+      "round_calls": [
+       3456,
+       4224,
+       8576,
+       8576
+      ],
+      "errors": 0
+     },
+     {
+      "seed": 8,
+      "total_calls": 9088,
+      "calls_spent": 9088,
+      "n_done": 12,
+      "n_total": 12,
+      "round_calls": [
+       3456,
+       4480,
+       9088,
+       9088
+      ],
+      "errors": 0
+     },
+     {
+      "seed": 9,
+      "total_calls": 8064,
+      "calls_spent": 8064,
+      "n_done": 12,
+      "n_total": 12,
+      "round_calls": [
+       2688,
+       3456,
+       8064,
+       8064
+      ],
+      "errors": 0
+     }
+    ]
+   }
+  }
+ },
+ "task2_aligned_12targets": {
+  "n_targets": 12,
+  "n_rounds": 4,
+  "seeds": 10,
+  "methods": {
+   "Adaptive Dedup-Streams+Cache+Partition": {
+    "done": "10/10",
+    "median_calls": 13134.5,
+    "mean_calls": 13079.9,
+    "round_cumulative_medians": [
+     2890.0,
+     5397.0,
+     8063.0,
+     13134.5
+    ],
+    "cohort_paired_saving_vs_this_pct": 2.698026280445215,
+    "errors": 0,
+    "rows": [
+     {
+      "seed": 0,
+      "total_calls": 13064,
+      "calls_spent": 13064,
+      "n_done": 12,
+      "n_total": 12,
+      "round_calls": [
+       3034,
+       5487,
+       8012,
+       13064
+      ],
+      "errors": 0
+     },
+     {
+      "seed": 1,
+      "total_calls": 12983,
+      "calls_spent": 12983,
+      "n_done": 12,
+      "n_total": 12,
+      "round_calls": [
+       2888,
+       5454,
+       8065,
+       12983
+      ],
+      "errors": 0
+     },
+     {
+      "seed": 2,
+      "total_calls": 13399,
+      "calls_spent": 13399,
+      "n_done": 12,
+      "n_total": 12,
+      "round_calls": [
+       2872,
+       5228,
+       8030,
+       13399
+      ],
+      "errors": 0
+     },
+     {
+      "seed": 3,
+      "total_calls": 13660,
+      "calls_spent": 13660,
+      "n_done": 12,
+      "n_total": 12,
+      "round_calls": [
+       3033,
+       5577,
+       8297,
+       13660
+      ],
+      "errors": 0
+     },
+     {
+      "seed": 4,
+      "total_calls": 13209,
+      "calls_spent": 13209,
+      "n_done": 12,
+      "n_total": 12,
+      "round_calls": [
+       2867,
+       5574,
+       8188,
+       13209
+      ],
+      "errors": 0
+     },
+     {
+      "seed": 5,
+      "total_calls": 12594,
+      "calls_spent": 12594,
+      "n_done": 12,
+      "n_total": 12,
+      "round_calls": [
+       2836,
+       5416,
+       8061,
+       12594
+      ],
+      "errors": 0
+     },
+     {
+      "seed": 6,
+      "total_calls": 12821,
+      "calls_spent": 12821,
+      "n_done": 12,
+      "n_total": 12,
+      "round_calls": [
+       2910,
+       5378,
+       7206,
+       12821
+      ],
+      "errors": 0
+     },
+     {
+      "seed": 7,
+      "total_calls": 13395,
+      "calls_spent": 13395,
+      "n_done": 12,
+      "n_total": 12,
+      "round_calls": [
+       2892,
+       5358,
+       8233,
+       13395
+      ],
+      "errors": 0
+     },
+     {
+      "seed": 8,
+      "total_calls": 12469,
+      "calls_spent": 12469,
+      "n_done": 12,
+      "n_total": 12,
+      "round_calls": [
+       2789,
+       5222,
+       7962,
+       12469
+      ],
+      "errors": 0
+     },
+     {
+      "seed": 9,
+      "total_calls": 13205,
+      "calls_spent": 13205,
+      "n_done": 12,
+      "n_total": 12,
+      "round_calls": [
+       2946,
+       5302,
+       8188,
+       13205
+      ],
+      "errors": 0
+     }
+    ]
+   },
+   "Oracle Dedup-Streams+Cache+Partition": {
+    "done": "10/10",
+    "median_calls": 12965.0,
+    "mean_calls": 12870.4,
+    "round_cumulative_medians": [
+     3276.5,
+     5684.0,
+     8147.5,
+     12965.0
+    ],
+    "cohort_paired_saving_vs_this_pct": 1.101394514998305,
+    "errors": 0,
+    "rows": [
+     {
+      "seed": 0,
+      "total_calls": 12883,
+      "calls_spent": 12883,
+      "n_done": 12,
+      "n_total": 12,
+      "round_calls": [
+       3381,
+       5747,
+       7931,
+       12883
+      ],
+      "errors": 0
+     },
+     {
+      "seed": 1,
+      "total_calls": 12744,
+      "calls_spent": 12744,
+      "n_done": 12,
+      "n_total": 12,
+      "round_calls": [
+       3194,
+       5685,
+       8110,
+       12744
+      ],
+      "errors": 0
+     },
+     {
+      "seed": 2,
+      "total_calls": 13310,
+      "calls_spent": 13310,
+      "n_done": 12,
+      "n_total": 12,
+      "round_calls": [
+       3363,
+       5643,
+       8264,
+       13310
+      ],
+      "errors": 0
+     },
+     {
+      "seed": 3,
+      "total_calls": 13586,
+      "calls_spent": 13586,
+      "n_done": 12,
+      "n_total": 12,
+      "round_calls": [
+       3499,
+       5929,
+       8302,
+       13586
+      ],
+      "errors": 0
+     },
+     {
+      "seed": 4,
+      "total_calls": 13127,
+      "calls_spent": 13127,
+      "n_done": 12,
+      "n_total": 12,
+      "round_calls": [
+       3144,
+       5800,
+       8252,
+       13127
+      ],
+      "errors": 0
+     },
+     {
+      "seed": 5,
+      "total_calls": 12359,
+      "calls_spent": 12359,
+      "n_done": 12,
+      "n_total": 12,
+      "round_calls": [
+       3087,
+       5618,
+       7983,
+       12359
+      ],
+      "errors": 0
+     },
+     {
+      "seed": 6,
+      "total_calls": 12099,
+      "calls_spent": 12099,
+      "n_done": 12,
+      "n_total": 12,
+      "round_calls": [
+       3302,
+       5684,
+       7252,
+       12099
+      ],
+      "errors": 0
+     },
+     {
+      "seed": 7,
+      "total_calls": 13092,
+      "calls_spent": 13092,
+      "n_done": 12,
+      "n_total": 12,
+      "round_calls": [
+       3085,
+       5480,
+       8091,
+       13092
+      ],
+      "errors": 0
+     },
+     {
+      "seed": 8,
+      "total_calls": 12457,
+      "calls_spent": 12457,
+      "n_done": 12,
+      "n_total": 12,
+      "round_calls": [
+       3386,
+       5684,
+       8276,
+       12457
+      ],
+      "errors": 0
+     },
+     {
+      "seed": 9,
+      "total_calls": 13047,
+      "calls_spent": 13047,
+      "n_done": 12,
+      "n_total": 12,
+      "round_calls": [
+       3251,
+       5502,
+       8185,
+       13047
+      ],
+      "errors": 0
+     }
+    ]
+   },
+   "Shared-Prefix + Free Reads": {
+    "done": "10/10",
+    "median_calls": 13623.0,
+    "mean_calls": 13594.5,
+    "round_cumulative_medians": [
+     10547.0,
+     10547.0,
+     11575.5,
+     13623.0
+    ],
+    "cohort_paired_saving_vs_this_pct": 7.205205423617528,
+    "errors": 0,
+    "rows": [
+     {
+      "seed": 0,
+      "total_calls": 13627,
+      "calls_spent": 13627,
+      "n_done": 12,
+      "n_total": 12,
+      "round_calls": [
+       10040,
+       10040,
+       11071,
+       13627
+      ],
+      "errors": 0
+     },
+     {
+      "seed": 1,
+      "total_calls": 13097,
+      "calls_spent": 13097,
+      "n_done": 12,
+      "n_total": 12,
+      "round_calls": [
+       9553,
+       9553,
+       10075,
+       13097
+      ],
+      "errors": 0
+     },
+     {
+      "seed": 2,
+      "total_calls": 13617,
+      "calls_spent": 13617,
+      "n_done": 12,
+      "n_total": 12,
+      "round_calls": [
+       10557,
+       10557,
+       11587,
+       13617
+      ],
+      "errors": 0
+     },
+     {
+      "seed": 3,
+      "total_calls": 13714,
+      "calls_spent": 13714,
+      "n_done": 12,
+      "n_total": 12,
+      "round_calls": [
+       10122,
+       10122,
+       11163,
+       13714
+      ],
+      "errors": 0
+     },
+     {
+      "seed": 4,
+      "total_calls": 13699,
+      "calls_spent": 13699,
+      "n_done": 12,
+      "n_total": 12,
+      "round_calls": [
+       10626,
+       10626,
+       11641,
+       13699
+      ],
+      "errors": 0
+     },
+     {
+      "seed": 5,
+      "total_calls": 13685,
+      "calls_spent": 13685,
+      "n_done": 12,
+      "n_total": 12,
+      "round_calls": [
+       10643,
+       10643,
+       11658,
+       13685
+      ],
+      "errors": 0
+     },
+     {
+      "seed": 6,
+      "total_calls": 13584,
+      "calls_spent": 13584,
+      "n_done": 12,
+      "n_total": 12,
+      "round_calls": [
+       10542,
+       10542,
+       11571,
+       13584
+      ],
+      "errors": 0
+     },
+     {
+      "seed": 7,
+      "total_calls": 13687,
+      "calls_spent": 13687,
+      "n_done": 12,
+      "n_total": 12,
+      "round_calls": [
+       10076,
+       10076,
+       11099,
+       13687
+      ],
+      "errors": 0
+     },
+     {
+      "seed": 8,
+      "total_calls": 13616,
+      "calls_spent": 13616,
+      "n_done": 12,
+      "n_total": 12,
+      "round_calls": [
+       10552,
+       10552,
+       11584,
+       13616
+      ],
+      "errors": 0
+     },
+     {
+      "seed": 9,
+      "total_calls": 13619,
+      "calls_spent": 13619,
+      "n_done": 12,
+      "n_total": 12,
+      "round_calls": [
+       10555,
+       10555,
+       11580,
+       13619
+      ],
+      "errors": 0
+     }
+    ]
+   },
+   "COHORT (Known Mass + Shared Prefix)": {
+    "done": "10/10",
+    "median_calls": 12672.0,
+    "mean_calls": 12416.0,
+    "round_cumulative_medians": [
+     9344.0,
+     9344.0,
+     9856.0,
+     12672.0
+    ],
+    "cohort_paired_saving_vs_this_pct": 0.0,
+    "errors": 0,
+    "rows": [
+     {
+      "seed": 0,
+      "total_calls": 12672,
+      "calls_spent": 12672,
+      "n_done": 12,
+      "n_total": 12,
+      "round_calls": [
+       10112,
+       10112,
+       10624,
+       12672
+      ],
+      "errors": 0
+     },
+     {
+      "seed": 1,
+      "total_calls": 12672,
+      "calls_spent": 12672,
+      "n_done": 12,
+      "n_total": 12,
+      "round_calls": [
+       10112,
+       10112,
+       10624,
+       12672
+      ],
+      "errors": 0
+     },
+     {
+      "seed": 2,
+      "total_calls": 9600,
+      "calls_spent": 9600,
+      "n_done": 12,
+      "n_total": 12,
+      "round_calls": [
+       5760,
+       5760,
+       6784,
+       9600
+      ],
+      "errors": 0
+     },
+     {
+      "seed": 3,
+      "total_calls": 12672,
+      "calls_spent": 12672,
+      "n_done": 12,
+      "n_total": 12,
+      "round_calls": [
+       9344,
+       9344,
+       9600,
+       12672
+      ],
+      "errors": 0
+     },
+     {
+      "seed": 4,
+      "total_calls": 11648,
+      "calls_spent": 11648,
+      "n_done": 12,
+      "n_total": 12,
+      "round_calls": [
+       8064,
+       8064,
+       8320,
+       11648
+      ],
+      "errors": 0
+     },
+     {
+      "seed": 5,
+      "total_calls": 12672,
+      "calls_spent": 12672,
+      "n_done": 12,
+      "n_total": 12,
+      "round_calls": [
+       9344,
+       9344,
+       9600,
+       12672
+      ],
+      "errors": 0
+     },
+     {
+      "seed": 6,
+      "total_calls": 13184,
+      "calls_spent": 13184,
+      "n_done": 12,
+      "n_total": 12,
+      "round_calls": [
+       9600,
+       9600,
+       10112,
+       13184
+      ],
+      "errors": 0
+     },
+     {
+      "seed": 7,
+      "total_calls": 12672,
+      "calls_spent": 12672,
+      "n_done": 12,
+      "n_total": 12,
+      "round_calls": [
+       9600,
+       9600,
+       9600,
+       12672
+      ],
+      "errors": 0
+     },
+     {
+      "seed": 8,
+      "total_calls": 13184,
+      "calls_spent": 13184,
+      "n_done": 12,
+      "n_total": 12,
+      "round_calls": [
+       9344,
+       9344,
+       10112,
+       13184
+      ],
+      "errors": 0
+     },
+     {
+      "seed": 9,
+      "total_calls": 13184,
+      "calls_spent": 13184,
+      "n_done": 12,
+      "n_total": 12,
+      "round_calls": [
+       9344,
+       9344,
+       10112,
+       13184
+      ],
+      "errors": 0
+     }
+    ]
+   }
+  }
+ },
+ "task2_overpartitioned_10targets": {
+  "n_targets": 10,
+  "n_rounds": 4,
+  "seeds": 8,
+  "methods": {
+   "Adaptive Dedup-Streams+Cache+Partition": {
+    "done": "8/8",
+    "median_calls": 9334.5,
+    "mean_calls": 9244.5,
+    "round_cumulative_medians": [
+     2202.5,
+     4396.5,
+     6033.0,
+     9334.5
+    ],
+    "cohort_paired_saving_vs_this_pct": -42.440856005421644,
+    "errors": 0,
+    "rows": [
+     {
+      "seed": 0,
+      "total_calls": 9589,
+      "calls_spent": 9589,
+      "n_done": 10,
+      "n_total": 10,
+      "round_calls": [
+       2219,
+       4556,
+       6125,
+       9589
+      ],
+      "errors": 0
+     },
+     {
+      "seed": 1,
+      "total_calls": 9302,
+      "calls_spent": 9302,
+      "n_done": 10,
+      "n_total": 10,
+      "round_calls": [
+       2424,
+       4408,
+       6034,
+       9302
+      ],
+      "errors": 0
+     },
+     {
+      "seed": 2,
+      "total_calls": 8422,
+      "calls_spent": 8422,
+      "n_done": 10,
+      "n_total": 10,
+      "round_calls": [
+       2186,
+       4373,
+       5951,
+       8422
+      ],
+      "errors": 0
+     },
+     {
+      "seed": 3,
+      "total_calls": 9210,
+      "calls_spent": 9210,
+      "n_done": 10,
+      "n_total": 10,
+      "round_calls": [
+       2273,
+       4389,
+       6003,
+       9210
+      ],
+      "errors": 0
+     },
+     {
+      "seed": 4,
+      "total_calls": 9184,
+      "calls_spent": 9184,
+      "n_done": 10,
+      "n_total": 10,
+      "round_calls": [
+       2158,
+       4327,
+       6043,
+       9184
+      ],
+      "errors": 0
+     },
+     {
+      "seed": 5,
+      "total_calls": 9473,
+      "calls_spent": 9473,
+      "n_done": 10,
+      "n_total": 10,
+      "round_calls": [
+       1957,
+       4331,
+       6186,
+       9473
+      ],
+      "errors": 0
+     },
+     {
+      "seed": 6,
+      "total_calls": 9409,
+      "calls_spent": 9409,
+      "n_done": 10,
+      "n_total": 10,
+      "round_calls": [
+       2448,
+       4420,
+       5934,
+       9409
+      ],
+      "errors": 0
+     },
+     {
+      "seed": 7,
+      "total_calls": 9367,
+      "calls_spent": 9367,
+      "n_done": 10,
+      "n_total": 10,
+      "round_calls": [
+       2183,
+       4404,
+       6032,
+       9367
+      ],
+      "errors": 0
+     }
+    ]
+   },
+   "Oracle Dedup-Streams+Cache+Partition": {
+    "done": "8/8",
+    "median_calls": 9167.0,
+    "mean_calls": 9068.625,
+    "round_cumulative_medians": [
+     2446.0,
+     4624.5,
+     6096.0,
+     9167.0
+    ],
+    "cohort_paired_saving_vs_this_pct": -43.824168019679746,
+    "errors": 0,
+    "rows": [
+     {
+      "seed": 0,
+      "total_calls": 9276,
+      "calls_spent": 9276,
+      "n_done": 10,
+      "n_total": 10,
+      "round_calls": [
+       2325,
+       4653,
+       6109,
+       9276
+      ],
+      "errors": 0
+     },
+     {
+      "seed": 1,
+      "total_calls": 9230,
+      "calls_spent": 9230,
+      "n_done": 10,
+      "n_total": 10,
+      "round_calls": [
+       2556,
+       4524,
+       6048,
+       9230
+      ],
+      "errors": 0
+     },
+     {
+      "seed": 2,
+      "total_calls": 8315,
+      "calls_spent": 8315,
+      "n_done": 10,
+      "n_total": 10,
+      "round_calls": [
+       2440,
+       4617,
+       6083,
+       8315
+      ],
+      "errors": 0
+     },
+     {
+      "seed": 3,
+      "total_calls": 9119,
+      "calls_spent": 9119,
+      "n_done": 10,
+      "n_total": 10,
+      "round_calls": [
+       2541,
+       4632,
+       6163,
+       9119
+      ],
+      "errors": 0
+     },
+     {
+      "seed": 4,
+      "total_calls": 9069,
+      "calls_spent": 9069,
+      "n_done": 10,
+      "n_total": 10,
+      "round_calls": [
+       2291,
+       4451,
+       6112,
+       9069
+      ],
+      "errors": 0
+     },
+     {
+      "seed": 5,
+      "total_calls": 9254,
+      "calls_spent": 9254,
+      "n_done": 10,
+      "n_total": 10,
+      "round_calls": [
+       2258,
+       4608,
+       6323,
+       9254
+      ],
+      "errors": 0
+     },
+     {
+      "seed": 6,
+      "total_calls": 9215,
+      "calls_spent": 9215,
+      "n_done": 10,
+      "n_total": 10,
+      "round_calls": [
+       2684,
+       4633,
+       6083,
+       9215
+      ],
+      "errors": 0
+     },
+     {
+      "seed": 7,
+      "total_calls": 9071,
+      "calls_spent": 9071,
+      "n_done": 10,
+      "n_total": 10,
+      "round_calls": [
+       2452,
+       4650,
+       6050,
+       9071
+      ],
+      "errors": 0
+     }
+    ]
+   },
+   "Shared-Prefix + Free Reads": {
+    "done": "8/8",
+    "median_calls": 13742.5,
+    "mean_calls": 13854.25,
+    "round_cumulative_medians": [
+     13114.5,
+     13742.5,
+     13742.5,
+     13742.5
+    ],
+    "cohort_paired_saving_vs_this_pct": 4.063754393207425,
+    "errors": 0,
+    "rows": [
+     {
+      "seed": 0,
+      "total_calls": 13719,
+      "calls_spent": 13719,
+      "n_done": 10,
+      "n_total": 10,
+      "round_calls": [
+       12698,
+       13719,
+       13719,
+       13719
+      ],
+      "errors": 0
+     },
+     {
+      "seed": 1,
+      "total_calls": 13672,
+      "calls_spent": 13672,
+      "n_done": 10,
+      "n_total": 10,
+      "round_calls": [
+       13170,
+       13672,
+       13672,
+       13672
+      ],
+      "errors": 0
+     },
+     {
+      "seed": 2,
+      "total_calls": 14088,
+      "calls_spent": 14088,
+      "n_done": 10,
+      "n_total": 10,
+      "round_calls": [
+       13069,
+       14088,
+       14088,
+       14088
+      ],
+      "errors": 0
+     },
+     {
+      "seed": 3,
+      "total_calls": 14118,
+      "calls_spent": 14118,
+      "n_done": 10,
+      "n_total": 10,
+      "round_calls": [
+       13108,
+       14118,
+       14118,
+       14118
+      ],
+      "errors": 0
+     },
+     {
+      "seed": 4,
+      "total_calls": 13673,
+      "calls_spent": 13673,
+      "n_done": 10,
+      "n_total": 10,
+      "round_calls": [
+       12653,
+       13673,
+       13673,
+       13673
+      ],
+      "errors": 0
+     },
+     {
+      "seed": 5,
+      "total_calls": 14159,
+      "calls_spent": 14159,
+      "n_done": 10,
+      "n_total": 10,
+      "round_calls": [
+       13130,
+       14159,
+       14159,
+       14159
+      ],
+      "errors": 0
+     },
+     {
+      "seed": 6,
+      "total_calls": 13766,
+      "calls_spent": 13766,
+      "n_done": 10,
+      "n_total": 10,
+      "round_calls": [
+       13246,
+       13766,
+       13766,
+       13766
+      ],
+      "errors": 0
+     },
+     {
+      "seed": 7,
+      "total_calls": 13639,
+      "calls_spent": 13639,
+      "n_done": 10,
+      "n_total": 10,
+      "round_calls": [
+       13121,
+       13639,
+       13639,
+       13639
+      ],
+      "errors": 0
+     }
+    ]
+   },
+   "COHORT (Known Mass + Shared Prefix)": {
+    "done": "8/8",
+    "median_calls": 13184.0,
+    "mean_calls": 13248.0,
+    "round_cumulative_medians": [
+     12672.0,
+     13184.0,
+     13184.0,
+     13184.0
+    ],
+    "cohort_paired_saving_vs_this_pct": 0.0,
+    "errors": 0,
+    "rows": [
+     {
+      "seed": 0,
+      "total_calls": 13184,
+      "calls_spent": 13184,
+      "n_done": 10,
+      "n_total": 10,
+      "round_calls": [
+       12160,
+       13184,
+       13184,
+       13184
+      ],
+      "errors": 0
+     },
+     {
+      "seed": 1,
+      "total_calls": 13184,
+      "calls_spent": 13184,
+      "n_done": 10,
+      "n_total": 10,
+      "round_calls": [
+       11648,
+       13184,
+       13184,
+       13184
+      ],
+      "errors": 0
+     },
+     {
+      "seed": 2,
+      "total_calls": 13184,
+      "calls_spent": 13184,
+      "n_done": 10,
+      "n_total": 10,
+      "round_calls": [
+       12672,
+       13184,
+       13184,
+       13184
+      ],
+      "errors": 0
+     },
+     {
+      "seed": 3,
+      "total_calls": 13184,
+      "calls_spent": 13184,
+      "n_done": 10,
+      "n_total": 10,
+      "round_calls": [
+       12672,
+       13184,
+       13184,
+       13184
+      ],
+      "errors": 0
+     },
+     {
+      "seed": 4,
+      "total_calls": 13184,
+      "calls_spent": 13184,
+      "n_done": 10,
+      "n_total": 10,
+      "round_calls": [
+       12672,
+       13184,
+       13184,
+       13184
+      ],
+      "errors": 0
+     },
+     {
+      "seed": 5,
+      "total_calls": 13184,
+      "calls_spent": 13184,
+      "n_done": 10,
+      "n_total": 10,
+      "round_calls": [
+       12672,
+       13184,
+       13184,
+       13184
+      ],
+      "errors": 0
+     },
+     {
+      "seed": 6,
+      "total_calls": 13184,
+      "calls_spent": 13184,
+      "n_done": 10,
+      "n_total": 10,
+      "round_calls": [
+       12672,
+       13184,
+       13184,
+       13184
+      ],
+      "errors": 0
+     },
+     {
+      "seed": 7,
+      "total_calls": 13696,
+      "calls_spent": 13696,
+      "n_done": 10,
+      "n_total": 10,
+      "round_calls": [
+       12672,
+       13696,
+       13696,
+       13696
+      ],
+      "errors": 0
+     }
+    ]
+   }
+  }
+ }
+}

@@ -16,7 +16,8 @@ seed, budget = 0, 640
 hist = S.bm25_history(env, 0.15, seed)
 truth = env["theta_M"][1]
 out = {"truth": truth, "hist_stats": S.hist_stats(env, hist), "budget": budget, "seed": seed}
-for name, kw in (("discard", {}), ("cohort", {"cache": hist}), ("pooled", {"cache": hist, "e_as_random": True})):
+for name, kw in (("discard", {}), ("free", {"tcache": hist}), ("cohort", {"cache": hist}),
+               ("pooled", {"cache": hist, "e_as_random": True})):
     res, calls, wl, pipe = S.run_cohort(env, RoundRobinAllocator(), budget, seed, **kw)
     r = res[1]
     out[name] = [float(r.L), float(r.U)]

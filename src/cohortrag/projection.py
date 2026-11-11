@@ -341,20 +341,24 @@ def verify_outward_enclosure(poly, a, b_table, scope, J, L_cand, U_cand, tol=1e-
 def ratio_bounds(poly, a, b_table, scope, J, verify_enclosure=False):
     """条件比例 [L, U]（前置：minB > 0）。a 可传单个 J-向量或 {h: J-向量}。
 
-    min/max 各自独立求解：先走 Charnes–Cooper；遇退化循环/数值异常时
-    仅对该侧回退到 λ 对偶二分。向外扩充 1e-9 浮点安全边距，并在认证临界点通过
-    verify_outward_enclosure 验证线性对比外包围不变量。"""
-    try:
-        L = _cc_min(poly, a, b_table, scope, J)
-    except FeasibilityError:
-        L = _lambda_min(poly, a, b_table, scope, J)
-    try:
-        U = _cc_max(poly, a, b_table, scope, J)
-    except FeasibilityError:
-        U = _lambda_max(poly, a, b_table, scope, J)
-    if L > U + 1e-7:                # 极端退化下两侧交叉不一致 → 双侧都走 λ
+    当变量数 len(scope)*J > 32 时，分层分解的 Dinkelbach 超线性迭代等价于全局 CC LP，
+    且避免 O((|scope|*J)^3) 大单纯形转轴；小规模直接走 Charnes–Cooper。
+    向外扩充 1e-9 浮点安全边距，并在认证临界点通过 verify_outward_enclosure 验证线性对比外包围不变量。"""
+    if len(scope) * J > 32:
         L = _lambda_min(poly, a, b_table, scope, J)
         U = _lambda_max(poly, a, b_table, scope, J)
+    else:
+        try:
+            L = _cc_min(poly, a, b_table, scope, J)
+        except FeasibilityError:
+            L = _lambda_min(poly, a, b_table, scope, J)
+        try:
+            U = _cc_max(poly, a, b_table, scope, J)
+        except FeasibilityError:
+            U = _lambda_max(poly, a, b_table, scope, J)
+        if L > U + 1e-7:                # 极端退化下两侧交叉不一致 → 双侧都走 λ
+            L = _lambda_min(poly, a, b_table, scope, J)
+            U = _lambda_max(poly, a, b_table, scope, J)
     if verify_enclosure:
         return verify_outward_enclosure(poly, a, b_table, scope, J, L, U)
     return float(max(0.0, L - 1e-9)), float(min(1.0, U + 1e-9))

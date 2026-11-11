@@ -119,7 +119,7 @@ def tab_ladder():
     body = "\n".join(lines)
     tab = r"""\begin{table}[t]
   \centering
-  \caption{Claims certified out of 18 as the budget grows (mean over 10 seeds; 5 for per-claim execution), and the new calls needed to certify all 18 (labelling everything takes 31.5k). The first three rows are baselines; each later row adds one mechanism. No certified claim was wrong in any run.}
+  \caption{Statements certified out of 18 as the budget cap grows (mean over 10 seeds; 5 for per-claim execution). Thirteen of the 18 are thresholds on three ratios; Table~\ref{tab:estimand} splits out the five numeric targets. The last column is the calls needed to certify all 18, including the near-threshold claim. No certified statement was wrong in any run.}
   \label{tab:ladder}
   \footnotesize
   \setlength{\tabcolsep}{3.2pt}
@@ -228,7 +228,7 @@ def tab_calib():
          f"{100 * pw['0.05']['rate']:.2f}\\%", f"{100 * pw['0.05']['cp95_upper']:.2f}\\%"),
         (r"\hspace{1em}$\alpha{=}10\%$", f"{pw['0.1']['failures']} / {pw['0.1']['sessions']:,}",
          f"{100 * pw['0.1']['rate']:.2f}\\%", f"{100 * pw['0.1']['cp95_upper']:.2f}\\%"),
-        (f"Sessions with a wrong certified claim (end to end, 2\\% budget; {e2e['certified_claims']:,} claims)".replace(",", "{,}"),
+        (f"Sessions with any false certificate (2\\% cap; {e2e['certified_claims']:,} claims)".replace(",", "{,}"),
          f"{e2e['sessions_with_error']} / {e2e['sessions']}", f"{100 * e2e['sessions_with_error'] / e2e['sessions']:.2f}\\%",
          f"{100 * e2e['cp95_upper_session']:.2f}\\%"),
     ]
@@ -366,7 +366,9 @@ def bias_macros():
             zero &= (v["arms"][arm]["dec_err_rate"] == 0.0)
     macro("HistSafeRuns", str(safe // 3))
     macro("HistSafeZero", "yes" if zero else "NO")
-    macro("HistSafeUpper", f"{100 * (1 - 0.05 ** (1.0 / (safe // 3))):.1f}")
+    # Do not turn these runs into one binomial upper bound. Seeds are reused
+    # across history settings, and the discard arm never reads the history,
+    # so the same seed and budget repeat. Coverage is Table VIII.
     # calls saved at equal certified claims (interpolating the discard-history ladder curve in log budget)
     if lad is not None:
         curve = [(b, lad[f"+ joint projection (RR)@{b}"]["n_cert_mean"]) for b in GRID]
@@ -485,11 +487,11 @@ def cost_para():
            r"the GPU takes \CostGpuTwo{}, \CostGpuTwenty{}, and \CostGpuAll{}\,s at the measured 63.7 records/s, so the overhead is "
            r"\CostPctTwo{}\%, \CostPctTwenty{}\%, and \CostPctAll{}\%. The evidence state, the sequences, and the region occupy at most \MemPeakAll{}\,MB of Python heap in a full session." "\n\n"
            r"\paragraph*{Scaling}" "\n"
-           r"More claims do not make \sys{} more expensive. Growing the claim set from \ScaleSmallN{} to \ScaleBigN{} thresholds, all inside "
+           r"More thresholds on the same ratios do not make \sys{} more expensive. Growing the set from \ScaleSmallN{} to \ScaleBigN{} thresholds, all inside "
            r"the closure, leaves the number of confidence sequences at \ScaleBigNcs{} and the calls at \ScaleCalls{}; the claims certified "
            r"rise from \ScaleSmallCert{} to \ScaleBigCert{} and the CPU time from \ScaleCpuSmall{}\,s to \ScaleCpuBig{}\,s "
-           r"(\ScaleSeeds{} seeds, no wrong claim). A claim-by-claim executor would carry \ScaleEGSeq{} sequences, each at risk "
-           r"$\alpha/\ScaleBigN{}$.")
+           r"(\ScaleSeeds{} seeds, no wrong claim). A claim-by-claim executor would give each of the \ScaleBigN{} claims "
+           r"a risk budget of $\alpha/\ScaleBigN{}$, split across the two sequences that claim uses.")
     ns, au = load("exp_nscale.json"), load("exp_audit_time.json")
     if ns is not None:
         ks = sorted(ns, key=lambda x: int(x))
@@ -502,10 +504,11 @@ def cost_para():
         macro("NScaleCertLo", f"{lo['n_cert_mean']:.1f}")
         macro("NScaleCertHi", f"{hi['n_cert_mean']:.1f}")
         macro("NScaleSeeds", str(lo["seeds"]))
-        txt += (r" A larger population does not either. Tiling the label tape to \NScaleMid{} and \NScaleHi{} records "
-                r"(same ratios, the same \ScaleCalls{} calls, \NScaleSeeds{} seeds) takes \NScaleCpuMid{} and \NScaleCpuHi{}\,s of CPU "
-                r"against \NScaleCpuLo{}\,s at 31\,k, because the region is built from counts and not from records. What does fall is "
-                r"certification, from \NScaleCertLo{} to \NScaleCertHi{} claims, since the same calls cover a smaller share of the population.")
+        txt += (r" The projection has $H\cdot J$ variables and does not grow with $N$. The ledger and the sequence arrays do. "
+                r"Tiling this tape to \NScaleMid{} and \NScaleHi{} records, with the same ratios and the same \ScaleCalls{} calls "
+                r"(\NScaleSeeds{} seeds), takes \NScaleCpuMid{} and \NScaleCpuHi{}\,s of CPU against \NScaleCpuLo{}\,s at 31\,k. "
+                r"Certified statements fall from \NScaleCertLo{} to \NScaleCertHi{}, because the same calls are a smaller share of the population. "
+                r"This is a bookkeeping check on a repeated tape, not a new workload.")
     if au is not None:
         macro("AuditMs", f"{1000 * au['per_audit_s']:.0f}")
         txt += (r" The exact rational audit of Section~\ref{sec:region} adds about \AuditMs{}\,ms per certified claim.")
@@ -521,6 +524,22 @@ def example_macros():
     macro("ExJointLo", f"{g['L_joint']:.2f}")
     macro("ExJointHi", f"{g['U_joint']:.2f}")
     macro("ExTruth", f"{100 * g['A_true'] / g['B_true']:.1f}")
+    # C = B - A on the partition parallelogram: the extreme corners are (A_lo, A_lo+C_lo) and (A_hi, A_hi+C_hi).
+    c_lo = g["B_lo"] - g["A_lo"]
+    c_hi = g["B_hi"] - g["A_hi"]
+    closed_lo = g["A_lo"] / (g["A_lo"] + c_hi)
+    closed_hi = g["A_hi"] / (g["A_hi"] + c_lo)
+    macro("ExCLo", f"{c_lo:.0f}")
+    macro("ExCHi", f"{c_hi:.0f}")
+    macro("ExALo", f"{g['A_lo']:.0f}")
+    macro("ExAHi", f"{g['A_hi']:.0f}")
+    macro("ExClosedLo", f"{closed_lo:.2f}")
+    macro("ExClosedHi", f"{closed_hi:.2f}")
+    cf = load("exp_closedform.json")
+    if cf is not None:
+        macro("ClosedSeeds", str(cf["seeds"]))
+        macro("ClosedClaims", str(cf["n_value_claims"]))
+        macro("ClosedGap", r"10^{-9}")
 
 
 def basis_macros():
@@ -537,6 +556,91 @@ def basis_macros():
     macro("BasisCertTenP", f"{p10['n_cert_mean']:.1f}")
     macro("BasisWidthTwoPct", f"{100 * (p2['num_width_mean'] / c2['num_width_mean'] - 1):.0f}")
     macro("BasisSeeds", str(c2["n_runs"]))
+
+
+def tab_estimand():
+    """Five numeric targets. Cells are runs, out of 10, in which the target interval was certified."""
+    d = load("exp_ladder.json")
+    if d is None:
+        return
+    targets = [
+        (4, r"rating share, $\pm 0.10$"),
+        (3, r"exact ratio, rated $<4$, $\pm 0.05$"),
+        (1, r"exact ratio, all products, $\pm 0.05$"),
+        (2, r"exact ratio, rated $\geq 4$, $\pm 0.05$"),
+        (5, r"difference of the two cohort ratios, $\pm 0.05$"),
+    ]
+    methods = [
+        ("Shared pool, dedup (no polytope)", "samples"),
+        ("+ joint projection (RR)", "region"),
+        ("+ certificate-guided scheduler", "cohort"),
+    ]
+    budgets = [(640, "Two"), (3200, "Ten"), (6272, "Twenty")]
+
+    def cell(method, budget, qid):
+        r = d[f"{method}@{budget}"]
+        n = r["n_runs"]
+        k = int(r["cert_qid_freq"].get(str(qid), r["cert_qid_freq"].get(qid, 0)))
+        return k, n
+
+    # One column cannot hold nine count columns. Keep the two comparisons
+    # the text uses: region against shared samples at 2%, and the scheduler
+    # against shared samples at 20%. The 10% row is stated in the prose.
+    show = [
+        ("Shared pool, dedup (no polytope)", 640),
+        ("+ joint projection (RR)", 640),
+        ("+ certificate-guided scheduler", 640),
+        ("Shared pool, dedup (no polytope)", 6272),
+        ("+ certificate-guided scheduler", 6272),
+    ]
+    short = [
+        (4, r"rating share, $\pm0.10$"),
+        (3, r"exact ratio, rated $<4$"),
+        (1, r"exact ratio, all products"),
+        (2, r"exact ratio, rated $\geq 4$"),
+        (5, r"difference of cohort ratios"),
+    ]
+    lines = []
+    for qid, label in short:
+        bits = []
+        for method, budget in show:
+            k, n = cell(method, budget, qid)
+            if n != 10:
+                raise SystemExit(f"expected 10 runs, got {n}")
+            bits.append(str(k))
+        lines.append(label + " & " + " & ".join(bits) + r" \\")
+    body = "\n".join(lines)
+    tab = r"""\begin{table}[t]
+  \centering
+  \caption{Runs, out of 10, that certified each numeric target. Shared samples already deduplicate ratios and broadcast thresholds. At 2\% of the calls the region adds the rating share. At 20\% the scheduler finishes the high-rated ratio and the difference; the region alone does not (it matches the shared-sample column).}
+  \label{tab:estimand}
+  \scriptsize
+  \setlength{\tabcolsep}{3pt}
+  \begin{tabular}{@{}lccccc@{}}
+    \toprule
+    & \multicolumn{3}{c}{2\% of calls} & \multicolumn{2}{c}{20\% of calls} \\
+    \cmidrule(lr){2-4}\cmidrule(lr){5-6}
+    Target & samples & region & \sys{} & samples & \sys{} \\
+    \midrule
+""" + body + r"""
+    \bottomrule
+  \end{tabular}
+\end{table}
+"""
+    write("tab_estimand.tex", tab)
+
+
+def semantic_macros():
+    d = load("exp_semantic.json")
+    if d is None:
+        return
+    macro("RelPrec", f"{100 * d['relevant']['precision']:.1f}")
+    macro("RelRec", f"{100 * d['relevant']['recall']:.1f}")
+    macro("ExPrec", f"{100 * d['exact']['precision']:.1f}")
+    macro("ExRec", f"{100 * d['exact']['recall']:.1f}")
+    macro("RelTP", f"{d['relevant']['tp']:,}".replace(",", "{,}"))
+    macro("ExTP", f"{d['exact']['tp']:,}".replace(",", "{,}"))
+    macro("ExFN", f"{d['exact']['fn']:,}".replace(",", "{,}"))
 
 
 def tab_claims():
@@ -570,9 +674,18 @@ def tab_claims():
     grp([13, 15, 17], "ratio $>\\tau$, rated $\\geq 4$")
     grp([14, 16, 18], "ratio $>\\tau$, rated $<4$")
     macro("ClaimMinGap", f"{min(100 * c['gap'] for c in d['claims'] if c['gap'] is not None):.2f}")
-    txt = (r"\begin{table}[t]" "\n" r"\caption{The 18 claims (``ratio'' is the share of relevant pairs that are exact; pp: percentage points). "
-           r"A threshold claim asks whether the ratio is above $\tau$; its gap is the distance from the true value to $\tau$. "
-           r"The closest claim lies \ClaimMinGap{}\,pp from its threshold.}" "\n" r"\label{tab:claims}" "\n"
+    def gap_pp(qid):
+        c = cl[qid]
+        return abs(100 * (c["theta_run"] - c["theta_gold"]))
+    macro("GapAll", f"{gap_pp(1):.1f}")
+    macro("GapGe", f"{gap_pp(2):.1f}")
+    macro("GapLt", f"{gap_pp(3):.1f}")
+    macro("GapShare", f"{gap_pp(4):.1f}")
+    macro("GapDiff", f"{gap_pp(5):.1f}")
+    macro("ShareRun", f"{100 * cl[4]['theta_run']:.1f}")
+    macro("ShareGold", f"{100 * cl[4]['theta_gold']:.1f}")
+    txt = (r"\begin{table}[t]" "\n" r"\caption{The session's claims. The first five rows are distinct numeric targets. The last three rows are thresholds on three of those ratios; a system that keeps one interval per ratio can broadcast them. "
+           r"``Ratio'' is the share of relevant pairs that are exact. The closest threshold lies \ClaimMinGap{}\,pp from the operator's value.}" "\n" r"\label{tab:claims}" "\n"
            r"\centering\footnotesize\setlength{\tabcolsep}{3pt}" "\n"
            r"\begin{tabular}{@{}lcccc@{}}" "\n" r"\toprule" "\n"
            r"Claim & No. & Tol.\ / $\tau$ & True value & Gap (pp)\\" "\n" r"\midrule" "\n" + "\n".join(rows) + "\n"
@@ -661,8 +774,8 @@ if __name__ == "__main__":
     tab_ladder()
     tab_sched()
     tab_calib()
-    for fn in (tab_claims, tab_compose, bias_macros, operator_macros, session_macros, enum_macros, sched_extra, cost_para, example_macros, basis_macros,
-               audit_macros, eg_macros, memory_macros, lotus_macros, pooled_macros):
+    for fn in (tab_claims, tab_estimand, tab_compose, bias_macros, operator_macros, session_macros, enum_macros, sched_extra, cost_para, example_macros, basis_macros,
+               audit_macros, eg_macros, memory_macros, lotus_macros, pooled_macros, semantic_macros):
         try:
             fn()
         except Exception as e:  # 数据未就绪时跳过

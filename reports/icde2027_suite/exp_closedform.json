@@ -1,0 +1,8 @@
+{
+  "budget": 640,
+  "seeds": 10,
+  "allocator": "round-robin",
+  "n_value_claims": 4,
+  "max_abs_endpoint_gap": 1.0000513750441087e-09,
+  "note": "For every value claim and every seed, the Charnes-Cooper endpoints lie 1e-9 outside the partition closed form, which is the outward rounding. Separate A/B intervals match that formula to three decimals on the exact-match ratios and do not match it on the rating share."
+}

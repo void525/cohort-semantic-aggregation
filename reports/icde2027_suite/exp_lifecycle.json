@@ -1,0 +1,21 @@
+{
+ "N": 31482,
+ "throughput_rec_per_s": 63.732,
+ "full_materialization_calls": 31482,
+ "full_materialization_gpu_s": 494.0,
+ "history_15pct_calls": 4722,
+ "cold_first_numeric_calls": 512.0,
+ "cold_first_numeric_gpu_s": 8.0,
+ "cold_all5_numeric_calls": 4992.0,
+ "cold_all5_numeric_gpu_s": 78.3,
+ "sunk_history_all5_calls": 3456.0,
+ "sunk_history_all5_gpu_s": 54.2,
+ "sunk_history_saving_vs_full_pct": 89.0,
+ "billed_history_lifecycle_all5_calls": 8178.0,
+ "billed_history_lifecycle_saving_vs_full_pct": 74.0,
+ "four_round_session_calls": 10664.0,
+ "four_round_session_gpu_s": 167.3,
+ "four_round_saving_vs_full_pct": 66.1,
+ "breakeven_independent_5target_stages": 6.3,
+ "breakeven_compatible_reslice_rounds": 12
+}
